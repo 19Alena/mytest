@@ -2,7 +2,7 @@
 # Unified Customization Patch for: Core_lab_CP (Project ID: 2)
 # Target Clean Base Ref: origin/9.3.6
 # Server: 192.168.0.108
-# Generated: 2026-11-16T18:31:00.255840Z
+# Generated: 2026-11-16T18:32:39.421642Z
 # Total Active Customizations: 14
 # ====================================================================
 
@@ -545,9 +545,7 @@ index 38978988..84861c31 100644
   
   //database connection password
 - $config->db_pass = "opensipsrw";
-+ $config->db_pass = trim(file_get_contents(getenv('DB_PASSWORD_FILE'))););););
-  
-  //database name
++ $config->db_pass = trim(file_get_contents(getenv('DB_PASSWORD_FILE')));//database name
 - $config->db_name = "opensips";
 + $config->db_name = "core_lab";
  
