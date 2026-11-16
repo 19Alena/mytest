@@ -2,7 +2,7 @@
 # Unified Customization Patch for: BPC-lab_CP (Project ID: 1)
 # Target Clean Base Ref: origin/9.3.6
 # Server: 192.168.0.110
-# Generated: 2026-11-16T21:40:24.402680Z
+# Generated: 2026-11-16T22:50:41.874965Z
 # Total Active Customizations: 14
 # Includes: Modified files and newly created files/directories
 # ====================================================================
@@ -255,6 +255,7 @@ index b2ac320..d3f36ed 100644
 +                        $params_names.="".$attr."";
  			$values[] = $_POST[$attr];
  		}
+ 	
 
 # --------------------------------------------------------------------
 # Customization 7/14: P1-CUST-WEB_TOOLS_ADMIN_BOXES_CONFIG-SYSTEM_CONFIG_PHP
