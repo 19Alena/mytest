@@ -2,331 +2,54 @@
 # Unified Customization Patch for: BPC-lab_CP (Project ID: 1)
 # Target Clean Base Ref: origin/9.3.6
 # Server: 192.168.0.110
-# Generated: 2026-11-16T21:21:52.914905Z
+# Generated: 2026-11-16T21:37:13.341604Z
 # Total Active Customizations: 14
+# Includes: Modified files and newly created files/directories
 # ====================================================================
 
 # --------------------------------------------------------------------
-# Customization 2/14: P1-CUST-BOXES_CONFIG_PHP
-# Title: Customization in boxes_config.php
+# Customization 1/14: P1-CUST-CONFIG_TOOLS_SYSTEM_UAC_REGISTRANT-TVIEWER_INC_PHP
+# Title: Customization in config/tools/system/uac_registrant/tviewer.inc.php
 # Category: Core
 # Status: ACTIVE
 # Jira Ticket: None
 # Version Introduced: 9.3.6
 # --------------------------------------------------------------------
 
-diff --git a/web/tools/admin/boxes_config/boxes_config.php b/web/tools/admin/boxes_config/boxes_config.php
-index b2ac320..d3f36ed 100644
---- a/web/tools/admin/boxes_config/boxes_config.php
-+++ b/web/tools/admin/boxes_config/boxes_config.php
-@@ -54,19 +54,27 @@ if ($action=="modify_params")
- 		foreach ($box_params as $attr => $params){
- 			if ($params['show_in_edit_form']) {
- 				if ($params['type'] != "password" || $_POST[$attr] != "") {
--					$update_query .= "`".$attr."`=?, ";
--					$params_names.="`".$attr."`, ";
-+                                        //for PostgreSQL
-+                                        //$update_query .= "`".$attr."`=?, ";
-+                                        //$params_names.="`".$attr."`, ";
-+                                        $update_query .= "\"".$attr."\"=?, ";
-+                                        $params_names.="\"".$attr."\", ";
- 					$unknowns.="?, ";
- 					$values[] = $_POST[$attr];
- 				}
- 			}
- 		}
--		$update_query.="`id`=?;";
-+                //for PostgreSQL
-+                //$update_query.="`id`=?;";
-+                $update_query.="\"id\"=?;";
- 		$params_names.="id";
- 		$unknowns.="?";
- 		$values[] = $box_id;
--		$sql = "INSERT INTO ".$table." (".$params_names.") VALUES (".$unknowns.") ON DUPLICATE KEY UPDATE ".$update_query;
--		$stm = $link->prepare($sql);
-+                //for PostgreSQL
-+                //$sql = "INSERT INTO ".$table." (".$params_names.") VALUES (".$unknowns.") ON DUPLICATE KEY UPDATE ".$update_query;
-+                $sql = "INSERT INTO ".$table." (".$params_names.") VALUES (".$unknowns.") ON CONFLICT (id) DO UPDATE SET ".$update_query;
-+                //$sql = "INSERT INTO ".$table." (".$params_names.") VALUES (".$unknowns.")";
-+                $stm = $link->prepare($sql);
+diff --git a/config/tools/system/uac_registrant/tviewer.inc.php b/config/tools/system/uac_registrant/tviewer.inc.php
+index 6c03cc1..b7cbce0 100644
+--- a/config/tools/system/uac_registrant/tviewer.inc.php
++++ b/config/tools/system/uac_registrant/tviewer.inc.php
+@@ -77,7 +77,7 @@
+ 		 indicates how many characters should be shown from the text area content. Default is 50.
+ */
  
- 		if ($stm === false) {
- 		die('Failed to issue query ['.$sql.'], error message : ' . print_r($link->errorInfo(), true));
-@@ -139,7 +147,9 @@ if ($action == "add_verify") {
- 			if ($unknowns != "") $unknowns.=",";
- 			if ($params_names != "") $params_names.=",";
- 			$unknowns.="?";
--			$params_names.="`".$attr."`";
-+                        //for PostgreSQL
-+                        //$params_names.="`".$attr."`";
-+                        $params_names.="".$attr."";
- 			$values[] = $_POST[$attr];
- 		}
-
-# --------------------------------------------------------------------
-# Customization 3/14: P1-CUST-CDR_WIDGET_PHP
-# Title: Customization in cdr_widget.php
-# Category: Core
-# Status: ACTIVE
-# Jira Ticket: None
-# Version Introduced: 9.3.6
-# --------------------------------------------------------------------
-
-diff --git a/web/tools/system/cdrviewer/template/dashboard_widgets/cdr_widget.php b/web/tools/system/cdrviewer/template/dashboard_widgets/cdr_widget.php
-index 0a2883a..202e373 100644
---- a/web/tools/system/cdrviewer/template/dashboard_widgets/cdr_widget.php
-+++ b/web/tools/system/cdrviewer/template/dashboard_widgets/cdr_widget.php
-@@ -41,10 +41,18 @@ class cdr_widget extends widget
- 		require(__DIR__."/../../lib/db_connect.php");
- 		$cdr_table = get_settings_value_from_tool("cdr_table", "cdrviewer");
-     $sql = "select count(*) from ".$cdr_table. " union all ".
--      "select count(*) from ".$cdr_table." where time > curdate() union all ".
--      "select count(*) from ".$cdr_table." where time > curdate() - interval 1 day and time < now() - interval 1 day union all ".
--      "select count(*) from ".$cdr_table." where time < NOW() and time > NOW() - interval 1 week union all ".
--      "select count(*) from ".$cdr_table." where time < NOW() - interval 1 week and time > NOW() - interval 2 week;";
-+    //for PostgreSQL
-+    //$sql = "select count(*) from ".$cdr_table. " union all ".
-+    //  "select count(*) from ".$cdr_table." where time > curdate() union all ".
-+    //  "select count(*) from ".$cdr_table." where time > curdate() - interval 1 day and time < now() - interval 1 day union all ".
-+    //  "select count(*) from ".$cdr_table." where time < NOW() and time > NOW() - interval 1 week union all ".
-+    //  "select count(*) from ".$cdr_table." where time < NOW() - interval 1 week and time > NOW() - interval 2 week;";
-+                
-+    $sql = "select count(*) from ".$cdr_table. " union all ".
-+      "select count(*) from ".$cdr_table." where time > CURRENT_DATE union all ".
-+      "select count(*) from ".$cdr_table." where time > CURRENT_DATE - INTERVAL '1 day' and time < now() - INTERVAL '1 day' union all ".
-+      "select count(*) from ".$cdr_table." where time < NOW() and time > NOW() - INTERVAL '1 week' union all ".
-+      "select count(*) from ".$cdr_table." where time < NOW() - INTERVAL '1 week' and time > NOW() - INTERVAL '2 week';";
- 		$stm = $link->prepare($sql);
- 		$stm->execute();
- 		$rows = $stm->fetchAll(PDO::FETCH_ASSOC);
-@@ -69,3 +77,5 @@ class cdr_widget extends widget
- }
- // vim:set sw=2 ts=2 et ft=php fdm=marker:
- ?>
-+
-+
-
-# --------------------------------------------------------------------
-# Customization 4/14: P1-CUST-CFG_COMM_PHP
-# Title: Customization in cfg_comm.php
-# Category: Core
-# Status: ACTIVE
-# Jira Ticket: None
-# Version Introduced: 9.3.6
-# --------------------------------------------------------------------
-
-diff --git a/web/common/cfg_comm.php b/web/common/cfg_comm.php
-index 562bae4..3c48136 100644
---- a/web/common/cfg_comm.php
-+++ b/web/common/cfg_comm.php
-@@ -246,7 +246,9 @@ function load_panels() {
- 	require("".__DIR__."/../../config/tools/system/dashboard/settings.inc.php");
- 	unset($_SESSION['config']['panels']);
- 	$max_order = -1;
--	$sql = 'select `name`, id, content, positions, `order` from ocp_dashboard';
-+        //for PostgreSQL
-+        //$sql = 'select `name`, id, content, positions, `order` from ocp_dashboard';
-+        $sql = 'select "name", id, content, positions, "order" from ocp_dashboard';
- 	$stm = $link->prepare($sql);
- 	if ($stm === false) {
- 		die('Failed to issue query ['.$sql.'], error message : ' . print_r($link->errorInfo(), true));
-
-# --------------------------------------------------------------------
-# Customization 5/14: P1-CUST-DASHBOARD_EDIT_PANEL_PHP
-# Title: Customization in dashboard.edit_panel.php
-# Category: Core
-# Status: ACTIVE
-# Jira Ticket: None
-# Version Introduced: 9.3.6
-# --------------------------------------------------------------------
-
-diff --git a/web/tools/system/dashboard/template/dashboard.edit_panel.php b/web/tools/system/dashboard/template/dashboard.edit_panel.php
-index e19fd6b..f743721 100644
---- a/web/tools/system/dashboard/template/dashboard.edit_panel.php
-+++ b/web/tools/system/dashboard/template/dashboard.edit_panel.php
-@@ -65,7 +65,9 @@ else
- 	}
- 	$start_limit=($page-1)*$res_no;
- 	//$sql_command.=" limit ".$start_limit.", ".$res_no;
--	$sql_command="select `name`, id, `order` from ".$table."  order by `order` asc limit ".$res_no;
-+        //for PostgreSQL
-+        //$sql_command="select `name`, id, `order` from ".$table."  order by `order` asc limit ".$res_no;
-+        $sql_command="select \"name\", id, \"order\" from ".$table."  order by \"order\" asc limit ".$res_no;
- 	if ($start_limit!=0)
- 		$sql_command.=" OFFSET " . $start_limit;
- 	$stm = $link->prepare( $sql_command );
-
-# --------------------------------------------------------------------
-# Customization 6/14: P1-CUST-DASHBOARD_PHP
-# Title: Customization in dashboard.php
-# Category: Core
-# Status: ACTIVE
-# Jira Ticket: None
-# Version Introduced: 9.3.6
-# --------------------------------------------------------------------
-
-diff --git a/web/tools/system/dashboard/dashboard.php b/web/tools/system/dashboard/dashboard.php
-index 3a50342..09be3a8 100644
---- a/web/tools/system/dashboard/dashboard.php
-+++ b/web/tools/system/dashboard/dashboard.php
-@@ -236,7 +236,7 @@ if ($action == "add_widget") {
- }
+- // we need this for various predefined regexp to be used for validation
++ // we need this for various predefined regexp to be used for validation 
+  require("../../forms.php");
  
- if ($action=="add_blank_panel")
--{
-+{ 
-         if(!$_SESSION['read_only'])
-         {
-                 require("template/".$page_id.".add.php");
-@@ -302,7 +302,9 @@ if ($action == "add_widget_verify") { //add widget in db
- 
- if ($action == "add_verify") { 
- 	if(!$_SESSION['read_only']){
--		$sql = 'INSERT INTO '.$table.' (`name`, `order`) VALUES (?, ?) ';
-+                //for PostgreSQL
-+                //$sql = 'INSERT INTO '.$table.' (`name`, `order`) VALUES (?, ?) ';
-+                $sql = 'INSERT INTO '.$table.' ("name", "order") VALUES (?, ?) ';
- 		$stm = $link->prepare($sql);
- 		if ($stm === false) {
- 			die('Failed to issue query ['.$sql.'], error message : ' . print_r($link->errorInfo(), true));
-@@ -373,7 +375,9 @@ if ($action == "clone_panel_verify") {
- 		}
- 		$widget_contents_json = json_encode($widget_contents);
- 
--		$sql = 'UPDATE '.$table.' SET `name`=?, content=?, `order`=?, positions=? where id = ?';
-+                //for PostgreSQL
-+                //$sql = 'UPDATE '.$table.' SET `name`=?, content=?, `order`=?, positions=? where id = ?';
-+                $sql = 'UPDATE '.$table.' SET "name"=?, content=?, "order"=?, positions=? where id = ?';
- 				$stm = $link->prepare($sql);
- 		if ($stm === false) {
- 			die('Failed to issue query ['.$sql.'], error message : ' . print_r($link->errorInfo(), true));
-@@ -408,6 +412,7 @@ if ($action == "move_panels") {
- }
- 
- if ($action == "change_panel_name") {
-+	
- 	$panel_id = $_GET['panel_id'];
- 	if(!$_SESSION['read_only'])
- 	{
-@@ -424,7 +429,6 @@ if ($action == "change_name_verify") {
- 	if(!$_SESSION['read_only']){
- 		$sql = 'UPDATE '.$table.' SET name = ? WHERE id = ? ';
- 		$stm = $link->prepare($sql);
--
- 		if ($stm === false) {
- 			die('Failed to issue query ['.$sql.'], error message : ' . print_r($link->errorInfo(), true));
- 		}
+  $custom_config[$module_id][0]['custom_table_column_defs'] = array (	
+@@ -159,7 +159,7 @@
+ 					"visible"		=> false,
+ 					"searchable" 		=> false
+ 			),
+-			"binding_URI"	=> 	array (
++			"binding_uri"	=> 	array (
+ 					"header" 		=> "Contact URI",
+ 					"type"			=> "text",
+ 					"key"			=> NULL,
+@@ -201,7 +201,7 @@
+ 					"key"			=> NULL,
+ 					"tip"			=> "A cluster sharing tag (as [tag_name/custer_id]) used to control this registration in clustering scenarios",
+ 					"is_optional" 		=> "y",
+-					"validation_regex" 	=> "^[a-z0-9A-Z_-]+/[0-9]+$",
++					"validation_regex" 	=> "^[a-z0-9A-Z_-]+\/[0-9]+$",
+ 					"visible"		=> false,
+ 					"show_in_add_form" 	=> true,
+ 					"show_in_edit_form"	=> true,
 
 # --------------------------------------------------------------------
-# Customization 7/14: P1-CUST-DISPATCHER_MAIN_PHP
-# Title: Customization in dispatcher.main.php
-# Category: Core
-# Status: ACTIVE
-# Jira Ticket: None
-# Version Introduced: 9.3.6
-# --------------------------------------------------------------------
-
-diff --git a/web/tools/system/dispatcher/template/dispatcher.main.php b/web/tools/system/dispatcher/template/dispatcher.main.php
-index b8a2cd3..d466462 100755
---- a/web/tools/system/dispatcher/template/dispatcher.main.php
-+++ b/web/tools/system/dispatcher/template/dispatcher.main.php
-@@ -202,9 +202,19 @@ if ($dispatcher_group_mode == "static")
-   ?>
-  </tr>
- <?php
--if ($sql_search=="") $sql_command="from ".$table." order by setid asc";
--else $sql_command="from ".$table." where (1=1) ".$sql_search." order by id asc";
--$stm = $link->prepare("select count(*) ".$sql_command);
-+if ($sql_search=="") {
-+        $sql_command="from ".$table." order by setid asc";
-+        //for PostgreSQL
-+        $sql_command1="from ".$table."";
-+     }
-+     else {
-+        $sql_command="from ".$table." where (1=1) ".$sql_search." order by id asc";
-+        //for PostgreSQL
-+        $sql_command1="from ".$table." where (1=1) ".$sql_search."";
-+     }
-+     //for PostgreSQL
-+     //$stm = $link->prepare("select count(*) ".$sql_command);
-+     $stm = $link->prepare("select count(*) ".$sql_command1);
- if ($stm===FALSE) {
- 	die('Failed to issue query [select count (*) '.$sql_command.'], error message : ' . $link->errorInfo()[2]);
- }
-
-# --------------------------------------------------------------------
-# Customization 8/14: P1-CUST-DISPATCHER_PHP
-# Title: Customization in dispatcher.php
-# Category: Core
-# Status: ACTIVE
-# Jira Ticket: None
-# Version Introduced: 9.3.6
-# --------------------------------------------------------------------
-
-diff --git a/web/tools/system/dispatcher/dispatcher.php b/web/tools/system/dispatcher/dispatcher.php
-index eddac1a..014198b 100755
---- a/web/tools/system/dispatcher/dispatcher.php
-+++ b/web/tools/system/dispatcher/dispatcher.php
-@@ -151,7 +151,7 @@ if ($action=="modify")
- 
- 		$sql = "UPDATE ".$table." SET ". 
- 			"setid=?, destination = ?, socket = ?, state = ?, weight = ?, attrs = ?, probe_mode = ?, description = ?".
--			"WHERE id=?";
-+			" WHERE id=?";
- 		$stm = $link->prepare($sql);
- 		if ($stm === false) {
- 			die('Failed to issue query ['.$sql.'], error message : ' . print_r($link->errorInfo(), true));
-@@ -205,7 +205,7 @@ if ($action=="ds_search")
- 
- 	$show_all=$_POST['show_all'];
- 	$search=$_POST['search'];
--
-+	
- 	if ($show_all=="Show All") {
- 		$_SESSION['dispatcher_setid']="";
- 		$_SESSION['dispatcher_dest']="";
-
-# --------------------------------------------------------------------
-# Customization 9/14: P1-CUST-FUNCTIONS_INC_PHP
-# Title: Customization in functions.inc.php
-# Category: Core
-# Status: ACTIVE
-# Jira Ticket: None
-# Version Introduced: 9.3.6
-# --------------------------------------------------------------------
-
-diff --git a/web/tools/system/dashboard/template/functions.inc.php b/web/tools/system/dashboard/template/functions.inc.php
-index d52e8d0..3b46296 100644
---- a/web/tools/system/dashboard/template/functions.inc.php
-+++ b/web/tools/system/dashboard/template/functions.inc.php
-@@ -30,12 +30,20 @@
-         require("../../../../config/db.inc.php");
-         require("../../../../config/tools/system/dashboard/settings.inc.php");
- 
--        $sql = 'UPDATE '.$table.' SET `order` = 
-+        //for PostgreSQL
-+        //$sql = 'UPDATE '.$table.' SET `order` =
-+        //CASE
-+        // WHEN `order` = ? THEN ?
-+        // WHEN `order` = ? THEN ?
-+        //END
-+        //WHERE `order` = ? or `order` = ?
-+        //';
-+        $sql = 'UPDATE '.$table.' SET "order" =
-         CASE
--         WHEN `order` = ? THEN ?
--         WHEN `order` = ? THEN ?
-+         WHEN "order" = ? THEN ?
-+         WHEN "order" = ? THEN ?
-         END
--        WHERE `order` = ? or `order` = ?
-+        WHERE "order" = ? or "order" = ?
-         ';
-         $stm = $link->prepare($sql);
-         if ($stm === false) {
-
-# --------------------------------------------------------------------
-# Customization 10/14: P1-CUST-OPENSIPS
+# Customization 2/14: P1-CUST-OPENSIPS
 # Title: OpenSIPS Integration via JSON-RPC
 # Category: Core Integration
 # Status: ACTIVE
@@ -401,8 +124,8 @@ index 91b0d58..6fffd2f 100755
 \ No newline at end of file
 
 # --------------------------------------------------------------------
-# Customization 11/14: P1-CUST-STYLE_CSS
-# Title: Customization in style.css
+# Customization 3/14: P1-CUST-WEB-STYLE_CSS
+# Title: Customization in web/style.css
 # Category: Core
 # Status: ACTIVE
 # Jira Ticket: None
@@ -433,8 +156,109 @@ index afef6bd..71c5f80 100755
 \ No newline at end of file
 
 # --------------------------------------------------------------------
-# Customization 12/14: P1-CUST-SYSTEM_CONFIG_PHP
-# Title: Customization in system_config.php
+# Customization 4/14: P1-CUST-WEB_COMMON-CFG_COMM_PHP
+# Title: Customization in web/common/cfg_comm.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/cfg_comm.php b/web/common/cfg_comm.php
+index 562bae4..3c48136 100644
+--- a/web/common/cfg_comm.php
++++ b/web/common/cfg_comm.php
+@@ -246,7 +246,9 @@ function load_panels() {
+ 	require("".__DIR__."/../../config/tools/system/dashboard/settings.inc.php");
+ 	unset($_SESSION['config']['panels']);
+ 	$max_order = -1;
+-	$sql = 'select `name`, id, content, positions, `order` from ocp_dashboard';
++        //for PostgreSQL
++        //$sql = 'select `name`, id, content, positions, `order` from ocp_dashboard';
++        $sql = 'select "name", id, content, positions, "order" from ocp_dashboard';
+ 	$stm = $link->prepare($sql);
+ 	if ($stm === false) {
+ 		die('Failed to issue query ['.$sql.'], error message : ' . print_r($link->errorInfo(), true));
+
+# --------------------------------------------------------------------
+# Customization 5/14: P1-CUST-WEB_CP-INDEX_PHP
+# Title: Customization in web/cp/index.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/cp/index.php b/web/cp/index.php
+new file mode 100644
+index 0000000..33c7147
+--- /dev/null
++++ b/web/cp/index.php
+@@ -0,0 +1,3 @@
++<?php
++                        header("Location: ../index.php");
++?>
+
+# --------------------------------------------------------------------
+# Customization 6/14: P1-CUST-WEB_TOOLS_ADMIN_BOXES_CONFIG-BOXES_CONFIG_PHP
+# Title: Customization in web/tools/admin/boxes_config/boxes_config.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/boxes_config/boxes_config.php b/web/tools/admin/boxes_config/boxes_config.php
+index b2ac320..d3f36ed 100644
+--- a/web/tools/admin/boxes_config/boxes_config.php
++++ b/web/tools/admin/boxes_config/boxes_config.php
+@@ -54,19 +54,27 @@ if ($action=="modify_params")
+ 		foreach ($box_params as $attr => $params){
+ 			if ($params['show_in_edit_form']) {
+ 				if ($params['type'] != "password" || $_POST[$attr] != "") {
+-					$update_query .= "`".$attr."`=?, ";
+-					$params_names.="`".$attr."`, ";
++                                        //for PostgreSQL
++                                        //$update_query .= "`".$attr."`=?, ";
++                                        //$params_names.="`".$attr."`, ";
++                                        $update_query .= "\"".$attr."\"=?, ";
++                                        $params_names.="\"".$attr."\", ";
+ 					$unknowns.="?, ";
+ 					$values[] = $_POST[$attr];
+ 				}
+ 			}
+ 		}
+-		$update_query.="`id`=?;";
++                //for PostgreSQL
++                //$update_query.="`id`=?;";
++                $update_query.="\"id\"=?;";
+ 		$params_names.="id";
+ 		$unknowns.="?";
+ 		$values[] = $box_id;
+-		$sql = "INSERT INTO ".$table." (".$params_names.") VALUES (".$unknowns.") ON DUPLICATE KEY UPDATE ".$update_query;
+-		$stm = $link->prepare($sql);
++                //for PostgreSQL
++                //$sql = "INSERT INTO ".$table." (".$params_names.") VALUES (".$unknowns.") ON DUPLICATE KEY UPDATE ".$update_query;
++                $sql = "INSERT INTO ".$table." (".$params_names.") VALUES (".$unknowns.") ON CONFLICT (id) DO UPDATE SET ".$update_query;
++                //$sql = "INSERT INTO ".$table." (".$params_names.") VALUES (".$unknowns.")";
++                $stm = $link->prepare($sql);
+ 
+ 		if ($stm === false) {
+ 		die('Failed to issue query ['.$sql.'], error message : ' . print_r($link->errorInfo(), true));
+@@ -139,7 +147,9 @@ if ($action == "add_verify") {
+ 			if ($unknowns != "") $unknowns.=",";
+ 			if ($params_names != "") $params_names.=",";
+ 			$unknowns.="?";
+-			$params_names.="`".$attr."`";
++                        //for PostgreSQL
++                        //$params_names.="`".$attr."`";
++                        $params_names.="".$attr."";
+ 			$values[] = $_POST[$attr];
+ 		}
+
+# --------------------------------------------------------------------
+# Customization 7/14: P1-CUST-WEB_TOOLS_ADMIN_BOXES_CONFIG-SYSTEM_CONFIG_PHP
+# Title: Customization in web/tools/admin/boxes_config/system_config.php
 # Category: Core
 # Status: ACTIVE
 # Jira Ticket: None
@@ -480,8 +304,8 @@ index a24c9e3..5d29591 100644
  		}
 
 # --------------------------------------------------------------------
-# Customization 13/14: P1-CUST-TOOLS_CONFIG_PHP
-# Title: Customization in tools_config.php
+# Customization 8/14: P1-CUST-WEB_TOOLS_ADMIN_TOOLS_CONFIG-TOOLS_CONFIG_PHP
+# Title: Customization in web/tools/admin/tools_config/tools_config.php
 # Category: Core
 # Status: ACTIVE
 # Jira Ticket: None
@@ -506,43 +330,239 @@ index efffe2c..541f8e1 100644
  				}
 
 # --------------------------------------------------------------------
-# Customization 14/14: P1-CUST-TVIEWER_INC_PHP
-# Title: Customization in tviewer.inc.php
+# Customization 9/14: P1-CUST-WEB_TOOLS_SYSTEM_CDRVIEWER_TEMPLATE_DASHBOARD_WIDGETS-CDR_WIDGET_PHP
+# Title: Customization in web/tools/system/cdrviewer/template/dashboard_widgets/cdr_widget.php
 # Category: Core
 # Status: ACTIVE
 # Jira Ticket: None
 # Version Introduced: 9.3.6
 # --------------------------------------------------------------------
 
-diff --git a/config/tools/system/uac_registrant/tviewer.inc.php b/config/tools/system/uac_registrant/tviewer.inc.php
-index 6c03cc1..b7cbce0 100644
---- a/config/tools/system/uac_registrant/tviewer.inc.php
-+++ b/config/tools/system/uac_registrant/tviewer.inc.php
-@@ -77,7 +77,7 @@
- 		 indicates how many characters should be shown from the text area content. Default is 50.
- */
+diff --git a/web/tools/system/cdrviewer/template/dashboard_widgets/cdr_widget.php b/web/tools/system/cdrviewer/template/dashboard_widgets/cdr_widget.php
+index 0a2883a..202e373 100644
+--- a/web/tools/system/cdrviewer/template/dashboard_widgets/cdr_widget.php
++++ b/web/tools/system/cdrviewer/template/dashboard_widgets/cdr_widget.php
+@@ -41,10 +41,18 @@ class cdr_widget extends widget
+ 		require(__DIR__."/../../lib/db_connect.php");
+ 		$cdr_table = get_settings_value_from_tool("cdr_table", "cdrviewer");
+     $sql = "select count(*) from ".$cdr_table. " union all ".
+-      "select count(*) from ".$cdr_table." where time > curdate() union all ".
+-      "select count(*) from ".$cdr_table." where time > curdate() - interval 1 day and time < now() - interval 1 day union all ".
+-      "select count(*) from ".$cdr_table." where time < NOW() and time > NOW() - interval 1 week union all ".
+-      "select count(*) from ".$cdr_table." where time < NOW() - interval 1 week and time > NOW() - interval 2 week;";
++    //for PostgreSQL
++    //$sql = "select count(*) from ".$cdr_table. " union all ".
++    //  "select count(*) from ".$cdr_table." where time > curdate() union all ".
++    //  "select count(*) from ".$cdr_table." where time > curdate() - interval 1 day and time < now() - interval 1 day union all ".
++    //  "select count(*) from ".$cdr_table." where time < NOW() and time > NOW() - interval 1 week union all ".
++    //  "select count(*) from ".$cdr_table." where time < NOW() - interval 1 week and time > NOW() - interval 2 week;";
++                
++    $sql = "select count(*) from ".$cdr_table. " union all ".
++      "select count(*) from ".$cdr_table." where time > CURRENT_DATE union all ".
++      "select count(*) from ".$cdr_table." where time > CURRENT_DATE - INTERVAL '1 day' and time < now() - INTERVAL '1 day' union all ".
++      "select count(*) from ".$cdr_table." where time < NOW() and time > NOW() - INTERVAL '1 week' union all ".
++      "select count(*) from ".$cdr_table." where time < NOW() - INTERVAL '1 week' and time > NOW() - INTERVAL '2 week';";
+ 		$stm = $link->prepare($sql);
+ 		$stm->execute();
+ 		$rows = $stm->fetchAll(PDO::FETCH_ASSOC);
+@@ -69,3 +77,5 @@ class cdr_widget extends widget
+ }
+ // vim:set sw=2 ts=2 et ft=php fdm=marker:
+ ?>
++
++
+
+# --------------------------------------------------------------------
+# Customization 10/14: P1-CUST-WEB_TOOLS_SYSTEM_DASHBOARD-DASHBOARD_PHP
+# Title: Customization in web/tools/system/dashboard/dashboard.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/dashboard.php b/web/tools/system/dashboard/dashboard.php
+index 3a50342..09be3a8 100644
+--- a/web/tools/system/dashboard/dashboard.php
++++ b/web/tools/system/dashboard/dashboard.php
+@@ -236,7 +236,7 @@ if ($action == "add_widget") {
+ }
  
-- // we need this for various predefined regexp to be used for validation
-+ // we need this for various predefined regexp to be used for validation 
-  require("../../forms.php");
+ if ($action=="add_blank_panel")
+-{
++{ 
+         if(!$_SESSION['read_only'])
+         {
+                 require("template/".$page_id.".add.php");
+@@ -302,7 +302,9 @@ if ($action == "add_widget_verify") { //add widget in db
  
-  $custom_config[$module_id][0]['custom_table_column_defs'] = array (	
-@@ -159,7 +159,7 @@
- 					"visible"		=> false,
- 					"searchable" 		=> false
- 			),
--			"binding_URI"	=> 	array (
-+			"binding_uri"	=> 	array (
- 					"header" 		=> "Contact URI",
- 					"type"			=> "text",
- 					"key"			=> NULL,
-@@ -201,7 +201,7 @@
- 					"key"			=> NULL,
- 					"tip"			=> "A cluster sharing tag (as [tag_name/custer_id]) used to control this registration in clustering scenarios",
- 					"is_optional" 		=> "y",
--					"validation_regex" 	=> "^[a-z0-9A-Z_-]+/[0-9]+$",
-+					"validation_regex" 	=> "^[a-z0-9A-Z_-]+\/[0-9]+$",
- 					"visible"		=> false,
- 					"show_in_add_form" 	=> true,
- 					"show_in_edit_form"	=> true,
+ if ($action == "add_verify") { 
+ 	if(!$_SESSION['read_only']){
+-		$sql = 'INSERT INTO '.$table.' (`name`, `order`) VALUES (?, ?) ';
++                //for PostgreSQL
++                //$sql = 'INSERT INTO '.$table.' (`name`, `order`) VALUES (?, ?) ';
++                $sql = 'INSERT INTO '.$table.' ("name", "order") VALUES (?, ?) ';
+ 		$stm = $link->prepare($sql);
+ 		if ($stm === false) {
+ 			die('Failed to issue query ['.$sql.'], error message : ' . print_r($link->errorInfo(), true));
+@@ -373,7 +375,9 @@ if ($action == "clone_panel_verify") {
+ 		}
+ 		$widget_contents_json = json_encode($widget_contents);
+ 
+-		$sql = 'UPDATE '.$table.' SET `name`=?, content=?, `order`=?, positions=? where id = ?';
++                //for PostgreSQL
++                //$sql = 'UPDATE '.$table.' SET `name`=?, content=?, `order`=?, positions=? where id = ?';
++                $sql = 'UPDATE '.$table.' SET "name"=?, content=?, "order"=?, positions=? where id = ?';
+ 				$stm = $link->prepare($sql);
+ 		if ($stm === false) {
+ 			die('Failed to issue query ['.$sql.'], error message : ' . print_r($link->errorInfo(), true));
+@@ -408,6 +412,7 @@ if ($action == "move_panels") {
+ }
+ 
+ if ($action == "change_panel_name") {
++	
+ 	$panel_id = $_GET['panel_id'];
+ 	if(!$_SESSION['read_only'])
+ 	{
+@@ -424,7 +429,6 @@ if ($action == "change_name_verify") {
+ 	if(!$_SESSION['read_only']){
+ 		$sql = 'UPDATE '.$table.' SET name = ? WHERE id = ? ';
+ 		$stm = $link->prepare($sql);
+-
+ 		if ($stm === false) {
+ 			die('Failed to issue query ['.$sql.'], error message : ' . print_r($link->errorInfo(), true));
+ 		}
+
+# --------------------------------------------------------------------
+# Customization 11/14: P1-CUST-WEB_TOOLS_SYSTEM_DASHBOARD_TEMPLATE-DASHBOARD_EDIT_PANEL_PHP
+# Title: Customization in web/tools/system/dashboard/template/dashboard.edit_panel.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/template/dashboard.edit_panel.php b/web/tools/system/dashboard/template/dashboard.edit_panel.php
+index e19fd6b..f743721 100644
+--- a/web/tools/system/dashboard/template/dashboard.edit_panel.php
++++ b/web/tools/system/dashboard/template/dashboard.edit_panel.php
+@@ -65,7 +65,9 @@ else
+ 	}
+ 	$start_limit=($page-1)*$res_no;
+ 	//$sql_command.=" limit ".$start_limit.", ".$res_no;
+-	$sql_command="select `name`, id, `order` from ".$table."  order by `order` asc limit ".$res_no;
++        //for PostgreSQL
++        //$sql_command="select `name`, id, `order` from ".$table."  order by `order` asc limit ".$res_no;
++        $sql_command="select \"name\", id, \"order\" from ".$table."  order by \"order\" asc limit ".$res_no;
+ 	if ($start_limit!=0)
+ 		$sql_command.=" OFFSET " . $start_limit;
+ 	$stm = $link->prepare( $sql_command );
+
+# --------------------------------------------------------------------
+# Customization 12/14: P1-CUST-WEB_TOOLS_SYSTEM_DASHBOARD_TEMPLATE-FUNCTIONS_INC_PHP
+# Title: Customization in web/tools/system/dashboard/template/functions.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/template/functions.inc.php b/web/tools/system/dashboard/template/functions.inc.php
+index d52e8d0..3b46296 100644
+--- a/web/tools/system/dashboard/template/functions.inc.php
++++ b/web/tools/system/dashboard/template/functions.inc.php
+@@ -30,12 +30,20 @@
+         require("../../../../config/db.inc.php");
+         require("../../../../config/tools/system/dashboard/settings.inc.php");
+ 
+-        $sql = 'UPDATE '.$table.' SET `order` = 
++        //for PostgreSQL
++        //$sql = 'UPDATE '.$table.' SET `order` =
++        //CASE
++        // WHEN `order` = ? THEN ?
++        // WHEN `order` = ? THEN ?
++        //END
++        //WHERE `order` = ? or `order` = ?
++        //';
++        $sql = 'UPDATE '.$table.' SET "order" =
+         CASE
+-         WHEN `order` = ? THEN ?
+-         WHEN `order` = ? THEN ?
++         WHEN "order" = ? THEN ?
++         WHEN "order" = ? THEN ?
+         END
+-        WHERE `order` = ? or `order` = ?
++        WHERE "order" = ? or "order" = ?
+         ';
+         $stm = $link->prepare($sql);
+         if ($stm === false) {
+
+# --------------------------------------------------------------------
+# Customization 13/14: P1-CUST-WEB_TOOLS_SYSTEM_DISPATCHER-DISPATCHER_PHP
+# Title: Customization in web/tools/system/dispatcher/dispatcher.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dispatcher/dispatcher.php b/web/tools/system/dispatcher/dispatcher.php
+index eddac1a..014198b 100755
+--- a/web/tools/system/dispatcher/dispatcher.php
++++ b/web/tools/system/dispatcher/dispatcher.php
+@@ -151,7 +151,7 @@ if ($action=="modify")
+ 
+ 		$sql = "UPDATE ".$table." SET ". 
+ 			"setid=?, destination = ?, socket = ?, state = ?, weight = ?, attrs = ?, probe_mode = ?, description = ?".
+-			"WHERE id=?";
++			" WHERE id=?";
+ 		$stm = $link->prepare($sql);
+ 		if ($stm === false) {
+ 			die('Failed to issue query ['.$sql.'], error message : ' . print_r($link->errorInfo(), true));
+@@ -205,7 +205,7 @@ if ($action=="ds_search")
+ 
+ 	$show_all=$_POST['show_all'];
+ 	$search=$_POST['search'];
+-
++	
+ 	if ($show_all=="Show All") {
+ 		$_SESSION['dispatcher_setid']="";
+ 		$_SESSION['dispatcher_dest']="";
+
+# --------------------------------------------------------------------
+# Customization 14/14: P1-CUST-WEB_TOOLS_SYSTEM_DISPATCHER_TEMPLATE-DISPATCHER_MAIN_PHP
+# Title: Customization in web/tools/system/dispatcher/template/dispatcher.main.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dispatcher/template/dispatcher.main.php b/web/tools/system/dispatcher/template/dispatcher.main.php
+index b8a2cd3..d466462 100755
+--- a/web/tools/system/dispatcher/template/dispatcher.main.php
++++ b/web/tools/system/dispatcher/template/dispatcher.main.php
+@@ -202,9 +202,19 @@ if ($dispatcher_group_mode == "static")
+   ?>
+  </tr>
+ <?php
+-if ($sql_search=="") $sql_command="from ".$table." order by setid asc";
+-else $sql_command="from ".$table." where (1=1) ".$sql_search." order by id asc";
+-$stm = $link->prepare("select count(*) ".$sql_command);
++if ($sql_search=="") {
++        $sql_command="from ".$table." order by setid asc";
++        //for PostgreSQL
++        $sql_command1="from ".$table."";
++     }
++     else {
++        $sql_command="from ".$table." where (1=1) ".$sql_search." order by id asc";
++        //for PostgreSQL
++        $sql_command1="from ".$table." where (1=1) ".$sql_search."";
++     }
++     //for PostgreSQL
++     //$stm = $link->prepare("select count(*) ".$sql_command);
++     $stm = $link->prepare("select count(*) ".$sql_command1);
+ if ($stm===FALSE) {
+ 	die('Failed to issue query [select count (*) '.$sql_command.'], error message : ' . $link->errorInfo()[2]);
+ }
 
