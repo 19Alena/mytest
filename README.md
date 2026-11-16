@@ -4,15 +4,39 @@ Automated repository for generated customization patches from **Customization Tr
 
 - **Remote Repository:** `git@github.com:19Alena/mytest.git`
 - **Branch:** `main`
-- **Last Updated:** `2026-11-16T23:26:18.207167Z`
+- **Last Updated:** `2026-11-16T23:59:15.778240Z`
 
 ## Projects & Patches
 
-| ID | Project Name | Host | Base Ref | Patches Available |
-|---|---|---|---|---|
-| 1 | **BPC-lab_CP** | `192.168.0.110` | `origin/9.3.6` | 14 patches |
-| 2 | **Core_lab_CP** | `192.168.0.108` | `origin/9.3.6` | 14 patches |
-| 3 | **Nexus_CP** | `192.168.0.108` | `origin/9.3.6` | 4 patches |
+| ID | Project Name | Host | Base Ref | Clean Base Commit | Patches Available |
+|---|---|---|---|---|---|
+| 1 | **BPC-lab_CP** | `192.168.0.110` | `origin/9.3.6` | `b39a836d713b` | 14 patches |
+| 2 | **Core_lab_CP** | `192.168.0.108` | `origin/9.3.6` | `89a4cde140c1` | 14 patches |
+| 3 | **Nexus_CP** | `192.168.0.108` | `origin/9.3.6` | `b39a836d713b` | 4 patches |
+
+## Clean Base Commits & Docker Image Builds
+
+Each project folder contains `BASE_COMMIT.txt` recording the exact clean upstream base commit used to generate the patches, including upstream repository URL and branch:
+
+```ini
+# Example patches/BPC-lab_CP/BASE_COMMIT.txt
+b39a836d713b55d3496d525b97fd139f48f0c47f
+COMMIT=b39a836d713b55d3496d525b97fd139f48f0c47f
+BASE_COMMIT=b39a836d713b55d3496d525b97fd139f48f0c47f
+BRANCH=9.3.6
+BASE_BRANCH=9.3.6
+REPOSITORY=https://github.com/OpenSIPS/opensips-cp.git
+BASE_REPO=https://github.com/OpenSIPS/opensips-cp.git
+```
+
+To check out the clean upstream base during a Docker build or automated deploy:
+
+```bash
+BASE_COMMIT=$(head -n 1 /path/to/mytest/patches/<Project_Name>/BASE_COMMIT.txt)
+if [ "$BASE_COMMIT" != "unknown" ]; then
+    git checkout "$BASE_COMMIT"
+fi
+```
 
 ## How to Apply Patches
 
