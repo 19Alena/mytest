@@ -1,0 +1,1144 @@
+# --------------------------------------------------------------------
+# Customization 12/14: P2-CUST-OPENSIPS
+# Title: OpenSIPS Integration via JSON-RPC
+# Category: Core Integration
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/db.inc.php b/config/db.inc.php
+index 38978988..84861c31 100644
+--- a/config/db.inc.php
++++ b/config/db.inc.php
+@@ -27,19 +27,19 @@
+  $config->db_driver = "mysql";
+ 
+  //database host
+- $config->db_host = "localhost";
++ $config->db_host = "127.0.0.1";
+  
+  //database port - leave empty for default
+- $config->db_port = "";
++ $config->db_port = "6033";
+  
+  //database connection user
+- $config->db_user = "opensips";
++ $config->db_user = "core_lab";
+  
+  //database connection password
+- $config->db_pass = "opensipsrw";
++ $config->db_pass = "********";
+  
+  //database name
+- $config->db_name = "opensips";
++ $config->db_name = "core_lab";
+ 
+  if (!empty($config->db_port) ) $config->db_host = $config->db_host . ";port=" . $config->db_port;
+
+diff --git a/web/header.php b/web/header.php
+index 91b0d58d..0085e366 100755
+--- a/web/header.php
++++ b/web/header.php
+@@ -42,7 +42,7 @@
+         $ocp_version = ob_get_clean();
+       }
+     ?>
+-    <div class="headerTitle"><?=$header_title.(empty($ocp_version)?"":(" ".$ocp_version))?></div>
++    <div class="headerTitle"><b><span style="color: #FFD700;"><?=$header_title?></span></b> OpenSIPS CP <?=(empty($ocp_version)?"":(" ".$ocp_version))?></div>
+   </td>
+   <td align="right">
+     <table>
+
+diff --git a/web/tools/system/drouting/lib/carriers.functions.inc.php b/web/tools/system/drouting/lib/carriers.functions.inc.php
+index 49545ccb..d8deb684 100755
+--- a/web/tools/system/drouting/lib/carriers.functions.inc.php
++++ b/web/tools/system/drouting/lib/carriers.functions.inc.php
+@@ -1,266 +1,316 @@
+-<?php
+-/*
+- * Copyright (C) 2011 OpenSIPS Project
+- *
+- * This file is part of opensips-cp, a free Web Control Panel Application for 
+- * OpenSIPS SIP server.
+- *
+- * opensips-cp is free software; you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation; either version 2 of the License, or
+- * (at your option) any later version.
+- *
+- * opensips-cp is distributed in the hope that it will be useful,
+- * but WITHOUT ANY WARRANTY; without even the implied warranty of
+- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- * GNU General Public License for more details.
+- *
+- * You should have received a copy of the GNU General Public License
+- * along with this program; if not, write to the Free Software
+- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+- */
+-
+-
+-
+-function fmt_binary($x, $numbits, $retbit) {
+-        // Convert to binary
+-        $bin = decbin($x);
+-        $bin = substr(str_repeat(0,$numbits),0,$numbits - strlen($bin)) . $bin;
+-        // Split into x 4-bits long
+-        $rtnval = '';
+-        for ($x = 0; $x < $numbits/4; $x++) {
+-            $rtnval .= ' ' . substr($bin,$x*4,4);
+-        }
+-    	// Get rid of first space.
+-	    return ltrim($rtnval[$retbit]);
+-} 
+-
+-
+-function get_gwlist()
+-{
+-//include("db_connect.php");
+- global $link;
+- global $config;
+- $index = 0;
+- $values = array();
+- $sql="select * from ".get_settings_value("table_gateways")." order by gwid asc";
+- $stm = $link->prepare($sql);
+- if ($stm===FALSE) {
+-	die('Failed to issue query ['.$sql.'], error message : ' . $link->errorInfo()[2]);
+- }
+- $stm->execute( array() );
+- $resultset = $stm->fetchAll(PDO::FETCH_ASSOC);
+- for($i=0;count($resultset)>$i;$i++)
+- {
+-  $values[$index][0] = $resultset[$i]['gwid'];
+-  $values[$index][1] = $resultset[$i]['address'];
+-  $values[$index][2] = $resultset[$i]['description'];
+-  $index++;
+- }
+- return($values);
+-}
+-
+-function print_gwlist()
+-{
+- $array_values = get_gwlist();
+- $start_index = 0;
+- $end_index = sizeof($array_values);
+-?>
+- <select name="gwlist_value" id="gwlist_value" size="1" class="dataSelect" style="width:326!important; margin-left:1px;margin-top:2px;">
+- <?php
+-  for ($i=$start_index;$i<$end_index;$i++){
+-   if (strlen($array_values[$i][2]) < 25) 
+-   	$desc = $array_values[$i][2];
+-   else 
+-   	$desc = substr($array_values[$i][2], 0, 25) . "...";
+-   echo('<option value="'.$array_values[$i][0].'"> (#'.$array_values[$i][0].') '.$array_values[$i][1].' / '.$desc.'</option>');
+-  }
+- ?>
+- </select>
+-<?php
+-}
+-
+-function print_object($obj_name, $start_value, $end_value, $select_value)
+-{
+-?>
+- <select name="<?=$obj_name?>" id="<?=$obj_name?>" size="1" class="dataSelect">
+- <?php
+-  for ($i=$start_value;$i<=$end_value;$i++)
+-  {
+-   if ($i<10) $value="0".$i;
+-    else $value=$i;
+-   if ($value==$select_value) $selected="selected";
+-    else $selected="";
+-   echo('<option value="'.$value.'" '.$selected.'>'.$value.'</option>');
+-  }
+- ?>
+- </select>
+-<?php
+-}
+-
+-function print_date_time($obj_name)
+-{
+- print_object($obj_name."_day",1,31,date("d")); echo("<b>/</b>");
+- print_object($obj_name."_month",1,12,date("m")); echo("<b>/</b>");
+- print_object($obj_name."_year",date("Y"),date("Y")+25,date("Y")); echo("&nbsp;&nbsp;");
+- print_object($obj_name."_hour",0,23,0); echo("<b>:</b>");
+- print_object($obj_name."_minute",0,59,0); echo("<b>:</b>");
+- print_object($obj_name."_second",0,59,0);
+-}
+-
+-function print_interval($obj_name)
+-{
+- print_object($obj_name."_weeks",0,53,0); echo(" Weeks");
+- print_object($obj_name."_days",0,6,0); echo(" Days &nbsp;<b>/</b>&nbsp;&nbsp;");
+- print_object($obj_name."_hours",0,24,1); echo("<b>:</b>");
+- print_object($obj_name."_minutes",0,59,0); echo("<b>:</b>");
+- print_object($obj_name."_seconds",0,59,0);
+-}
+-
+-function parse_timerec_main($time_string)
+-{
+- if ($time_string!="") echo("Custom Time Recurrence.");
+-  else echo("No Time Recurrence.");
+-}
+-
+-function parse_timerec($time_string, $page_id)
+-{
+- 
+- if ($time_string=="") {
+-                        echo("Not Defined");
+-                        return;
+-                       }
+- 
+- if ($page_id==1) echo("<br>");
+- $buffer=explode("|",$time_string);
+- 
+- if (sizeof($buffer)>0) $dtstart=$buffer[0];
+-  else $dtstart=null;
+- if (sizeof($buffer)>1) $duration=$buffer[1];
+-  else $duration=null;
+- if (sizeof($buffer)>2) $freq=$buffer[2];
+-  else $freq=null;
+- if (sizeof($buffer)>3) $until=$buffer[3];
+-  else $until=null;
+- if (sizeof($buffer)>4) $interval=$buffer[4];
+-  else $interval=null;
+- if (sizeof($buffer)>5) $byday=$buffer[5];
+-  else $byday=null;
+- if (sizeof($buffer)>6) $bymonthday=$buffer[6];
+-  else $bymonthday=null;
+- if (sizeof($buffer)>7) $byyearday=$buffer[7];
+-  else $byyearday=null;
+- if (sizeof($buffer)>8) $byweekno=$buffer[8];
+-  else $byweekno=null;
+- if (sizeof($buffer)>9) $bymonth=$buffer[9];
+-  else $bymonth=null;
+-  
+- echo("<b>&nbsp;&middot;&nbsp;</b>Start of interval: ".substr($dtstart,9,2).":".substr($dtstart,11,2).":".substr($dtstart,13,2)." ".substr($dtstart,6,2)."/".substr($dtstart,4,2)."/".substr($dtstart,0,4)."<br>");
+- 
+- if (!$duration) {
+-                  echo("<b>&nbsp;&middot;&nbsp;</b>Duration of interval: Forever<br>");
+-                  if ($until) echo("<b>&nbsp;&middot;&nbsp;</b>Bound of recurrence: ".substr($until,9,2).":".substr($until,11,2).":".substr($until,13,2)." ".substr($until,6,2)."/".substr($until,4,2)."/".substr($until,0,4)."<br>");
+-                   else echo("<b>&nbsp;&middot;&nbsp;</b>Bound of recurrence: None<br>");
+-                  return;
+-                 }
+- else {
+-       $values=array();
+-       $k=0;
+-       for($i=0;$i<strlen($duration);$i++)
+-       {
+-        $char=$duration[$i];
+-        if (($char!="P") && ($char!="T")) {
+-                                           if (is_numeric($char)) $values[$k][0].=$char;
+-                                            else {
+-                                                  $values[$k][1]=$char;
+-                                                  $k++;
+-                                                 }
+-                                          }
+-       }
+-       echo("<b>&nbsp;&middot;&nbsp;</b>Duration of interval: ");
+-       $duration_text="";
+-       for($i=0;$i<$k;$i++)
+-       {
+-        if ($duration_text=="") $duration_text=(intval($values[$i][0])." ");
+-         else $duration_text.=", ".(intval($values[$i][0])." ");
+-        if (($values[$i][1]=="W") && ($values[$i][0]==1)) $duration_text.="Week";
+-        if (($values[$i][1]=="W") && ($values[$i][0]>1)) $duration_text.="Weeks";
+-        if (($values[$i][1]=="D") && ($values[$i][0]==1)) $duration_text.="Day";
+-        if (($values[$i][1]=="D") && ($values[$i][0]>1)) $duration_text.="Days";
+-        if (($values[$i][1]=="H") && ($values[$i][0]==1)) $duration_text.="Hour";
+-        if (($values[$i][1]=="H") && ($values[$i][0]>1)) $duration_text.="Hours";
+-        if (($values[$i][1]=="M") && ($values[$i][0]==1)) $duration_text.="Minute";
+-        if (($values[$i][1]=="M") && ($values[$i][0]>1)) $duration_text.="Minutes";
+-        if (($values[$i][1]=="S") && ($values[$i][0]==1)) $duration_text.="Second";
+-        if (($values[$i][1]=="S") && ($values[$i][0]>1)) $duration_text.="Seconds";
+-       }
+-       echo($duration_text."<br>");
+-      }
+- 
+- if ($freq=="daily")
+- {
+-  if ($interval==1) $interval_text="Every day<br>";
+-   else $interval_text="Every ".$interval." days.<br>";
+- }
+- 
+- if ($freq=="weekly")
+- {
+-  if ($interval==1) $interval_text="Every week<br>";
+-   else $interval_text="Every ".$interval." weeks.<br>";
+-  if ($byday) $interval_text.="&nbsp;&nbsp;&nbsp;- By Day : ".$byday."<br>";
+- }
+- 
+- if ($freq=="monthly")
+- {
+-  if ($interval==1) $interval_text="Every month<br>";
+-   else $interval_text="Every ".$interval." months.<br>";
+-  if ($byday) $interval_text.="&nbsp;&nbsp;&nbsp;- By Day : ".$byday."<br>";
+-  if ($bymonthday) $interval_text.="&nbsp;&nbsp;&nbsp;- By Month Day : ".$bymonthday."<br>";
+- }
+- 
+- if ($freq=="yearly")
+- {
+-  if ($interval==1) $interval_text="Every year<br>";
+-   else $interval_text="Every ".$interval." years.<br>";
+-  if ($byday) $interval_text.="&nbsp;&nbsp;&nbsp;- By Day : ".$byday."<br>";
+-  if ($bymonthday) $interval_text.="&nbsp;&nbsp;&nbsp;- By Month Day : ".$bymonthday."<br>";
+-  if ($byyearday) $interval_text.="&nbsp;&nbsp;&nbsp;- By Year Day : ".$byyearday."<br>";
+-  if ($byweekno) $interval_text.="&nbsp;&nbsp;&nbsp;- By Week No : ".$byweekno."<br>";
+-  if ($bymonth) $interval_text.="&nbsp;&nbsp;&nbsp;- By Month : ".$bymonth."<br>";
+- }
+- 
+- echo("<b>&nbsp;&middot;&nbsp;</b>Interval: ".$interval_text);
+-
+- if ($until) echo("<b>&nbsp;&middot;&nbsp;</b>Bound of recurrence: ".substr($until,9,2).":".substr($until,11,2).":".substr($until,13,2)." ".substr($until,6,2)."/".substr($until,4,2)."/".substr($until,0,4)."<br>");
+-  else echo("<b>&nbsp;&middot;&nbsp;</b>Bound of recurrence: None<br>");
+-}
+-
+-function parse_gwlist($gwlist_string)
+-{
+- $string=str_replace("|",",",$gwlist_string);
+- $string=str_replace(";",",",$string);
+- $buffer=explode(",",$string);
+- $string_return="";
+- for($i=0;$i<sizeof($buffer);$i++)
+- {
+-  $temp = explode ("=",$buffer[$i]);
+-  $gatewayid = $temp[0];
+-  $string_return.=' <a href="gateways.php?action=details&gwid='.$gatewayid.'" class="gwList">'.$buffer[$i].'</a>';
+-  $len_val=strlen($buffer[$i]);
+-  $gwlist_string=substr($gwlist_string,$len_val,strlen($gwlist_string));
+-  $string_return.=substr($gwlist_string,0,1);
+-  $gwlist_string=substr($gwlist_string,1,strlen($gwlist_string));
+- }
+- return($string_return);
+-}
+-
+-function parse_list($gwlist_string)
+-{
+- $string = 0+ substr($gwlist_string,-1);
+- $string_return=' <a href="lists.php?action=details&id='.$string.'" class="gwList">'.$string.'</a>';
+- return($string_return);
+- }
+-
+-
+-
+-?>
++<?php
++/*
++ * Copyright (C) 2011 OpenSIPS Project
++ *
++ * This file is part of opensips-cp, a free Web Control Panel Application for 
++ * OpenSIPS SIP server.
++ *
++ * opensips-cp is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * opensips-cp is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
++ */
++
++
++
++function fmt_binary($x, $numbits, $retbit) {
++        // Convert to binary
++        $bin = decbin($x);
++        $bin = substr(str_repeat(0,$numbits),0,$numbits - strlen($bin)) . $bin;
++        // Split into x 4-bits long
++        $rtnval = '';
++        for ($x = 0; $x < $numbits/4; $x++) {
++            $rtnval .= ' ' . substr($bin,$x*4,4);
++        }
++    	// Get rid of first space.
++	    return ltrim($rtnval[$retbit]);
++} 
++function get_codec_list()
++{
++    global $link;
++    global $config;
++
++    $index = 0;
++    $values = array();
++    $resultset = array('PCMA', 'PCMU','G723','G722','G729','G729a','speex','GSM','opus','EVS');
++
++    for ($i = 0; $i < count($resultset); $i++) {
++        $values[$index][0] = $resultset[$i];
++        $index++;
++    }
++
++    return $values;
++}
++
++function print_codec_list()
++{
++    $array_values = get_codec_list();
++    $start_index = 0;
++    $end_index = sizeof($array_values);
++?>
++<select name="extra_codecs_value" id="extra_codecs_value" size="1"
++        class="dataSelect"
++        style="width:342px!important; margin-left:1px; margin-top:2px;">
++<?php
++    for ($i = $start_index; $i < $end_index; $i++) {
++        echo '<option value="transcode-'.$array_values[$i][0].'">(#'.$array_values[$i][0].')</option>';
++    }
++?>
++</select>
++<?php
++}
++function print_stripcodec_list()
++{
++    $array_values = get_codec_list();
++    $start_index = 0;
++    $end_index = sizeof($array_values);
++?>
++<select name="extra_codecs_stripvalue" id="extra_codecs_stripvalue" size="1"
++        class="dataSelect"
++        style="width:342px!important; margin-left:1px; margin-top:2px;">
++<?php
++    for ($i = $start_index; $i < $end_index; $i++) {
++        echo '<option value="codec-strip-'.$array_values[$i][0].'">(#'.$array_values[$i][0].')</option>';
++    }
++?>
++</select>
++<?php
++}
++
++function get_gwlist()
++{
++//include("db_connect.php");
++ global $link;
++ global $config;
++ $index = 0;
++ $values = array();
++ $sql="select * from ".get_settings_value("table_gateways")." order by gwid asc";
++ $stm = $link->prepare($sql);
++ if ($stm===FALSE) {
++	die('Failed to issue query ['.$sql.'], error message : ' . $link->errorInfo()[2]);
++ }
++ $stm->execute( array() );
++ $resultset = $stm->fetchAll(PDO::FETCH_ASSOC);
++ for($i=0;count($resultset)>$i;$i++)
++ {
++  $values[$index][0] = $resultset[$i]['gwid'];
++  $values[$index][1] = $resultset[$i]['address'];
++  $values[$index][2] = $resultset[$i]['description'];
++  $index++;
++ }
++ return($values);
++}
++
++function print_gwlist()
++{
++ $array_values = get_gwlist();
++ $start_index = 0;
++ $end_index = sizeof($array_values);
++?>
++ <select name="gwlist_value" id="gwlist_value" size="1" class="dataSelect" style="width:326!important; margin-left:1px;margin-top:2px;">
++ <?php
++  for ($i=$start_index;$i<$end_index;$i++){
++   if (strlen($array_values[$i][2]) < 25) 
++   	$desc = $array_values[$i][2];
++   else 
++   	$desc = substr($array_values[$i][2], 0, 25) . "...";
++   echo('<option value="'.$array_values[$i][0].'"> (#'.$array_values[$i][0].') '.$array_values[$i][1].' / '.$desc.'</option>');
++  }
++ ?>
++ </select>
++<?php
++}
++
++function print_object($obj_name, $start_value, $end_value, $select_value)
++{
++?>
++ <select name="<?=$obj_name?>" id="<?=$obj_name?>" size="1" class="dataSelect">
++ <?php
++  for ($i=$start_value;$i<=$end_value;$i++)
++  {
++   if ($i<10) $value="0".$i;
++    else $value=$i;
++   if ($value==$select_value) $selected="selected";
++    else $selected="";
++   echo('<option value="'.$value.'" '.$selected.'>'.$value.'</option>');
++  }
++ ?>
++ </select>
++<?php
++}
++
++function print_date_time($obj_name)
++{
++ print_object($obj_name."_day",1,31,date("d")); echo("<b>/</b>");
++ print_object($obj_name."_month",1,12,date("m")); echo("<b>/</b>");
++ print_object($obj_name."_year",date("Y"),date("Y")+25,date("Y")); echo("&nbsp;&nbsp;");
++ print_object($obj_name."_hour",0,23,0); echo("<b>:</b>");
++ print_object($obj_name."_minute",0,59,0); echo("<b>:</b>");
++ print_object($obj_name."_second",0,59,0);
++}
++
++function print_interval($obj_name)
++{
++ print_object($obj_name."_weeks",0,53,0); echo(" Weeks");
++ print_object($obj_name."_days",0,6,0); echo(" Days &nbsp;<b>/</b>&nbsp;&nbsp;");
++ print_object($obj_name."_hours",0,24,1); echo("<b>:</b>");
++ print_object($obj_name."_minutes",0,59,0); echo("<b>:</b>");
++ print_object($obj_name."_seconds",0,59,0);
++}
++
++function parse_timerec_main($time_string)
++{
++ if ($time_string!="") echo("Custom Time Recurrence.");
++  else echo("No Time Recurrence.");
++}
++
++function parse_timerec($time_string, $page_id)
++{
++ 
++ if ($time_string=="") {
++                        echo("Not Defined");
++                        return;
++                       }
++ 
++ if ($page_id==1) echo("<br>");
++ $buffer=explode("|",$time_string);
++ 
++ if (sizeof($buffer)>0) $dtstart=$buffer[0];
++  else $dtstart=null;
++ if (sizeof($buffer)>1) $duration=$buffer[1];
++  else $duration=null;
++ if (sizeof($buffer)>2) $freq=$buffer[2];
++  else $freq=null;
++ if (sizeof($buffer)>3) $until=$buffer[3];
++  else $until=null;
++ if (sizeof($buffer)>4) $interval=$buffer[4];
++  else $interval=null;
++ if (sizeof($buffer)>5) $byday=$buffer[5];
++  else $byday=null;
++ if (sizeof($buffer)>6) $bymonthday=$buffer[6];
++  else $bymonthday=null;
++ if (sizeof($buffer)>7) $byyearday=$buffer[7];
++  else $byyearday=null;
++ if (sizeof($buffer)>8) $byweekno=$buffer[8];
++  else $byweekno=null;
++ if (sizeof($buffer)>9) $bymonth=$buffer[9];
++  else $bymonth=null;
++  
++ echo("<b>&nbsp;&middot;&nbsp;</b>Start of interval: ".substr($dtstart,9,2).":".substr($dtstart,11,2).":".substr($dtstart,13,2)." ".substr($dtstart,6,2)."/".substr($dtstart,4,2)."/".substr($dtstart,0,4)."<br>");
++ 
++ if (!$duration) {
++                  echo("<b>&nbsp;&middot;&nbsp;</b>Duration of interval: Forever<br>");
++                  if ($until) echo("<b>&nbsp;&middot;&nbsp;</b>Bound of recurrence: ".substr($until,9,2).":".substr($until,11,2).":".substr($until,13,2)." ".substr($until,6,2)."/".substr($until,4,2)."/".substr($until,0,4)."<br>");
++                   else echo("<b>&nbsp;&middot;&nbsp;</b>Bound of recurrence: None<br>");
++                  return;
++                 }
++ else {
++       $values=array();
++       $k=0;
++       for($i=0;$i<strlen($duration);$i++)
++       {
++        $char=$duration[$i];
++        if (($char!="P") && ($char!="T")) {
++                                           if (is_numeric($char)) $values[$k][0].=$char;
++                                            else {
++                                                  $values[$k][1]=$char;
++                                                  $k++;
++                                                 }
++                                          }
++       }
++       echo("<b>&nbsp;&middot;&nbsp;</b>Duration of interval: ");
++       $duration_text="";
++       for($i=0;$i<$k;$i++)
++       {
++        if ($duration_text=="") $duration_text=(intval($values[$i][0])." ");
++         else $duration_text.=", ".(intval($values[$i][0])." ");
++        if (($values[$i][1]=="W") && ($values[$i][0]==1)) $duration_text.="Week";
++        if (($values[$i][1]=="W") && ($values[$i][0]>1)) $duration_text.="Weeks";
++        if (($values[$i][1]=="D") && ($values[$i][0]==1)) $duration_text.="Day";
++        if (($values[$i][1]=="D") && ($values[$i][0]>1)) $duration_text.="Days";
++        if (($values[$i][1]=="H") && ($values[$i][0]==1)) $duration_text.="Hour";
++        if (($values[$i][1]=="H") && ($values[$i][0]>1)) $duration_text.="Hours";
++        if (($values[$i][1]=="M") && ($values[$i][0]==1)) $duration_text.="Minute";
++        if (($values[$i][1]=="M") && ($values[$i][0]>1)) $duration_text.="Minutes";
++        if (($values[$i][1]=="S") && ($values[$i][0]==1)) $duration_text.="Second";
++        if (($values[$i][1]=="S") && ($values[$i][0]>1)) $duration_text.="Seconds";
++       }
++       echo($duration_text."<br>");
++      }
++ 
++ if ($freq=="daily")
++ {
++  if ($interval==1) $interval_text="Every day<br>";
++   else $interval_text="Every ".$interval." days.<br>";
++ }
++ 
++ if ($freq=="weekly")
++ {
++  if ($interval==1) $interval_text="Every week<br>";
++   else $interval_text="Every ".$interval." weeks.<br>";
++  if ($byday) $interval_text.="&nbsp;&nbsp;&nbsp;- By Day : ".$byday."<br>";
++ }
++ 
++ if ($freq=="monthly")
++ {
++  if ($interval==1) $interval_text="Every month<br>";
++   else $interval_text="Every ".$interval." months.<br>";
++  if ($byday) $interval_text.="&nbsp;&nbsp;&nbsp;- By Day : ".$byday."<br>";
++  if ($bymonthday) $interval_text.="&nbsp;&nbsp;&nbsp;- By Month Day : ".$bymonthday."<br>";
++ }
++ 
++ if ($freq=="yearly")
++ {
++  if ($interval==1) $interval_text="Every year<br>";
++   else $interval_text="Every ".$interval." years.<br>";
++  if ($byday) $interval_text.="&nbsp;&nbsp;&nbsp;- By Day : ".$byday."<br>";
++  if ($bymonthday) $interval_text.="&nbsp;&nbsp;&nbsp;- By Month Day : ".$bymonthday."<br>";
++  if ($byyearday) $interval_text.="&nbsp;&nbsp;&nbsp;- By Year Day : ".$byyearday."<br>";
++  if ($byweekno) $interval_text.="&nbsp;&nbsp;&nbsp;- By Week No : ".$byweekno."<br>";
++  if ($bymonth) $interval_text.="&nbsp;&nbsp;&nbsp;- By Month : ".$bymonth."<br>";
++ }
++ 
++ echo("<b>&nbsp;&middot;&nbsp;</b>Interval: ".$interval_text);
++
++ if ($until) echo("<b>&nbsp;&middot;&nbsp;</b>Bound of recurrence: ".substr($until,9,2).":".substr($until,11,2).":".substr($until,13,2)." ".substr($until,6,2)."/".substr($until,4,2)."/".substr($until,0,4)."<br>");
++  else echo("<b>&nbsp;&middot;&nbsp;</b>Bound of recurrence: None<br>");
++}
++
++function parse_gwlist($gwlist_string)
++{
++ $string=str_replace("|",",",$gwlist_string);
++ $string=str_replace(";",",",$string);
++ $buffer=explode(",",$string);
++ $string_return="";
++ for($i=0;$i<sizeof($buffer);$i++)
++ {
++  $temp = explode ("=",$buffer[$i]);
++  $gatewayid = $temp[0];
++  $string_return.=' <a href="gateways.php?action=details&gwid='.$gatewayid.'" class="gwList">'.$buffer[$i].'</a>';
++  $len_val=strlen($buffer[$i]);
++  $gwlist_string=substr($gwlist_string,$len_val,strlen($gwlist_string));
++  $string_return.=substr($gwlist_string,0,1);
++  $gwlist_string=substr($gwlist_string,1,strlen($gwlist_string));
++ }
++ return($string_return);
++}
++
++function parse_list($gwlist_string)
++{
++ $string = 0+ substr($gwlist_string,-1);
++ $string_return=' <a href="lists.php?action=details&id='.$string.'" class="gwList">'.$string.'</a>';
++ return($string_return);
++ }
++
++
++
++?>
+
+diff --git a/web/tools/system/drouting/lib/common.functions.inc.php b/web/tools/system/drouting/lib/common.functions.inc.php
+index 1643c96e..eb261aba 100755
+--- a/web/tools/system/drouting/lib/common.functions.inc.php
++++ b/web/tools/system/drouting/lib/common.functions.inc.php
+@@ -2,7 +2,7 @@
+ /*
+  * Copyright (C) 2021 OpenSIPS Project
+  *
+- * This file is part of opensips-cp, a free Web Control Panel Application for 
++ * This file is part of opensips-cp, a free Web Control Panel Application for
+  * OpenSIPS SIP server.
+  *
+  * opensips-cp is free software; you can redistribute it and/or modify
+@@ -21,108 +21,108 @@
+  */
+ 
+ $dr_sort_alg = array(
+-	"N" => "none",
+-	"W" => "weight",
+-	"Q" => "quality",
++        "N" => "none",
++        "W" => "weight",
++        "Q" => "quality",
+ );
+ 
+ 
+ function dr_get_name_of_sort_alg($char)
+ {
+-	global $dr_sort_alg;
+-	if (isset($dr_sort_alg[$char]))
+-		return $dr_sort_alg[$char];
+-	return "unknown";
+-} 
++        global $dr_sort_alg;
++        if (isset($dr_sort_alg[$char]))
++                return $dr_sort_alg[$char];
++        return "unknown";
++}
+ 
+ 
+-function dr_get_options_of_list_sort($selected) 
++function dr_get_options_of_list_sort($selected)
+ {
+-	
+-	if ($selected==NULL || $selected=="") {
+-		$selected = 'N';
+-		$out = "";
+-	} else if ($selected!="N" && $selected!="W" && $selected!="Q" ){
+-		$out = "<option value='".$selected."' selected>".$selected."(unknown)</option>";
+-	}
+-
+-	$out .= "<option value='N' ".($selected=='N'?"selected":"").">none</option>";
+-	$out .= "<option value='W' ".($selected=='W'?"selected":"").">weight</option>";
+-	$out .= "<option value='Q' ".($selected=='Q'?"selected":"").">quality</option>";
+-	print $out;
++
++        if ($selected==NULL || $selected=="") {
++                $selected = 'N';
++                $out = "";
++        } else if ($selected!="N" && $selected!="W" && $selected!="Q" ){
++                $out = "<option value='".$selected."' selected>".$selected."(unknown)</option>";
++        }
++
++        $out .= "<option value='N' ".($selected=='N'?"selected":"").">none</option>";
++        $out .= "<option value='W' ".($selected=='W'?"selected":"").">weight</option>";
++        $out .= "<option value='Q' ".($selected=='Q'?"selected":"").">quality</option>";
++        print $out;
+ }
+ 
+ function dr_get_attrs_map($attrs)
+ {
+-	$ret = array();
+-	$s = explode(";", $attrs);
+-	foreach ($s as $k) {
+-		$split = explode("=", $k, 2);
+-		if (count($split) == 2)
+-			$ret[$split[0]] = $split[1];
+-		else
+-			$ret[$k] = "true";
+-	}
+-	return $ret;
++        $ret = array();
++        $s = explode(";", $attrs);
++        foreach ($s as $k) {
++                $split = explode("=", $k, 2);
++                if (count($split) == 2)
++                        $ret[$split[0]] = $split[1];
++                else
++                        $ret[$k] = "true";
++        }
++        return $ret;
+ }
+ 
+ function dr_get_attrs_val($attr_map, $key, $value)
+ {
+-	if (isset($attr_map[$key])) {
+-		switch($value["type"]) {
+-		case "text":
+-			return $attr_map[$key];
+-		case "checkbox":
+-			return true;
+-		case "combo":
+-			$attr = $attr_map[$key];
+-			$options = dr_get_combo_attrs($value, $attr);
+-			return $options[$attr];
+-		}
+-	} else {
+-		return NULL;
+-	}
++        if (isset($attr_map[$key])) {
++                switch($value["type"]) {
++                case "text":
++                        return $attr_map[$key];
++                case "checkbox":
++                        return true;
++                case "combo":
++                        $attr = $attr_map[$key];
++                        $options = dr_get_combo_attrs($value, $attr);
++                        return $options[$attr];
++                }
++        } else {
++                return NULL;
++        }
+ }
+ 
+ function dr_build_attrs($attrs)
+ {
+-	$ret = "";
+-	foreach ($attrs as $key=>$value) {
+-		if (!isset($_POST["extra_".$key]) || $_POST["extra_".$key] == "")
+-			continue;
+-		switch ($value["type"]) {
+-		case "text":
+-		case "combo":
+-			$ret .= ($ret!=""?";":"").$key."=".$_POST["extra_".$key];
+-			break;
+-		case "checkbox":
+-			$ret .= ($ret!=""?";":"").$key;
+-			break;
+-		}
+-	}
+-	return $ret;
++        $ret = "";
++        foreach ($attrs as $key=>$value) {
++                if (!isset($_POST["extra_".$key]) || $_POST["extra_".$key] == "")
++                        continue;
++                switch ($value["type"]) {
++                case "text":
++                case "combo":
++                        $ret .= ($ret!=""?";":"").$key."=".$_POST["extra_".$key];
++                        break;
++                case "checkbox":
++                        $ret .= ($ret!=""?";":"").$key;
++                        break;
++                }
++        }
++        return $ret;
+ }
+ 
+ function dr_get_combo_attrs($value, $filter_val = null)
+ {
+-	global $link;
+-
+-	$ret = array();
+-	$query = "SELECT " .$value["combo_display_col"]. " AS name, ".
+-		$value["combo_value_col"]. " AS id FROM ". $value["combo_table"];
+-
+-	if ($filter_val != null)
+-		$query .= " WHERE ".$value["combo_value_col"]." = ".$filter_val;
+-
+-	$stm = $link->prepare($query);
+-	if ($stm===FALSE) {
+-		die('Failed to issue query [' . $query . '], error message : ' . $link->errorInfo()[2]);
+-	}
+-	$stm->execute();
+-	$results = $stm->fetchAll();
+-	foreach ($results as $key => $value)
+-		$ret[$value['id']] = $value['name'];
+-	return $ret;
++        global $link;
++
++        $ret = array();
++        $query = "SELECT " .$value["combo_display_col"]. " AS name, ".
++                $value["combo_value_col"]. " AS id FROM ". $value["combo_table"];
++
++        if ($filter_val != null)
++                $query .= " WHERE ".$value["combo_value_col"]." = '".$filter_val."'";
++
++                $stm = $link->prepare($query);
++        if ($stm===FALSE) {
++                die('Failed to issue query [' . $query . '], error message : ' . $link->errorInfo()[2]);
++        }
++        $stm->execute();
++        $results = $stm->fetchAll();
++        foreach ($results as $key => $value)
++                $ret[$value['id']] = $value['name'];
++        return $ret;
+ }
+ 
+ // regex matching $id as a whole element of a $sep separated list
+
+diff --git a/web/tools/system/drouting/template/carriers.form.php b/web/tools/system/drouting/template/carriers.form.php
+index 4fd15353..29e1a8a3 100755
+--- a/web/tools/system/drouting/template/carriers.form.php
++++ b/web/tools/system/drouting/template/carriers.form.php
+@@ -2,7 +2,7 @@
+ /*
+  * Copyright (C) 2011 OpenSIPS Project
+  *
+- * This file is part of opensips-cp, a free Web Control Panel Application for 
++ * This file is part of opensips-cp, a free Web Control Panel Application for
+  * OpenSIPS SIP server.
+  *
+  * opensips-cp is free software; you can redistribute it and/or modify
+@@ -23,78 +23,110 @@
+ require("../../../common/forms.php");
+ 
+ if ($dr_form["action"] == "add") {
+-	form_generate_input_text("Carrier ID", "The name of the carrier",
+-		"carrierid", "n", $dr_form['carrierid'], 128, "^[a-zA-Z0-9_\-]+$");
++        form_generate_input_text("Carrier ID", "The name of the carrier",
++                "carrierid", "n", $dr_form['carrierid'], 128, "^[a-zA-Z0-9_\-]+$");
+ }
+ ?>
+  <tr>
+   <td class="dataRecord" ><b>Gateway List</b></td>
+    <td class="dataRecord">
+-	<input type="text" name="gwlist" id="gwlist" value="<?=$dr_form["gwlist"]?>" maxlength="<?=(isset($config->gwlist_size)?$config->gwlist_size:255)?>" readonly class="dataInput" style="width:370!important">
+-	<input type="button" name="clear_gwlist" value="Clear Last" class="inlineButton" style="width:90px" onclick="clearObject('gwlist')">
++        <input type="text" name="gwlist" id="gwlist" value="<?=$dr_form["gwlist"]?>" maxlength="<?=(isset($config->gwlist_size)?$config->gwlist_size:255)?>" readonly class="dataInput" style="width:370!important">
++        <input type="button" name="clear_gwlist" value="Clear Last" class="inlineButton" style="width:90px" onclick="clearObject('gwlist')">
+    </td>
+   </tr>
+   <tr>
+    <td/>
+    <td class="dataRecord">
+-	<?=print_gwlist()?>
+-	<input type="text"   name="weight" id="weight" value="" maxlength="5" class="dataInput" style="width:40!important;">
+-	<input type="button" name="add_gwlist" value="Add" class="inlineButton" style="width:90px" onclick="addElementToObject('gwlist','weight')">
++        <?=print_gwlist()?>
++        <input type="text"   name="weight" id="weight" value="" maxlength="5" class="dataInput" style="width:40!important;">
++        <input type="button" name="add_gwlist" value="Add" class="inlineButton" style="width:90px" onclick="addElementToObject('gwlist','weight')">
+    </td>
+   </tr>
+ <?php
+ form_generate_select("List Sorting", "How gateways should be sorted inside the carrier",
+-	"sort_alg", 128, $dr_form['sort_alg'], array_keys($dr_sort_alg), array_values($dr_sort_alg));
++        "sort_alg", 128, $dr_form['sort_alg'], array_keys($dr_sort_alg), array_values($dr_sort_alg));
+ 
+ form_generate_select("Use only first", "Whether to use only the first gateway",
+-	"useonlyfirst", 128, $dr_form['useonlyfirst'], array(0, 1), array("0 - No", "1 - Yes"));
++        "useonlyfirst", 128, $dr_form['useonlyfirst'], array(0, 1), array("0 - No", "1 - Yes"));
+ 
+ form_generate_select("DB State", "Whether the carrier should be initially active or not",
+-	"state", 128, $dr_form['state'], array(0, 1), array("0 - Active", "1 - Inactive"));
++        "state", 128, $dr_form['state'], array(0, 1), array("0 - Active", "1 - Inactive"));
+ 
+ $carrier_attributes_mode = get_settings_value("carrier_attributes_mode");
+ $carrier_attributes = get_settings_value("carrier_attributes");
+ if ($carrier_attributes_mode == "input") {
+     form_generate_input_text((isset($carrier_attributes["display_name"])?$carrier_attributes["display_name"]:"Attributes"),
+-			       "attributes used for the carrier",
+-			       "attrs",
+-			       "y",
+-			       (isset($resultset[0]['attrs'])?$resultset[0]['attrs']:$carrier_attributes["add_prefill_value"]),
+-			       128,
+-			       $carrier_attributes["validation_regexp"]);
++                               "attributes used for the carrier",
++                               "attrs",
++                               "y",
++                               (isset($resultset[0]['attrs'])?$resultset[0]['attrs']:$carrier_attributes["add_prefill_value"]),
++                               128,
++                               $carrier_attributes["validation_regexp"]);
+ } else if ($carrier_attributes_mode == "params") {
+-	$attr_map = dr_get_attrs_map($resultset[0]['attrs']);
+-	foreach ($carrier_attributes as $key => $value) {
+-		if ($dr_form["action"] == "edit")
+-			$val = dr_get_attrs_val($attr_map, $key, $value);
+-		else
+-			$val =  (isset($value["default"])?$value["default"]:"");
+-		switch ($value["type"]) {
+-		case "text":
+-			form_generate_input_text($value["display"],
+-				$value["hint"],
+-				"extra_".$key,
+-				"y",
+-				$val,
+-				128,
+-				(isset($value["validation_regexp"])?$value["validation_regexp"]:NULL));
+-			break;
+-		case "checkbox":
+-			form_generate_input_checkbox($value["display"],
+-				$value["hint"],
+-				"extra_".$key,
+-				$key,
+-				$val);
+-			break;
+-		case "combo":
+-			$options = dr_get_combo_attrs($value);
+-			form_generate_select($value['display'], $value['hint'],
+-				"extra_".$key, 205, $val, array_keys($options), array_values($options), true);
+-			break;
+-		}
+-	}
++        $attr_map = dr_get_attrs_map($resultset[0]['attrs']);
++        foreach ($carrier_attributes as $key => $value) {
++                if ($dr_form["action"] == "edit")
++                        $val = $attr_map[$key];
++                else
++                        $val =  (isset($value["default"])?$value["default"]:"");
++                switch ($value["type"]) {
++                case "text":
++                        if ($value['display']=='Codec') {
++                                ?>
++                                    <tr>
++                                      <td class="dataRecord" ><b>Codecs</b></td>
++                                      <td class="dataRecord">
++                                         <table style='width:100%'><tr><td>
++                                               <input type="text" name="extra_codecs" id="extra_codecs" opt="n" value="<?=$val?>" maxlength="<?=(isset($config->codec_size)?$config->codec_size:255)?>" readonly class="dataInput" style="width:340!important"  oninput="validate_extra_codec()">
++                                               <input type="button" name="clear_codec" value="Clear Last" class="inlineButton" style="width:90px" onclick="clearObjectcodec('extra_codecs')">
++                                             </td>
++                                             <td width='20'>
++                                               <div id='extra_codecs_ok'></div>
++                                        </td></tr></table>
++                                      </td>
++                                    </tr>
++                                    <tr>
++                                      <td/>
++                                      <td class="dataRecord">
++                                           <?=print_codec_list()?>
++                                           <input type="button" name="add_codec" value="Add" class="inlineButton" style="width:90px" onclick="addElementToObjectcodec('extra_codecs')">
++                                      </td>
++                                    </tr>
++                                    <tr>
++                                      <td/>
++                                      <td class="dataRecord">
++                                           <?=print_stripcodec_list()?>
++                                           <input type="button" name="strip_codec" value="Strip" class="inlineButton" style="width:90px" onclick="stripElementToObjectcodec('extra_codecs')">
++                                      </td>
++                                    </tr>                   
++                                 <?php
++                                
++                                    break;
++                        }
++                        form_generate_input_text($value["display"],
++                                $value["hint"],
++                                "extra_".$key,
++                                "y",
++                                $val,
++                                128,
++                                (isset($value["validation_regexp"])?$value["validation_regexp"]:NULL));
++                        break;
++                case "checkbox":
++                        form_generate_input_checkbox($value["display"],
++                                $value["hint"],
++                                "extra_".$key,
++                                $key,
++                                $val);
++                        break;
++                case "combo":
++                        $options = dr_get_combo_attrs($value);
++                        form_generate_select($value['display'], $value['hint'],
++                                "extra_".$key, 205, $val, array_keys($options), array_values($options), false);
++                        break;
++                }
++        }
+ }
+ 
+ form_generate_input_text("Description", "Arbitrary description of the carrier",
+-	"description", "y", $dr_form['description'], 128, "^.*$");
+-?>
++        "description", "y", $dr_form['description'], 128, "^.*$");
++?>
+\ No newline at end of file
+
+diff --git a/web/tools/system/drouting/template/rules.main.php b/web/tools/system/drouting/template/rules.main.php
+index 8bfdeb87..1ea7f437 100755
+--- a/web/tools/system/drouting/template/rules.main.php
++++ b/web/tools/system/drouting/template/rules.main.php
+@@ -2,7 +2,7 @@
+ /*
+  * Copyright (C) 2011 OpenSIPS Project
+  *
+- * This file is part of opensips-cp, a free Web Control Panel Application for 
++ * This file is part of opensips-cp, a free Web Control Panel Application for
+  * OpenSIPS SIP server.
+  *
+  * opensips-cp is free software; you can redistribute it and/or modify
+@@ -30,13 +30,13 @@
+  if($_SESSION['read_only']) {
+ 	$colspan=9;
+  } else {
+-	$colspan=7;
++        $colspan=7;
+  }
+  if ($rules_attributes_mode != "none") {
+         $rules_attributes = get_settings_value("rules_attributes");
+-	$row_colspan = 11;
++        $row_colspan = 11;
+  } else {
+-	$row_colspan = 10;
++        $row_colspan = 10;
+  }
+  $sql_search="";
+  $sql_vals=array();
+@@ -53,18 +53,18 @@
+  $search_prefix=$_SESSION['rules_search_prefix'];
+  if ($search_prefix!="") {
+                           $pos=strpos($search_prefix,"*");
+-			  if ($pos===false) {
+-				  $sql_search.=" and prefix=?";
+-				  array_push( $sql_vals, $search_prefix);
++                          if ($pos===false) {
++                                  $sql_search.=" and prefix=?";
++                                  array_push( $sql_vals, $search_prefix);
+                           } else {
+-				  $sql_search.=" and prefix like ?";
+-				  array_push( $sql_vals, str_replace("*","%",$search_prefix));
+-			  }
++                                  $sql_search.=" and prefix like ?";
++                                  array_push( $sql_vals, str_replace("*","%",$search_prefix));
++                          }
+  }
+  $search_priority=$_SESSION['rules_search_priority'];
+  if ($search_priority!="") {
+-	 $sql_search.=" and priority=?";
+-	 array_push( $sql_vals, $search_priority);
++         $sql_search.=" and priority=?";
++         array_push( $sql_vals, $search_priority);
+  }
+  $search_gwlist=$_SESSION['rules_search_gwlist'];
+  if ($search_gwlist!="") {
+@@ -83,8 +83,8 @@
+  }
+  $search_description=$_SESSION['rules_search_description'];
+  if ($search_description!="") {
+-	 $sql_search.=" and description like ?";
+-	 array_push( $sql_vals, "%".$search_description."%");
++         $sql_search.=" and description like ?";
++         array_push( $sql_vals, "%".$search_description."%");
+  }
+ ?>
+ <table width="50%" cellspacing="2" cellpadding="2" border="0">
+@@ -118,7 +118,7 @@
+   <td colspan="2" class="searchRecord border-bottom-devider" align="center">
+    <input type="submit" name="search" value="Search" class="searchButton">&nbsp;&nbsp;&nbsp;
+    <input type="submit" name="show_all" value="Show All" class="searchButton"> &nbsp;&nbsp;&nbsp;
+-   <?php if (!$_read_only) echo('<input type="submit" name="delete" value="Delete Matching" class="formButton" onClick="return confirmDeleteSearch()">') ?>
++   <?php //if (!$_read_only) echo('<input type="submit" name="delete" value="Delete Matching" class="formButton" onClick="return confirmDeleteSearch()">') ?>
+   </td>
+  </tr>
+ </table>
+@@ -126,7 +126,7 @@
+ <?php
+ $rules_attributes_mode = get_settings_value("rules_attributes_mode");
+ if ($rules_attributes_mode != "none")
+-	$rules_attributes = get_settings_value("rules_attributes");
++        $rules_attributes = get_settings_value("rules_attributes");
+ ?>
+ 
+ <?php if (!$_SESSION['read_only']) { ?>
+@@ -143,8 +143,8 @@ if ($rules_attributes_mode != "none")
+   <th class="listTitle">Group ID</th>
+   <th class="listTitle">Prefix</th>
+   <th class="listTitle">Priority</th>
+-  <th class="listTitle">GW List</th>  
+-  <th class="listTitle">List Sort</th>  
++  <th class="listTitle">GW List</th>
++  <th class="listTitle">List Sort</th>
+ <?php if ($rules_attributes_mode != "none") { ?>
+   <th class="listTitle"><?=(isset($rules_attributes["display_name"])?$rules_attributes["display_name"]:"Attributes")?></th>
+ <?php } ?>
+@@ -155,16 +155,16 @@ if ($rules_attributes_mode != "none")
+  </tr>
+ <?php
+  if ($sql_search=="") {
+-	$sql_command="select * from ".$table." order by ruleid asc";
+-	$sql_count="select count(*) from ".$table;
++        $sql_command="select * from ".$table." order by ruleid asc";
++        $sql_count="select count(*) from ".$table;
+  }
+  else {
+-	$sql_command="select * from ".$table." where (1=1) ".$sql_search." order by ruleid asc";
+-	$sql_count="select count(*) from ".$table." where (1=1) ".$sql_search;
++        $sql_command="select * from ".$table." where (1=1) ".$sql_search." order by ruleid asc";
++        $sql_count="select count(*) from ".$table." where (1=1) ".$sql_search;
+  }
+  $stm= $link->prepare($sql_count);
+  if ($stm===FALSE) {
+-	die('Failed to issue query ['.$sql_count.'], error message : ' . $link->errorInfo()[2]);
++        die('Failed to issue query ['.$sql_count.'], error message : ' . $link->errorInfo()[2]);
+  }
+  require("lib/".$page_id.".main.js");
+  $stm->execute( $sql_vals );
+@@ -186,7 +186,7 @@ if ($rules_attributes_mode != "none")
+   else $sql_command.=" limit ".$res_no." OFFSET " . $start_limit;
+   $stm= $link->prepare($sql_command);
+   if ($stm===FALSE) {
+-	die('Failed to issue query ['.$sql_command.'], error message : ' . $link->errorInfo()[2]);
++        die('Failed to issue query ['.$sql_command.'], error message : ' . $link->errorInfo()[2]);
+   }
+   $stm->execute( $sql_vals );
+   $resultset = $stm->fetchAll(PDO::FETCH_ASSOC);
+

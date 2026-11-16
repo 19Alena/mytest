@@ -1,0 +1,84 @@
+# --------------------------------------------------------------------
+# Customization 3/14: P2-CUST-CARRIERS_MAIN_PHP
+# Title: Customization in carriers.main.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/drouting/template/carriers.main.php b/web/tools/system/drouting/template/carriers.main.php
+index 5223330f..90d4c56e 100755
+--- a/web/tools/system/drouting/template/carriers.main.php
++++ b/web/tools/system/drouting/template/carriers.main.php
+@@ -60,7 +60,7 @@
+   <td colspan="2" class="searchRecord border-bottom-devider" align="center">
+    <input type="submit" name="search" value="Search" class="searchButton">&nbsp;&nbsp;&nbsp;
+    <input type="submit" name="show_all" value="Show All" class="searchButton"> &nbsp;&nbsp;&nbsp;
+-   <?php if (!$_read_only) echo('<input type="submit" name="delete" value="Delete Matching" class="formButton" onClick="return confirmDeleteSearch()">') ?>
++   <?php //if (!$_read_only) echo('<input type="submit" name="delete" value="Delete Matching" class="formButton" onClick="return confirmDeleteSearch()">') ?>
+   </td>
+  </tr>
+ </table>
+@@ -87,8 +87,12 @@ $carrier_attributes_mode = get_settings_value("carrier_attributes_mode");
+ $carrier_attributes = get_settings_value("carrier_attributes");
+ $memory_status = get_settings_value("memory_status");
+ if ($carrier_attributes_mode != "none") {
+-	if ($carrier_attributes_mode == "input") {
+-		echo('<th class="listTitle"><'.(isset($carrier_attributes["display_name"])?$carrier_attributes["display_name"]:"Attributes").'></th>');
++  if (1==1) {
++    echo '<th class="listTitle">';
++    echo "<div style='text-align:center; width:400'>Settings</div>";
++    echo '</th>';  
++//	if ($carrier_attributes_mode == "input") {
++//		echo('<th class="listTitle"><'.(isset($carrier_attributes["display_name"])?$carrier_attributes["display_name"]:"Attributes").'></th>');
+ 		$carrier_attrs_colspan = 1;
+ 	} else {
+ 		foreach ($carrier_attributes as $key => $value) {
+@@ -220,21 +224,34 @@ if ($memory_status != "0") {
+   <td class="<?=$row_style?>"><?=$description?></td>
+ <?php
+ if ($carrier_attributes_mode == "input") {
++
+ 	if ($resultset[$i]['attrs']!="") $attrs=$resultset[$i]['attrs'];
+ 	else $attrs="&nbsp;";
+ 	echo('<td class="'.$row_style.'">'.$attrs.'</td>');
+ } else if ($carrier_attributes_mode == "params") {
+-	$attr_map = dr_get_attrs_map($resultset[$i]['attrs']);
+-	foreach ($carrier_attributes as $key => $value) {
+-		$val = dr_get_attrs_val($attr_map, $key, $value);
+-		if ($value["type"] == "checkbox" && $val == true)
+-			$val = "<img src='../../../images/share/active.png'>";
+-		else if (isset($value["value_wrapper_func"])) {
+-			eval("\$func = ".$value['value_wrapper_func'].';');
+-			$val = $func($attr_map[$key], $val);
+-		}
+-		echo("<td class=\"".$row_style."\">".$val."</td>");
+-	}
++  echo "<td class=\"".$row_style."\" width=200>";
++  echo '<div class="config-grid">';
++  $attr_map = dr_get_attrs_map($resultset[$i]['attrs']);
++  foreach ($carrier_attributes as $key => $value) {
++    $display = $value['display_main'] ?? $key;
++    $val = dr_get_attrs_val($attr_map, $key, $value);
++
++    if ($value["type"] == "checkbox" && $val == true) {
++        $val = "<img src='../../../images/share/active.png'>";
++    }
++    else if (isset($value["value_wrapper_func"])) {
++        eval("\$func = ".$value['value_wrapper_func'].';');
++        $val = $func($attr_map[$key], $val);
++    }
++    if ($key!='auth_pass' and $key!='auth_user' and $key!='auth_realm' and $key!='codecs' and $key!='a_name') {
++        echo '<div class="config-row">';
++        echo '<div class="config-label">' . htmlspecialchars($display) . ':</div>';
++        echo '<div class="config-value"><i>' . htmlspecialchars($val) . '</i></div>';
++        echo '</div>';
++    }
++  }
++  echo '</div>';
++  echo "</td>";
+ }
+ ?>
+   <td class="<?=$row_style?>" align="center"><?=$state?></td>
+

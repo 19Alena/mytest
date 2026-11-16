@@ -1,0 +1,59 @@
+# --------------------------------------------------------------------
+# Customization 14/14: P2-CUST-STYLE_TOOLS_CSS
+# Title: Customization in style_tools.css
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/style_tools.css b/web/style_tools.css
+index 6d3d3d98..16e134fb 100755
+--- a/web/style_tools.css
++++ b/web/style_tools.css
+@@ -98,14 +98,14 @@ table tr:last-child > th:last-child {
+ 
+ .ttable td.rowEven {
+ 	background: #f6f6f6;
+-	background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f6f6f6));
++	background: -webkit-gradient(linear, left top, left bottom, from(#f3f6fa), to(#eef2f7));
+ 	background: -moz-linear-gradient(top,  #f8f8f8,  #f6f6f6);
+ }
+ 
+ .ttable td.rowEvenImg {
+ 	padding:0px;
+ 	background: #f6f6f6;
+-	background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f6f6f6));
++	background: -webkit-gradient(linear, left top, left bottom, from(#f3f6fa), to(#eef2f7));
+ 	background: -moz-linear-gradient(top,  #f8f8f8,  #f6f6f6);
+ }
+ 
+@@ -737,4 +737,28 @@ p, li, td, .menu_active, input, button {
+ 	.chart-third{fill:#e92213}
+ 	.needle,.needle-center{fill:#464A4F}
+ 
++	.config-grid {
++		display: grid;
++		grid-template-columns: 1fr 1fr;
++		column-gap: 25px;
++		row-gap: 2px;
++	}
++	
++	.config-row {
++		display: flex;
++		align-items: flex-start;
++		padding: 1px 0;
++	}
++	
++	.config-label {
++		color: #8194a7;
++		font-weight: 501;
++		min-width: 140px;
++		flex-shrink: 0;
++		padding-right: 6px;
++	}
++	
++	.config-value {
++		color: #333;
++	}
+
