@@ -1,0 +1,17 @@
+# --------------------------------------------------------------------
+# Customization 139/218: P8-CUST-LOGOUT_PNG
+# Title: Customization in logout.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/logout.png b/web/images/logout.png
+old mode 100644
+new mode 100755
+
+diff --git a/web/images/share/logout.png b/web/images/share/logout.png
+old mode 100644
+new mode 100755
+

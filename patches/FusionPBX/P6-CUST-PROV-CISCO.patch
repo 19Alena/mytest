@@ -1,0 +1,198 @@
+# --------------------------------------------------------------------
+# Customization 18/23: P6-CUST-PROV-CISCO
+# Title: Cisco Encrypted Profile Provisioning
+# Category: Provisioning
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 5.5
+# --------------------------------------------------------------------
+
+diff --git a/app/provision/index.php b/app/provision/index.php
+index fd6bab612..367e774f1 100644
+--- a/app/provision/index.php
++++ b/app/provision/index.php
+@@ -59,9 +59,9 @@
+ 	}
+ 	$file = $_REQUEST['file'] ?? '';
+ 	$ext = $_REQUEST['ext'] ?? '';
+-	//if (!empty($_REQUEST['template'])) {
+-	//	$device_template = $_REQUEST['template'];
+-	//}
++	if (!empty($_REQUEST['template'])) {
++		$device_template = $_REQUEST['template'];
++	}
+ 
+ //get the device address for Cisco 79xx in the URL as &name=SEP000000000000
+ 	if (empty($device_address)) {
+@@ -410,7 +410,46 @@
+ 			return;
+ 		}
+ 	}
+-
++function encrypt_cisco_profile($file_contents, $key) {
++    $temp_in = tempnam(sys_get_temp_dir(), 'cisco_in_');
++    $temp_out = tempnam(sys_get_temp_dir(), 'cisco_out_');
++
++    try {
++        // Write the generated XML to a temporary file
++        if (file_put_contents($temp_in, $file_contents) === false) {
++            throw new RuntimeException('Unable to create temporary input file');
++        }
++
++        // Cisco SPA expects:
++        // openssl enc -e -aes-256-cbc -md md5 -k <key>
++        $command = sprintf(
++            'openssl enc -e -aes-256-cbc -md md5 -k %s -in %s -out %s 2>&1',
++            escapeshellarg($key),
++            escapeshellarg($temp_in),
++            escapeshellarg($temp_out)
++        );
++
++        exec($command, $output, $return_code);
++
++        if ($return_code !== 0) {
++            throw new RuntimeException(
++                'Cisco profile encryption failed: ' . implode("\n", $output)
++            );
++        }
++
++        $encrypted = file_get_contents($temp_out);
++
++        if ($encrypted === false) {
++            throw new RuntimeException('Unable to read encrypted Cisco profile');
++        }
++
++        return $encrypted;
++    }
++    finally {
++        @unlink($temp_in);
++        @unlink($temp_out);
++    }
++}
+ //start the buffer
+ 	ob_start();
+ 
+@@ -444,6 +483,8 @@
+ 			header('Content-Length: '.strlen($file_contents ?? ''));
+ 	}
+ 	else {
++//error_log("device_vendor=[$device_vendor], device_template=[$device_template], mac=[$device_address], key=[". ($provision["cisco_a_key"] ?? 'NOT SET')."]");
++error_log("device_vendor=[$device_vendor], device_template=[$device_template], mac=[$device_address], key=[");
+ 		$cfg_ext = ".cfg";
+ 		if ($device_vendor === "aastra" && strrpos($file, $cfg_ext, 0) === strlen($file) - strlen($cfg_ext)) {
+ 			header("Content-Type: text/plain");
+@@ -458,6 +499,19 @@
+ 		elseif (!empty($file_contents) && is_xml($file_contents)) {
+ 			header("Content-Type: text/xml; charset=utf-8");
+ 		}
++else if ($device_vendor === "cisco" && ($device_template === "spa504g" || $device_template === "spa303" || $device_template === "old_cisco")) {
++$key = $provision["cisco_a_key"];
++    $file_contents = encrypt_cisco_profile($file_contents, $key);
++    header("Content-Type: application/octet-stream");
++//$debug_file = '/tmp/cisco_' . $mac . '_' . date('Ymd_His') . '.cfg';
++
++//file_put_contents($debug_file, $file_contents);
++
++//error_log("Cisco encrypted profile saved to: " . $debug_file);
++
++//$file_contents = $encrypted;
++//header("Content-Type: application/octet-stream");
++}
+ 		else {
+ 			header("Content-Type: text/plain");
+ 		}
+
+diff --git a/resources/templates/provision/cisco/spa303/{$mac}.xml b/resources/templates/provision/cisco/spa303/{$mac}.xml
+index 305318666..22c82c7f0 100644
+--- a/resources/templates/provision/cisco/spa303/{$mac}.xml
++++ b/resources/templates/provision/cisco/spa303/{$mac}.xml
+@@ -63,7 +63,7 @@
+ <Resync_Trigger_2 ua="na"></Resync_Trigger_2>
+ <Resync_Fails_On_FNF ua="na">Yes</Resync_Fails_On_FNF>
+ {if isset ($http_auth_username)}
+-<Profile_Rule>[--uid {$http_auth_username} --pwd {$http_auth_password}]http://{$domain_name}{$project_path}/app/provision/?mac=$MA</Profile_Rule>
++<Profile_Rule>[--key $A --uid {$http_auth_username} --pwd {$http_auth_password}]http://keyencrypt.{$domain_name}{$project_path}/app/provision/?mac=$MA</Profile_Rule>
+ {else}
+ <Profile_Rule>http://{$domain_name}{$project_path}/app/provision/?mac=$MA</Profile_Rule>
+ {/if}
+@@ -89,7 +89,7 @@
+ <License_Keys ua="na"></License_Keys>
+ 
+ <!-- General Purpose Parameters -->
+-<GPP_A ua="na"></GPP_A>
++<GPP_A ua="na">{$cisco_a_key}</GPP_A>
+ <GPP_B ua="na"></GPP_B>
+ <GPP_C ua="na"></GPP_C>
+ <GPP_D ua="na"></GPP_D>
+
+diff --git a/resources/templates/provision/cisco/spa504g/{$mac}.xml b/resources/templates/provision/cisco/spa504g/{$mac}.xml
+index 045c7d26a..db1a8588e 100644
+--- a/resources/templates/provision/cisco/spa504g/{$mac}.xml
++++ b/resources/templates/provision/cisco/spa504g/{$mac}.xml
+@@ -130,7 +130,7 @@
+ <Resync_Trigger_2 group="Provisioning/Configuration_Profile" />
+ <Resync_Fails_On_FNF group="Provisioning/Configuration_Profile">Yes</Resync_Fails_On_FNF>
+ {if isset ($http_auth_username)}
+-<Profile_Rule group="Provisioning/Configuration_Profile">[--uid {$http_auth_username} --pwd {$http_auth_password}]http://{$domain_name}{$project_path}/app/provision/?mac=$MA</Profile_Rule>
++<Profile_Rule group="Provisioning/Configuration_Profile">[--key $A --uid {$http_auth_username} --pwd {$http_auth_password}]http://keyencrypt.{$domain_name}{$project_path}/app/provision/?mac=$MA</Profile_Rule>
+ {else}
+ <Profile_Rule group="Provisioning/Configuration_Profile">http://{$domain_name}{$project_path}/app/provision/?mac=$MA</Profile_Rule>
+ {/if}
+@@ -150,7 +150,7 @@
+ <Log_Upgrade_Success_Msg group="Provisioning/Firmware_Upgrade">$PN $MAC -- Successful upgrade $SCHEME://$SERVIP:$PORT$PATH -- $ERR</Log_Upgrade_Success_Msg>
+ <Log_Upgrade_Failure_Msg group="Provisioning/Firmware_Upgrade">$PN $MAC -- Upgrade failed: $ERR</Log_Upgrade_Failure_Msg>
+ <License_Keys group="Provisioning/Firmware_Upgrade" />
+-<GPP_A group="Provisioning/General_Purpose_Parameters" />
++<GPP_A group="Provisioning/General_Purpose_Parameters">{$cisco_a_key}</GPP_A>
+ <GPP_B group="Provisioning/General_Purpose_Parameters" />
+ <GPP_C group="Provisioning/General_Purpose_Parameters" />
+ <GPP_D group="Provisioning/General_Purpose_Parameters" />
+@@ -265,6 +265,15 @@
+ <LDAP_item_4_Filter group="Phone/LDAP_Corporate_Directory_Search" />
+ <LDAP_Display_Attrs group="Phone/LDAP_Corporate_Directory_Search" />
+ <LDAP_Number_Mapping group="Phone/LDAP_Corporate_Directory_Search" />
++<!-- Phone/XML_Service -->
++<XML_Directory_Service_Name group="Phone/XML_Service"></XML_Directory_Service_Name>
++<XML_Directory_Service_URL group="Phone/XML_Service"></XML_Directory_Service_URL>
++<XML_Application_Service_Name group="Phone/XML_Service" />
++<XML_Application_Service_URL group="Phone/XML_Service" />
++<XML_User_Name group="Phone/XML_Service" />
++<XML_Password group="********" />
++<CISCO_XML_EXE_Auth_Mode group="Phone/XML_Service">Trusted</CISCO_XML_EXE_Auth_Mode>
++<Dictionary_Server_Script group="Regional/Miscellaneous"></Dictionary_Server_Script>
+ <EM_Enable group="Phone/Extension_Mobility">No</EM_Enable>
+ <EM_User_Domain group="Phone/Extension_Mobility" />
+ <Line_Enable_1_ group="Ext_1/General">Yes</Line_Enable_1_>
+@@ -304,18 +313,18 @@
+ <Default_Ring__1__ group="Ext_1/Call_Feature_Settings">1</Default_Ring__1__>
+ <Feature_Key_Sync_1_ group="Ext_1/Call_Feature_Settings">{$spa_feature_key_sync}</Feature_Key_Sync_1_> 
+ <Auth_Page_Realm_1_ group="Ext_1/Call_Feature_Settings" />
+-<Conference_Bridge_URL_1_ group="Ext_1/Call_Feature_Settings" />
++<Conference_Bridge_URL_1_ group="Ext_1/Call_Feature_Settings"></Conference_Bridge_URL_1_>
+ <Auth_Page_Password_1_ group="Ext_1/Call_Feature_Settings" />
+ <Mailbox_ID_1_ group="Ext_1/Call_Feature_Settings" />
+-<Voice_Mail_Server_1_ group="Ext_1/Call_Feature_Settings" />
++<Voice_Mail_Server_1_ group="Ext_1/Call_Feature_Settings"></Voice_Mail_Server_1_>
+ <State_Agent_1_ group="Ext_1/Call_Feature_Settings" />
+ <CFWD_Notify_Serv_1_ group="Ext_1/Call_Feature_Settings">No</CFWD_Notify_Serv_1_>
+ <CFWD_Notifier_1_ group="Ext_1/Call_Feature_Settings" />
+ <Proxy_1_ group="Ext_1/Proxy_and_Registration">{$account.1.server_address}</Proxy_1_>
+ <Use_Outbound_Proxy_1_ group="Ext_1/Proxy_and_Registration">{if isset($account.1.outbound_proxy_primary)}Yes{else}No{/if}</Use_Outbound_Proxy_1_>
+ <Outbound_Proxy_1_ group="Ext_1/Proxy_and_Registration">{$account.1.outbound_proxy_primary}</Outbound_Proxy_1_>
+-<Alternate_Proxy_1_ group="Ext_1/Proxy_and_Registration">{$account.1.server_address}</Alternate_Proxy_1_>
+-<Alternate_Outbound_Proxy_1_ group="Ext_1/Proxy_and_Registration">{$account.1.outbound_proxy_secondary}</Alternate_Outbound_Proxy_1_>
++<Alternate_Proxy_1_ group="Ext_1/Proxy_and_Registration"></Alternate_Proxy_1_>
++<Alternate_Outbound_Proxy_1_ group="Ext_1/Proxy_and_Registration"></Alternate_Outbound_Proxy_1_>
+ <Use_OB_Proxy_In_Dialog_1_ group="Ext_1/Proxy_and_Registration">Yes</Use_OB_Proxy_In_Dialog_1_>
+ <Register_1_ group="Ext_1/Proxy_and_Registration">Yes</Register_1_>
+ <Make_Call_Without_Reg_1_ group="Ext_1/Proxy_and_Registration">No</Make_Call_Without_Reg_1_>
+@@ -332,7 +341,7 @@
+ <User_ID_1_ group="Ext_1/Subscriber_Information">{$account.1.user_id}</User_ID_1_>
+ <Password_1_ group="Ext_1/Subscriber_Information">{$account.1.password}</Password_1_>
+ <Use_Auth_ID_1_ group="Ext_1/Subscriber_Information">No</Use_Auth_ID_1_>
+-<Auth_ID_1_ group="Ext_1/Subscriber_Information" />
++<Auth_ID_1_ group="Ext_1/Subscriber_Information">{$account.1.auth_id}</Auth_ID_1_>
+ <Mini_Certificate_1_ group="Ext_1/Subscriber_Information" />
+ <SRTP_Private_Key_1_ group="Ext_1/Subscriber_Information" />
+ <Preferred_Codec_1_ group="Ext_1/Audio_Configuration">G711u</Preferred_Codec_1_>
+

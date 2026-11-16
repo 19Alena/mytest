@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 132/218: P8-CUST-LIST_ADMINS_ADD_PHP
+# Title: Customization in list_admins.add.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/list_admins/template/list_admins.add.php b/web/tools/admin/list_admins/template/list_admins.add.php
+old mode 100644
+new mode 100755
+

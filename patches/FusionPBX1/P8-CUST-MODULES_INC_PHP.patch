@@ -1,0 +1,53 @@
+# --------------------------------------------------------------------
+# Customization 153/218: P8-CUST-MODULES_INC_PHP
+# Title: Customization in modules.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/modules.inc.php b/config/modules.inc.php
+old mode 100644
+new mode 100755
+index cf2f1ffa..a8d497e7
+--- a/config/modules.inc.php
++++ b/config/modules.inc.php
+@@ -79,9 +79,9 @@ $config_modules 	= array (
+ 				"enabled"		=> true,
+ 				"name"			=> "Addresses"
+ 			),
+-			"config"		=> array (
+-				"enabled"		=> true,
+-				"name"			=> "Config"
++			"config"                => array (
++				"enabled"               => true,
++				"name"                  => "Config"
+ 			),
+ 			"callcenter"		=> array (
+ 				"enabled"		=> true,
+@@ -111,6 +111,10 @@ $config_modules 	= array (
+ 				"enabled"		=> true,
+ 				"name"			=> "Dynamic Routing"
+ 			),
++			"whitelist"			=> array (
++				"enabled"		=> true,
++				"name"			=> "Whitelisting/Fraud"
++			),
+ 			"clusterer"			=> array (
+ 				"enabled"		=> true,
+ 				"name"			=> "Clusterer"
+@@ -159,9 +163,9 @@ $config_modules 	= array (
+ 				"enabled"		=> true,
+ 				"name"			=> "UAC Registrant"
+ 			),
+-			"sockets_mgm"			=> array (
+-				"enabled"		=> true,
+-				"name"			=> "Sockets Management"
++			"sockets_mgm"                   => array (
++				"enabled"               => true,
++				"name"                  => "Sockets Management"
+ 			),
+ 			"smpp"				=> array (
+ 				"enabled"		=> true,
+

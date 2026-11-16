@@ -1,0 +1,23 @@
+# --------------------------------------------------------------------
+# Customization 7/23: P6-CUST-APP-VOICEMAIL_GREETINGS
+# Title: Custom App: Voicemail Greetings
+# Category: Custom App
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 5.5
+# --------------------------------------------------------------------
+
+diff --git a/app/voicemail_greetings/voicemail_greetings.php b/app/voicemail_greetings/voicemail_greetings.php
+index 436cfecf0..5454bb61f 100644
+--- a/app/voicemail_greetings/voicemail_greetings.php
++++ b/app/voicemail_greetings/voicemail_greetings.php
+@@ -239,7 +239,7 @@
+ 			$array['voicemail_greetings'][$x]['greeting_filename'] = $greeting_file_name;
+ 			$array['voicemail_greetings'][$x]['greeting_description'] = '';
+ 			if (!empty($settings->get('voicemail', 'storage_type')) && $settings->get('voicemail', 'storage_type') == 'base64') {
+-				$array['voicemail_greetings'][$x]['greeting_base64'] = base64_encode(file_get_contents($greeting_dir.'/'.$file_name));
++				$array['voicemail_greetings'][$x]['greeting_base64'] = base64_encode(file_get_contents($greeting_dir.'/'.$greeting_file_name));
+ 			}
+ 
+ 			//save the array
+

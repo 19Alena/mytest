@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 84/218: P7-CUST-DELETE_PNG
+# Title: Customization in delete.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/delete.png b/web/images/share/delete.png
+old mode 100644
+new mode 100755
+

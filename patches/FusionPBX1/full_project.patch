@@ -1,0 +1,4324 @@
+# ====================================================================
+# Unified Customization Patch for: FusionPBX1 (Project ID: 8)
+# Target Clean Base Ref: origin/9.3.6
+# Server: 192.168.0.109
+# Generated: 2026-11-16T18:34:25.109702Z
+# Total Active Customizations: 218
+# ====================================================================
+
+# --------------------------------------------------------------------
+# Customization 1/218: P8-CUST-ACCESS_LOG
+# Title: Customization in access.log
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/access.log b/config/access.log
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 2/218: P8-CUST-ACCESS_PNG
+# Title: Customization in access.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/access.png b/web/images/share/access.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 3/218: P8-CUST-ACTIVE_PNG
+# Title: Customization in active.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/active.png b/web/images/share/active.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 4/218: P8-CUST-ADD_PHP
+# Title: Customization in add.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/tools/tviewer/custom_actions/add.php b/web/common/tools/tviewer/custom_actions/add.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 5/218: P8-CUST-ADD_PNG
+# Title: Customization in add.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/add.png b/web/images/share/add.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 6/218: P8-CUST-ALIAS_PNG
+# Title: Customization in alias.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/alias.png b/web/images/share/alias.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 7/218: P8-CUST-ARROW_GIF
+# Title: Customization in arrow.gif
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/arrow.gif b/web/images/arrow.gif
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 8/218: P8-CUST-ASR_WIDGET_PHP
+# Title: Customization in asr_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dialog/template/dashboard_widgets/asr_widget.php b/web/tools/system/dialog/template/dashboard_widgets/asr_widget.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 9/218: P8-CUST-AUTH_INDEX_PHP
+# Title: Customization in auth_index.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/auth_index.php b/web/auth_index.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 10/218: P8-CUST-AUTH_LOGIN_PHP
+# Title: Customization in auth_login.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/auth_login.php b/web/auth_login.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 11/218: P8-CUST-BACKGROUND_PNG
+# Title: Customization in background.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/background.png b/web/images/background.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 12/218: P8-CUST-BAR_CHART_WIDGET_PHP
+# Title: Customization in bar_chart_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/smonitor/template/dashboard_widgets/bar_chart_widget.php b/web/tools/system/smonitor/template/dashboard_widgets/bar_chart_widget.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 13/218: P8-CUST-BAR_D3JS_PHP
+# Title: Customization in bar_d3js.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/charting/bar_d3js.php b/web/common/charting/bar_d3js.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/system/dashboard/lib/bar_d3js.php b/web/tools/system/dashboard/lib/bar_d3js.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 14/218: P8-CUST-BAR_JPG
+# Title: Customization in bar.jpg
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/bar.jpg b/web/images/bar.jpg
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 15/218: P8-CUST-BLUE_DOT_GIF
+# Title: Customization in blue_dot.gif
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/blue_dot.gif b/web/images/blue_dot.gif
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 16/218: P8-CUST-BOXBOTTOMLEFT_GIF
+# Title: Customization in boxbottomleft.gif
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/boxbottomleft.gif b/web/images/boxbottomleft.gif
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 17/218: P8-CUST-BOXBOTTOMRIGHT_GIF
+# Title: Customization in boxbottomright.gif
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/boxbottomright.gif b/web/images/boxbottomright.gif
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 18/218: P8-CUST-BOXBOTTOM_GIF
+# Title: Customization in boxbottom.gif
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/boxbottom.gif b/web/images/boxbottom.gif
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 19/218: P8-CUST-BOXES_CONFIG_ADD_PHP
+# Title: Customization in boxes_config.add.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/boxes_config/template/boxes_config.add.php b/web/tools/admin/boxes_config/template/boxes_config.add.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 20/218: P8-CUST-BOXES_CONFIG_DETAILS_PHP
+# Title: Customization in boxes_config.details.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/boxes_config/template/boxes_config.details.php b/web/tools/admin/boxes_config/template/boxes_config.details.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 21/218: P8-CUST-BOXES_CONFIG_EDIT_TOOLS_PHP
+# Title: Customization in boxes_config.edit_tools.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/boxes_config/template/boxes_config.edit_tools.php b/web/tools/admin/boxes_config/template/boxes_config.edit_tools.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 22/218: P8-CUST-BOXES_CONFIG_MAIN_JS
+# Title: Customization in boxes_config.main.js
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/boxes_config/lib/boxes_config.main.js b/web/tools/admin/boxes_config/lib/boxes_config.main.js
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 23/218: P8-CUST-BOXES_CONFIG_MAIN_PHP
+# Title: Customization in boxes_config.main.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/boxes_config/template/boxes_config.main.php b/web/tools/admin/boxes_config/template/boxes_config.main.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 24/218: P8-CUST-BOXES_CONFIG_PHP
+# Title: Customization in boxes_config.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/boxes_config/boxes_config.php b/web/tools/admin/boxes_config/boxes_config.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 25/218: P8-CUST-BOXES_GLOBAL_INC_PHP
+# Title: Customization in boxes.global.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/boxes.global.inc.php b/config/boxes.global.inc.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 26/218: P8-CUST-BOXES_LOAD_PHP
+# Title: Customization in boxes.load.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/boxes.load.php b/config/boxes.load.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 27/218: P8-CUST-BOXLEFT_JPG
+# Title: Customization in boxleft.jpg
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/boxleft.jpg b/web/images/boxleft.jpg
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 28/218: P8-CUST-BOXRIGHT_JPG
+# Title: Customization in boxright.jpg
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/boxright.jpg b/web/images/boxright.jpg
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 29/218: P8-CUST-BOXTOPLEFT_GIF
+# Title: Customization in boxtopleft.gif
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/boxtopleft.gif b/web/images/boxtopleft.gif
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 30/218: P8-CUST-BOXTOPRIGHT_GIF
+# Title: Customization in boxtopright.gif
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/boxtopright.gif b/web/images/boxtopright.gif
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 31/218: P8-CUST-BOXTOP_GIF
+# Title: Customization in boxtop.gif
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/boxtop.gif b/web/images/boxtop.gif
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 32/218: P8-CUST-BOX_BG_GIF
+# Title: Customization in box_bg.gif
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/box_bg.gif b/web/images/box_bg.gif
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 33/218: P8-CUST-BOX_BOT_GIF
+# Title: Customization in box_bot.gif
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/box_bot.gif b/web/images/box_bot.gif
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 34/218: P8-CUST-BOX_HEAD_GIF
+# Title: Customization in box_head.gif
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/box_head.gif b/web/images/box_head.gif
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 35/218: P8-CUST-BULLET_ACTIVE_PNG
+# Title: Customization in bullet_active.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/bullet_active.png b/web/images/bullet_active.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 36/218: P8-CUST-BULLET_DEFAULT_PNG
+# Title: Customization in bullet_default.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/bullet_default.png b/web/images/bullet_default.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 37/218: P8-CUST-CARRIERS_ADD_EDIT_JS
+# Title: Customization in carriers.add.edit.js
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/drouting/lib/carriers.add.edit.js b/web/tools/system/drouting/lib/carriers.add.edit.js
+index c4240dd0..289efd78 100755
+--- a/web/tools/system/drouting/lib/carriers.add.edit.js
++++ b/web/tools/system/drouting/lib/carriers.add.edit.js
+@@ -1,5 +1,65 @@
+ <script language="JavaScript">
+ 
++function handleExtraTranscoding() {
++    const transcoding = document.getElementById('extra_rtp');
++    const codecInput  = document.getElementById('extra_codecs');
++    const codecSelect = document.getElementById('extra_codecs_value');
++    const codecstripSelect = document.getElementById('extra_codecs_stripvalue');
++    const addBtn   = document.querySelector('input[name="add_codec"]');
++    const stripBtn   = document.querySelector('input[name="strip_codec"]');
++    const clearBtn = document.querySelector('input[name="clear_codec"]');
++    if (!transcoding || !codecInput || !codecSelect || !codecstripSelect) {
++        return;
++    }
++    if (transcoding.value === 'T') {
++        codecInput.disabled = false;
++        codecSelect.disabled = false;
++        codecstripSelect.disabled = false;
++        addBtn.disabled = false;
++        stripBtn.disabled = false;
++        clearBtn.disabled = false;
++        validate_extra_codec();
++    } else {
++        codecInput.value = '';
++        codecInput.disabled = true;
++        codecSelect.disabled = true;
++        codecstripSelect.disabled = true;    
++        addBtn.disabled = true;
++        stripBtn.disabled = true;
++        clearBtn.disabled = true;
++        validate_extra_codec();
++    }
++}
++
++function validate_extra_codec() {
++        var transcoding = document.getElementById('extra_rtp').value;
++        var field = 'extra_codecs';
++        var output = 'extra_codecs_ok';
++        var val = document.getElementById(field).value.trim();
++        var ret = 1;
++
++        if (transcoding !== 'T') {
++                document.getElementById(output).innerHTML = '';
++                document.getElementById(field).setAttribute("valid","ok");
++                form_full_check();
++                return ret;
++        }
++
++        if (val === '') {
++                document.getElementById(output).innerHTML =
++                        '<img src="../../../images/share/must-icon.png">';
++                document.getElementById(field).setAttribute("valid","ko");
++                ret = -1;
++        } else {
++                document.getElementById(output).innerHTML =
++                        '<img src="../../../images/share/ok_small.png">';
++                document.getElementById(field).setAttribute("valid","ok");
++        }
++
++        form_full_check();
++        return ret;
++}
++
+ function clearObject(object_name)
+ {
+  var list=document.getElementById(object_name).value;
+@@ -15,6 +75,25 @@ function clearObject(object_name)
+   list=list.substring(0,list.length-last);
+   document.getElementById(object_name).value=list;
+  }
++ validate_extra_codec();
++}
++
++function clearObjectcodec(object_name)
++{
++ var list=document.getElementById(object_name).value;
++ if ((list.charAt(list.length-1)==";") || (list.charAt(list.length-1)=="."))
++ {
++  document.getElementById(object_name).value=list.substring(0,list.length-1);
++ }
++ else
++ {
++  var list_modified=list.replace(/;/g,".");
++  var list_array=list_modified.split(".");
++  var last=list_array[list_array.length-1].length;
++  list=list.substring(0,list.length-last);
++  document.getElementById(object_name).value=list;
++ }
++ validate_extra_codec();
+ }
+ 
+ function is_pos_int(value){
+@@ -60,9 +139,51 @@ function addElementToObject(object_name,weight){
+ 			else
+ 				document.getElementById(object_name).value+=","+document.getElementById(object_name+"_value").value;
+ 		}
+-	}
++    }
+ }
+ 
++function addElementToObjectcodec(object_name)
++{
++if (document.getElementById(object_name).value=="") document.getElementById(object_name).value=document.getElementById(object_name+"_value").value;
++  else {
++        var values=document.getElementById(object_name).value;
++        values_modified=values.replace(/;/g,".");
++        var value_array=values_modified.split(".");
++        var new_value=document.getElementById(object_name+"_value").value;
++        var index=0;
++        while (index<value_array.length)
++         if (value_array[index]==new_value && object_name!="gwlist" ) {
++                                             if (object_name=="groupid") alert("Error: Duplicate Group ID value: '"+new_value+"'");
++                                             //if (object_name=="gwlist") alert("Error: Duplicate Gateway Address value: '#"+new_value+"'");
++                                             return false;
++                                            }
++          else index+=1;
++        if ((values.charAt(values.length-1)==";") || (values.charAt(values.length-1)==".")) document.getElementById(object_name).value+=document.getElementById(object_name+"_value").value;
++         else document.getElementById(object_name).value+="."+document.getElementById(object_name+"_value").value;
++       }
++    validate_extra_codec();
++}
++function stripElementToObjectcodec(object_name)
++{
++if (document.getElementById(object_name).value=="") document.getElementById(object_name).value=document.getElementById(object_name+"_stripvalue").value;
++  else {
++        var values=document.getElementById(object_name).value;
++        values_modified=values.replace(/;/g,".");
++        var value_array=values_modified.split(".");
++        var new_value=document.getElementById(object_name+"_stripvalue").value;
++        var index=0;
++        while (index<value_array.length)
++         if (value_array[index]==new_value && object_name!="gwlist" ) {
++                                             if (object_name=="groupid") alert("Error: Duplicate Group ID value: '"+new_value+"'");
++                                             //if (object_name=="gwlist") alert("Error: Duplicate Gateway Address value: '#"+new_value+"'");
++                                             return false;
++                                            }
++          else index+=1;
++        if ((values.charAt(values.length-1)==";") || (values.charAt(values.length-1)==".")) document.getElementById(object_name).value+=document.getElementById(object_name+"_stripvalue").value;
++         else document.getElementById(object_name).value+="."+document.getElementById(object_name+"_stripvalue").value;
++       }
++    validate_extra_codec();
++}
+ function endGroupGwList(object_name)
+ {
+  var values=document.getElementById(object_name).value;
+@@ -89,5 +210,11 @@ function optionChange(object_name)
+  if (document.getElementById(object_name).value==1) document.getElementById(div_object).style.display="block";
+   else document.getElementById(div_object).style.display="none";
+ }
+-
++document.addEventListener('DOMContentLoaded', function () {
++    const transcoding = document.getElementById('extra_rtp');
++    if (transcoding) {
++        transcoding.addEventListener('change', handleExtraTranscoding);
++        handleExtraTranscoding();
++    }
++});
+ </script>
+
+# --------------------------------------------------------------------
+# Customization 38/218: P8-CUST-CARRIERS_FUNCTIONS_INC_PHP
+# Title: Customization in carriers.functions.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/drouting/lib/carriers.functions.inc.php b/web/tools/system/drouting/lib/carriers.functions.inc.php
+index 49545ccb..2c5bb3c4 100755
+--- a/web/tools/system/drouting/lib/carriers.functions.inc.php
++++ b/web/tools/system/drouting/lib/carriers.functions.inc.php
+@@ -34,7 +34,57 @@ function fmt_binary($x, $numbits, $retbit) {
+     	// Get rid of first space.
+ 	    return ltrim($rtnval[$retbit]);
+ } 
++function get_codec_list()
++{
++    global $link;
++    global $config;
++
++    $index = 0;
++    $values = array();
++    $resultset = array('PCMA', 'PCMU','G723','G722','G729','G729a','speex','GSM','opus','EVS');
++
++    for ($i = 0; $i < count($resultset); $i++) {
++        $values[$index][0] = $resultset[$i];
++        $index++;
++    }
++
++    return $values;
++}
+ 
++function print_codec_list()
++{
++    $array_values = get_codec_list();
++    $start_index = 0;
++    $end_index = sizeof($array_values);
++?>
++<select name="extra_codecs_value" id="extra_codecs_value" size="1"
++        class="dataSelect"
++        style="width:342px!important; margin-left:1px; margin-top:2px;">
++<?php
++    for ($i = $start_index; $i < $end_index; $i++) {
++        echo '<option value="transcode-'.$array_values[$i][0].'">(#'.$array_values[$i][0].')</option>';
++    }
++?>
++</select>
++<?php
++}
++function print_stripcodec_list()
++{
++    $array_values = get_codec_list();
++    $start_index = 0;
++    $end_index = sizeof($array_values);
++?>
++<select name="extra_codecs_stripvalue" id="extra_codecs_stripvalue" size="1"
++        class="dataSelect"
++        style="width:342px!important; margin-left:1px; margin-top:2px;">
++<?php
++    for ($i = $start_index; $i < $end_index; $i++) {
++        echo '<option value="codec-strip-'.$array_values[$i][0].'">(#'.$array_values[$i][0].')</option>';
++    }
++?>
++</select>
++<?php
++}
+ 
+ function get_gwlist()
+ {
+
+# --------------------------------------------------------------------
+# Customization 39/218: P8-CUST-CARRIERS_MAIN_PHP
+# Title: Customization in carriers.main.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/drouting/template/carriers.main.php b/web/tools/system/drouting/template/carriers.main.php
+index 5223330f..90d4c56e 100755
+--- a/web/tools/system/drouting/template/carriers.main.php
++++ b/web/tools/system/drouting/template/carriers.main.php
+@@ -60,7 +60,7 @@
+   <td colspan="2" class="searchRecord border-bottom-devider" align="center">
+    <input type="submit" name="search" value="Search" class="searchButton">&nbsp;&nbsp;&nbsp;
+    <input type="submit" name="show_all" value="Show All" class="searchButton"> &nbsp;&nbsp;&nbsp;
+-   <?php if (!$_read_only) echo('<input type="submit" name="delete" value="Delete Matching" class="formButton" onClick="return confirmDeleteSearch()">') ?>
++   <?php //if (!$_read_only) echo('<input type="submit" name="delete" value="Delete Matching" class="formButton" onClick="return confirmDeleteSearch()">') ?>
+   </td>
+  </tr>
+ </table>
+@@ -87,8 +87,12 @@ $carrier_attributes_mode = get_settings_value("carrier_attributes_mode");
+ $carrier_attributes = get_settings_value("carrier_attributes");
+ $memory_status = get_settings_value("memory_status");
+ if ($carrier_attributes_mode != "none") {
+-	if ($carrier_attributes_mode == "input") {
+-		echo('<th class="listTitle"><'.(isset($carrier_attributes["display_name"])?$carrier_attributes["display_name"]:"Attributes").'></th>');
++  if (1==1) {
++    echo '<th class="listTitle">';
++    echo "<div style='text-align:center; width:400'>Settings</div>";
++    echo '</th>';  
++//	if ($carrier_attributes_mode == "input") {
++//		echo('<th class="listTitle"><'.(isset($carrier_attributes["display_name"])?$carrier_attributes["display_name"]:"Attributes").'></th>');
+ 		$carrier_attrs_colspan = 1;
+ 	} else {
+ 		foreach ($carrier_attributes as $key => $value) {
+@@ -220,21 +224,34 @@ if ($memory_status != "0") {
+   <td class="<?=$row_style?>"><?=$description?></td>
+ <?php
+ if ($carrier_attributes_mode == "input") {
++
+ 	if ($resultset[$i]['attrs']!="") $attrs=$resultset[$i]['attrs'];
+ 	else $attrs="&nbsp;";
+ 	echo('<td class="'.$row_style.'">'.$attrs.'</td>');
+ } else if ($carrier_attributes_mode == "params") {
+-	$attr_map = dr_get_attrs_map($resultset[$i]['attrs']);
+-	foreach ($carrier_attributes as $key => $value) {
+-		$val = dr_get_attrs_val($attr_map, $key, $value);
+-		if ($value["type"] == "checkbox" && $val == true)
+-			$val = "<img src='../../../images/share/active.png'>";
+-		else if (isset($value["value_wrapper_func"])) {
+-			eval("\$func = ".$value['value_wrapper_func'].';');
+-			$val = $func($attr_map[$key], $val);
+-		}
+-		echo("<td class=\"".$row_style."\">".$val."</td>");
+-	}
++  echo "<td class=\"".$row_style."\" width=200>";
++  echo '<div class="config-grid">';
++  $attr_map = dr_get_attrs_map($resultset[$i]['attrs']);
++  foreach ($carrier_attributes as $key => $value) {
++    $display = $value['display_main'] ?? $key;
++    $val = dr_get_attrs_val($attr_map, $key, $value);
++
++    if ($value["type"] == "checkbox" && $val == true) {
++        $val = "<img src='../../../images/share/active.png'>";
++    }
++    else if (isset($value["value_wrapper_func"])) {
++        eval("\$func = ".$value['value_wrapper_func'].';');
++        $val = $func($attr_map[$key], $val);
++    }
++    if ($key!='auth_pass' and $key!='auth_user' and $key!='auth_realm' and $key!='codecs' and $key!='a_name') {
++        echo '<div class="config-row">';
++        echo '<div class="config-label">' . htmlspecialchars($display) . ':</div>';
++        echo '<div class="config-value"><i>' . htmlspecialchars($val) . '</i></div>';
++        echo '</div>';
++    }
++  }
++  echo '</div>';
++  echo "</td>";
+ }
+ ?>
+   <td class="<?=$row_style?>" align="center"><?=$state?></td>
+
+# --------------------------------------------------------------------
+# Customization 40/218: P8-CUST-CDRVIEWER_MAIN_PHP
+# Title: Customization in cdrviewer.main.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/cdrviewer/template/cdrviewer.main.php b/web/tools/system/cdrviewer/template/cdrviewer.main.php
+index 2ab21be2..740a9947 100755
+--- a/web/tools/system/cdrviewer/template/cdrviewer.main.php
++++ b/web/tools/system/cdrviewer/template/cdrviewer.main.php
+@@ -33,6 +33,7 @@ $search_start=$_SESSION['cdrviewer_search_start'];
+ $search_end=$_SESSION['cdrviewer_search_end'];
+ $search_regexp=$_SESSION['cdrviewer_search_val'];
+ $cdr_field = $_SESSION['cdrviewer_search_cdr_field'];
++$search_array=$_SESSION['cdrviewer_search_array'];
+ 
+ $cdr_table = get_settings_value("cdr_table");
+ 
+@@ -57,18 +58,43 @@ if (($cdr_field!="") && ($search_regexp!="")) {
+ 	}
+ 	array_push( $sql_vals, $search_regexp);
+ }
+-
++foreach ($search_array as $field => $value) {
++    $value = trim($value);
++    if ($value !== '' && array_key_exists($field, $show_field)) {
++        if (strpos($value, '%') !== false) {
++            $sql_search .= ' and '.$field.' LIKE ?';
++        } else {
++            $sql_search .= ' and '.$field.' = ?';
++        }
++        array_push( $sql_vals, $value);
++    }
++}
+ ?>
+ 
+ <form action="<?=$page_name?>?action=search" method="post">
+ <?php csrfguard_generate(); ?>
+ <table width="350" class="search-area" cellspacing="2" cellpadding="2" border="0">
+-
++<tr><td class="searchRecord" valign="top">CDR fields:</td><td></td></tr>
++<tr><td></td>
++ <td class="searchRecord">
++  <?php
++  foreach ($show_field as $key => $value) {
++      $field_value = isset($search_array[$key]) ? htmlspecialchars($search_array[$key]) : '';
++      if (($key != 'time') and ($key != 'id') and ($key != 'created') and ($key != 'method') and ($key != 'sip_reason' and ($key != 'setuptime') and ($key != 'duration'))) {
++        echo "<div style='margin-bottom: 5px;'>";
++        echo "<label for='field_{$key}' style='display:inline-block; width:150px;'>{$value}:</label>";
++        echo "<input type='text' name='search_array[{$key}]' id='field_{$key}' style='width:310px!important' value='{$field_value}' maxlength='128' class='searchInput'>";
++        echo "</div>";
++      }
++  }
++  ?>
++</td>
++</tr>
+  <tr>
+ 
+   <td class="searchRecord">CDR field</td>
+   <td class="searchRecord" > 
+-  <select name="cdr_field" class="dataSelect" id="select_cdr_field" style="width:100px!important" onChange="changeState_cdr_field()">
++  <select name="cdr_field" class="dataSelect" id="select_cdr_field" style="width:150px!important" onChange="changeState_cdr_field()">
+ 	<?php 
+ 	$has_selected = false;
+ 	foreach($show_field as $key => $value) {
+@@ -110,7 +136,7 @@ if (($cdr_field!="") && ($search_regexp!="")) {
+ </form>
+ 
+ <?php
+-$stm = $link->prepare("select count(*) ".$sql_search);
++$stm = $link->prepare("select count(id) ".$sql_search);
+ if ($stm === false) {
+ 	die('Failed to issue query, error message : ' . print_r($link->errorInfo(), true));
+ }
+@@ -125,7 +151,7 @@ if ($data_no==0) {
+ 	unset($_SESSION['cdrviewer_search_end']);
+ 	unset($_SESSION['cdrviewer_search_val']);
+ 	unset($_SESSION['cdrviewer_search_cdr_field']);
+-
++	unset($_SESSION['cdrviewer_search_array']);
+ }
+ else
+ {
+@@ -137,7 +163,7 @@ else
+ 	}
+ 	$start_limit=($page-1)*get_settings_value("results_per_page");
+ 
+-	$sql = "select * ".$sql_search." order by time desc " ;
++	$sql = "select * ".$sql_search." order by id desc " ;
+ 	if ($start_limit==0)
+ 		$sql.=" LIMIT ".get_settings_value("results_per_page");
+ 	else
+
+# --------------------------------------------------------------------
+# Customization 41/218: P8-CUST-CDRVIEWER_PHP
+# Title: Customization in cdrviewer.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/cdrviewer/cdrviewer.php b/web/tools/system/cdrviewer/cdrviewer.php
+index 7d9f4f91..58e44076 100755
+--- a/web/tools/system/cdrviewer/cdrviewer.php
++++ b/web/tools/system/cdrviewer/cdrviewer.php
+@@ -83,7 +83,7 @@ if ($action=="search")
+ 		$_SESSION['cdrviewer_search_cdr_field']="";
+ 		$_SESSION['cdrviewer_search_start']="";
+ 		$_SESSION['cdrviewer_search_end']="";
+-
++        unset($_SESSION['cdrviewer_search_array']);
+ 	}
+ 
+ 	else {
+@@ -94,6 +94,15 @@ if ($action=="search")
+ 			$_SESSION['cdrviewer_search_val']=$search_regexp;
+ 			$_SESSION['cdrviewer_search_cdr_field'] = $cdr_field ;
+ 		}
++        $filtered_inputs = [];
++        foreach ($_POST['search_array'] ?? [] as $field => $value) {
++            $value = trim($value);
++            if ($value !== '') {
++                $filtered_inputs[$field] = $value;
++            }
++        }
++            $_SESSION['cdrviewer_search_array'] = $filtered_inputs;
++        
+ 		if ($start_year=="none")
+ 			$_SESSION['cdrviewer_search_start']="";
+ 		else
+@@ -104,15 +113,20 @@ if ($action=="search")
+ 			$_SESSION['cdrviewer_search_end']=$end_year."-".$end_month."-".$end_day." ".$end_hour.":".$end_minute.":".$end_second;
+ 	}
+ }
+-
+ if ($export == "Export") {
+ 
+ 	$search_regexp=$_SESSION['cdrviewer_search_val'];
+ 	$cdr_field = $_SESSION['cdrviewer_search_cdr_field'];
+-
+-
++    $search_array=$_SESSION['cdrviewer_search_array'];
++    $sql_search='';
+ 	if (($cdr_field!="") && ($search_regexp!="")) $sql_search.=" and ".$cdr_field.' like "%'.$search_regexp.'%"' ;
+-
++    foreach ($search_array as $field => $value) {
++        $value = trim($value);
++        if ($value !== '' && array_key_exists($field, $show_field)) {
++                $sql_search .= " AND ".$field.' LIKE "%'.$value.'%"';
++        }
++    }
++    
+ 
+ 	$search_start=$_SESSION['cdrviewer_search_start'];
+ 	$search_end=$_SESSION['cdrviewer_search_end'];
+
+# --------------------------------------------------------------------
+# Customization 42/218: P8-CUST-CDR_EXPORT_CRON
+# Title: Customization in cdr_export_cron
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/tools/system/cdrviewer/cdr_export_cron b/config/tools/system/cdrviewer/cdr_export_cron
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 43/218: P8-CUST-CDR_WIDGET_PHP
+# Title: Customization in cdr_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/cdrviewer/template/dashboard_widgets/cdr_widget.php b/web/tools/system/cdrviewer/template/dashboard_widgets/cdr_widget.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 44/218: P8-CUST-CFG_COMM_PHP
+# Title: Customization in cfg_comm.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/cfg_comm.php b/web/common/cfg_comm.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 45/218: P8-CUST-CHANGELOG
+# Title: Customization in ChangeLog
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/ChangeLog b/ChangeLog
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 46/218: P8-CUST-CHART_PNG
+# Title: Customization in chart.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/chart.png b/web/images/share/chart.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 47/218: P8-CUST-CHART_WIDGET_PHP
+# Title: Customization in chart_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/smonitor/template/dashboard_widgets/chart_widget.php b/web/tools/system/smonitor/template/dashboard_widgets/chart_widget.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 48/218: P8-CUST-CLUSTERER_CAPABILITIES_WIDGET_PHP
+# Title: Customization in clusterer_capabilities_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/clusterer/template/dashboard_widgets/clusterer_capabilities_widget.php b/web/tools/system/clusterer/template/dashboard_widgets/clusterer_capabilities_widget.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 49/218: P8-CUST-CLUSTERER_NODES_WIDGET_PHP
+# Title: Customization in clusterer_nodes_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/clusterer/template/dashboard_widgets/clusterer_nodes_widget.php b/web/tools/system/clusterer/template/dashboard_widgets/clusterer_nodes_widget.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 50/218: P8-CUST-CLUSTERER_SHTAGS_WIDGET_PHP
+# Title: Customization in clusterer_shtags_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/clusterer/template/dashboard_widgets/clusterer_shtags_widget.php b/web/tools/system/clusterer/template/dashboard_widgets/clusterer_shtags_widget.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 51/218: P8-CUST-CUSTOM_WIDGET_PHP
+# Title: Customization in custom_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/template/dashboard_widgets/custom_widget.php b/web/tools/system/dashboard/template/dashboard_widgets/custom_widget.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 52/218: P8-CUST-D3JSMULTIPLE_PHP
+# Title: Customization in d3jsMultiple.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/charting/d3jsMultiple.php b/web/common/charting/d3jsMultiple.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 53/218: P8-CUST-D3JS_PHP
+# Title: Customization in d3js.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/charting/d3js.php b/web/common/charting/d3js.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 54/218: P8-CUST-D3JS_PIE_PHP
+# Title: Customization in d3js_pie.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/charting/d3js_pie.php b/web/common/charting/d3js_pie.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 55/218: P8-CUST-D3_V3_MIN_JS
+# Title: Customization in d3.v3.min.js
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/charting/d3.v3.min.js b/web/common/charting/d3.v3.min.js
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 56/218: P8-CUST-D3_V4_MIN_JS
+# Title: Customization in d3.v4.min.js
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/charting/d3.v4.min.js b/web/common/charting/d3.v4.min.js
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/system/dashboard/d3.v4.min.js b/web/tools/system/dashboard/d3.v4.min.js
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 57/218: P8-CUST-DASHBOARD_ADDWIDGET_PHP
+# Title: Customization in dashboard.addWidget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/template/widget/dashboard.addWidget.php b/web/tools/system/dashboard/template/widget/dashboard.addWidget.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 58/218: P8-CUST-DASHBOARD_ADD_PHP
+# Title: Customization in dashboard.add.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/template/dashboard.add.php b/web/tools/system/dashboard/template/dashboard.add.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 59/218: P8-CUST-DASHBOARD_CHANGE_NAME_PHP
+# Title: Customization in dashboard.change_name.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/template/dashboard.change_name.php b/web/tools/system/dashboard/template/dashboard.change_name.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 60/218: P8-CUST-DASHBOARD_CLONE_PHP
+# Title: Customization in dashboard.clone.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/template/dashboard.clone.php b/web/tools/system/dashboard/template/dashboard.clone.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 61/218: P8-CUST-DASHBOARD_EDIT_PANEL_PHP
+# Title: Customization in dashboard.edit_panel.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/template/dashboard.edit_panel.php b/web/tools/system/dashboard/template/dashboard.edit_panel.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 62/218: P8-CUST-DASHBOARD_EDIT_WIDGET_PHP
+# Title: Customization in dashboard.edit_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/template/widget/dashboard.edit_widget.php b/web/tools/system/dashboard/template/widget/dashboard.edit_widget.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 63/218: P8-CUST-DASHBOARD_IMPORT_DETAILS_PHP
+# Title: Customization in dashboard.import_details.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/dashboard.import_details.php b/web/tools/system/dashboard/dashboard.import_details.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 64/218: P8-CUST-DASHBOARD_IMPORT_WIDGET_PHP
+# Title: Customization in dashboard.import_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/template/dashboard.import_widget.php b/web/tools/system/dashboard/template/dashboard.import_widget.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 65/218: P8-CUST-DASHBOARD_INFO_PHP
+# Title: Customization in dashboard.info.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/dashboard.info.php b/web/tools/system/dashboard/dashboard.info.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 66/218: P8-CUST-DASHBOARD_MAIN_JS
+# Title: Customization in dashboard.main.js
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/lib/dashboard.main.js b/web/tools/system/dashboard/lib/dashboard.main.js
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 67/218: P8-CUST-DASHBOARD_MAIN_PHP
+# Title: Customization in dashboard.main.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/template/dashboard.main.php b/web/tools/system/dashboard/template/dashboard.main.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 68/218: P8-CUST-DASHBOARD_PHP
+# Title: Customization in dashboard.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/dashboard.php b/web/tools/system/dashboard/dashboard.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 69/218: P8-CUST-DASHBOARD_REFRESH_PHP
+# Title: Customization in dashboard.refresh.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/dashboard.refresh.php b/web/tools/system/dashboard/dashboard.refresh.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 70/218: P8-CUST-DASHBOARD_SVG
+# Title: Customization in dashboard.svg
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/dashboard.svg b/web/images/dashboard.svg
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 71/218: P8-CUST-DATA_LOADER_PHP
+# Title: Customization in data_loader.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/tools/tviewer/lib/data_loader.php b/web/common/tools/tviewer/lib/data_loader.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 72/218: P8-CUST-DB_CONFIG_ADD_PHP
+# Title: Customization in db_config.add.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/db_config/template/db_config.add.php b/web/tools/admin/db_config/template/db_config.add.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/system/keepalived/template/db_config.add.php b/web/tools/system/keepalived/template/db_config.add.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 73/218: P8-CUST-DB_CONFIG_DETAILS_PHP
+# Title: Customization in db_config.details.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/db_config/db_config.details.php b/web/tools/admin/db_config/db_config.details.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 74/218: P8-CUST-DB_CONFIG_EDIT_DB_PHP
+# Title: Customization in db_config.edit_db.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/db_config/template/db_config.edit_db.php b/web/tools/admin/db_config/template/db_config.edit_db.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/system/keepalived/template/db_config.edit_db.php b/web/tools/system/keepalived/template/db_config.edit_db.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 75/218: P8-CUST-DB_CONFIG_MAIN_JS
+# Title: Customization in db_config.main.js
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/db_config/lib/db_config.main.js b/web/tools/admin/db_config/lib/db_config.main.js
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 76/218: P8-CUST-DB_CONFIG_MAIN_PHP
+# Title: Customization in db_config.main.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/db_config/template/db_config.main.php b/web/tools/admin/db_config/template/db_config.main.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 77/218: P8-CUST-DB_CONFIG_PHP
+# Title: Customization in db_config.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/db_config/db_config.php b/web/tools/admin/db_config/db_config.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 78/218: P8-CUST-DB_CONNECT_PHP
+# Title: Customization in db_connect.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/tools/tviewer/lib/db_connect.php b/web/common/tools/tviewer/lib/db_connect.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/db_connect.php b/web/db_connect.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/admin/boxes_config/lib/db_connect.php b/web/tools/admin/boxes_config/lib/db_connect.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/admin/db_config/lib/db_connect.php b/web/tools/admin/db_config/lib/db_connect.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/admin/tools_config/lib/db_connect.php b/web/tools/admin/tools_config/lib/db_connect.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/system/dashboard/lib/db_connect.php b/web/tools/system/dashboard/lib/db_connect.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/system/keepalived/lib/db_connect.php b/web/tools/system/keepalived/lib/db_connect.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/system/monit/lib/db_connect.php b/web/tools/system/monit/lib/db_connect.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 79/218: P8-CUST-DB_INC_PHP
+# Title: Customization in db.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/tools/system/addresses/db.inc.php b/config/tools/system/addresses/db.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/config/db.inc.php b/config/tools/system/config/db.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/dialog/db.inc.php b/config/tools/system/dialog/db.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/dispatcher/db.inc.php b/config/tools/system/dispatcher/db.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/drouting/db.inc.php b/config/tools/system/drouting/db.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/loadbalancer/db.inc.php b/config/tools/system/loadbalancer/db.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/rtpengine/db.inc.php b/config/tools/system/rtpengine/db.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/rtpproxy/db.inc.php b/config/tools/system/rtpproxy/db.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/sockets_mgm/db.inc.php b/config/tools/system/sockets_mgm/db.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/tcp_mgm/db.inc.php b/config/tools/system/tcp_mgm/db.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/users/user_management/db.inc.php b/config/tools/users/user_management/db.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/common/tools/tviewer/samples/db.inc.php b/web/common/tools/tviewer/samples/db.inc.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 80/218: P8-CUST-DB_SCHEMA_MYSQL
+# Title: Customization in db_schema.mysql
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/db_schema.mysql b/config/db_schema.mysql
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 81/218: P8-CUST-DB_SCHEMA_PGSQL
+# Title: Customization in db_schema.pgsql
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/db_schema.pgsql b/config/db_schema.pgsql
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 82/218: P8-CUST-DEF_PHP
+# Title: Customization in def.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/imports/testWidget/def.php b/web/tools/system/dashboard/imports/testWidget/def.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 83/218: P8-CUST-DELETE_PHP
+# Title: Customization in delete.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/tools/tviewer/custom_actions/delete.php b/web/common/tools/tviewer/custom_actions/delete.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 84/218: P8-CUST-DELETE_PNG
+# Title: Customization in delete.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/delete.png b/web/images/share/delete.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 85/218: P8-CUST-DETAILS_PHP
+# Title: Customization in details.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/tools/tviewer/custom_actions/details.php b/web/common/tools/tviewer/custom_actions/details.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 86/218: P8-CUST-DETAILS_PNG
+# Title: Customization in details.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/details.png b/web/images/share/details.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 87/218: P8-CUST-DIALOG_STAT_PHP
+# Title: Customization in dialog_stat.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dialog/statistics/dialog_stat.php b/web/tools/system/dialog/statistics/dialog_stat.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 88/218: P8-CUST-DIALPLAN_FORM_PHP
+# Title: Customization in dialplan.form.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dialplan/template/dialplan.form.php b/web/tools/system/dialplan/template/dialplan.form.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 89/218: P8-CUST-DISPATCHING_WIDGET_PHP
+# Title: Customization in dispatching_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dispatcher/template/dashboard_widgets/dispatching_widget.php b/web/tools/system/dispatcher/template/dashboard_widgets/dispatching_widget.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 90/218: P8-CUST-DLG_LIST_CTX_PHP
+# Title: Customization in dlg_list_ctx.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dialog/dlg_list_ctx.php b/web/tools/system/dialog/dlg_list_ctx.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 91/218: P8-CUST-DOWN_PNG
+# Title: Customization in down.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/down.png b/web/images/share/down.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 92/218: P8-CUST-EDIT_PHP
+# Title: Customization in edit.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/tools/tviewer/custom_actions/edit.php b/web/common/tools/tviewer/custom_actions/edit.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 93/218: P8-CUST-EDIT_PNG
+# Title: Customization in edit.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/edit.png b/web/images/share/edit.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 94/218: P8-CUST-EXAMPLE_JPG
+# Title: Customization in example.jpg
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/imports/testWidget/example.jpg b/web/tools/system/dashboard/imports/testWidget/example.jpg
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 95/218: P8-CUST-FIXEDBITNOTATION_PHP
+# Title: Customization in FixedBitNotation.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/googleAuth/FixedBitNotation.php b/googleAuth/FixedBitNotation.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 96/218: P8-CUST-FLUSH_PHP
+# Title: Customization in flush.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/tools/system/config/flush.php b/config/tools/system/config/flush.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 97/218: P8-CUST-FOOTER_PHP
+# Title: Customization in footer.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/boxes_config/template/footer.php b/web/tools/admin/boxes_config/template/footer.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/admin/db_config/template/footer.php b/web/tools/admin/db_config/template/footer.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/admin/tools_config/template/footer.php b/web/tools/admin/tools_config/template/footer.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/system/dashboard/template/footer.php b/web/tools/system/dashboard/template/footer.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/system/keepalived/template/footer.php b/web/tools/system/keepalived/template/footer.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 98/218: P8-CUST-FORMS_PHP
+# Title: Customization in forms.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/forms.php b/web/common/forms.php
+index 2f994aeb..cf56b734 100755
+--- a/web/common/forms.php
++++ b/web/common/forms.php
+@@ -585,5 +585,6 @@ $re_sip_uri = "sip(s)?:([^@]+@)?[^:]+(:[0-9]+)?";
+ $re_ip = "([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})";
+ 
+ $re_socket = "^([a-zA-Z]+:)?((([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})(:[0-9]+)?)|[a-zA-Z][a-zA-Z0-9_]+)$";
++//$re_socket = "^([a-zA-Z]+:)?(([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})|([0-9A-Za-z_])+)(:[0-9]+)?$";
+ 
+ ?>
+
+# --------------------------------------------------------------------
+# Customization 99/218: P8-CUST-FUNCTIONS_INC_JS
+# Title: Customization in functions.inc.js
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/template/functions.inc.js b/web/tools/system/dashboard/template/functions.inc.js
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/system/smonitor/lib/functions.inc.js b/web/tools/system/smonitor/lib/functions.inc.js
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/system/tracer/lib/functions.inc.js b/web/tools/system/tracer/lib/functions.inc.js
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 100/218: P8-CUST-FUNCTIONS_INC_PHP
+# Title: Customization in functions.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/boxes_config/lib/functions.inc.php b/web/tools/admin/boxes_config/lib/functions.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/admin/db_config/lib/functions.inc.php b/web/tools/admin/db_config/lib/functions.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/admin/tools_config/lib/functions.inc.php b/web/tools/admin/tools_config/lib/functions.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/system/dashboard/template/functions.inc.php b/web/tools/system/dashboard/template/functions.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/system/domains/lib/functions.inc.php b/web/tools/system/domains/lib/functions.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/system/keepalived/lib/functions.inc.php b/web/tools/system/keepalived/lib/functions.inc.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 101/218: P8-CUST-FUNCTIONS_JS
+# Title: Customization in functions.js
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/boxes_config/functions.js b/web/tools/admin/boxes_config/functions.js
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/admin/db_config/functions.js b/web/tools/admin/db_config/functions.js
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/admin/tools_config/functions.js b/web/tools/admin/tools_config/functions.js
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 102/218: P8-CUST-GATEWAYS_WIDGET_PHP
+# Title: Customization in gateways_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/drouting/template/dashboard_widgets/gateways_widget.php b/web/tools/system/drouting/template/dashboard_widgets/gateways_widget.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 103/218: P8-CUST-GAUGE_WIDGET_PHP
+# Title: Customization in gauge_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/template/dashboard_widgets/gauge_widget.php b/web/tools/system/dashboard/template/dashboard_widgets/gauge_widget.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 104/218: P8-CUST-GET_DATA_PHP
+# Title: Customization in get_data.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/charting/get_data.php b/web/common/charting/get_data.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 105/218: P8-CUST-GET_MULTIPLE_DATA_PHP
+# Title: Customization in get_multiple_data.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/charting/get_multiple_data.php b/web/common/charting/get_multiple_data.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 106/218: P8-CUST-GLOBALS_PHP
+# Title: Customization in globals.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/globals.php b/config/globals.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 107/218: P8-CUST-GOOGLEAUTHENTICATORINTERFACE_PHP
+# Title: Customization in GoogleAuthenticatorInterface.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/googleAuth/GoogleAuthenticatorInterface.php b/googleAuth/GoogleAuthenticatorInterface.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 108/218: P8-CUST-GOOGLEAUTHENTICATOR_PHP
+# Title: Customization in GoogleAuthenticator.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/googleAuth/GoogleAuthenticator.php b/googleAuth/GoogleAuthenticator.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 109/218: P8-CUST-GOOGLEQRURL_PHP
+# Title: Customization in GoogleQrUrl.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/googleAuth/GoogleQrUrl.php b/googleAuth/GoogleQrUrl.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 110/218: P8-CUST-GO_GIF
+# Title: Customization in go.gif
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/go.gif b/web/images/go.gif
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 111/218: P8-CUST-GROUPS_PHP
+# Title: Customization in groups.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/drouting/groups.php b/web/tools/system/drouting/groups.php
+index fec97488..b5ffaea0 100755
+--- a/web/tools/system/drouting/groups.php
++++ b/web/tools/system/drouting/groups.php
+@@ -40,6 +40,7 @@
+  if (isset($_GET['id'])) {
+                           $temp=explode("@",$_GET['id']);
+                           $id_username=$temp[0];
++                          $id_username = str_replace(' ', '+', $id_username);
+                           $id_domain=$temp[1];
+                          }
+
+# --------------------------------------------------------------------
+# Customization 112/218: P8-CUST-GROUP_IDS_TXT
+# Title: Customization in group_ids.txt
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/tools/system/drouting/group_ids.txt b/config/tools/system/drouting/group_ids.txt
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 113/218: P8-CUST-GW_TYPES_TXT
+# Title: Customization in gw_types.txt
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/tools/system/drouting/gw_types.txt b/config/tools/system/drouting/gw_types.txt
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 114/218: P8-CUST-HEADER_PHP
+# Title: Customization in header.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/boxes_config/template/header.php b/web/tools/admin/boxes_config/template/header.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/admin/db_config/template/header.php b/web/tools/admin/db_config/template/header.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/admin/tools_config/template/header.php b/web/tools/admin/tools_config/template/header.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/system/dashboard/template/header.php b/web/tools/system/dashboard/template/header.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/system/keepalived/template/header.php b/web/tools/system/keepalived/template/header.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 115/218: P8-CUST-HELP_ICON_PNG
+# Title: Customization in help-icon.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/help-icon.png b/web/images/share/help-icon.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 116/218: P8-CUST-HEPPACKET_PHP
+# Title: Customization in HEPpacket.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/tracer/lib/HEPpacket.php b/web/tools/system/tracer/lib/HEPpacket.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 117/218: P8-CUST-HORIZONTAL_TITLE_WIDGET_PHP
+# Title: Customization in horizontal_title_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/template/dashboard_widgets/horizontal_title_widget.php b/web/tools/system/dashboard/template/dashboard_widgets/horizontal_title_widget.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 118/218: P8-CUST-ICON_ADMIN_SVG
+# Title: Customization in icon-admin.svg
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/icon-admin.svg b/web/images/icon-admin.svg
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 119/218: P8-CUST-ICON_DASHBOARD_PNG
+# Title: Customization in icon-dashboard.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/icon-dashboard.png b/web/images/icon-dashboard.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 120/218: P8-CUST-ICON_SYSTEM_SVG
+# Title: Customization in icon-system.svg
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/icon-system.svg b/web/images/icon-system.svg
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 121/218: P8-CUST-ICON_USER_SVG
+# Title: Customization in icon-user.svg
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/icon-user.svg b/web/images/icon-user.svg
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 122/218: P8-CUST-INACTIVE_PNG
+# Title: Customization in inactive.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/inactive.png b/web/images/share/inactive.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 123/218: P8-CUST-INDEX_PHP
+# Title: Customization in index.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/tools/tviewer/samples/index.php b/web/common/tools/tviewer/samples/index.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/admin/boxes_config/index.php b/web/tools/admin/boxes_config/index.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/admin/db_config/index.php b/web/tools/admin/db_config/index.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/system/dashboard/index.php b/web/tools/system/dashboard/index.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/system/keepalived/index.php b/web/tools/system/keepalived/index.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/system/tracer/index.php b/web/tools/system/tracer/index.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 124/218: P8-CUST-INFO_PNG
+# Title: Customization in info.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/info.png b/web/images/share/info.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 125/218: P8-CUST-INSTALL
+# Title: Customization in INSTALL
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/INSTALL b/INSTALL
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 126/218: P8-CUST-JQUERY_GRIDSTER_MIN_CSS
+# Title: Customization in jquery.gridster.min.css
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/css/jquery.gridster.min.css b/web/tools/system/dashboard/css/jquery.gridster.min.css
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 127/218: P8-CUST-JQUERY_GRIDSTER_MIN_JS
+# Title: Customization in jquery.gridster.min.js
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/jquery.gridster.min.js b/web/tools/system/dashboard/jquery.gridster.min.js
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 128/218: P8-CUST-KEEPALIVED_MAIN_PHP
+# Title: Customization in keepalived.main.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/keepalived/template/keepalived.main.php b/web/tools/system/keepalived/template/keepalived.main.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 129/218: P8-CUST-KEEPALIVED_PHP
+# Title: Customization in keepalived.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/keepalived/keepalived.php b/web/tools/system/keepalived/keepalived.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 130/218: P8-CUST-KO_SMALL_PNG
+# Title: Customization in ko_small.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/ko_small.png b/web/images/share/ko_small.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 131/218: P8-CUST-LICENSE
+# Title: Customization in LICENSE
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/LICENSE b/LICENSE
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 132/218: P8-CUST-LIST_ADMINS_ADD_PHP
+# Title: Customization in list_admins.add.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/list_admins/template/list_admins.add.php b/web/tools/admin/list_admins/template/list_admins.add.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 133/218: P8-CUST-LIST_ADMINS_INC_PHP
+# Title: Customization in list_admins.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/list_admins/lib/list_admins.inc.php b/web/tools/admin/list_admins/lib/list_admins.inc.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 134/218: P8-CUST-LIST_ADMINS_TEST_INC_PHP
+# Title: Customization in list_admins.test.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/list_admins/lib/list_admins.test.inc.php b/web/tools/admin/list_admins/lib/list_admins.test.inc.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 135/218: P8-CUST-LOAD_WIDGET_PHP
+# Title: Customization in load_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/template/dashboard_widgets/load_widget.php b/web/tools/system/dashboard/template/dashboard_widgets/load_widget.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 136/218: P8-CUST-LOCAL_INC_PHP
+# Title: Customization in local.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/local.inc.php b/config/local.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/dispatcher/local.inc.php b/config/tools/system/dispatcher/local.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/drouting/local.inc.php b/config/tools/system/drouting/local.inc.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 137/218: P8-CUST-LOCK_PNG
+# Title: Customization in lock.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/dashboard/lock.png b/web/images/dashboard/lock.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 138/218: P8-CUST-LOGIN_HEADER_GIF
+# Title: Customization in login_header.gif
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/login_header.gif b/web/images/login_header.gif
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 139/218: P8-CUST-LOGOUT_PNG
+# Title: Customization in logout.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/logout.png b/web/images/logout.png
+old mode 100644
+new mode 100755
+
+diff --git a/web/images/share/logout.png b/web/images/share/logout.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 140/218: P8-CUST-LOGOUT_RED_PNG
+# Title: Customization in logout-red.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/logout-red.png b/web/images/logout-red.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 141/218: P8-CUST-LOGO_JPG
+# Title: Customization in logo.jpg
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/logo.jpg b/web/images/logo.jpg
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 142/218: P8-CUST-LONGTABLE2_GIF
+# Title: Customization in longtable2.gif
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/longtable2.gif b/web/images/longtable2.gif
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 143/218: P8-CUST-LONGTABLEBG2_GIF
+# Title: Customization in longtablebg2.gif
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/longtablebg2.gif b/web/images/longtablebg2.gif
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 144/218: P8-CUST-LONGTABLEBOTT2_GIF
+# Title: Customization in longtablebott2.gif
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/longtablebott2.gif b/web/images/longtablebott2.gif
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 145/218: P8-CUST-MENU_ACTIVE_PNG
+# Title: Customization in menu_active.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/menu_active.png b/web/images/menu_active.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 146/218: P8-CUST-MENU_DEFAULT_PNG
+# Title: Customization in menu_default.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/menu_default.png b/web/images/menu_default.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 147/218: P8-CUST-MENU_DOT_GIF
+# Title: Customization in menu_dot.gif
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/menu_dot.gif b/web/images/menu_dot.gif
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 148/218: P8-CUST-MENU_INC_PHP
+# Title: Customization in menu.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/tools/system/addresses/menu.inc.php b/config/tools/system/addresses/menu.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/callcenter/menu.inc.php b/config/tools/system/callcenter/menu.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/dispatcher/menu.inc.php b/config/tools/system/dispatcher/menu.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/rtpengine/menu.inc.php b/config/tools/system/rtpengine/menu.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/rtpproxy/menu.inc.php b/config/tools/system/rtpproxy/menu.inc.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 149/218: P8-CUST-MENU_JS
+# Title: Customization in menu.js
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/menu.js b/web/menu.js
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 150/218: P8-CUST-MENU_PHP
+# Title: Customization in menu.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/tools/tviewer/template/menu.php b/web/common/tools/tviewer/template/menu.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/menu.php b/web/menu.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/admin/boxes_config/template/menu.php b/web/tools/admin/boxes_config/template/menu.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/admin/db_config/template/menu.php b/web/tools/admin/db_config/template/menu.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/admin/tools_config/template/menu.php b/web/tools/admin/tools_config/template/menu.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/system/dashboard/template/menu.php b/web/tools/system/dashboard/template/menu.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/system/keepalived/template/menu.php b/web/tools/system/keepalived/template/menu.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 151/218: P8-CUST-MENU_PNG
+# Title: Customization in menu.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/menu.png b/web/images/menu.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 152/218: P8-CUST-MENU_SELECT_GIF
+# Title: Customization in menu_select.gif
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/menu_select.gif b/web/images/menu_select.gif
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 153/218: P8-CUST-MODULES_INC_PHP
+# Title: Customization in modules.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/modules.inc.php b/config/modules.inc.php
+old mode 100644
+new mode 100755
+index cf2f1ffa..a8d497e7
+--- a/config/modules.inc.php
++++ b/config/modules.inc.php
+@@ -79,9 +79,9 @@ $config_modules 	= array (
+ 				"enabled"		=> true,
+ 				"name"			=> "Addresses"
+ 			),
+-			"config"		=> array (
+-				"enabled"		=> true,
+-				"name"			=> "Config"
++			"config"                => array (
++				"enabled"               => true,
++				"name"                  => "Config"
+ 			),
+ 			"callcenter"		=> array (
+ 				"enabled"		=> true,
+@@ -111,6 +111,10 @@ $config_modules 	= array (
+ 				"enabled"		=> true,
+ 				"name"			=> "Dynamic Routing"
+ 			),
++			"whitelist"			=> array (
++				"enabled"		=> true,
++				"name"			=> "Whitelisting/Fraud"
++			),
+ 			"clusterer"			=> array (
+ 				"enabled"		=> true,
+ 				"name"			=> "Clusterer"
+@@ -159,9 +163,9 @@ $config_modules 	= array (
+ 				"enabled"		=> true,
+ 				"name"			=> "UAC Registrant"
+ 			),
+-			"sockets_mgm"			=> array (
+-				"enabled"		=> true,
+-				"name"			=> "Sockets Management"
++			"sockets_mgm"                   => array (
++				"enabled"               => true,
++				"name"                  => "Sockets Management"
+ 			),
+ 			"smpp"				=> array (
+ 				"enabled"		=> true,
+
+# --------------------------------------------------------------------
+# Customization 154/218: P8-CUST-MONIT_CPU_WIDGET_PHP
+# Title: Customization in monit_cpu_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/monit/template/dashboard_widgets/monit_cpu_widget.php b/web/tools/system/monit/template/dashboard_widgets/monit_cpu_widget.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 155/218: P8-CUST-MONIT_TOOLS_WIDGET_PHP
+# Title: Customization in monit_tools_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/monit/template/dashboard_widgets/monit_tools_widget.php b/web/tools/system/monit/template/dashboard_widgets/monit_tools_widget.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 156/218: P8-CUST-MUST_ICON_PNG
+# Title: Customization in must-icon.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/must-icon.png b/web/images/share/must-icon.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 157/218: P8-CUST-OK_SMALL_PNG
+# Title: Customization in ok_small.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/ok_small.png b/web/images/share/ok_small.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 158/218: P8-CUST-OPENSIPS
+# Title: OpenSIPS Integration via JSON-RPC
+# Category: Core Integration
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/db.inc.php b/config/db.inc.php
+old mode 100644
+new mode 100755
+index 38978988..84861c31
+--- a/config/db.inc.php
++++ b/config/db.inc.php
+@@ -27,19 +27,19 @@
+  $config->db_driver = "mysql";
+ 
+  //database host
+- $config->db_host = "localhost";
++ $config->db_host = "127.0.0.1";
+  
+  //database port - leave empty for default
+- $config->db_port = "";
++ $config->db_port = "6033";
+  
+  //database connection user
+- $config->db_user = "opensips";
++ $config->db_user = "core_lab";
+  
+  //database connection password
+- $config->db_pass = "opensipsrw";
++ $config->db_pass = trim(file_get_contents(getenv('DB_PASSWORD_FILE')));  
+  //database name
+- $config->db_name = "opensips";
++ $config->db_name = "core_lab";
+ 
+  if (!empty($config->db_port) ) $config->db_host = $config->db_host . ";port=" . $config->db_port;
+
+diff --git a/config/tools/system/smonitor/opensips_stats_cron b/config/tools/system/smonitor/opensips_stats_cron
+old mode 100644
+new mode 100755
+
+diff --git a/web/header.php b/web/header.php
+index 91b0d58d..0085e366 100755
+--- a/web/header.php
++++ b/web/header.php
+@@ -42,7 +42,7 @@
+         $ocp_version = ob_get_clean();
+       }
+     ?>
+-    <div class="headerTitle"><?=$header_title.(empty($ocp_version)?"":(" ".$ocp_version))?></div>
++    <div class="headerTitle"><b><span style="color: #FFD700;"><?=$header_title?></span></b> OpenSIPS CP <?=(empty($ocp_version)?"":(" ".$ocp_version))?></div>
+   </td>
+   <td align="right">
+     <table>
+
+diff --git a/web/tools/system/drouting/lib/common.functions.inc.php b/web/tools/system/drouting/lib/common.functions.inc.php
+index 1643c96e..eb261aba 100755
+--- a/web/tools/system/drouting/lib/common.functions.inc.php
++++ b/web/tools/system/drouting/lib/common.functions.inc.php
+@@ -2,7 +2,7 @@
+ /*
+  * Copyright (C) 2021 OpenSIPS Project
+  *
+- * This file is part of opensips-cp, a free Web Control Panel Application for 
++ * This file is part of opensips-cp, a free Web Control Panel Application for
+  * OpenSIPS SIP server.
+  *
+  * opensips-cp is free software; you can redistribute it and/or modify
+@@ -21,108 +21,108 @@
+  */
+ 
+ $dr_sort_alg = array(
+-	"N" => "none",
+-	"W" => "weight",
+-	"Q" => "quality",
++        "N" => "none",
++        "W" => "weight",
++        "Q" => "quality",
+ );
+ 
+ 
+ function dr_get_name_of_sort_alg($char)
+ {
+-	global $dr_sort_alg;
+-	if (isset($dr_sort_alg[$char]))
+-		return $dr_sort_alg[$char];
+-	return "unknown";
+-} 
++        global $dr_sort_alg;
++        if (isset($dr_sort_alg[$char]))
++                return $dr_sort_alg[$char];
++        return "unknown";
++}
+ 
+ 
+-function dr_get_options_of_list_sort($selected) 
++function dr_get_options_of_list_sort($selected)
+ {
+-	
+-	if ($selected==NULL || $selected=="") {
+-		$selected = 'N';
+-		$out = "";
+-	} else if ($selected!="N" && $selected!="W" && $selected!="Q" ){
+-		$out = "<option value='".$selected."' selected>".$selected."(unknown)</option>";
+-	}
+-
+-	$out .= "<option value='N' ".($selected=='N'?"selected":"").">none</option>";
+-	$out .= "<option value='W' ".($selected=='W'?"selected":"").">weight</option>";
+-	$out .= "<option value='Q' ".($selected=='Q'?"selected":"").">quality</option>";
+-	print $out;
++
++        if ($selected==NULL || $selected=="") {
++                $selected = 'N';
++                $out = "";
++        } else if ($selected!="N" && $selected!="W" && $selected!="Q" ){
++                $out = "<option value='".$selected."' selected>".$selected."(unknown)</option>";
++        }
++
++        $out .= "<option value='N' ".($selected=='N'?"selected":"").">none</option>";
++        $out .= "<option value='W' ".($selected=='W'?"selected":"").">weight</option>";
++        $out .= "<option value='Q' ".($selected=='Q'?"selected":"").">quality</option>";
++        print $out;
+ }
+ 
+ function dr_get_attrs_map($attrs)
+ {
+-	$ret = array();
+-	$s = explode(";", $attrs);
+-	foreach ($s as $k) {
+-		$split = explode("=", $k, 2);
+-		if (count($split) == 2)
+-			$ret[$split[0]] = $split[1];
+-		else
+-			$ret[$k] = "true";
+-	}
+-	return $ret;
++        $ret = array();
++        $s = explode(";", $attrs);
++        foreach ($s as $k) {
++                $split = explode("=", $k, 2);
++                if (count($split) == 2)
++                        $ret[$split[0]] = $split[1];
++                else
++                        $ret[$k] = "true";
++        }
++        return $ret;
+ }
+ 
+ function dr_get_attrs_val($attr_map, $key, $value)
+ {
+-	if (isset($attr_map[$key])) {
+-		switch($value["type"]) {
+-		case "text":
+-			return $attr_map[$key];
+-		case "checkbox":
+-			return true;
+-		case "combo":
+-			$attr = $attr_map[$key];
+-			$options = dr_get_combo_attrs($value, $attr);
+-			return $options[$attr];
+-		}
+-	} else {
+-		return NULL;
+-	}
++        if (isset($attr_map[$key])) {
++                switch($value["type"]) {
++                case "text":
++                        return $attr_map[$key];
++                case "checkbox":
++                        return true;
++                case "combo":
++                        $attr = $attr_map[$key];
++                        $options = dr_get_combo_attrs($value, $attr);
++                        return $options[$attr];
++                }
++        } else {
++                return NULL;
++        }
+ }
+ 
+ function dr_build_attrs($attrs)
+ {
+-	$ret = "";
+-	foreach ($attrs as $key=>$value) {
+-		if (!isset($_POST["extra_".$key]) || $_POST["extra_".$key] == "")
+-			continue;
+-		switch ($value["type"]) {
+-		case "text":
+-		case "combo":
+-			$ret .= ($ret!=""?";":"").$key."=".$_POST["extra_".$key];
+-			break;
+-		case "checkbox":
+-			$ret .= ($ret!=""?";":"").$key;
+-			break;
+-		}
+-	}
+-	return $ret;
++        $ret = "";
++        foreach ($attrs as $key=>$value) {
++                if (!isset($_POST["extra_".$key]) || $_POST["extra_".$key] == "")
++                        continue;
++                switch ($value["type"]) {
++                case "text":
++                case "combo":
++                        $ret .= ($ret!=""?";":"").$key."=".$_POST["extra_".$key];
++                        break;
++                case "checkbox":
++                        $ret .= ($ret!=""?";":"").$key;
++                        break;
++                }
++        }
++        return $ret;
+ }
+ 
+ function dr_get_combo_attrs($value, $filter_val = null)
+ {
+-	global $link;
+-
+-	$ret = array();
+-	$query = "SELECT " .$value["combo_display_col"]. " AS name, ".
+-		$value["combo_value_col"]. " AS id FROM ". $value["combo_table"];
+-
+-	if ($filter_val != null)
+-		$query .= " WHERE ".$value["combo_value_col"]." = ".$filter_val;
+-
+-	$stm = $link->prepare($query);
+-	if ($stm===FALSE) {
+-		die('Failed to issue query [' . $query . '], error message : ' . $link->errorInfo()[2]);
+-	}
+-	$stm->execute();
+-	$results = $stm->fetchAll();
+-	foreach ($results as $key => $value)
+-		$ret[$value['id']] = $value['name'];
+-	return $ret;
++        global $link;
++
++        $ret = array();
++        $query = "SELECT " .$value["combo_display_col"]. " AS name, ".
++                $value["combo_value_col"]. " AS id FROM ". $value["combo_table"];
++
++        if ($filter_val != null)
++                $query .= " WHERE ".$value["combo_value_col"]." = '".$filter_val."'";
++
++                $stm = $link->prepare($query);
++        if ($stm===FALSE) {
++                die('Failed to issue query [' . $query . '], error message : ' . $link->errorInfo()[2]);
++        }
++        $stm->execute();
++        $results = $stm->fetchAll();
++        foreach ($results as $key => $value)
++                $ret[$value['id']] = $value['name'];
++        return $ret;
+ }
+ 
+ // regex matching $id as a whole element of a $sep separated list
+
+diff --git a/web/tools/system/drouting/template/carriers.form.php b/web/tools/system/drouting/template/carriers.form.php
+index 4fd15353..29e1a8a3 100755
+--- a/web/tools/system/drouting/template/carriers.form.php
++++ b/web/tools/system/drouting/template/carriers.form.php
+@@ -2,7 +2,7 @@
+ /*
+  * Copyright (C) 2011 OpenSIPS Project
+  *
+- * This file is part of opensips-cp, a free Web Control Panel Application for 
++ * This file is part of opensips-cp, a free Web Control Panel Application for
+  * OpenSIPS SIP server.
+  *
+  * opensips-cp is free software; you can redistribute it and/or modify
+@@ -23,78 +23,110 @@
+ require("../../../common/forms.php");
+ 
+ if ($dr_form["action"] == "add") {
+-	form_generate_input_text("Carrier ID", "The name of the carrier",
+-		"carrierid", "n", $dr_form['carrierid'], 128, "^[a-zA-Z0-9_\-]+$");
++        form_generate_input_text("Carrier ID", "The name of the carrier",
++                "carrierid", "n", $dr_form['carrierid'], 128, "^[a-zA-Z0-9_\-]+$");
+ }
+ ?>
+  <tr>
+   <td class="dataRecord" ><b>Gateway List</b></td>
+    <td class="dataRecord">
+-	<input type="text" name="gwlist" id="gwlist" value="<?=$dr_form["gwlist"]?>" maxlength="<?=(isset($config->gwlist_size)?$config->gwlist_size:255)?>" readonly class="dataInput" style="width:370!important">
+-	<input type="button" name="clear_gwlist" value="Clear Last" class="inlineButton" style="width:90px" onclick="clearObject('gwlist')">
++        <input type="text" name="gwlist" id="gwlist" value="<?=$dr_form["gwlist"]?>" maxlength="<?=(isset($config->gwlist_size)?$config->gwlist_size:255)?>" readonly class="dataInput" style="width:370!important">
++        <input type="button" name="clear_gwlist" value="Clear Last" class="inlineButton" style="width:90px" onclick="clearObject('gwlist')">
+    </td>
+   </tr>
+   <tr>
+    <td/>
+    <td class="dataRecord">
+-	<?=print_gwlist()?>
+-	<input type="text"   name="weight" id="weight" value="" maxlength="5" class="dataInput" style="width:40!important;">
+-	<input type="button" name="add_gwlist" value="Add" class="inlineButton" style="width:90px" onclick="addElementToObject('gwlist','weight')">
++        <?=print_gwlist()?>
++        <input type="text"   name="weight" id="weight" value="" maxlength="5" class="dataInput" style="width:40!important;">
++        <input type="button" name="add_gwlist" value="Add" class="inlineButton" style="width:90px" onclick="addElementToObject('gwlist','weight')">
+    </td>
+   </tr>
+ <?php
+ form_generate_select("List Sorting", "How gateways should be sorted inside the carrier",
+-	"sort_alg", 128, $dr_form['sort_alg'], array_keys($dr_sort_alg), array_values($dr_sort_alg));
++        "sort_alg", 128, $dr_form['sort_alg'], array_keys($dr_sort_alg), array_values($dr_sort_alg));
+ 
+ form_generate_select("Use only first", "Whether to use only the first gateway",
+-	"useonlyfirst", 128, $dr_form['useonlyfirst'], array(0, 1), array("0 - No", "1 - Yes"));
++        "useonlyfirst", 128, $dr_form['useonlyfirst'], array(0, 1), array("0 - No", "1 - Yes"));
+ 
+ form_generate_select("DB State", "Whether the carrier should be initially active or not",
+-	"state", 128, $dr_form['state'], array(0, 1), array("0 - Active", "1 - Inactive"));
++        "state", 128, $dr_form['state'], array(0, 1), array("0 - Active", "1 - Inactive"));
+ 
+ $carrier_attributes_mode = get_settings_value("carrier_attributes_mode");
+ $carrier_attributes = get_settings_value("carrier_attributes");
+ if ($carrier_attributes_mode == "input") {
+     form_generate_input_text((isset($carrier_attributes["display_name"])?$carrier_attributes["display_name"]:"Attributes"),
+-			       "attributes used for the carrier",
+-			       "attrs",
+-			       "y",
+-			       (isset($resultset[0]['attrs'])?$resultset[0]['attrs']:$carrier_attributes["add_prefill_value"]),
+-			       128,
+-			       $carrier_attributes["validation_regexp"]);
++                               "attributes used for the carrier",
++                               "attrs",
++                               "y",
++                               (isset($resultset[0]['attrs'])?$resultset[0]['attrs']:$carrier_attributes["add_prefill_value"]),
++                               128,
++                               $carrier_attributes["validation_regexp"]);
+ } else if ($carrier_attributes_mode == "params") {
+-	$attr_map = dr_get_attrs_map($resultset[0]['attrs']);
+-	foreach ($carrier_attributes as $key => $value) {
+-		if ($dr_form["action"] == "edit")
+-			$val = dr_get_attrs_val($attr_map, $key, $value);
+-		else
+-			$val =  (isset($value["default"])?$value["default"]:"");
+-		switch ($value["type"]) {
+-		case "text":
+-			form_generate_input_text($value["display"],
+-				$value["hint"],
+-				"extra_".$key,
+-				"y",
+-				$val,
+-				128,
+-				(isset($value["validation_regexp"])?$value["validation_regexp"]:NULL));
+-			break;
+-		case "checkbox":
+-			form_generate_input_checkbox($value["display"],
+-				$value["hint"],
+-				"extra_".$key,
+-				$key,
+-				$val);
+-			break;
+-		case "combo":
+-			$options = dr_get_combo_attrs($value);
+-			form_generate_select($value['display'], $value['hint'],
+-				"extra_".$key, 205, $val, array_keys($options), array_values($options), true);
+-			break;
+-		}
+-	}
++        $attr_map = dr_get_attrs_map($resultset[0]['attrs']);
++        foreach ($carrier_attributes as $key => $value) {
++                if ($dr_form["action"] == "edit")
++                        $val = $attr_map[$key];
++                else
++                        $val =  (isset($value["default"])?$value["default"]:"");
++                switch ($value["type"]) {
++                case "text":
++                        if ($value['display']=='Codec') {
++                                ?>
++                                    <tr>
++                                      <td class="dataRecord" ><b>Codecs</b></td>
++                                      <td class="dataRecord">
++                                         <table style='width:100%'><tr><td>
++                                               <input type="text" name="extra_codecs" id="extra_codecs" opt="n" value="<?=$val?>" maxlength="<?=(isset($config->codec_size)?$config->codec_size:255)?>" readonly class="dataInput" style="width:340!important"  oninput="validate_extra_codec()">
++                                               <input type="button" name="clear_codec" value="Clear Last" class="inlineButton" style="width:90px" onclick="clearObjectcodec('extra_codecs')">
++                                             </td>
++                                             <td width='20'>
++                                               <div id='extra_codecs_ok'></div>
++                                        </td></tr></table>
++                                      </td>
++                                    </tr>
++                                    <tr>
++                                      <td/>
++                                      <td class="dataRecord">
++                                           <?=print_codec_list()?>
++                                           <input type="button" name="add_codec" value="Add" class="inlineButton" style="width:90px" onclick="addElementToObjectcodec('extra_codecs')">
++                                      </td>
++                                    </tr>
++                                    <tr>
++                                      <td/>
++                                      <td class="dataRecord">
++                                           <?=print_stripcodec_list()?>
++                                           <input type="button" name="strip_codec" value="Strip" class="inlineButton" style="width:90px" onclick="stripElementToObjectcodec('extra_codecs')">
++                                      </td>
++                                    </tr>                   
++                                 <?php
++                                
++                                    break;
++                        }
++                        form_generate_input_text($value["display"],
++                                $value["hint"],
++                                "extra_".$key,
++                                "y",
++                                $val,
++                                128,
++                                (isset($value["validation_regexp"])?$value["validation_regexp"]:NULL));
++                        break;
++                case "checkbox":
++                        form_generate_input_checkbox($value["display"],
++                                $value["hint"],
++                                "extra_".$key,
++                                $key,
++                                $val);
++                        break;
++                case "combo":
++                        $options = dr_get_combo_attrs($value);
++                        form_generate_select($value['display'], $value['hint'],
++                                "extra_".$key, 205, $val, array_keys($options), array_values($options), false);
++                        break;
++                }
++        }
+ }
+ 
+ form_generate_input_text("Description", "Arbitrary description of the carrier",
+-	"description", "y", $dr_form['description'], 128, "^.*$");
+-?>
++        "description", "y", $dr_form['description'], 128, "^.*$");
++?>
+\ No newline at end of file
+
+diff --git a/web/tools/system/drouting/template/rules.main.php b/web/tools/system/drouting/template/rules.main.php
+index 8bfdeb87..1ea7f437 100755
+--- a/web/tools/system/drouting/template/rules.main.php
++++ b/web/tools/system/drouting/template/rules.main.php
+@@ -2,7 +2,7 @@
+ /*
+  * Copyright (C) 2011 OpenSIPS Project
+  *
+- * This file is part of opensips-cp, a free Web Control Panel Application for 
++ * This file is part of opensips-cp, a free Web Control Panel Application for
+  * OpenSIPS SIP server.
+  *
+  * opensips-cp is free software; you can redistribute it and/or modify
+@@ -30,13 +30,13 @@
+  if($_SESSION['read_only']) {
+ 	$colspan=9;
+  } else {
+-	$colspan=7;
++        $colspan=7;
+  }
+  if ($rules_attributes_mode != "none") {
+         $rules_attributes = get_settings_value("rules_attributes");
+-	$row_colspan = 11;
++        $row_colspan = 11;
+  } else {
+-	$row_colspan = 10;
++        $row_colspan = 10;
+  }
+  $sql_search="";
+  $sql_vals=array();
+@@ -53,18 +53,18 @@
+  $search_prefix=$_SESSION['rules_search_prefix'];
+  if ($search_prefix!="") {
+                           $pos=strpos($search_prefix,"*");
+-			  if ($pos===false) {
+-				  $sql_search.=" and prefix=?";
+-				  array_push( $sql_vals, $search_prefix);
++                          if ($pos===false) {
++                                  $sql_search.=" and prefix=?";
++                                  array_push( $sql_vals, $search_prefix);
+                           } else {
+-				  $sql_search.=" and prefix like ?";
+-				  array_push( $sql_vals, str_replace("*","%",$search_prefix));
+-			  }
++                                  $sql_search.=" and prefix like ?";
++                                  array_push( $sql_vals, str_replace("*","%",$search_prefix));
++                          }
+  }
+  $search_priority=$_SESSION['rules_search_priority'];
+  if ($search_priority!="") {
+-	 $sql_search.=" and priority=?";
+-	 array_push( $sql_vals, $search_priority);
++         $sql_search.=" and priority=?";
++         array_push( $sql_vals, $search_priority);
+  }
+  $search_gwlist=$_SESSION['rules_search_gwlist'];
+  if ($search_gwlist!="") {
+@@ -83,8 +83,8 @@
+  }
+  $search_description=$_SESSION['rules_search_description'];
+  if ($search_description!="") {
+-	 $sql_search.=" and description like ?";
+-	 array_push( $sql_vals, "%".$search_description."%");
++         $sql_search.=" and description like ?";
++         array_push( $sql_vals, "%".$search_description."%");
+  }
+ ?>
+ <table width="50%" cellspacing="2" cellpadding="2" border="0">
+@@ -118,7 +118,7 @@
+   <td colspan="2" class="searchRecord border-bottom-devider" align="center">
+    <input type="submit" name="search" value="Search" class="searchButton">&nbsp;&nbsp;&nbsp;
+    <input type="submit" name="show_all" value="Show All" class="searchButton"> &nbsp;&nbsp;&nbsp;
+-   <?php if (!$_read_only) echo('<input type="submit" name="delete" value="Delete Matching" class="formButton" onClick="return confirmDeleteSearch()">') ?>
++   <?php //if (!$_read_only) echo('<input type="submit" name="delete" value="Delete Matching" class="formButton" onClick="return confirmDeleteSearch()">') ?>
+   </td>
+  </tr>
+ </table>
+@@ -126,7 +126,7 @@
+ <?php
+ $rules_attributes_mode = get_settings_value("rules_attributes_mode");
+ if ($rules_attributes_mode != "none")
+-	$rules_attributes = get_settings_value("rules_attributes");
++        $rules_attributes = get_settings_value("rules_attributes");
+ ?>
+ 
+ <?php if (!$_SESSION['read_only']) { ?>
+@@ -143,8 +143,8 @@ if ($rules_attributes_mode != "none")
+   <th class="listTitle">Group ID</th>
+   <th class="listTitle">Prefix</th>
+   <th class="listTitle">Priority</th>
+-  <th class="listTitle">GW List</th>  
+-  <th class="listTitle">List Sort</th>  
++  <th class="listTitle">GW List</th>
++  <th class="listTitle">List Sort</th>
+ <?php if ($rules_attributes_mode != "none") { ?>
+   <th class="listTitle"><?=(isset($rules_attributes["display_name"])?$rules_attributes["display_name"]:"Attributes")?></th>
+ <?php } ?>
+@@ -155,16 +155,16 @@ if ($rules_attributes_mode != "none")
+  </tr>
+ <?php
+  if ($sql_search=="") {
+-	$sql_command="select * from ".$table." order by ruleid asc";
+-	$sql_count="select count(*) from ".$table;
++        $sql_command="select * from ".$table." order by ruleid asc";
++        $sql_count="select count(*) from ".$table;
+  }
+  else {
+-	$sql_command="select * from ".$table." where (1=1) ".$sql_search." order by ruleid asc";
+-	$sql_count="select count(*) from ".$table." where (1=1) ".$sql_search;
++        $sql_command="select * from ".$table." where (1=1) ".$sql_search." order by ruleid asc";
++        $sql_count="select count(*) from ".$table." where (1=1) ".$sql_search;
+  }
+  $stm= $link->prepare($sql_count);
+  if ($stm===FALSE) {
+-	die('Failed to issue query ['.$sql_count.'], error message : ' . $link->errorInfo()[2]);
++        die('Failed to issue query ['.$sql_count.'], error message : ' . $link->errorInfo()[2]);
+  }
+  require("lib/".$page_id.".main.js");
+  $stm->execute( $sql_vals );
+@@ -186,7 +186,7 @@ if ($rules_attributes_mode != "none")
+   else $sql_command.=" limit ".$res_no." OFFSET " . $start_limit;
+   $stm= $link->prepare($sql_command);
+   if ($stm===FALSE) {
+-	die('Failed to issue query ['.$sql_command.'], error message : ' . $link->errorInfo()[2]);
++        die('Failed to issue query ['.$sql_command.'], error message : ' . $link->errorInfo()[2]);
+   }
+   $stm->execute( $sql_vals );
+   $resultset = $stm->fetchAll(PDO::FETCH_ASSOC);
+
+# --------------------------------------------------------------------
+# Customization 159/218: P8-CUST-PERCENT_D3JS_PHP
+# Title: Customization in percent_d3js.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/charting/percent_d3js.php b/web/common/charting/percent_d3js.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 160/218: P8-CUST-PERCENT_SHMEMD3JS_PHP
+# Title: Customization in percent_shmemd3js.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/charting/percent_shmemd3js.php b/web/common/charting/percent_shmemd3js.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 161/218: P8-CUST-PHONE_PNG
+# Title: Customization in phone.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/phone.png b/web/images/share/phone.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 162/218: P8-CUST-PKG_WIDGET_PHP
+# Title: Customization in pkg_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/template/dashboard_widgets/pkg_widget.php b/web/tools/system/dashboard/template/dashboard_widgets/pkg_widget.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 163/218: P8-CUST-PROBING_PNG
+# Title: Customization in probing.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/probing.png b/web/images/share/probing.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 164/218: P8-CUST-README
+# Title: Customization in README
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/README b/README
+old mode 100644
+new mode 100755
+
+diff --git a/web/common/tools/tviewer/README b/web/common/tools/tviewer/README
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 165/218: P8-CUST-REDIRECT_PHP
+# Title: Customization in redirect.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/tools/tviewer/redirect.php b/web/common/tools/tviewer/redirect.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 166/218: P8-CUST-REGISTERED_USERS_WIDGET_PHP
+# Title: Customization in registered_users_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/users/user_management/template/dashboard_widgets/registered_users_widget.php b/web/tools/users/user_management/template/dashboard_widgets/registered_users_widget.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 167/218: P8-CUST-RESET_PNG
+# Title: Customization in reset.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/reset.png b/web/images/share/reset.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 168/218: P8-CUST-RIGHT_PNG
+# Title: Customization in right.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/right.png b/web/images/share/right.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 169/218: P8-CUST-RTPENGINE_WIDGET_PHP
+# Title: Customization in rtpengine_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/rtpengine/template/dashboard_widgets/rtpengine_widget.php b/web/tools/system/rtpengine/template/dashboard_widgets/rtpengine_widget.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 170/218: P8-CUST-RTPPROXY_STAT_PHP
+# Title: Customization in rtpproxy_stat.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/rtpproxy/statistics/rtpproxy_stat.php b/web/tools/system/rtpproxy/statistics/rtpproxy_stat.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 171/218: P8-CUST-RTPPROXY_WIDGET_PHP
+# Title: Customization in rtpproxy_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/rtpproxy/template/dashboard_widgets/rtpproxy_widget.php b/web/tools/system/rtpproxy/template/dashboard_widgets/rtpproxy_widget.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 172/218: P8-CUST-RULES_PHP
+# Title: Customization in rules.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/drouting/rules.php b/web/tools/system/drouting/rules.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 173/218: P8-CUST-RUNTIMEEXCEPTION_PHP
+# Title: Customization in RuntimeException.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/googleAuth/RuntimeException.php b/googleAuth/RuntimeException.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 174/218: P8-CUST-SEARCH_PHP
+# Title: Customization in search.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/tools/tviewer/custom_actions/search.php b/web/common/tools/tviewer/custom_actions/search.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 175/218: P8-CUST-SECURITY_MD
+# Title: Customization in SECURITY.md
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/SECURITY.md b/SECURITY.md
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 176/218: P8-CUST-SESSION_INC_PHP
+# Title: Customization in session.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/session.inc.php b/config/session.inc.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 177/218: P8-CUST-SETTINGS_INC_PHP
+# Title: Customization in settings.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/tools/admin/boxes_config/settings.inc.php b/config/tools/admin/boxes_config/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/admin/db_config/settings.inc.php b/config/tools/admin/db_config/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/addresses/settings.inc.php b/config/tools/system/addresses/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/callcenter/settings.inc.php b/config/tools/system/callcenter/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/cdrviewer/settings.inc.php b/config/tools/system/cdrviewer/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/clusterer/settings.inc.php b/config/tools/system/clusterer/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/config/settings.inc.php b/config/tools/system/config/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/dashboard/settings.inc.php b/config/tools/system/dashboard/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/dialog/settings.inc.php b/config/tools/system/dialog/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/dialplan/settings.inc.php b/config/tools/system/dialplan/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/dispatcher/settings.inc.php b/config/tools/system/dispatcher/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/domains/settings.inc.php b/config/tools/system/domains/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/drouting/settings.inc.php b/config/tools/system/drouting/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/keepalived/settings.inc.php b/config/tools/system/keepalived/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/loadbalancer/settings.inc.php b/config/tools/system/loadbalancer/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/mi/settings.inc.php b/config/tools/system/mi/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/monit/settings.inc.php b/config/tools/system/monit/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/rtpengine/settings.inc.php b/config/tools/system/rtpengine/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/rtpproxy/settings.inc.php b/config/tools/system/rtpproxy/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/siptrace/settings.inc.php b/config/tools/system/siptrace/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/smonitor/settings.inc.php b/config/tools/system/smonitor/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/smpp/settings.inc.php b/config/tools/system/smpp/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/sockets_mgm/settings.inc.php b/config/tools/system/sockets_mgm/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/statusreport/settings.inc.php b/config/tools/system/statusreport/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/tcp_mgm/settings.inc.php b/config/tools/system/tcp_mgm/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/tls_mgm/settings.inc.php b/config/tools/system/tls_mgm/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/tracer/settings.inc.php b/config/tools/system/tracer/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/uac_registrant/settings.inc.php b/config/tools/system/uac_registrant/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/users/alias_management/settings.inc.php b/config/tools/users/alias_management/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/users/group_management/settings.inc.php b/config/tools/users/group_management/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/users/user_management/settings.inc.php b/config/tools/users/user_management/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/common/tools/tviewer/samples/settings.inc.php b/web/common/tools/tviewer/samples/settings.inc.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 178/218: P8-CUST-SETT_PNG
+# Title: Customization in sett.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/sett.png b/web/images/sett.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 179/218: P8-CUST-SHMEM_WIDGET_PHP
+# Title: Customization in shmem_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/template/dashboard_widgets/shmem_widget.php b/web/tools/system/dashboard/template/dashboard_widgets/shmem_widget.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 180/218: P8-CUST-SHOW_CONTACTS_PHP
+# Title: Customization in show_contacts.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/users/user_management/show_contacts.php b/web/tools/users/user_management/show_contacts.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 181/218: P8-CUST-SPACER_GIF
+# Title: Customization in spacer.gif
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/spacer.gif b/web/images/spacer.gif
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 182/218: P8-CUST-STATISTICS_ADD_PHP
+# Title: Customization in statistics.add.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/smonitor/template/statistics.add.php b/web/tools/system/smonitor/template/statistics.add.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 183/218: P8-CUST-STATISTICS_DETAILS_PHP
+# Title: Customization in statistics.details.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/smonitor/statistics.details.php b/web/tools/system/smonitor/statistics.details.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 184/218: P8-CUST-STATISTICS_EDIT_PHP
+# Title: Customization in statistics.edit.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/smonitor/template/statistics.edit.php b/web/tools/system/smonitor/template/statistics.edit.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 185/218: P8-CUST-STATISTICS_IMPORT_DETAILS_PHP
+# Title: Customization in statistics.import_details.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/smonitor/statistics.import_details.php b/web/tools/system/smonitor/statistics.import_details.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 186/218: P8-CUST-STATISTICS_IMPORT_STAT_PHP
+# Title: Customization in statistics.import_stat.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/smonitor/template/statistics.import_stat.php b/web/tools/system/smonitor/template/statistics.import_stat.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 187/218: P8-CUST-STATISTICS_MAIN_PHP
+# Title: Customization in statistics.main.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/smonitor/template/statistics.main.php b/web/tools/system/smonitor/template/statistics.main.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 188/218: P8-CUST-STATISTICS_PHP
+# Title: Customization in statistics.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/smonitor/statistics.php b/web/tools/system/smonitor/statistics.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 189/218: P8-CUST-STATS_GAUGE_WIDGET_PHP
+# Title: Customization in stats_gauge_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/template/dashboard_widgets/stats_gauge_widget.php b/web/tools/system/dashboard/template/dashboard_widgets/stats_gauge_widget.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 190/218: P8-CUST-STATUS_REPORT_WIDGET_PHP
+# Title: Customization in status_report_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/statusreport/template/dashboard_widgets/status_report_widget.php b/web/tools/system/statusreport/template/dashboard_widgets/status_report_widget.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 191/218: P8-CUST-STAT_CLASS_PHP
+# Title: Customization in stat_class.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/smonitor/template/stat_class.php b/web/tools/system/smonitor/template/stat_class.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 192/218: P8-CUST-STORE_DASHBOARD_PHP
+# Title: Customization in store_dashboard.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/store_dashboard.php b/web/tools/system/dashboard/store_dashboard.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 193/218: P8-CUST-STYLE_CSS
+# Title: Customization in style.css
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/style.css b/web/style.css
+index afef6bdf..6b834a11 100755
+--- a/web/style.css
++++ b/web/style.css
+@@ -191,7 +191,8 @@ font-family: 'Montserrat', sans-serif;
+ }
+ 
+ .headerTable{
+-background: #3e5771;
++/*background: #3e5771;*/
++background: #D35400;
+ padding: 15px;
+     height: 30px;
+     min-height: 30px;
+@@ -301,4 +302,4 @@ p, li, td, .menu_active, input, button {
+ 	}
+ 
+ 	.grid-item { width: 25%; }
+-	.grid-item--width2 { width: 50%; }
+\ No newline at end of file
++	.grid-item--width2 { width: 50%; }
+
+# --------------------------------------------------------------------
+# Customization 194/218: P8-CUST-STYLE_MONIT_CSS
+# Title: Customization in style_monit.css
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/monit/style_monit.css b/web/tools/system/monit/style_monit.css
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 195/218: P8-CUST-STYLE_TOOLS_CSS
+# Title: Customization in style_tools.css
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/style_tools.css b/web/style_tools.css
+index 6d3d3d98..e0bb25eb 100755
+--- a/web/style_tools.css
++++ b/web/style_tools.css
+@@ -98,14 +98,14 @@ table tr:last-child > th:last-child {
+ 
+ .ttable td.rowEven {
+ 	background: #f6f6f6;
+-	background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f6f6f6));
++	background: -webkit-gradient(linear, left top, left bottom, from(#f3f6fa), to(#eef2f7));
+ 	background: -moz-linear-gradient(top,  #f8f8f8,  #f6f6f6);
+ }
+ 
+ .ttable td.rowEvenImg {
+ 	padding:0px;
+ 	background: #f6f6f6;
+-	background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f6f6f6));
++	background: -webkit-gradient(linear, left top, left bottom, from(#f3f6fa), to(#eef2f7));
+ 	background: -moz-linear-gradient(top,  #f8f8f8,  #f6f6f6);
+ }
+ 
+@@ -478,6 +478,30 @@ fieldset legend {
+ ##################
+ 
+ 
++	.config-grid {
++		display: grid;
++		grid-template-columns: 1fr 1fr;
++		column-gap: 25px;
++		row-gap: 2px;
++	}
++	
++	.config-row {
++		display: flex;
++		align-items: flex-start;
++		padding: 1px 0;
++	}
++	
++	.config-label {
++		color: #8194a7;
++		font-weight: 501;
++		min-width: 140px;
++		flex-shrink: 0;
++		padding-right: 6px;
++	}
++	
++	.config-value {
++		color: #333;
++	}
+ 
+ h1 {
+     font-size: 1.5em;
+
+# --------------------------------------------------------------------
+# Customization 196/218: P8-CUST-SYSTEM_CONFIG_ADD_PHP
+# Title: Customization in system_config.add.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/boxes_config/template/system_config.add.php b/web/tools/admin/boxes_config/template/system_config.add.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 197/218: P8-CUST-SYSTEM_CONFIG_EDIT_TOOLS_PHP
+# Title: Customization in system_config.edit_tools.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/boxes_config/template/system_config.edit_tools.php b/web/tools/admin/boxes_config/template/system_config.edit_tools.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 198/218: P8-CUST-SYSTEM_CONFIG_MAIN_JS
+# Title: Customization in system_config.main.js
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/boxes_config/lib/system_config.main.js b/web/tools/admin/boxes_config/lib/system_config.main.js
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 199/218: P8-CUST-SYSTEM_CONFIG_MAIN_PHP
+# Title: Customization in system_config.main.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/boxes_config/template/system_config.main.php b/web/tools/admin/boxes_config/template/system_config.main.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 200/218: P8-CUST-SYSTEM_CONFIG_PHP
+# Title: Customization in system_config.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/boxes_config/system_config.php b/web/tools/admin/boxes_config/system_config.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 201/218: P8-CUST-SYSTEM_CONFIG_TEST_INC_PHP
+# Title: Customization in system_config.test.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/boxes_config/lib/system_config.test.inc.php b/web/tools/admin/boxes_config/lib/system_config.test.inc.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 202/218: P8-CUST-TOOLS_CONFIG_EDIT_TOOLS_PHP
+# Title: Customization in tools_config.edit_tools.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/tools_config/template/tools_config.edit_tools.php b/web/tools/admin/tools_config/template/tools_config.edit_tools.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 203/218: P8-CUST-TOOLS_CONFIG_PHP
+# Title: Customization in tools_config.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/tools_config/tools_config.php b/web/tools/admin/tools_config/tools_config.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 204/218: P8-CUST-TOOLS_PNG
+# Title: Customization in tools.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/tools.png b/web/images/share/tools.png
+old mode 100644
+new mode 100755
+
+diff --git a/web/images/tools.png b/web/images/tools.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 205/218: P8-CUST-TOOL_NAME
+# Title: Customization in tool.name
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/tracer/tool.name b/web/tools/system/tracer/tool.name
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 206/218: P8-CUST-TRACER_MAIN_PHP
+# Title: Customization in tracer.main.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/tracer/template/tracer.main.php b/web/tools/system/tracer/template/tracer.main.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 207/218: P8-CUST-TRACER_PHP
+# Title: Customization in tracer.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/tracer/tracer.php b/web/tools/system/tracer/tracer.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 208/218: P8-CUST-TVIEWER_INC_PHP
+# Title: Customization in tviewer.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/tools/system/callcenter/tviewer.inc.php b/config/tools/system/callcenter/tviewer.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/config/tviewer.inc.php b/config/tools/system/config/tviewer.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/smpp/tviewer.inc.php b/config/tools/system/smpp/tviewer.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/sockets_mgm/tviewer.inc.php b/config/tools/system/sockets_mgm/tviewer.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/tcp_mgm/tviewer.inc.php b/config/tools/system/tcp_mgm/tviewer.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/tls_mgm/tviewer.inc.php b/config/tools/system/tls_mgm/tviewer.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/uac_registrant/tviewer.inc.php b/config/tools/system/uac_registrant/tviewer.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/common/tools/tviewer/samples/tviewer.inc.php b/web/common/tools/tviewer/samples/tviewer.inc.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 209/218: P8-CUST-UNLOCK_PNG
+# Title: Customization in unlock.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/dashboard/unlock.png b/web/images/dashboard/unlock.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 210/218: P8-CUST-UP_PNG
+# Title: Customization in up.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/up.png b/web/images/share/up.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 211/218: P8-CUST-USER_MANAGEMENT_FORM_PHP
+# Title: Customization in user_management.form.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/users/user_management/template/user_management.form.php b/web/tools/users/user_management/template/user_management.form.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 212/218: P8-CUST-USER_MANAGEMENT_PHP
+# Title: Customization in user_management.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/users/user_management/user_management.php b/web/tools/users/user_management/user_management.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 213/218: P8-CUST-USER_PNG
+# Title: Customization in user.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/user.png b/web/images/share/user.png
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 214/218: P8-CUST-VALIDATE_PHP
+# Title: Customization in validate.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/validate.php b/web/common/validate.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 215/218: P8-CUST-VERSION_TXT
+# Title: Customization in version.txt
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/version.txt b/web/version.txt
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 216/218: P8-CUST-VERTICAL_TITLE_WIDGET_PHP
+# Title: Customization in vertical_title_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/template/dashboard_widgets/vertical_title_widget.php b/web/tools/system/dashboard/template/dashboard_widgets/vertical_title_widget.php
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 217/218: P8-CUST-WIDGET_CSS
+# Title: Customization in widget.css
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/css/widget.css b/web/tools/system/dashboard/css/widget.css
+old mode 100644
+new mode 100755
+
+# --------------------------------------------------------------------
+# Customization 218/218: P8-CUST-WIDGET_PHP
+# Title: Customization in widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/template/widget/widget.php b/web/tools/system/dashboard/template/widget/widget.php
+old mode 100644
+new mode 100755
+

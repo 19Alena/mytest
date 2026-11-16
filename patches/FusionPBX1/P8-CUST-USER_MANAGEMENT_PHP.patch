@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 212/218: P8-CUST-USER_MANAGEMENT_PHP
+# Title: Customization in user_management.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/users/user_management/user_management.php b/web/tools/users/user_management/user_management.php
+old mode 100644
+new mode 100755
+

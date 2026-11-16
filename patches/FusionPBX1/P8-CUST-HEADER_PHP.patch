@@ -1,0 +1,29 @@
+# --------------------------------------------------------------------
+# Customization 114/218: P8-CUST-HEADER_PHP
+# Title: Customization in header.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/boxes_config/template/header.php b/web/tools/admin/boxes_config/template/header.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/admin/db_config/template/header.php b/web/tools/admin/db_config/template/header.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/admin/tools_config/template/header.php b/web/tools/admin/tools_config/template/header.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/system/dashboard/template/header.php b/web/tools/system/dashboard/template/header.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/system/keepalived/template/header.php b/web/tools/system/keepalived/template/header.php
+old mode 100644
+new mode 100755
+

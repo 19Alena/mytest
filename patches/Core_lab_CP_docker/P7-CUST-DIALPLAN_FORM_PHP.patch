@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 88/218: P7-CUST-DIALPLAN_FORM_PHP
+# Title: Customization in dialplan.form.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dialplan/template/dialplan.form.php b/web/tools/system/dialplan/template/dialplan.form.php
+old mode 100644
+new mode 100755
+

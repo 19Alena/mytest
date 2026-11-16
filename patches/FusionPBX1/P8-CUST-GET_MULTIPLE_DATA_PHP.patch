@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 105/218: P8-CUST-GET_MULTIPLE_DATA_PHP
+# Title: Customization in get_multiple_data.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/charting/get_multiple_data.php b/web/common/charting/get_multiple_data.php
+old mode 100644
+new mode 100755
+

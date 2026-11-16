@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 24/218: P7-CUST-BOXES_CONFIG_PHP
+# Title: Customization in boxes_config.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/boxes_config/boxes_config.php b/web/tools/admin/boxes_config/boxes_config.php
+old mode 100644
+new mode 100755
+

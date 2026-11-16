@@ -1,0 +1,172 @@
+# --------------------------------------------------------------------
+# Customization 37/218: P8-CUST-CARRIERS_ADD_EDIT_JS
+# Title: Customization in carriers.add.edit.js
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/drouting/lib/carriers.add.edit.js b/web/tools/system/drouting/lib/carriers.add.edit.js
+index c4240dd0..289efd78 100755
+--- a/web/tools/system/drouting/lib/carriers.add.edit.js
++++ b/web/tools/system/drouting/lib/carriers.add.edit.js
+@@ -1,5 +1,65 @@
+ <script language="JavaScript">
+ 
++function handleExtraTranscoding() {
++    const transcoding = document.getElementById('extra_rtp');
++    const codecInput  = document.getElementById('extra_codecs');
++    const codecSelect = document.getElementById('extra_codecs_value');
++    const codecstripSelect = document.getElementById('extra_codecs_stripvalue');
++    const addBtn   = document.querySelector('input[name="add_codec"]');
++    const stripBtn   = document.querySelector('input[name="strip_codec"]');
++    const clearBtn = document.querySelector('input[name="clear_codec"]');
++    if (!transcoding || !codecInput || !codecSelect || !codecstripSelect) {
++        return;
++    }
++    if (transcoding.value === 'T') {
++        codecInput.disabled = false;
++        codecSelect.disabled = false;
++        codecstripSelect.disabled = false;
++        addBtn.disabled = false;
++        stripBtn.disabled = false;
++        clearBtn.disabled = false;
++        validate_extra_codec();
++    } else {
++        codecInput.value = '';
++        codecInput.disabled = true;
++        codecSelect.disabled = true;
++        codecstripSelect.disabled = true;    
++        addBtn.disabled = true;
++        stripBtn.disabled = true;
++        clearBtn.disabled = true;
++        validate_extra_codec();
++    }
++}
++
++function validate_extra_codec() {
++        var transcoding = document.getElementById('extra_rtp').value;
++        var field = 'extra_codecs';
++        var output = 'extra_codecs_ok';
++        var val = document.getElementById(field).value.trim();
++        var ret = 1;
++
++        if (transcoding !== 'T') {
++                document.getElementById(output).innerHTML = '';
++                document.getElementById(field).setAttribute("valid","ok");
++                form_full_check();
++                return ret;
++        }
++
++        if (val === '') {
++                document.getElementById(output).innerHTML =
++                        '<img src="../../../images/share/must-icon.png">';
++                document.getElementById(field).setAttribute("valid","ko");
++                ret = -1;
++        } else {
++                document.getElementById(output).innerHTML =
++                        '<img src="../../../images/share/ok_small.png">';
++                document.getElementById(field).setAttribute("valid","ok");
++        }
++
++        form_full_check();
++        return ret;
++}
++
+ function clearObject(object_name)
+ {
+  var list=document.getElementById(object_name).value;
+@@ -15,6 +75,25 @@ function clearObject(object_name)
+   list=list.substring(0,list.length-last);
+   document.getElementById(object_name).value=list;
+  }
++ validate_extra_codec();
++}
++
++function clearObjectcodec(object_name)
++{
++ var list=document.getElementById(object_name).value;
++ if ((list.charAt(list.length-1)==";") || (list.charAt(list.length-1)=="."))
++ {
++  document.getElementById(object_name).value=list.substring(0,list.length-1);
++ }
++ else
++ {
++  var list_modified=list.replace(/;/g,".");
++  var list_array=list_modified.split(".");
++  var last=list_array[list_array.length-1].length;
++  list=list.substring(0,list.length-last);
++  document.getElementById(object_name).value=list;
++ }
++ validate_extra_codec();
+ }
+ 
+ function is_pos_int(value){
+@@ -60,9 +139,51 @@ function addElementToObject(object_name,weight){
+ 			else
+ 				document.getElementById(object_name).value+=","+document.getElementById(object_name+"_value").value;
+ 		}
+-	}
++    }
+ }
+ 
++function addElementToObjectcodec(object_name)
++{
++if (document.getElementById(object_name).value=="") document.getElementById(object_name).value=document.getElementById(object_name+"_value").value;
++  else {
++        var values=document.getElementById(object_name).value;
++        values_modified=values.replace(/;/g,".");
++        var value_array=values_modified.split(".");
++        var new_value=document.getElementById(object_name+"_value").value;
++        var index=0;
++        while (index<value_array.length)
++         if (value_array[index]==new_value && object_name!="gwlist" ) {
++                                             if (object_name=="groupid") alert("Error: Duplicate Group ID value: '"+new_value+"'");
++                                             //if (object_name=="gwlist") alert("Error: Duplicate Gateway Address value: '#"+new_value+"'");
++                                             return false;
++                                            }
++          else index+=1;
++        if ((values.charAt(values.length-1)==";") || (values.charAt(values.length-1)==".")) document.getElementById(object_name).value+=document.getElementById(object_name+"_value").value;
++         else document.getElementById(object_name).value+="."+document.getElementById(object_name+"_value").value;
++       }
++    validate_extra_codec();
++}
++function stripElementToObjectcodec(object_name)
++{
++if (document.getElementById(object_name).value=="") document.getElementById(object_name).value=document.getElementById(object_name+"_stripvalue").value;
++  else {
++        var values=document.getElementById(object_name).value;
++        values_modified=values.replace(/;/g,".");
++        var value_array=values_modified.split(".");
++        var new_value=document.getElementById(object_name+"_stripvalue").value;
++        var index=0;
++        while (index<value_array.length)
++         if (value_array[index]==new_value && object_name!="gwlist" ) {
++                                             if (object_name=="groupid") alert("Error: Duplicate Group ID value: '"+new_value+"'");
++                                             //if (object_name=="gwlist") alert("Error: Duplicate Gateway Address value: '#"+new_value+"'");
++                                             return false;
++                                            }
++          else index+=1;
++        if ((values.charAt(values.length-1)==";") || (values.charAt(values.length-1)==".")) document.getElementById(object_name).value+=document.getElementById(object_name+"_stripvalue").value;
++         else document.getElementById(object_name).value+="."+document.getElementById(object_name+"_stripvalue").value;
++       }
++    validate_extra_codec();
++}
+ function endGroupGwList(object_name)
+ {
+  var values=document.getElementById(object_name).value;
+@@ -89,5 +210,11 @@ function optionChange(object_name)
+  if (document.getElementById(object_name).value==1) document.getElementById(div_object).style.display="block";
+   else document.getElementById(div_object).style.display="none";
+ }
+-
++document.addEventListener('DOMContentLoaded', function () {
++    const transcoding = document.getElementById('extra_rtp');
++    if (transcoding) {
++        transcoding.addEventListener('change', handleExtraTranscoding);
++        handleExtraTranscoding();
++    }
++});
+ </script>
+

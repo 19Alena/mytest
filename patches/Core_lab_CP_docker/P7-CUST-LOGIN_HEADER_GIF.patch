@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 138/218: P7-CUST-LOGIN_HEADER_GIF
+# Title: Customization in login_header.gif
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/login_header.gif b/web/images/login_header.gif
+old mode 100644
+new mode 100755
+

@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 120/218: P7-CUST-ICON_SYSTEM_SVG
+# Title: Customization in icon-system.svg
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/icon-system.svg b/web/images/icon-system.svg
+old mode 100644
+new mode 100755
+

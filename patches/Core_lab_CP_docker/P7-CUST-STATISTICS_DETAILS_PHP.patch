@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 183/218: P7-CUST-STATISTICS_DETAILS_PHP
+# Title: Customization in statistics.details.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/smonitor/statistics.details.php b/web/tools/system/smonitor/statistics.details.php
+old mode 100644
+new mode 100755
+

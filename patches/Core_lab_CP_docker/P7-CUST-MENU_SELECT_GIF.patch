@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 152/218: P7-CUST-MENU_SELECT_GIF
+# Title: Customization in menu_select.gif
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/menu_select.gif b/web/images/menu_select.gif
+old mode 100644
+new mode 100755
+

@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 82/218: P8-CUST-DEF_PHP
+# Title: Customization in def.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/imports/testWidget/def.php b/web/tools/system/dashboard/imports/testWidget/def.php
+old mode 100644
+new mode 100755
+

@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 127/218: P7-CUST-JQUERY_GRIDSTER_MIN_JS
+# Title: Customization in jquery.gridster.min.js
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/jquery.gridster.min.js b/web/tools/system/dashboard/jquery.gridster.min.js
+old mode 100644
+new mode 100755
+

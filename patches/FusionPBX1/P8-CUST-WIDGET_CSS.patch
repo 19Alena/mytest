@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 217/218: P8-CUST-WIDGET_CSS
+# Title: Customization in widget.css
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/css/widget.css b/web/tools/system/dashboard/css/widget.css
+old mode 100644
+new mode 100755
+

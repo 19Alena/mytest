@@ -1,0 +1,39 @@
+# --------------------------------------------------------------------
+# Customization 9/14: P3-CUST-FUNCTIONS_INC_PHP
+# Title: Customization in functions.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/template/functions.inc.php b/web/tools/system/dashboard/template/functions.inc.php
+index d52e8d0f..3b46296b 100644
+--- a/web/tools/system/dashboard/template/functions.inc.php
++++ b/web/tools/system/dashboard/template/functions.inc.php
+@@ -30,12 +30,20 @@
+         require("../../../../config/db.inc.php");
+         require("../../../../config/tools/system/dashboard/settings.inc.php");
+ 
+-        $sql = 'UPDATE '.$table.' SET `order` = 
++        //for PostgreSQL
++        //$sql = 'UPDATE '.$table.' SET `order` =
++        //CASE
++        // WHEN `order` = ? THEN ?
++        // WHEN `order` = ? THEN ?
++        //END
++        //WHERE `order` = ? or `order` = ?
++        //';
++        $sql = 'UPDATE '.$table.' SET "order" =
+         CASE
+-         WHEN `order` = ? THEN ?
+-         WHEN `order` = ? THEN ?
++         WHEN "order" = ? THEN ?
++         WHEN "order" = ? THEN ?
+         END
+-        WHERE `order` = ? or `order` = ?
++        WHERE "order" = ? or "order" = ?
+         ';
+         $stm = $link->prepare($sql);
+         if ($stm === false) {
+

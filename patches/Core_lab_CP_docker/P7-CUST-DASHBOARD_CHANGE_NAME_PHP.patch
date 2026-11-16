@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 59/218: P7-CUST-DASHBOARD_CHANGE_NAME_PHP
+# Title: Customization in dashboard.change_name.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/template/dashboard.change_name.php b/web/tools/system/dashboard/template/dashboard.change_name.php
+old mode 100644
+new mode 100755
+

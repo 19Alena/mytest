@@ -1,0 +1,29 @@
+# --------------------------------------------------------------------
+# Customization 97/218: P8-CUST-FOOTER_PHP
+# Title: Customization in footer.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/boxes_config/template/footer.php b/web/tools/admin/boxes_config/template/footer.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/admin/db_config/template/footer.php b/web/tools/admin/db_config/template/footer.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/admin/tools_config/template/footer.php b/web/tools/admin/tools_config/template/footer.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/system/dashboard/template/footer.php b/web/tools/system/dashboard/template/footer.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/system/keepalived/template/footer.php b/web/tools/system/keepalived/template/footer.php
+old mode 100644
+new mode 100755
+

@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 178/218: P8-CUST-SETT_PNG
+# Title: Customization in sett.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/sett.png b/web/images/sett.png
+old mode 100644
+new mode 100755
+

@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 196/218: P8-CUST-SYSTEM_CONFIG_ADD_PHP
+# Title: Customization in system_config.add.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/boxes_config/template/system_config.add.php b/web/tools/admin/boxes_config/template/system_config.add.php
+old mode 100644
+new mode 100755
+

@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 7/218: P7-CUST-ARROW_GIF
+# Title: Customization in arrow.gif
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/arrow.gif b/web/images/arrow.gif
+old mode 100644
+new mode 100755
+

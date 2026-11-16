@@ -1,0 +1,31 @@
+# --------------------------------------------------------------------
+# Customization 12/23: P6-CUST-EMERGENCY-LUA
+# Title: Emergency Dialplan Lua Routing Customization
+# Category: Telephony/Lua
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 5.5
+# --------------------------------------------------------------------
+
+diff --git a/app/switch/resources/scripts/app/emergency/index.lua b/app/switch/resources/scripts/app/emergency/index.lua
+index 53c945a43..a8152bd6a 100644
+--- a/app/switch/resources/scripts/app/emergency/index.lua
++++ b/app/switch/resources/scripts/app/emergency/index.lua
+@@ -173,6 +173,16 @@ elseif (tonumber(destination_number) == 922) then
+ 	event = '922 Emergency Address Validation Service';
+ elseif (tonumber(destination_number) == 911) then
+ 	event = '911 Emergency Call';
++elseif (tonumber(destination_number) == 112) then
++       event = '112 Emergency Call';
++elseif (tonumber(destination_number) == 90000) then
++       event = '90000 Emergency Call';
++elseif (tonumber(destination_number) == 1177) then
++       event = '1177 Emergency Call';
++elseif (tonumber(destination_number) == 11313) then
++       event = '11313 Emergency Call';
++elseif (tonumber(destination_number) == 11414) then
++       event = '11414 Emergency Call';
+ end
+ 
+ --connect to the database
+

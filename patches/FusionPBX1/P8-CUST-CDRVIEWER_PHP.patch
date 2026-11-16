@@ -1,0 +1,64 @@
+# --------------------------------------------------------------------
+# Customization 41/218: P8-CUST-CDRVIEWER_PHP
+# Title: Customization in cdrviewer.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/cdrviewer/cdrviewer.php b/web/tools/system/cdrviewer/cdrviewer.php
+index 7d9f4f91..58e44076 100755
+--- a/web/tools/system/cdrviewer/cdrviewer.php
++++ b/web/tools/system/cdrviewer/cdrviewer.php
+@@ -83,7 +83,7 @@ if ($action=="search")
+ 		$_SESSION['cdrviewer_search_cdr_field']="";
+ 		$_SESSION['cdrviewer_search_start']="";
+ 		$_SESSION['cdrviewer_search_end']="";
+-
++        unset($_SESSION['cdrviewer_search_array']);
+ 	}
+ 
+ 	else {
+@@ -94,6 +94,15 @@ if ($action=="search")
+ 			$_SESSION['cdrviewer_search_val']=$search_regexp;
+ 			$_SESSION['cdrviewer_search_cdr_field'] = $cdr_field ;
+ 		}
++        $filtered_inputs = [];
++        foreach ($_POST['search_array'] ?? [] as $field => $value) {
++            $value = trim($value);
++            if ($value !== '') {
++                $filtered_inputs[$field] = $value;
++            }
++        }
++            $_SESSION['cdrviewer_search_array'] = $filtered_inputs;
++        
+ 		if ($start_year=="none")
+ 			$_SESSION['cdrviewer_search_start']="";
+ 		else
+@@ -104,15 +113,20 @@ if ($action=="search")
+ 			$_SESSION['cdrviewer_search_end']=$end_year."-".$end_month."-".$end_day." ".$end_hour.":".$end_minute.":".$end_second;
+ 	}
+ }
+-
+ if ($export == "Export") {
+ 
+ 	$search_regexp=$_SESSION['cdrviewer_search_val'];
+ 	$cdr_field = $_SESSION['cdrviewer_search_cdr_field'];
+-
+-
++    $search_array=$_SESSION['cdrviewer_search_array'];
++    $sql_search='';
+ 	if (($cdr_field!="") && ($search_regexp!="")) $sql_search.=" and ".$cdr_field.' like "%'.$search_regexp.'%"' ;
+-
++    foreach ($search_array as $field => $value) {
++        $value = trim($value);
++        if ($value !== '' && array_key_exists($field, $show_field)) {
++                $sql_search .= " AND ".$field.' LIKE "%'.$value.'%"';
++        }
++    }
++    
+ 
+ 	$search_start=$_SESSION['cdrviewer_search_start'];
+ 	$search_end=$_SESSION['cdrviewer_search_end'];
+

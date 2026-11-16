@@ -1,0 +1,33 @@
+# --------------------------------------------------------------------
+# Customization 100/218: P7-CUST-FUNCTIONS_INC_PHP
+# Title: Customization in functions.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/boxes_config/lib/functions.inc.php b/web/tools/admin/boxes_config/lib/functions.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/admin/db_config/lib/functions.inc.php b/web/tools/admin/db_config/lib/functions.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/admin/tools_config/lib/functions.inc.php b/web/tools/admin/tools_config/lib/functions.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/system/dashboard/template/functions.inc.php b/web/tools/system/dashboard/template/functions.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/system/domains/lib/functions.inc.php b/web/tools/system/domains/lib/functions.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/system/keepalived/lib/functions.inc.php b/web/tools/system/keepalived/lib/functions.inc.php
+old mode 100644
+new mode 100755
+

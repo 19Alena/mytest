@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 180/218: P8-CUST-SHOW_CONTACTS_PHP
+# Title: Customization in show_contacts.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/users/user_management/show_contacts.php b/web/tools/users/user_management/show_contacts.php
+old mode 100644
+new mode 100755
+

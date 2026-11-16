@@ -1,0 +1,367 @@
+# --------------------------------------------------------------------
+# Customization 17/23: P6-CUST-OPENSIPS
+# Title: OpenSIPS Integration via JSON-RPC
+# Category: Core Integration
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 5.5
+# --------------------------------------------------------------------
+
+diff --git a/app/extensions/extension_edit.php b/app/extensions/extension_edit.php
+index db4f30d3b..b42805de5 100644
+--- a/app/extensions/extension_edit.php
++++ b/app/extensions/extension_edit.php
+@@ -28,7 +28,62 @@
+ //includes files
+ 	require_once dirname(__DIR__, 2) . "/resources/require.php";
+ 	require_once "resources/check_auth.php";
++//===my function
++function sendJsonRpcRequest($url, $method, $id = "1", $params = []) {
++	$data = [
++		"jsonrpc" => "2.0",
++		"id" => $id,
++		"method" => $method
++	];
++
++	if (!empty($params)) {
++		$data["params"] = $params;
++	}
++
++	$ch = curl_init($url);
++
++	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
++	curl_setopt($ch, CURLOPT_POST, true);
++	curl_setopt($ch, CURLOPT_HTTPHEADER, [
++		'Content-Type: application/json'
++	]);
++	curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
++
++	$response = curl_exec($ch);
++
++	if (curl_errno($ch)) {
++		curl_close($ch);
++		return 'Curl error: ' . curl_error($ch);
++	}
++
++	curl_close($ch);
++	return $response;
++}
++function triggerRpcFromDatabase($method, $params = []) {
++	$host = 'localhost';
++	$port = '5432';
++	$dbname = 'opensips';
++	$user = 'opensips';
++	$password = '********';
++
++	$dsn = "pgsql:host=$host;port=$port;dbname=$dbname";
++	try {
++		$pdo = new PDO($dsn, $user, $password, [PDO:******** => PDO::ERRMODE_EXCEPTION]);
++	} catch (PDOException $e) {
++		die("Database connection failed: " . $e->getMessage());
++	}
+ 
++	$stmt = $pdo->query("SELECT mi_conn FROM ocp_boxes_config");
++	$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
++
++	foreach ($results as $row) {
++		if (preg_match('/json:(10\.\d+\.\d+\.\d+:\d+\/mi)/', $row['mi_conn'], $matches)) {
++			$url = $matches[1];
++			$rpcResult = sendJsonRpcRequest($url, $method, "1", $params);
++		}
++	}
++}
++//===
+ //check permissions
+ 	if (!(permission_exists('extension_add') || permission_exists('extension_edit'))) {
+ 		echo "access denied";
+@@ -131,6 +186,78 @@
+ 			exit;
+ 		}
+ 	}
++//===custom parameter for mobile
++	$sql = "select ";
++	$sql .= "extension_setting_uuid, ";
++	$sql .= "extension_setting_type, ";
++	$sql .= "extension_setting_name, ";
++	$sql .= "extension_setting_value, ";
++	$sql .= "cast(extension_setting_enabled as text), ";
++	$sql .= "extension_setting_description ";
++	$sql .= "from v_extension_settings ";
++	$sql .= "where extension_uuid = :extension_uuid ";
++	//$sql .= "and domain_uuid = :domain_uuid ";
++	$sql .= "and extension_setting_name = :extension_setting_name ";
++	$sql .= "and extension_setting_type = :extension_setting_type ";
++	//$parameters['domain_uuid'] = $domain_uuid;
++	$parameters['extension_uuid'] = $extension_uuid ?? '';
++	$parameters['extension_setting_name'] = 'mobile';
++	$parameters['extension_setting_type'] = 'variable';
++	$database = new database;
++	$row = $database->select($sql, $parameters, 'row');
++	if (!empty($row["extension_setting_uuid"]) && is_uuid($row["extension_setting_uuid"])) {
++		$extension_setting_uuid = $row["extension_setting_uuid"];
++		$mobile_param1='0';
++		$mobile_param2=$row["extension_setting_value"];
++	}
++	$extension_setting_type = $row["extension_setting_type"] ?? 'variable';
++	$extension_setting_name = $row["extension_setting_name"] ?? 'mobile';
++	$extension_setting_value = $row["extension_setting_value"] ?? '1';
++	$extension_setting_value_forward = $row["extension_setting_value"] ?? '0';
++	$extension_setting_enabled = $row["extension_setting_enabled"] ?? 'true';
++	$extension_setting_description = $row["extension_setting_description"] ?? 'Do not edit or delete manually!!! Modifications can only be made from the Extensions > Mobile setting tab';
++	unset($sql, $parameters, $row);
++	$text['label-mobile_param1']='Mobile Extension';
++	$text['description-mobile_param1']='Set to true if the extension is used on a mobile device.';
++	$text['label-mobile_param2']='Enable Mobile Forwarding';
++	$text['description-mobile_param2']='Set to false to disable call forwarding to a mobile device.';
++	$mobile_param1=$mobile_param1 ?? '1';
++	$mobile_param2=$mobile_param2 ?? '0';
++//====================================
++//===custom parameter for anonym
++        $sql = "select ";
++        $sql .= "extension_setting_uuid, ";
++        $sql .= "extension_setting_type, ";
++        $sql .= "extension_setting_name, ";
++        $sql .= "extension_setting_value, ";
++        $sql .= "cast(extension_setting_enabled as text), ";
++        $sql .= "extension_setting_description ";
++        $sql .= "from v_extension_settings ";
++        $sql .= "where extension_uuid = :extension_uuid ";
++        //$sql .= "and domain_uuid = :domain_uuid ";
++        $sql .= "and extension_setting_name = :extension_setting_name ";
++        $sql .= "and extension_setting_type = :extension_setting_type ";
++        //$parameters['domain_uuid'] = $domain_uuid;
++        $parameters['extension_uuid'] = $extension_uuid ?? '';
++        $parameters['extension_setting_name'] = 'hideCID';
++        $parameters['extension_setting_type'] = 'variable';
++        $database = new database;
++        $row = $database->select($sql, $parameters, 'row');
++        if (!empty($row["extension_setting_uuid"]) && is_uuid($row["extension_setting_uuid"])) {
++                $extension_setting_anonym_uuid = $row["extension_setting_uuid"];
++                $anonym_param1=$row["extension_setting_value"];;
++        }
++        $extension_setting_anonym_type = $row["extension_setting_type"] ?? 'variable';
++        $extension_setting_anonym_name = $row["extension_setting_name"] ?? 'hideCID';
++        $extension_setting_anonym_value = $row["extension_setting_value"] ?? '0';
++        $extension_setting_anonym_enabled = $row["extension_setting_enabled"] ?? 'true';
++        $extension_setting_anonym_description = $row["extension_setting_description"] ?? 'Do not edit or delete manually!!! Modifications can only be made from the Extensions > Hide Caller ID tab';;
++        unset($sql, $parameters, $row);
++        //$text['label-anonym_param1']='Hide Caller ID';
++        $text['description-anonym_param1']='Set to True to hide Caller ID.';
++        $anonym_param1=$anonym_param1 ?? '1';
++
++//====================================
+ 
+ //get the http values and set them as php variables
+ 	if (!empty($_POST)) {
+@@ -150,7 +277,13 @@
+ 
+ 			//server verification on account code
+ 			$accountcode = $_POST["accountcode"];
+-
++			//===custom parameter for mobile
++			$mobile_param1 = $_POST["mobile_param1"] ?? $mobile_param1;
++			$mobile_param2 = $_POST["mobile_param2"] ?? $mobile_param2;
++			//===
++                        //===custom parameter for anonym
++                        $anonym_param1 = $_POST["anonym_param1"] ?? $anonym_param1;
++                        //===
+ 			$effective_caller_id_name = $_POST["effective_caller_id_name"];
+ 			$effective_caller_id_number = $_POST["effective_caller_id_number"];
+ 			$outbound_caller_id_name = $_POST["outbound_caller_id_name"];
+@@ -871,6 +1004,106 @@
+ 				//save to the data';
+ 					$message = $database->save($array);
+ 					unset($array);
++					//===custom parameter for mobile
++					$sql = "select extension from v_extensions where extension_uuid = :extension_uuid";
++					$parameters['extension_uuid'] = $extension_uuid;
++					$extension_set = $database->select($sql, $parameters, 'column');
++					unset($sql, $parameters);
++					$sql = "select domain_name from v_domains where domain_uuid = :domain_uuid";
++					$parameters['domain_uuid'] = $domain_uuid;
++					$domain_set = $database->select($sql, $parameters, 'column');
++					unset($sql, $parameters);
++					$full_uri = 'sip:' . $extension_set . '@' . $domain_set;
++					$registrar = 'sip:' . $domain_set;
++					$params = [$full_uri, $full_uri, $registrar];
++					if (!empty($extension_setting_uuid)) {
++						if ($mobile_param1=='0') {
++							if (!$mobile_param2==$extension_setting_value_forward){
++								$sql = "update v_extension_settings set ";
++								$sql .= "extension_setting_value = :extension_setting_value ";
++								$sql .= "where domain_uuid = :domain_uuid ";
++								$sql .= "and extension_setting_uuid = :extension_setting_uuid ";
++								$sql .= "and extension_uuid = :extension_uuid ";
++								$parameters['domain_uuid'] = $domain_uuid;
++								$parameters['extension_uuid'] = $extension_uuid;
++								$parameters['extension_setting_value'] = $mobile_param2;
++								$parameters['extension_setting_uuid'] = $extension_setting_uuid;
++								$database->execute($sql, $parameters);
++								unset($sql, $parameters);
++								if ($mobile_param2 == '0') {
++									$method = 'reg_enable';
++								} else {
++									$method = 'reg_disable';
++								}		
++							}
++						}
++						else {
++							$sql = "delete from v_extension_settings ";
++							$sql .= "where extension_setting_uuid = :extension_setting_uuid ";
++							$parameters['extension_setting_uuid'] = $extension_setting_uuid;
++							$database->execute($sql, $parameters);
++							$method = 'reg_reload';
++							$params=[];
++						}
++					}
++					else {
++						if ($mobile_param1=='0') {
++							$array['extension_settings'][0]['extension_uuid'] = $extension_uuid;
++							$array['extension_settings'][0]['domain_uuid'] = $domain_uuid;
++							$array['extension_settings'][0]['extension_setting_type'] = $extension_setting_type;
++							$array['extension_settings'][0]['extension_setting_name'] = $extension_setting_name;
++							$array['extension_settings'][0]['extension_setting_value'] = $mobile_param2;
++							$array['extension_settings'][0]['extension_setting_enabled'] = $extension_setting_enabled;
++							$array['extension_settings'][0]['extension_setting_description'] = $extension_setting_description;
++							//save the data
++							$database = new database;
++							$database->app_name = 'extension settings';
++							$database->app_uuid = '1416a250-f6e1-4edc-91a6-5c9b883638fd';
++							$database->save($array);
++							unset($array);
++							$method = 'reg_reload';
++						}
++					}
++					if ((!empty($extension_setting_uuid)) and ($mobile_param1=='1') and ($extension_setting_value_forward=='0')){
++						$method = 'reg_disable';
++						$params = [$full_uri, $full_uri, $registrar];
++						triggerRpcFromDatabase($method, $params);
++						$method = 'reg_reload';
++						$params=[];
++					}
++					if (!empty($method)) {
++						if ((!$mobile_param2==$extension_setting_value_forward) or (($mobile_param1=='0') and (empty($extension_setting_uuid))) or (($mobile_param1=='1') and (!empty($extension_setting_uuid)))){
++							triggerRpcFromDatabase($method, $params);
++						}
++					}
++					//====
++                                        //===custom parameter for anonym
++                                        if (!empty($extension_setting_anonym_uuid)) {
++                                                if ($anonym_param1=='1') {
++                                                        $sql = "delete from v_extension_settings ";
++                                                        $sql .= "where extension_setting_uuid = :extension_setting_uuid ";
++                                                        $parameters['extension_setting_uuid'] = $extension_setting_anonym_uuid;
++                                                        $database->execute($sql, $parameters);
++                                                }
++                                        }
++                                        else {
++                                                if ($anonym_param1=='0') {
++                                                        $array['extension_settings'][0]['extension_uuid'] = $extension_uuid;
++                                                        $array['extension_settings'][0]['domain_uuid'] = $domain_uuid;
++                                                        $array['extension_settings'][0]['extension_setting_type'] = $extension_setting_anonym_type;
++                                                        $array['extension_settings'][0]['extension_setting_name'] = $extension_setting_anonym_name;
++                                                        $array['extension_settings'][0]['extension_setting_value'] = $anonym_param1;
++                                                        $array['extension_settings'][0]['extension_setting_enabled'] = $extension_setting_anonym_enabled;
++                                                        $array['extension_settings'][0]['extension_setting_description'] = $extension_setting_anonym_description;
++                                                        //save the data
++                                                        $database = new database;
++                                                        $database->app_name = 'extension settings';
++                                                        $database->app_uuid = '1416a250-f6e1-4edc-91a6-5c9b883638fd';
++                                                        $database->save($array);
++                                                        unset($array);
++                                                }
++                                        }
++                                        //====
+ 
+ 				//reload the access control list
+ 					if (permission_exists("extension_cidr")) {
+@@ -1392,6 +1625,88 @@
+ 			echo "</tr>\n";
+ 	}
+ 
++	//===custom parameter for mobile
++if (permission_exists("extension_user_context")) {
++		echo "<tr>\n";
++		echo "<td class='vncell' valign='top' align='left' nowrap='nowrap'>\n";
++		echo "    ".$text['label-mobile_param1']."\n";
++		echo "</td>\n";
++		echo "<td class='vtable' align='left'>\n";
++		echo "    <select class='formfld' name='mobile_param1'>\n";
++		if (!empty($mobile_param1) && $mobile_param1 == "0") {
++			echo "    <option value='0' selected='selected'>".$text['label-true']."</option>\n";
++		}
++		else {
++			echo "    <option value='0'>".$text['label-true']."</option>\n";
++		}
++		if (!empty($mobile_param1) && $mobile_param1 == "1") {
++			echo "    <option value='1' selected >".$text['label-false']."</option>\n";
++		}
++		else {
++			echo "    <option value='1'>".$text['label-false']."</option>\n";
++		}
++		echo "    </select>\n";
++		echo "<br />\n";
++		echo $text['description-mobile_param1']."\n";
++		echo "</td>\n";
++		echo "</tr>\n";
++}
++        if (permission_exists('extension_user_edit')) {
++	if (!empty($extension_setting_uuid)){
++		echo "<tr>\n";
++		echo "<td class='vncell' valign='top' align='left' nowrap='nowrap'>\n";
++		echo "    ".$text['label-mobile_param2']."\n";
++		echo "</td>\n";
++		echo "<td class='vtable' align='left'>\n";
++		echo "    <select class='formfld' name='mobile_param2'>\n";
++		if (!empty($mobile_param2) && $mobile_param2 == "0") {
++			echo "    <option value='0' selected='selected'>".$text['label-true']."</option>\n";
++		}
++		else {
++			echo "    <option value='0'>".$text['label-true']."</option>\n";
++		}
++		if (!empty($mobile_param2) && $mobile_param2 == "1") {
++			echo "    <option value='1' selected >".$text['label-false']."</option>\n";
++		}
++		else {
++			echo "    <option value='1'>".$text['label-false']."</option>\n";
++		}
++		echo "    </select>\n";
++		echo "<br />\n";
++		echo $text['description-mobile_param2']."\n";
++		echo "</td>\n";
++		echo "</tr>\n";
++	}
++}
++	//===
++        //===custom parameter for anonym
++        if (permission_exists("extension_user_edit")) {
++                echo "<tr>\n";
++                echo "<td class='vncell' valign='top' align='left' nowrap='nowrap'>\n";
++                echo "    ".$text['label-hideCID']."\n";
++                echo "</td>\n";
++                echo "<td class='vtable' align='left'>\n";
++                echo "    <select class='formfld' name='anonym_param1'>\n";
++                if (!empty($anonym_param1) && $anonym_param1 == "0") {
++                        echo "    <option value='0' selected='selected'>".$text['label-true']."</option>\n";
++                }
++                else {
++                        echo "    <option value='0'>".$text['label-true']."</option>\n";
++                }
++                if (!empty($anonym_param1) && $anonym_param1 == "1") {
++                        echo "    <option value='1' selected >".$text['label-false']."</option>\n";
++                }
++                else {
++                        echo "    <option value='1'>".$text['label-false']."</option>\n";
++                }
++                echo "    </select>\n";
++                echo "<br />\n";
++                echo $text['description-anonym_param1']."\n";
++                echo "</td>\n";
++                echo "</tr>\n";
++        }
++        //===
++
+ 	if (permission_exists('device_edit') && (empty($extension_type) || $extension_type != 'virtual')) {
+ 		if (is_dir(dirname(__DIR__, 2).'/app/devices')) {
+ 			echo "<tr>\n";
+

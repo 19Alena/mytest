@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 121/218: P7-CUST-ICON_USER_SVG
+# Title: Customization in icon-user.svg
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/icon-user.svg b/web/images/icon-user.svg
+old mode 100644
+new mode 100755
+

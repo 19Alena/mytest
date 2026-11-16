@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 63/218: P8-CUST-DASHBOARD_IMPORT_DETAILS_PHP
+# Title: Customization in dashboard.import_details.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/dashboard.import_details.php b/web/tools/system/dashboard/dashboard.import_details.php
+old mode 100644
+new mode 100755
+

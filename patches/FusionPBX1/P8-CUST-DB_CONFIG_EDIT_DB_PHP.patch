@@ -1,0 +1,17 @@
+# --------------------------------------------------------------------
+# Customization 74/218: P8-CUST-DB_CONFIG_EDIT_DB_PHP
+# Title: Customization in db_config.edit_db.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/db_config/template/db_config.edit_db.php b/web/tools/admin/db_config/template/db_config.edit_db.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/tools/system/keepalived/template/db_config.edit_db.php b/web/tools/system/keepalived/template/db_config.edit_db.php
+old mode 100644
+new mode 100755
+

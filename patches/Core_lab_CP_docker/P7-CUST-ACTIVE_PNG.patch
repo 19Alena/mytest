@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 3/218: P7-CUST-ACTIVE_PNG
+# Title: Customization in active.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/active.png b/web/images/share/active.png
+old mode 100644
+new mode 100755
+

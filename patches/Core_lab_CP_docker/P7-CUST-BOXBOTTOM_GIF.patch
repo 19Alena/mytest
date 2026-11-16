@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 18/218: P7-CUST-BOXBOTTOM_GIF
+# Title: Customization in boxbottom.gif
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/boxbottom.gif b/web/images/boxbottom.gif
+old mode 100644
+new mode 100755
+

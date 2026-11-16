@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 29/218: P8-CUST-BOXTOPLEFT_GIF
+# Title: Customization in boxtopleft.gif
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/boxtopleft.gif b/web/images/boxtopleft.gif
+old mode 100644
+new mode 100755
+

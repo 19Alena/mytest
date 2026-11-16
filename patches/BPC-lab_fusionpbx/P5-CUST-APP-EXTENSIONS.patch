@@ -1,0 +1,29 @@
+# --------------------------------------------------------------------
+# Customization 4/28: P5-CUST-APP-EXTENSIONS
+# Title: Custom App: Extensions
+# Category: Custom App
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 5.5
+# --------------------------------------------------------------------
+
+diff --git a/app/extensions/app_languages.php b/app/extensions/app_languages.php
+index eff9e18a5a..49cdde1479 100644
+--- a/app/extensions/app_languages.php
++++ b/app/extensions/app_languages.php
+@@ -1,5 +1,14 @@
+ <?php
+ 
++$text['option-enabled']['en-us'] = "Enabled";
++$text['option-enabled']['sv-se'] = "Aktiverad";
++
++$text['option-disabled']['en-us'] = "Disabled";
++$text['option-disabled']['sv-se'] = "Avaktiverad";
++
++$text['label-hideCID']['en-us']='Hide Caller ID';
++$text['label-hideCID']['sv-se'] = "Dölj Caller ID";
++
+ $text['title-extensions']['en-us'] = "Extensions";
+ $text['title-extensions']['en-gb'] = "Extensions";
+ $text['title-extensions']['ar-eg'] = "الأرقام الداخلية";
+

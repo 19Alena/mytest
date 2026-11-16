@@ -1,0 +1,22 @@
+# --------------------------------------------------------------------
+# Customization 14/23: P6-CUST-FUNCTIONS_PHP
+# Title: Customization in functions.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 5.5
+# --------------------------------------------------------------------
+
+diff --git a/resources/functions.php b/resources/functions.php
+index a070f81f9..d3acbf805 100644
+--- a/resources/functions.php
++++ b/resources/functions.php
+@@ -335,7 +335,7 @@ if (!function_exists('recursive_delete')) {
+ 		// Loop through all files and subdirectories
+ 		while (false !== ($file = readdir($handle))) {
+ 			// Skip '.' and '..' as they refer to the current and parent directory
+-			if ($file == '.' || $file == '..') {
++			if ($file == '.' || $file == '..' || $file == '.stfolder') {
+ 				continue;
+ 			}
+

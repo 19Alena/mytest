@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 161/218: P8-CUST-PHONE_PNG
+# Title: Customization in phone.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/phone.png b/web/images/share/phone.png
+old mode 100644
+new mode 100755
+

@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 96/218: P7-CUST-FLUSH_PHP
+# Title: Customization in flush.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/tools/system/config/flush.php b/config/tools/system/config/flush.php
+old mode 100644
+new mode 100755
+

@@ -1,0 +1,26 @@
+# --------------------------------------------------------------------
+# Customization 6/23: P6-CUST-APP-VOICEMAILS
+# Title: Custom App: Voicemails
+# Category: Custom App
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 5.5
+# --------------------------------------------------------------------
+
+diff --git a/app/voicemails/voicemail_edit.php b/app/voicemails/voicemail_edit.php
+index 00394248e..77ac750e7 100644
+--- a/app/voicemails/voicemail_edit.php
++++ b/app/voicemails/voicemail_edit.php
+@@ -380,9 +380,9 @@
+ 	$voicemail_local_after_email = $voicemail_local_after_email ?? true;
+ 	$voicemail_enabled = $voicemail_enabled ?? $settings->get('voicemail', 'enabled_default', true);
+ 	$voicemail_transcription_enabled = $voicemail_transcription_enabled ?? $settings->get('voicemail', 'transcription_enabled_default', false);
+-	$voicemail_tutorial = $voicemail_tutorial ?? false;
++	$voicemail_tutorial = $voicemail_tutorial ?? true;
+ 	$voicemail_recording_instructions = $voicemail_recording_instructions ?? true;
+-	$voicemail_recording_options = $voicemail_recording_options ?? true;
++	$voicemail_recording_options = $voicemail_recording_options ?? false;
+ 
+ //get the greetings list
+ 	$sql = "select * from v_voicemail_greetings ";
+

@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 137/218: P8-CUST-LOCK_PNG
+# Title: Customization in lock.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/dashboard/lock.png b/web/images/dashboard/lock.png
+old mode 100644
+new mode 100755
+

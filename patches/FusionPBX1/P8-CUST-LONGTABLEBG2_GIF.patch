@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 143/218: P8-CUST-LONGTABLEBG2_GIF
+# Title: Customization in longtablebg2.gif
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/longtablebg2.gif b/web/images/longtablebg2.gif
+old mode 100644
+new mode 100755
+

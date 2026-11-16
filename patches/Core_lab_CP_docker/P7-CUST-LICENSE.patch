@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 131/218: P7-CUST-LICENSE
+# Title: Customization in LICENSE
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/LICENSE b/LICENSE
+old mode 100644
+new mode 100755
+

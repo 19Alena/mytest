@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 26/218: P8-CUST-BOXES_LOAD_PHP
+# Title: Customization in boxes.load.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/boxes.load.php b/config/boxes.load.php
+old mode 100644
+new mode 100755
+

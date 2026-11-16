@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 171/218: P8-CUST-RTPPROXY_WIDGET_PHP
+# Title: Customization in rtpproxy_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/rtpproxy/template/dashboard_widgets/rtpproxy_widget.php b/web/tools/system/rtpproxy/template/dashboard_widgets/rtpproxy_widget.php
+old mode 100644
+new mode 100755
+

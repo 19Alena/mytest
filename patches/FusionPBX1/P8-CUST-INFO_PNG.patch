@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 124/218: P8-CUST-INFO_PNG
+# Title: Customization in info.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/info.png b/web/images/share/info.png
+old mode 100644
+new mode 100755
+

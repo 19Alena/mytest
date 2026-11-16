@@ -1,0 +1,23 @@
+# --------------------------------------------------------------------
+# Customization 7/28: P5-CUST-APP-SWITCH
+# Title: Custom App: Switch
+# Category: Custom App
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 5.5
+# --------------------------------------------------------------------
+
+diff --git a/app/switch/resources/scripts/app/voicemail/resources/functions/main_menu.lua b/app/switch/resources/scripts/app/voicemail/resources/functions/main_menu.lua
+index ea289054f1..8e60c7ddb6 100644
+--- a/app/switch/resources/scripts/app/voicemail/resources/functions/main_menu.lua
++++ b/app/switch/resources/scripts/app/voicemail/resources/functions/main_menu.lua
+@@ -77,7 +77,7 @@
+ 				end
+ 			--deleted messages
+ 				if (session:ready()) then
+-					deleted_messages = 0;
++					deleted_messages = '0';
+ 					if (string.len(dtmf_digits) == 0 and use_deletion_queue == "true") then
+ 						sql = [[SELECT count(*) as deleted_messages FROM v_voicemail_messages
+ 							WHERE domain_uuid = :domain_uuid
+

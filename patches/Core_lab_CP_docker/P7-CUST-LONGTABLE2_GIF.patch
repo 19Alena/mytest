@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 142/218: P7-CUST-LONGTABLE2_GIF
+# Title: Customization in longtable2.gif
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/longtable2.gif b/web/images/longtable2.gif
+old mode 100644
+new mode 100755
+

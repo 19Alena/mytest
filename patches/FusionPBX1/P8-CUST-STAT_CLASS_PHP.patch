@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 191/218: P8-CUST-STAT_CLASS_PHP
+# Title: Customization in stat_class.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/smonitor/template/stat_class.php b/web/tools/system/smonitor/template/stat_class.php
+old mode 100644
+new mode 100755
+

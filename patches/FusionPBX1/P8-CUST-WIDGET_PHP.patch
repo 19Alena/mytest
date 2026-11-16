@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 218/218: P8-CUST-WIDGET_PHP
+# Title: Customization in widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/template/widget/widget.php b/web/tools/system/dashboard/template/widget/widget.php
+old mode 100644
+new mode 100755
+

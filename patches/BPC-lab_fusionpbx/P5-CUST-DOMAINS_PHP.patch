@@ -1,0 +1,63 @@
+# --------------------------------------------------------------------
+# Customization 14/28: P5-CUST-DOMAINS_PHP
+# Title: Customization in domains.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 5.5
+# --------------------------------------------------------------------
+
+diff --git a/core/domains/domains.php b/core/domains/domains.php
+index 2b6c754fce..a15e4f7f88 100644
+--- a/core/domains/domains.php
++++ b/core/domains/domains.php
+@@ -132,10 +132,10 @@
+ 				}
+ 				break;
+ 			case 'delete':
+-				if (permission_exists('domain_delete')) {
++			//	if (permission_exists('domain_delete')) {
+ 					$obj = new domains;
+ 					$obj->delete($domains);
+-				}
++			//	}
+ 				break;
+ 		}
+ 
+@@ -208,7 +208,7 @@
+ 	if (permission_exists('domain_edit') && $domains) {
+ 		echo button::create(['type'=>'button','label'=>$text['button-toggle'],'icon'=>$settings->get('theme', 'button_icon_toggle'),'id'=>'btn_toggle','name'=>'btn_toggle','style'=>'display: none;','onclick'=>"modal_display_selected('modal-toggle'); modal_open('modal-toggle','btn_toggle');"]);
+ 	}
+- 	if (permission_exists('domain_delete') && $domains) {
++ 	if ($domains) {
+  		echo button::create(['type'=>'button','label'=>$text['button-delete'],'icon'=>$settings->get('theme', 'button_icon_delete'),'id'=>'btn_delete','name'=>'btn_delete','style'=>'display: none;','onclick'=>"modal_display_selected('modal-delete'); modal_open('modal-delete','btn_delete_domain');"]);
+  	}
+ 	echo 		"<form id='form_search' class='inline' method='get'>\n";
+@@ -226,7 +226,7 @@
+ 	if (permission_exists('domain_edit') && !empty($domains)) {
+ 		echo modal::create(['id'=>'modal-toggle','type'=>'general','message'=>$text['confirm-toggle_domains'],'actions'=>button::create(['type'=>'button','label'=>$text['button-continue'],'icon'=>'check','id'=>'btn_toggle','style'=>'float: right; margin-left: 15px;','collapse'=>'never','onclick'=>"modal_close(); list_action_set('toggle'); list_form_submit('form_list');"])]);
+ 	}
+- 	if (permission_exists('domain_delete') && !empty($domains)) {
++ 	if (!empty($domains)) {
+ 		echo modal::create(['id'=>'modal-delete','type'=>'general','message'=>$text['confirm-delete_domains'],'actions'=>button::create(['type'=>'button','label'=>$text['button-continue'],'icon'=>'check','id'=>'btn_delete','style'=>'float: right; margin-left: 15px;','collapse'=>'never','onclick'=>"modal_close(); list_action_set('delete'); list_form_submit('form_list');"])]);
+  	}
+ 
+@@ -240,7 +240,7 @@
+ 	echo "<div class='card'>\n";
+ 	echo "<table class='list'>\n";
+ 	echo "<tr class='list-header'>\n";
+-	if (permission_exists('domain_edit') || permission_exists('domain_delete')) {
++	if (permission_exists('domain_edit')) {
+ 		echo "	<th class='checkbox'>\n";
+ 		echo "		<input type='checkbox' id='checkbox_all' name='checkbox_all' onclick='list_all_toggle(); checkbox_on_change(this);' ".(!empty($domains) ?: "style='visibility: hidden;'").">\n";
+ 		echo "	</th>\n";
+@@ -265,7 +265,7 @@
+ 				$list_row_url = "domain_edit.php?id=".urlencode($row['domain_uuid']);
+ 			}
+ 			echo "<tr class='list-row' href='".$list_row_url."'>\n";
+-			if (permission_exists('domain_edit') || permission_exists('domain_delete')) {
++			if (permission_exists('domain_edit')) {
+ 				echo "	<td class='checkbox'>\n";
+ 				echo "		<input type='checkbox' name='domains[$x][checked]' id='checkbox_".$x."' value='true' data-item-name='".escape($row['domain_name'])."' onclick=\"checkbox_on_change(this); if (!this.checked) { document.getElementById('checkbox_all').checked = false; }\">\n";
+ 				echo "		<input type='hidden' name='domains[$x][uuid]' value='".escape($row['domain_uuid'])."' />\n";
+

@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 182/218: P8-CUST-STATISTICS_ADD_PHP
+# Title: Customization in statistics.add.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/smonitor/template/statistics.add.php b/web/tools/system/smonitor/template/statistics.add.php
+old mode 100644
+new mode 100755
+

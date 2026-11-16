@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 80/218: P7-CUST-DB_SCHEMA_MYSQL
+# Title: Customization in db_schema.mysql
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/db_schema.mysql b/config/db_schema.mysql
+old mode 100644
+new mode 100755
+

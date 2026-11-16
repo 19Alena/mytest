@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 52/218: P7-CUST-D3JSMULTIPLE_PHP
+# Title: Customization in d3jsMultiple.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/charting/d3jsMultiple.php b/web/common/charting/d3jsMultiple.php
+old mode 100644
+new mode 100755
+

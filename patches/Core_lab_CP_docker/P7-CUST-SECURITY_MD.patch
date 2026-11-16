@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 175/218: P7-CUST-SECURITY_MD
+# Title: Customization in SECURITY.md
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/SECURITY.md b/SECURITY.md
+old mode 100644
+new mode 100755
+

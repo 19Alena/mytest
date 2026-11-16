@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 216/218: P8-CUST-VERTICAL_TITLE_WIDGET_PHP
+# Title: Customization in vertical_title_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/template/dashboard_widgets/vertical_title_widget.php b/web/tools/system/dashboard/template/dashboard_widgets/vertical_title_widget.php
+old mode 100644
+new mode 100755
+

@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 210/218: P7-CUST-UP_PNG
+# Title: Customization in up.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/up.png b/web/images/share/up.png
+old mode 100644
+new mode 100755
+

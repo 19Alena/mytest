@@ -1,0 +1,23 @@
+# --------------------------------------------------------------------
+# Customization 8/14: P3-CUST-DISPATCHER_PHP
+# Title: Customization in dispatcher.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dispatcher/dispatcher.php b/web/tools/system/dispatcher/dispatcher.php
+index e46f1e39..1386874d 100755
+--- a/web/tools/system/dispatcher/dispatcher.php
++++ b/web/tools/system/dispatcher/dispatcher.php
+@@ -151,7 +151,7 @@ if ($action=="modify")
+ 
+ 		$sql = "UPDATE ".$table." SET ". 
+ 			"setid=?, destination = ?, socket = ?, state = ?, weight = ?, attrs = ?, probe_mode = ?, description = ?".
+-			"WHERE id=?";
++			" WHERE id=?";
+ 		$stm = $link->prepare($sql);
+ 		if ($stm === false) {
+ 			die('Failed to issue query ['.$sql.'], error message : ' . print_r($link->errorInfo(), true));
+

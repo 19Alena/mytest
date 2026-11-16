@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 6/218: P7-CUST-ALIAS_PNG
+# Title: Customization in alias.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/alias.png b/web/images/share/alias.png
+old mode 100644
+new mode 100755
+

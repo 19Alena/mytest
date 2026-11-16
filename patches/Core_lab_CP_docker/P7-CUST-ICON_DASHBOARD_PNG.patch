@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 119/218: P7-CUST-ICON_DASHBOARD_PNG
+# Title: Customization in icon-dashboard.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/icon-dashboard.png b/web/images/icon-dashboard.png
+old mode 100644
+new mode 100755
+

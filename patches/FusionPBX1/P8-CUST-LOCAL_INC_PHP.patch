@@ -1,0 +1,21 @@
+# --------------------------------------------------------------------
+# Customization 136/218: P8-CUST-LOCAL_INC_PHP
+# Title: Customization in local.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/local.inc.php b/config/local.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/dispatcher/local.inc.php b/config/tools/system/dispatcher/local.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/drouting/local.inc.php b/config/tools/system/drouting/local.inc.php
+old mode 100644
+new mode 100755
+

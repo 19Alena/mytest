@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 95/218: P7-CUST-FIXEDBITNOTATION_PHP
+# Title: Customization in FixedBitNotation.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/googleAuth/FixedBitNotation.php b/googleAuth/FixedBitNotation.php
+old mode 100644
+new mode 100755
+

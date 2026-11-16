@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 86/218: P8-CUST-DETAILS_PNG
+# Title: Customization in details.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/details.png b/web/images/share/details.png
+old mode 100644
+new mode 100755
+

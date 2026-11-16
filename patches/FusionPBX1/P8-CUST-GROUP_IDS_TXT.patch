@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 112/218: P8-CUST-GROUP_IDS_TXT
+# Title: Customization in group_ids.txt
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/tools/system/drouting/group_ids.txt b/config/tools/system/drouting/group_ids.txt
+old mode 100644
+new mode 100755
+

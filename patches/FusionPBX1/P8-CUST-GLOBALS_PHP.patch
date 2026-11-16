@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 106/218: P8-CUST-GLOBALS_PHP
+# Title: Customization in globals.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/globals.php b/config/globals.php
+old mode 100644
+new mode 100755
+

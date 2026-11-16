@@ -1,0 +1,58 @@
+# --------------------------------------------------------------------
+# Customization 3/23: P6-CUST-APP-IVR_MENUS
+# Title: Custom App: Ivr Menus
+# Category: Custom App
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 5.5
+# --------------------------------------------------------------------
+
+diff --git a/app/ivr_menus/ivr_menu_edit.php b/app/ivr_menus/ivr_menu_edit.php
+index 5850f3966..e5acdcc29 100644
+--- a/app/ivr_menus/ivr_menu_edit.php
++++ b/app/ivr_menus/ivr_menu_edit.php
+@@ -77,7 +77,32 @@
+ 	else {
+ 		$action = "add";
+ 	}
+-
++$sql = "
++with recursive children as (
++    select ivr_menu_uuid
++    from v_ivr_menus
++    where ivr_menu_parent_uuid = :current_uuid
++
++    union all
++
++    select child.ivr_menu_uuid
++    from v_ivr_menus child
++    join children c on child.ivr_menu_parent_uuid = c.ivr_menu_uuid
++)
++select ivr_menu_uuid from children
++";
++
++$parameters1 = [];
++$parameters1['current_uuid'] = $ivr_menu_uuid;
++
++$result1 = $database->select($sql, $parameters1, 'all');
++$children_uuids = [];
++
++if (!empty($result1)) {
++    foreach ($result1 as $row) {
++        $children_uuids[] = $row['ivr_menu_uuid'];
++    }
++}
+ //get total ivr menu count from the database, check limit, if defined
+ 	if ($action == 'add' && $settings->get('limit', 'ivr_menus') != '') {
+ 		$sql = "select count(*) as num_rows from v_ivr_menus where domain_uuid = :domain_uuid ";
+@@ -790,7 +815,8 @@
+ 	echo "<option value=\"\"></option>\n";
+ 	if (!empty($ivr_menus)) {
+ 		foreach($ivr_menus as $field) {
+-			if ($field['ivr_menu_uuid'] != $ivr_menu_uuid) {
++//			if ($field['ivr_menu_uuid'] != $ivr_menu_uuid) {
++                        if ($field['ivr_menu_uuid'] != $ivr_menu_uuid && !(in_array($field['ivr_menu_uuid'], $children_uuids))) {
+ 				if (!empty($ivr_menu_parent_uuid) && $ivr_menu_parent_uuid == $field['ivr_menu_uuid']) {
+ 					echo "<option value='".escape($field['ivr_menu_uuid'])."' selected='selected'>".escape($field['ivr_menu_name'])."</option>\n";
+ 				}
+

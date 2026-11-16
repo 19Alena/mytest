@@ -1,0 +1,199 @@
+# --------------------------------------------------------------------
+# Customization 11/23: P6-CUST-CALLERID-ANON
+# Title: Anonymous Caller ID Dashboard & Settings
+# Category: Dashboard/UI
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 5.5
+# --------------------------------------------------------------------
+
+diff --git a/app/extensions/app_languages.php b/app/extensions/app_languages.php
+index eff9e18a5..fdfd86a3c 100644
+--- a/app/extensions/app_languages.php
++++ b/app/extensions/app_languages.php
+@@ -1,5 +1,16 @@
+ <?php
+ 
++//===custom parameter for anonym
++$text['option-enabled']['en-us'] = "Enabled";
++$text['option-enabled']['sv-se'] = "Aktiverad";
++
++$text['option-disabled']['en-us'] = "Disabled";
++$text['option-disabled']['sv-se'] = "Avaktiverad";
++
++$text['label-hideCID']['en-us']='Hide Caller ID';
++$text['label-hideCID']['sv-se'] = "Dölj Caller ID";
++//===
++
+ $text['title-extensions']['en-us'] = "Extensions";
+ $text['title-extensions']['en-gb'] = "Extensions";
+ $text['title-extensions']['ar-eg'] = "الأرقام الداخلية";
+
+diff --git a/app/extensions/resources/dashboard/caller_id.php b/app/extensions/resources/dashboard/caller_id.php
+index 08ef0c6b3..9a600c353 100644
+--- a/app/extensions/resources/dashboard/caller_id.php
++++ b/app/extensions/resources/dashboard/caller_id.php
+@@ -51,7 +51,24 @@
+ 						header('Location: /core/dashboard/');
+ 						exit;
+ 					}
+-
++//===custom parameter for anonym
++                                        $sql1 = "select extension_uuid,";
++                                        $sql1 .=" extension_setting_value as hideCID ";
++                                        $sql1 .=" from v_extension_settings ";
++                                        $sql1 .=" where extension_setting_name = 'hideCID' ";
++                                        $sql1 .= "and domain_uuid = :domain_uuid ";
++                                        $sql1 .=" and extension_setting_type = 'variable'";
++                                        $parameters['domain_uuid'] = $_SESSION['domain_uuid'];
++                                        $settings1 = $database->select($sql1, $parameters, 'all');
++                                        unset($sql1, $parameters);
++                                        $hideCID_map = [];
++
++                                        foreach ($settings1 as $setting) {
++                                            $hideCID_map[$setting['extension_uuid']] = $setting['hideCID'] ?? 0;
++                                        }
++                                        unset($settings1);
++                                        unset($setting);
++//===
+ 				//build a new array to make sure it only contains what the user is allowed to change
+ 					$x=0;
+ 					foreach ($_POST['extensions'] as $row) {
+@@ -81,11 +98,47 @@
+ 									$array['extensions'][$x]['outbound_caller_id_number'] = $outbound_caller_id_number;
+ 								}
+ 							}
+-
++//===custom parameter for anonym
++                                                        if (!isset($hideCID_map[$row['extension_uuid']]) && $row['hideCID']=='true')
++                                                        {
++                                                           $p = permissions::new();
++                                                           $p->add("extension_setting_add", "temp");
++                                                           $array1['extension_settings'][0]['extension_uuid'] = $row['extension_uuid'];
++                                                           $array1['extension_settings'][0]['domain_uuid'] = $_SESSION['domain_uuid'];
++                                                           $array1['extension_settings'][0]['extension_setting_type'] = 'variable';
++                                                           $array1['extension_settings'][0]['extension_setting_name'] = 'hideCID';
++                                                           $array1['extension_settings'][0]['extension_setting_value'] = 0;
++                                                           $array1['extension_settings'][0]['extension_setting_enabled'] = 'true';
++                                                           $array1['extension_settings'][0]['extension_setting_description'] = 'Do not edit or delete manually!!! Modifications can only be made from the Extensions > Hide Caller';
++                                                           //save the data
++                                                           $database = new database;
++                                                           $database->app_name = 'extension settings';
++                                                           $database->app_uuid = '1416a250-f6e1-4edc-91a6-5c9b883638fd';
++                                                           $database->save($array1);
++                                                           unset($array1);
++                                                           $p->delete("extension_setting_add", "temp");
++
++                                                        }
++                                                        if (isset($hideCID_map[$row['extension_uuid']]) && $row['hideCID']=='false')
++                                                        {
++                                                           $p = permissions::new();
++                                                           $p->add("extension_setting_delete", "temp");
++                                                           $sql = "delete from v_extension_settings ";
++                                                           $sql .= "where extension_uuid = :extension_uuid ";
++                                                           $sql .= "and extension_setting_name = 'hideCID' and extension_setting_type = 'variable' ";
++                                                           $parameters['extension_uuid'] = $row['extension_uuid'];
++                                                           $database->execute($sql, $parameters);
++                                                           unset($sql,$parameters);
++                                                           $p->delete("extension_setting_delete", "temp");
++
++                                                        }
++//===
+ 						//increment the row id
+ 							$x++;
+ 					}
+-
++//===custom parameter for anonym
++                                        unset($hideCID_map);
++//===
+ 				//create temp array for session update
+ 					$array_temp = $array;
+ 
+@@ -133,16 +186,46 @@
+ 
+ 		//get the destinations
+ 			if (permission_exists('outbound_caller_id_select')) {
++                                $groups = $_SESSION['groups'];
++                                $group_uuids = array_column($groups, 'group_uuid');
++                                $placeholders = [];
++                                foreach ($group_uuids as $i => $uuid) {
++                                    $key = ":group_uuid_$i";
++                                    $placeholders[] = $key;
++                                    $parameters[$key] = $uuid;
++                                }
+ 				$sql = "select destination_caller_id_name, destination_caller_id_number from v_destinations ";
+ 				$sql .= "where domain_uuid = :domain_uuid ";
++                                $sql .= " AND (user_uuid = :user_uuid OR group_uuid IN (" . implode(',', $placeholders) . ")) ";
+ 				$sql .= "and destination_type = 'inbound' ";
+ 				$sql .= "order by destination_caller_id_name asc, destination_caller_id_number asc";
+ 				$parameters['domain_uuid'] = $_SESSION['domain_uuid'];
++                                $parameters['user_uuid'] = $_SESSION['user_uuid'];
+ 				$destinations = $database->select($sql, $parameters, 'all');
+ 				unset($sql, $parameters);
+ 			}
+-
+-
++//===custom parameter for anonym
++                        $sql1 = "select extension_uuid,";
++                        $sql1 .=" extension_setting_value as hideCID ";
++                        $sql1 .=" from v_extension_settings ";
++                        $sql1 .=" where extension_setting_name = 'hideCID' ";
++                        $sql1 .= "and domain_uuid = :domain_uuid ";
++                        $sql1 .=" and extension_setting_type = 'variable'";
++                        $parameters['domain_uuid'] = $_SESSION['domain_uuid'];
++                        $settings1 = $database->select($sql1, $parameters, 'all');
++                        unset($sql1, $parameters);
++
++                        $hideCID_map1 = [];
++                        foreach ($settings1 as $setting) {
++                           $hideCID_map1[$setting['extension_uuid']] = $setting['hideCID'] ?? 0;
++                        }
++                        foreach ($extensions as &$extension) {
++                             $extension['hideCID'] =
++                             $hideCID_map1[$extension['extension_uuid']] ?? 2;
++                        }
++                        unset($extension);
++                        unset($hideCID_map1);
++//===
+ 		//set defaults
+ 			unset($stats);
+ 			$stats['defined'] = $stats['undefined'] = 0;
+@@ -253,6 +336,9 @@
+ 				echo "<table class='tr_hover' width='100%' cellpadding='0' cellspacing='0' border='0'>\n";
+ 				echo "<tr style='position: -webkit-sticky; position: sticky; z-index: 5; top: 0;'>\n";
+ 				echo "<th class='hud_heading'>".$text['label-extension']."</th>\n";
++//===custom parameter for anonym
++                                echo "<th class='hud_heading'>".$text['label-hideCID']."</th>\n";
++//===
+ 				echo "<th class='hud_heading'>".$text['label-outbound_cid_name']."</th>\n";
+ 				if (!permission_exists('outbound_caller_id_select')) {
+ 					echo "<th class='hud_heading'>".$text['label-outbound_cid_number']."</th>\n";
+@@ -271,6 +357,27 @@
+ 							echo 	"<input type='hidden' name='extensions[".$x."][extension_uuid]' value=\"".escape($row['extension_uuid'])."\">\n";
+ 						}
+ 						echo "	</td>\n";
++//===custom parameter for anonym
++                                if (permission_exists('extension_caller_id')) {
++                                        echo "  <td valign='top' class='".$row_style[$c]." hud_text input tr_link_void' style='width: 1%; text-align: center;'>";
++                                        if ($input_toggle_style_switch) {
++                                                echo "  <span class='switch'>\n";
++                                        }
++                                        echo "  <select class='formfld' id='".escape($row['extension_uuid'])."' name='extensions[".$x."][hideCID]' onchange=\"this.value == 'true' && document.getElementById('destination_".$x."').value == '' ? document.getElementById('destination_".$x."').focus() : null;\">\n";
++                                        echo "          <option value='false' ".($row["hideCID"] <> 0 ? "selected='selected'" : null).">2</option>\n";
++                                        echo "          <option value='true' ".($row["hideCID"] == 0 ? "selected='selected'" : null).">0</option>\n";
++                                        echo "  </select>\n";
++                                        if ($input_toggle_style_switch) {
++                                                echo "          <span class='slider'></span>\n";
++                                                echo "  </span>\n";
++                                        }
++                                }
++                                else {
++                                        echo "  <td valign='top' class='".$row_style[$c]." hud_text' style='width: 1%; text-align: left;'>";
++                                        echo $row["hideCID"] === 0 ? $text['option-enabled'] : $text['option-disabled'];
++                                }
++                                echo "  </td>\n";
++//===
+ 						//select caller id
+ 						if (permission_exists('outbound_caller_id_select')) {
+ 							echo "<td valign='top' class='".$row_style[$c]." hud_text input tr_link_void'>";
+

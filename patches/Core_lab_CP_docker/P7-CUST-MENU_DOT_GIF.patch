@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 147/218: P7-CUST-MENU_DOT_GIF
+# Title: Customization in menu_dot.gif
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/menu_dot.gif b/web/images/menu_dot.gif
+old mode 100644
+new mode 100755
+

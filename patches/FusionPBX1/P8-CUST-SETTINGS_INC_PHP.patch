@@ -1,0 +1,137 @@
+# --------------------------------------------------------------------
+# Customization 177/218: P8-CUST-SETTINGS_INC_PHP
+# Title: Customization in settings.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/tools/admin/boxes_config/settings.inc.php b/config/tools/admin/boxes_config/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/admin/db_config/settings.inc.php b/config/tools/admin/db_config/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/addresses/settings.inc.php b/config/tools/system/addresses/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/callcenter/settings.inc.php b/config/tools/system/callcenter/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/cdrviewer/settings.inc.php b/config/tools/system/cdrviewer/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/clusterer/settings.inc.php b/config/tools/system/clusterer/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/config/settings.inc.php b/config/tools/system/config/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/dashboard/settings.inc.php b/config/tools/system/dashboard/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/dialog/settings.inc.php b/config/tools/system/dialog/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/dialplan/settings.inc.php b/config/tools/system/dialplan/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/dispatcher/settings.inc.php b/config/tools/system/dispatcher/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/domains/settings.inc.php b/config/tools/system/domains/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/drouting/settings.inc.php b/config/tools/system/drouting/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/keepalived/settings.inc.php b/config/tools/system/keepalived/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/loadbalancer/settings.inc.php b/config/tools/system/loadbalancer/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/mi/settings.inc.php b/config/tools/system/mi/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/monit/settings.inc.php b/config/tools/system/monit/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/rtpengine/settings.inc.php b/config/tools/system/rtpengine/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/rtpproxy/settings.inc.php b/config/tools/system/rtpproxy/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/siptrace/settings.inc.php b/config/tools/system/siptrace/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/smonitor/settings.inc.php b/config/tools/system/smonitor/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/smpp/settings.inc.php b/config/tools/system/smpp/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/sockets_mgm/settings.inc.php b/config/tools/system/sockets_mgm/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/statusreport/settings.inc.php b/config/tools/system/statusreport/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/tcp_mgm/settings.inc.php b/config/tools/system/tcp_mgm/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/tls_mgm/settings.inc.php b/config/tools/system/tls_mgm/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/tracer/settings.inc.php b/config/tools/system/tracer/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/uac_registrant/settings.inc.php b/config/tools/system/uac_registrant/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/users/alias_management/settings.inc.php b/config/tools/users/alias_management/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/users/group_management/settings.inc.php b/config/tools/users/group_management/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/users/user_management/settings.inc.php b/config/tools/users/user_management/settings.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/common/tools/tviewer/samples/settings.inc.php b/web/common/tools/tviewer/samples/settings.inc.php
+old mode 100644
+new mode 100755
+

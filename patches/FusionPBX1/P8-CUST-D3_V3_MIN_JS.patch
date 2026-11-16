@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 55/218: P8-CUST-D3_V3_MIN_JS
+# Title: Customization in d3.v3.min.js
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/charting/d3.v3.min.js b/web/common/charting/d3.v3.min.js
+old mode 100644
+new mode 100755
+

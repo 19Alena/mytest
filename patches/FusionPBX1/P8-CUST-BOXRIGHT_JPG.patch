@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 28/218: P8-CUST-BOXRIGHT_JPG
+# Title: Customization in boxright.jpg
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/boxright.jpg b/web/images/boxright.jpg
+old mode 100644
+new mode 100755
+

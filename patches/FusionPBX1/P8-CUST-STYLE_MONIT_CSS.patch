@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 194/218: P8-CUST-STYLE_MONIT_CSS
+# Title: Customization in style_monit.css
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/monit/style_monit.css b/web/tools/system/monit/style_monit.css
+old mode 100644
+new mode 100755
+

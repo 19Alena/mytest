@@ -1,0 +1,23 @@
+# --------------------------------------------------------------------
+# Customization 8/28: P5-CUST-APP-VOICEMAIL_GREETINGS
+# Title: Custom App: Voicemail Greetings
+# Category: Custom App
+# Status: ACTIVE
+# Jira Ticket: 7777
+# Version Introduced: 5.5
+# --------------------------------------------------------------------
+
+diff --git a/app/voicemail_greetings/voicemail_greetings.php b/app/voicemail_greetings/voicemail_greetings.php
+index 436cfecf00..13c934fcc1 100644
+--- a/app/voicemail_greetings/voicemail_greetings.php
++++ b/app/voicemail_greetings/voicemail_greetings.php
+@@ -366,7 +366,7 @@
+ 
+ //show the content
+ 	echo "<div class='action_bar' id='action_bar'>\n";
+-	echo "	<div class='heading'><b>".$text['title']."</b><div class='count'>".number_format($num_rows)."</div></div>\n";
++	echo "	<div class='heading'><b>".$text['title'].$speech_enabled."yyyy"."</b><div class='count'>".number_format($num_rows)."</div></div>\n";
+ 	echo "	<div class='actions'>\n";
+ 	echo button::create(['type'=>'button','label'=>$text['button-back'],'icon'=>$settings->get('theme', 'button_icon_back'),'id'=>'btn_back','link'=>$_SESSION['back'][$_SERVER['PHP_SELF']]]);
+ 	$margin_left = false;
+

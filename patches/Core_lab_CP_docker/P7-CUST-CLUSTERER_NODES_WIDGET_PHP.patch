@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 49/218: P7-CUST-CLUSTERER_NODES_WIDGET_PHP
+# Title: Customization in clusterer_nodes_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/clusterer/template/dashboard_widgets/clusterer_nodes_widget.php b/web/tools/system/clusterer/template/dashboard_widgets/clusterer_nodes_widget.php
+old mode 100644
+new mode 100755
+

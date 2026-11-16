@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 155/218: P7-CUST-MONIT_TOOLS_WIDGET_PHP
+# Title: Customization in monit_tools_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/monit/template/dashboard_widgets/monit_tools_widget.php b/web/tools/system/monit/template/dashboard_widgets/monit_tools_widget.php
+old mode 100644
+new mode 100755
+

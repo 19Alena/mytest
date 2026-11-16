@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 197/218: P7-CUST-SYSTEM_CONFIG_EDIT_TOOLS_PHP
+# Title: Customization in system_config.edit_tools.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/boxes_config/template/system_config.edit_tools.php b/web/tools/admin/boxes_config/template/system_config.edit_tools.php
+old mode 100644
+new mode 100755
+

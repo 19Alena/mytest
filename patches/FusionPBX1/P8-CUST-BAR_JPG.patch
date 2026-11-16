@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 14/218: P8-CUST-BAR_JPG
+# Title: Customization in bar.jpg
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/bar.jpg b/web/images/bar.jpg
+old mode 100644
+new mode 100755
+

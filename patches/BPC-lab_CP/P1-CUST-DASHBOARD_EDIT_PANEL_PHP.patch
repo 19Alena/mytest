@@ -1,0 +1,25 @@
+# --------------------------------------------------------------------
+# Customization 5/17: P1-CUST-DASHBOARD_EDIT_PANEL_PHP
+# Title: Customization in dashboard.edit_panel.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/template/dashboard.edit_panel.php b/web/tools/system/dashboard/template/dashboard.edit_panel.php
+index e19fd6b..f743721 100644
+--- a/web/tools/system/dashboard/template/dashboard.edit_panel.php
++++ b/web/tools/system/dashboard/template/dashboard.edit_panel.php
+@@ -65,7 +65,9 @@ else
+ 	}
+ 	$start_limit=($page-1)*$res_no;
+ 	//$sql_command.=" limit ".$start_limit.", ".$res_no;
+-	$sql_command="select `name`, id, `order` from ".$table."  order by `order` asc limit ".$res_no;
++        //for PostgreSQL
++        //$sql_command="select `name`, id, `order` from ".$table."  order by `order` asc limit ".$res_no;
++        $sql_command="select \"name\", id, \"order\" from ".$table."  order by \"order\" asc limit ".$res_no;
+ 	if ($start_limit!=0)
+ 		$sql_command.=" OFFSET " . $start_limit;
+ 	$stm = $link->prepare( $sql_command );
+

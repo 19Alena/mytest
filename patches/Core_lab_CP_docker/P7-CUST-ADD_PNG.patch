@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 5/218: P7-CUST-ADD_PNG
+# Title: Customization in add.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/add.png b/web/images/share/add.png
+old mode 100644
+new mode 100755
+

@@ -1,0 +1,53 @@
+# --------------------------------------------------------------------
+# Customization 13/23: P6-CUST-EVENTGUARD-SEC
+# Title: Event Guard Security Service Tuning
+# Category: Security
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 5.5
+# --------------------------------------------------------------------
+
+diff --git a/app/event_guard/resources/classes/event_guard_service.php b/app/event_guard/resources/classes/event_guard_service.php
+index e7474dfff..5bf7289c7 100644
+--- a/app/event_guard/resources/classes/event_guard_service.php
++++ b/app/event_guard/resources/classes/event_guard_service.php
+@@ -141,6 +141,18 @@ class event_guard_service extends service {
+ 			if (isset($json_response) && $json_response != '') {
+ 				$json_array = json_decode($json_response['$'], true);
+ 				unset($json_response);
++                                if (!empty($json_array['user-agent'])) {
++                                        // Split by '@'
++                                        $parts = explode('@', $json_array['user-agent']);
++                                        if (count($parts) > 1) {
++                                                // Take the last part as IP (trim just in case)
++                                                $ip = trim(end($parts));
++                                                if (filter_var($ip, FILTER_VALIDATE_IP)) {
++                                                        $json_array['network-ip'] = $ip;
++                                                }
++                                        }
++                                }
++
+ 			}
+ 
+ 			// Debug the event array
+@@ -335,6 +347,10 @@ class event_guard_service extends service {
+ 		if (!filter_var($ip_address, FILTER_VALIDATE_IP)) {
+ 			return false;
+ 		}
++                //exception for VIP
++                if ($ip_address == '77.240.208.29') {
++                        return true;
++                }
+ 
+ 		// Check the cache to see if the address is allowed
+ 		$cache = new cache;
+@@ -497,7 +513,7 @@ class event_guard_service extends service {
+ 
+ 		// Check if the IP address is registered
+ 		$registered = false;
+-		$command = "fs_cli -x 'show registrations as json' ";
++		$command = "fs_cli -x 'sofia status profile internal reg' | grep Agent | awk -F'@' '{print $2}' | sort -u | jq -R -s -c '{rows: (split(\"\\n\")[:-1] | map({network_ip: .}))}'";
+ 		$result = shell_exec($command);
+ 		$array = json_decode($result, true);
+ 		if (is_array($array['rows'])) {
+

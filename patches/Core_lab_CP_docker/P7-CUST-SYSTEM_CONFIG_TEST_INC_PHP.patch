@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 201/218: P7-CUST-SYSTEM_CONFIG_TEST_INC_PHP
+# Title: Customization in system_config.test.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/boxes_config/lib/system_config.test.inc.php b/web/tools/admin/boxes_config/lib/system_config.test.inc.php
+old mode 100644
+new mode 100755
+

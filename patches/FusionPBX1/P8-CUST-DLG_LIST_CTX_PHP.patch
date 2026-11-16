@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 90/218: P8-CUST-DLG_LIST_CTX_PHP
+# Title: Customization in dlg_list_ctx.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dialog/dlg_list_ctx.php b/web/tools/system/dialog/dlg_list_ctx.php
+old mode 100644
+new mode 100755
+

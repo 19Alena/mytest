@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 125/218: P8-CUST-INSTALL
+# Title: Customization in INSTALL
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/INSTALL b/INSTALL
+old mode 100644
+new mode 100755
+

@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 8/218: P7-CUST-ASR_WIDGET_PHP
+# Title: Customization in asr_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dialog/template/dashboard_widgets/asr_widget.php b/web/tools/system/dialog/template/dashboard_widgets/asr_widget.php
+old mode 100644
+new mode 100755
+

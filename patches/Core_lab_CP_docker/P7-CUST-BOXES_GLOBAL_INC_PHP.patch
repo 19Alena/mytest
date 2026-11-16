@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 25/218: P7-CUST-BOXES_GLOBAL_INC_PHP
+# Title: Customization in boxes.global.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/boxes.global.inc.php b/config/boxes.global.inc.php
+old mode 100644
+new mode 100755
+

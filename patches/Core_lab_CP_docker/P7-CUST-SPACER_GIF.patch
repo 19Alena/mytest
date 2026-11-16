@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 181/218: P7-CUST-SPACER_GIF
+# Title: Customization in spacer.gif
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/spacer.gif b/web/images/spacer.gif
+old mode 100644
+new mode 100755
+

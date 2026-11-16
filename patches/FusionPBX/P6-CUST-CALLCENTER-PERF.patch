@@ -1,0 +1,103 @@
+# --------------------------------------------------------------------
+# Customization 10/23: P6-CUST-CALLCENTER-PERF
+# Title: Call Center Agent Status & Queue Optimization
+# Category: Call Center
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 5.5
+# --------------------------------------------------------------------
+
+diff --git a/app/call_centers/call_center_agent_status.php b/app/call_centers/call_center_agent_status.php
+index 643af420e..6d4d870d3 100644
+--- a/app/call_centers/call_center_agent_status.php
++++ b/app/call_centers/call_center_agent_status.php
+@@ -143,16 +143,56 @@
+ 		}
+ 	}
+ 
+-//remove rows from the http post array where the status has not changed
+-	if (!empty($_POST['agents']) && !$per_queue_login) {
+-		foreach($_POST['agents'] as $key => $row) {
+-			foreach($agents as $k => $field) {
+-				if ($field['agent_name'] === $row['agent_name'] && $field['agent_status'] === $row['agent_status']) {
+-					unset($_POST['agents'][$key]);
+-				}
+-			}
+-		}
+-	}
++// Build an index of current agent and queue statuses
++$current_statuses = [];
++
++foreach ($agents as $agent) {
++
++    $agent_uuid = $agent['call_center_agent_uuid'];
++
++    // Global agent status
++    $current_statuses['agent'][$agent_uuid] = $agent['agent_status'] ?? null;
++
++    // Per-queue agent status
++    if (!empty($agent['queues'])) {
++        foreach ($agent['queues'] as $queue) {
++
++            $queue_uuid = $queue['call_center_queue_uuid'];
++
++            $current_statuses['queue'][$agent_uuid][$queue_uuid] =
++                $queue['queue_status'];
++        }
++    }
++}
++// Remove unchanged rows from POST
++
++if (!empty($_POST['agents'])) {
++
++    foreach ($_POST['agents'] as $key => $row) {
++
++        $agent_uuid = $row['agent_uuid'] ?? null;
++        $new_status = $row['agent_status'] ?? null;
++
++        if (isset($row['queue_uuid'])) {
++
++            // Per-queue login
++            $queue_uuid = $row['queue_uuid'];
++
++            $original_status =
++                $current_statuses['queue'][$agent_uuid][$queue_uuid] ?? null;
++
++        } else {
++
++            // Global agent status
++            $original_status =
++                $current_statuses['agent'][$agent_uuid] ?? null;
++        }
++
++        if ($original_status !== null && $original_status === $new_status) {
++            unset($_POST['agents'][$key]);
++        }
++    }
++}
+ 
+ //use the http post array to change the status
+ 	if (!empty($_POST['agents'])) {
+
+diff --git a/app/call_centers/call_center_queue_edit.php b/app/call_centers/call_center_queue_edit.php
+index 4954fd315..f628ed4f4 100644
+--- a/app/call_centers/call_center_queue_edit.php
++++ b/app/call_centers/call_center_queue_edit.php
+@@ -517,7 +517,15 @@
+ 		//synchronize the configuration
+ 			save_call_center_xml();
+ 			remove_config_from_cache('configuration:callcenter.conf');
+-
++                        $cache_path = '/var/cache/fusionpbx';
++                        if (is_dir($cache_path)) {
++                            foreach (scandir($cache_path) as $file) {
++                                if ($file === '.' || $file === '..') continue;
++                                if (strpos($file, '.configuration.callcenter.conf') !== false) {
++                                        remove_config_from_cache($file);
++                                    }
++                            }
++                        }
+ 		//add agent/tier to queue
+ 			$agent_name = $_POST["agent_name"] ?? null;
+ 			$tier_level = $_POST["tier_level"] ?? null;
+

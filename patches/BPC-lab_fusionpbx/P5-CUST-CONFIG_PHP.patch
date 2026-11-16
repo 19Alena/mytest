@@ -1,0 +1,23 @@
+# --------------------------------------------------------------------
+# Customization 13/28: P5-CUST-CONFIG_PHP
+# Title: Customization in config.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 5.5
+# --------------------------------------------------------------------
+
+diff --git a/resources/classes/config.php b/resources/classes/config.php
+index 573a058738..de16e30bb0 100644
+--- a/resources/classes/config.php
++++ b/resources/classes/config.php
+@@ -331,7 +331,7 @@ final class config {
+ 	 * @return config The loaded or default configuration object
+ 	 */
+ 	public static function load(string $file = ''): config {
+-		if (self::$config === null || self::$config->is_empty()) {
++		if (self::$config === null) {
+ 			self::$config = new config($file);
+ 		}
+ 		return self::$config;
+

@@ -1,0 +1,38 @@
+# --------------------------------------------------------------------
+# Customization 9/23: P6-CUST-CALLBLOCK-CACHE
+# Title: Call Block Cache Invalidation Fix
+# Category: Call Routing
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 5.5
+# --------------------------------------------------------------------
+
+diff --git a/app/call_block/call_block_edit.php b/app/call_block/call_block_edit.php
+index 9009d97df..543fa7a66 100644
+--- a/app/call_block/call_block_edit.php
++++ b/app/call_block/call_block_edit.php
+@@ -184,6 +184,23 @@
+ 
+ 							$p->delete('dialplan_edit', 'temp');
+ 						}
++                                                $sql1 = "select domain_uuid from v_call_block where ";
++
++                                                if (!empty($domain_uuid) && is_uuid($domain_uuid)) {
++                                                        $sql1 .= "domain_uuid = :domain_uuid ";
++                                                }
++                                                if (!empty($domain_uuid) && is_uuid($domain_uuid)) {
++                                                        $parameters1['domain_uuid'] = $domain_uuid;
++                                                }
++                                                $rows1 = $database->select($sql1, $parameters1);
++
++                                                if (empty($rows1)) {
++                //clear the cache
++                        $cache = new cache;
++                        $cache->delete("dialplan:".$_SESSION["domain_name"]);
++
++                                                }
++
+ 					}
+ 
+ 				//if user doesn't have call block all then use the assigned extension_uuid
+

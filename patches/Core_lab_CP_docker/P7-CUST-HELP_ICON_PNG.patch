@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 115/218: P7-CUST-HELP_ICON_PNG
+# Title: Customization in help-icon.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/help-icon.png b/web/images/share/help-icon.png
+old mode 100644
+new mode 100755
+

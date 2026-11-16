@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 214/218: P8-CUST-VALIDATE_PHP
+# Title: Customization in validate.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/validate.php b/web/common/validate.php
+old mode 100644
+new mode 100755
+

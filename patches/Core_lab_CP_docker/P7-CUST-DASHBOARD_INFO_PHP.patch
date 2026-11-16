@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 65/218: P7-CUST-DASHBOARD_INFO_PHP
+# Title: Customization in dashboard.info.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/dashboard.info.php b/web/tools/system/dashboard/dashboard.info.php
+old mode 100644
+new mode 100755
+

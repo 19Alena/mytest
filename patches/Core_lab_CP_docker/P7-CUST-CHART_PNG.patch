@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 46/218: P7-CUST-CHART_PNG
+# Title: Customization in chart.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/chart.png b/web/images/share/chart.png
+old mode 100644
+new mode 100755
+

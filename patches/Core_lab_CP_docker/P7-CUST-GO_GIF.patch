@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 110/218: P7-CUST-GO_GIF
+# Title: Customization in go.gif
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/go.gif b/web/images/go.gif
+old mode 100644
+new mode 100755
+

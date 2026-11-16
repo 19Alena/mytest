@@ -1,0 +1,21 @@
+# --------------------------------------------------------------------
+# Customization 2/28: P5-CUST-APP-BASIC_OPERATOR_PANEL
+# Title: Custom App: Basic Operator Panel
+# Category: Custom App
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 5.5
+# --------------------------------------------------------------------
+
+diff --git a/app/basic_operator_panel/exec.php b/app/basic_operator_panel/exec.php
+index 3d88eb88a1..7a329e1b0b 100644
+--- a/app/basic_operator_panel/exec.php
++++ b/app/basic_operator_panel/exec.php
+@@ -122,4 +122,4 @@ if (count($_GET) > 0) {
+ 		}
+ }
+ 
+-?>
+\ No newline at end of file
++?>
+

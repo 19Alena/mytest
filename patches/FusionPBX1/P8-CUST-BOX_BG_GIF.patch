@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 32/218: P8-CUST-BOX_BG_GIF
+# Title: Customization in box_bg.gif
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/box_bg.gif b/web/images/box_bg.gif
+old mode 100644
+new mode 100755
+

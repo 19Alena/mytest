@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 184/218: P7-CUST-STATISTICS_EDIT_PHP
+# Title: Customization in statistics.edit.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/smonitor/template/statistics.edit.php b/web/tools/system/smonitor/template/statistics.edit.php
+old mode 100644
+new mode 100755
+

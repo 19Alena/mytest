@@ -1,0 +1,21 @@
+# --------------------------------------------------------------------
+# Customization 111/218: P8-CUST-GROUPS_PHP
+# Title: Customization in groups.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/drouting/groups.php b/web/tools/system/drouting/groups.php
+index fec97488..b5ffaea0 100755
+--- a/web/tools/system/drouting/groups.php
++++ b/web/tools/system/drouting/groups.php
+@@ -40,6 +40,7 @@
+  if (isset($_GET['id'])) {
+                           $temp=explode("@",$_GET['id']);
+                           $id_username=$temp[0];
++                          $id_username = str_replace(' ', '+', $id_username);
+                           $id_domain=$temp[1];
+                          }
+

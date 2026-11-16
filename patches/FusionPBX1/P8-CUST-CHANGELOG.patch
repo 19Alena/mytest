@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 45/218: P8-CUST-CHANGELOG
+# Title: Customization in ChangeLog
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/ChangeLog b/ChangeLog
+old mode 100644
+new mode 100755
+

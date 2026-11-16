@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 44/218: P7-CUST-CFG_COMM_PHP
+# Title: Customization in cfg_comm.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/cfg_comm.php b/web/common/cfg_comm.php
+old mode 100644
+new mode 100755
+

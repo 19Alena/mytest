@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 173/218: P8-CUST-RUNTIMEEXCEPTION_PHP
+# Title: Customization in RuntimeException.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/googleAuth/RuntimeException.php b/googleAuth/RuntimeException.php
+old mode 100644
+new mode 100755
+

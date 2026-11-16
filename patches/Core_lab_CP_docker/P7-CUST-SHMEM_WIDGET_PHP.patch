@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 179/218: P7-CUST-SHMEM_WIDGET_PHP
+# Title: Customization in shmem_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/template/dashboard_widgets/shmem_widget.php b/web/tools/system/dashboard/template/dashboard_widgets/shmem_widget.php
+old mode 100644
+new mode 100755
+

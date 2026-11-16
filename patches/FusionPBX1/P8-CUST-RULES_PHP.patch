@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 172/218: P8-CUST-RULES_PHP
+# Title: Customization in rules.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/drouting/rules.php b/web/tools/system/drouting/rules.php
+old mode 100644
+new mode 100755
+

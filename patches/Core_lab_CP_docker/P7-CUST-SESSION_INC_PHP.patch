@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 176/218: P7-CUST-SESSION_INC_PHP
+# Title: Customization in session.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/session.inc.php b/config/session.inc.php
+old mode 100644
+new mode 100755
+

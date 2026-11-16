@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 42/218: P7-CUST-CDR_EXPORT_CRON
+# Title: Customization in cdr_export_cron
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/tools/system/cdrviewer/cdr_export_cron b/config/tools/system/cdrviewer/cdr_export_cron
+old mode 100644
+new mode 100755
+

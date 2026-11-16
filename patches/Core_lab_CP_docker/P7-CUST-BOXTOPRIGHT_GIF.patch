@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 30/218: P7-CUST-BOXTOPRIGHT_GIF
+# Title: Customization in boxtopright.gif
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/boxtopright.gif b/web/images/boxtopright.gif
+old mode 100644
+new mode 100755
+

@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 107/218: P7-CUST-GOOGLEAUTHENTICATORINTERFACE_PHP
+# Title: Customization in GoogleAuthenticatorInterface.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/googleAuth/GoogleAuthenticatorInterface.php b/googleAuth/GoogleAuthenticatorInterface.php
+old mode 100644
+new mode 100755
+

@@ -1,0 +1,93 @@
+# --------------------------------------------------------------------
+# Customization 10/14: P3-CUST-OPENSIPS
+# Title: OpenSIPS Integration via JSON-RPC
+# Category: Core Integration
+# Status: ACTIVE
+# Jira Ticket: ISO-8859
+# Version Introduced: 9.3.4
+# --------------------------------------------------------------------
+
+diff --git a/config/db.inc.php b/config/db.inc.php
+index 38978988..0e34321f 100644
+--- a/config/db.inc.php
++++ b/config/db.inc.php
+@@ -24,10 +24,10 @@
+  if (!isset($config)) $config = new stdClass();
+ 
+  //database driver mysql or pgsql
+- $config->db_driver = "mysql";
++ $config->db_driver = "pgsql";
+ 
+  //database host
+- $config->db_host = "localhost";
++ $config->db_host = "127.0.0.1";
+  
+  //database port - leave empty for default
+  $config->db_port = "";
+@@ -36,7 +36,7 @@
+  $config->db_user = "opensips";
+  
+  //database connection password
+- $config->db_pass = "********";
++ $config->db_pass = trim(file_get_contents(getenv('DB_PASSWORD_FILE')));  
+  //database name
+  $config->db_name = "opensips";
+@@ -46,4 +46,4 @@
+  //connection attributes, optional
+  //$config->db_attr = array(PDO::MYSQL_ATTR_LOCAL_INFILE => true);
+  
+-?>
++?>
+\ No newline at end of file
+
+diff --git a/config/local.inc.php b/config/local.inc.php
+index ff8ddcad..d7a25da3 100644
+--- a/config/local.inc.php
++++ b/config/local.inc.php
+@@ -28,7 +28,7 @@
+  $session_err = "Your Session has expired";
+  
+  $page_title = "OpenSIPS Control Panel";
+- $header_title = ".: OpenSIPS Control Panel";
++ $header_title = ".: BPC Production";
+  $copyright = "Copyright &copy; 2006-2026 OpenSIPS Project";
+ 
+ ?>
+
+diff --git a/config/tools/system/smonitor/opensips_stats_cron b/config/tools/system/smonitor/opensips_stats_cron
+index 4732d32e..80ef3ac7 100644
+--- a/config/tools/system/smonitor/opensips_stats_cron
++++ b/config/tools/system/smonitor/opensips_stats_cron
+@@ -1,8 +1,8 @@
+ # IMPORTANT: the php file must be run in OpenSIPS Control Panel root directory
+ 
+ # run the statistics sampling once every minute
+-*  * * * * root (cd /var/www/html/opensips-cp/; /usr/bin/php cron_job/get_opensips_stats.php)
++*  * * * * www-data (cd /var/www/html/opensips-cp/; /usr/bin/php cron_job/get_opensips_stats.php)
+ 
+ 
+ # run the statistics cleanup once every hour, at x:10
+-10 * * * * root (cd /var/www/html/opensips-cp/; /usr/bin/php cron_job/clean_statistics.php)
++10 * * * * www-data (cd /var/www/html/opensips-cp/; /usr/bin/php cron_job/clean_statistics.php)
+
+diff --git a/web/header.php b/web/header.php
+index 91b0d58d..148bcd09 100755
+--- a/web/header.php
++++ b/web/header.php
+@@ -42,7 +42,7 @@
+         $ocp_version = ob_get_clean();
+       }
+     ?>
+-    <div class="headerTitle"><?=$header_title.(empty($ocp_version)?"":(" ".$ocp_version))?></div>
++    <div class="headerTitle"><b><span style="color: #D97706;"><?=$header_title?></span></b> OpenSIPS CP <?=(empty($ocp_version)?"":(" ".$ocp_version))?></div>
+   </td>
+   <td align="right">
+     <table>
+@@ -72,4 +72,4 @@
+ </table>
+ </body>
+ 
+-</html>
++</html>
+\ No newline at end of file
+

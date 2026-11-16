@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 70/218: P8-CUST-DASHBOARD_SVG
+# Title: Customization in dashboard.svg
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/dashboard.svg b/web/images/dashboard.svg
+old mode 100644
+new mode 100755
+

@@ -1,0 +1,21 @@
+# --------------------------------------------------------------------
+# Customization 23/23: P6-CUST-USER_PROFILE_PHP
+# Title: Customization in user_profile.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 5.5
+# --------------------------------------------------------------------
+
+diff --git a/core/users/user_profile.php b/core/users/user_profile.php
+index 3501d69bb..c770fe223 100644
+--- a/core/users/user_profile.php
++++ b/core/users/user_profile.php
+@@ -34,7 +34,6 @@
+ 
+ //get the user uuid
+ 	$user_uuid = $_SESSION['user_uuid'];
+-
+ //set the action
+ 	$action = 'edit';
+

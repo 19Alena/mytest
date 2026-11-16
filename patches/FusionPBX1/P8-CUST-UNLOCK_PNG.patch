@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 209/218: P8-CUST-UNLOCK_PNG
+# Title: Customization in unlock.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/dashboard/unlock.png b/web/images/dashboard/unlock.png
+old mode 100644
+new mode 100755
+

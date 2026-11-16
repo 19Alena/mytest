@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 165/218: P7-CUST-REDIRECT_PHP
+# Title: Customization in redirect.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/tools/tviewer/redirect.php b/web/common/tools/tviewer/redirect.php
+old mode 100644
+new mode 100755
+

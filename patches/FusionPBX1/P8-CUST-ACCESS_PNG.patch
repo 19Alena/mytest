@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 2/218: P8-CUST-ACCESS_PNG
+# Title: Customization in access.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/access.png b/web/images/share/access.png
+old mode 100644
+new mode 100755
+

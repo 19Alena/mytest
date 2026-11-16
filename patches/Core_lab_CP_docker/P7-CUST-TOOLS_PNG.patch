@@ -1,0 +1,17 @@
+# --------------------------------------------------------------------
+# Customization 204/218: P7-CUST-TOOLS_PNG
+# Title: Customization in tools.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/tools.png b/web/images/share/tools.png
+old mode 100644
+new mode 100755
+
+diff --git a/web/images/tools.png b/web/images/tools.png
+old mode 100644
+new mode 100755
+

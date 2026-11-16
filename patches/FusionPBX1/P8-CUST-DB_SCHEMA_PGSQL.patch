@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 81/218: P8-CUST-DB_SCHEMA_PGSQL
+# Title: Customization in db_schema.pgsql
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/db_schema.pgsql b/config/db_schema.pgsql
+old mode 100644
+new mode 100755
+

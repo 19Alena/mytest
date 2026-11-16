@@ -1,0 +1,72 @@
+# --------------------------------------------------------------------
+# Customization 38/218: P7-CUST-CARRIERS_FUNCTIONS_INC_PHP
+# Title: Customization in carriers.functions.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/drouting/lib/carriers.functions.inc.php b/web/tools/system/drouting/lib/carriers.functions.inc.php
+index 49545ccb..2c5bb3c4 100755
+--- a/web/tools/system/drouting/lib/carriers.functions.inc.php
++++ b/web/tools/system/drouting/lib/carriers.functions.inc.php
+@@ -34,7 +34,57 @@ function fmt_binary($x, $numbits, $retbit) {
+     	// Get rid of first space.
+ 	    return ltrim($rtnval[$retbit]);
+ } 
++function get_codec_list()
++{
++    global $link;
++    global $config;
++
++    $index = 0;
++    $values = array();
++    $resultset = array('PCMA', 'PCMU','G723','G722','G729','G729a','speex','GSM','opus','EVS');
++
++    for ($i = 0; $i < count($resultset); $i++) {
++        $values[$index][0] = $resultset[$i];
++        $index++;
++    }
++
++    return $values;
++}
+ 
++function print_codec_list()
++{
++    $array_values = get_codec_list();
++    $start_index = 0;
++    $end_index = sizeof($array_values);
++?>
++<select name="extra_codecs_value" id="extra_codecs_value" size="1"
++        class="dataSelect"
++        style="width:342px!important; margin-left:1px; margin-top:2px;">
++<?php
++    for ($i = $start_index; $i < $end_index; $i++) {
++        echo '<option value="transcode-'.$array_values[$i][0].'">(#'.$array_values[$i][0].')</option>';
++    }
++?>
++</select>
++<?php
++}
++function print_stripcodec_list()
++{
++    $array_values = get_codec_list();
++    $start_index = 0;
++    $end_index = sizeof($array_values);
++?>
++<select name="extra_codecs_stripvalue" id="extra_codecs_stripvalue" size="1"
++        class="dataSelect"
++        style="width:342px!important; margin-left:1px; margin-top:2px;">
++<?php
++    for ($i = $start_index; $i < $end_index; $i++) {
++        echo '<option value="codec-strip-'.$array_values[$i][0].'">(#'.$array_values[$i][0].')</option>';
++    }
++?>
++</select>
++<?php
++}
+ 
+ function get_gwlist()
+ {
+

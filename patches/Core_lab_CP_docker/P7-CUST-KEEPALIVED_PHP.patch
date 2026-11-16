@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 129/218: P7-CUST-KEEPALIVED_PHP
+# Title: Customization in keepalived.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/keepalived/keepalived.php b/web/tools/system/keepalived/keepalived.php
+old mode 100644
+new mode 100755
+

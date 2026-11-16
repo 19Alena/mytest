@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 215/218: P7-CUST-VERSION_TXT
+# Title: Customization in version.txt
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/version.txt b/web/version.txt
+old mode 100644
+new mode 100755
+

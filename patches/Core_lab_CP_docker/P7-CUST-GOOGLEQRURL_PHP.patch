@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 109/218: P7-CUST-GOOGLEQRURL_PHP
+# Title: Customization in GoogleQrUrl.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/googleAuth/GoogleQrUrl.php b/googleAuth/GoogleQrUrl.php
+old mode 100644
+new mode 100755
+

@@ -1,0 +1,24 @@
+# --------------------------------------------------------------------
+# Customization 19/23: P6-CUST-PROV-YEALINK
+# Title: Yealink Device Provisioning Templates
+# Category: Provisioning
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 5.5
+# --------------------------------------------------------------------
+
+diff --git a/resources/templates/provision/yealink/w70b/y000000000146.cfg b/resources/templates/provision/yealink/w70b/y000000000146.cfg
+index 41b0ffc44..20d51c75c 100644
+--- a/resources/templates/provision/yealink/w70b/y000000000146.cfg
++++ b/resources/templates/provision/yealink/w70b/y000000000146.cfg
+@@ -334,7 +334,8 @@ phone_setting.is_deal180 = 1
+ 
+ #Enable or disable the phone to automatically dial out the dialed digits in the pre-dial interface; 0-Disabled (default), 1-Enabled;
+ phone_setting.predial_autodial = 1
+-
++#phone_setting.ringing_timeout = {$yealink_ringing_timeout}
++phone_setting.ringing_timeout = 175
+ features.remote_phonebook.enable = {$yealink_remote_phonebook_enable}
+ 
+ #######################################################################################
+

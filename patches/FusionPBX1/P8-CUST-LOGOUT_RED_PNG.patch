@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 140/218: P8-CUST-LOGOUT_RED_PNG
+# Title: Customization in logout-red.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/logout-red.png b/web/images/logout-red.png
+old mode 100644
+new mode 100755
+

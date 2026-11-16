@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 203/218: P7-CUST-TOOLS_CONFIG_PHP
+# Title: Customization in tools_config.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/tools_config/tools_config.php b/web/tools/admin/tools_config/tools_config.php
+old mode 100644
+new mode 100755
+

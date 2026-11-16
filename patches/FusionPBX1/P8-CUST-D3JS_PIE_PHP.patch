@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 54/218: P8-CUST-D3JS_PIE_PHP
+# Title: Customization in d3js_pie.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/charting/d3js_pie.php b/web/common/charting/d3js_pie.php
+old mode 100644
+new mode 100755
+

@@ -1,0 +1,22 @@
+# --------------------------------------------------------------------
+# Customization 20/23: P6-CUST-RINGOTEL
+# Title: Ringotel PBX Integration
+# Category: Telephony
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 5.5
+# --------------------------------------------------------------------
+
+diff --git a/app/extensions/extensions.php b/app/extensions/extensions.php
+index 3d000c1c9..a231f826a 100644
+--- a/app/extensions/extensions.php
++++ b/app/extensions/extensions.php
+@@ -525,5 +525,6 @@
+ 
+ //show the footer
+ 	require_once "resources/footer.php";
+-
++    //include the ringotel extension list
++   require_once dirname(__DIR__, 2)."/app/ringotel/ringotel_extension_list.php";
+ ?>
+

@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 1/218: P7-CUST-ACCESS_LOG
+# Title: Customization in access.log
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/access.log b/config/access.log
+old mode 100644
+new mode 100755
+

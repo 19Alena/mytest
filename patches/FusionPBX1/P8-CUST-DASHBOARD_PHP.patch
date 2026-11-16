@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 68/218: P8-CUST-DASHBOARD_PHP
+# Title: Customization in dashboard.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/dashboard.php b/web/tools/system/dashboard/dashboard.php
+old mode 100644
+new mode 100755
+

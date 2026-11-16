@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 159/218: P8-CUST-PERCENT_D3JS_PHP
+# Title: Customization in percent_d3js.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/charting/percent_d3js.php b/web/common/charting/percent_d3js.php
+old mode 100644
+new mode 100755
+

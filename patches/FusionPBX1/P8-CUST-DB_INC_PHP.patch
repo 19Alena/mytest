@@ -1,0 +1,57 @@
+# --------------------------------------------------------------------
+# Customization 79/218: P8-CUST-DB_INC_PHP
+# Title: Customization in db.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/tools/system/addresses/db.inc.php b/config/tools/system/addresses/db.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/config/db.inc.php b/config/tools/system/config/db.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/dialog/db.inc.php b/config/tools/system/dialog/db.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/dispatcher/db.inc.php b/config/tools/system/dispatcher/db.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/drouting/db.inc.php b/config/tools/system/drouting/db.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/loadbalancer/db.inc.php b/config/tools/system/loadbalancer/db.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/rtpengine/db.inc.php b/config/tools/system/rtpengine/db.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/rtpproxy/db.inc.php b/config/tools/system/rtpproxy/db.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/sockets_mgm/db.inc.php b/config/tools/system/sockets_mgm/db.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/tcp_mgm/db.inc.php b/config/tools/system/tcp_mgm/db.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/users/user_management/db.inc.php b/config/tools/users/user_management/db.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/common/tools/tviewer/samples/db.inc.php b/web/common/tools/tviewer/samples/db.inc.php
+old mode 100644
+new mode 100755
+

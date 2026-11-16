@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 192/218: P7-CUST-STORE_DASHBOARD_PHP
+# Title: Customization in store_dashboard.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/store_dashboard.php b/web/tools/system/dashboard/store_dashboard.php
+old mode 100644
+new mode 100755
+

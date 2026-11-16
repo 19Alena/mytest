@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 162/218: P8-CUST-PKG_WIDGET_PHP
+# Title: Customization in pkg_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/template/dashboard_widgets/pkg_widget.php b/web/tools/system/dashboard/template/dashboard_widgets/pkg_widget.php
+old mode 100644
+new mode 100755
+

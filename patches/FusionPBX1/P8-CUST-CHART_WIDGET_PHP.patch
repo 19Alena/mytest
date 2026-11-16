@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 47/218: P8-CUST-CHART_WIDGET_PHP
+# Title: Customization in chart_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/smonitor/template/dashboard_widgets/chart_widget.php b/web/tools/system/smonitor/template/dashboard_widgets/chart_widget.php
+old mode 100644
+new mode 100755
+

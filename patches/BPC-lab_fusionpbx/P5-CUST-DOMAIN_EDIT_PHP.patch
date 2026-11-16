@@ -1,0 +1,46 @@
+# --------------------------------------------------------------------
+# Customization 15/28: P5-CUST-DOMAIN_EDIT_PHP
+# Title: Customization in domain_edit.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 5.5
+# --------------------------------------------------------------------
+
+diff --git a/core/domains/domain_edit.php b/core/domains/domain_edit.php
+index ff7377ee30..09507e2728 100644
+--- a/core/domains/domain_edit.php
++++ b/core/domains/domain_edit.php
+@@ -75,7 +75,9 @@
+ 			}
+ 
+ 		//delete the domain
+-			if (permission_exists('domain_delete') && !empty($_POST['action']) && $_POST['action'] == 'delete' && is_uuid($domain_uuid)) {
++//			if (permission_exists('domain_delete') && !empty($_POST['action']) && $_POST['action'] == 'delete' && is_uuid($domain_uuid)) {
++                        if (!empty($_POST['action']) && $_POST['action'] == 'delete' && is_uuid($domain_uuid)) {
++
+ 				//prepare
+ 				$array[0]['checked'] = 'true';
+ 				$array[0]['uuid'] = $domain_uuid;
+@@ -624,7 +626,8 @@
+ 	if ($action == "update" && permission_exists('domain_setting_view')) {
+ 		echo button::create(['type'=>'button','label'=>$text['button-settings'],'icon'=>$settings->get('theme', 'button_icon_settings'),'id'=>'btn_back','style'=>'margin-right: 2px;','link'=>PROJECT_PATH.'/core/domain_settings/domain_settings.php?id='.urlencode($domain_uuid)]);
+ 	}
+-	if (permission_exists('domain_delete') && is_array($_SESSION['domains']) && @sizeof($_SESSION['domains']) > 1 && $domain_uuid != $_SESSION['domain_uuid']) {
++//	if (permission_exists('domain_delete') && is_array($_SESSION['domains']) && @sizeof($_SESSION['domains']) > 1 && $domain_uuid != $_SESSION['domain_uuid']) {
++        if (is_array($_SESSION['domains']) && @sizeof($_SESSION['domains']) > 1 && $domain_uuid != $_SESSION['domain_uuid']) {
+ 		echo button::create(['type'=>'button','label'=>$text['button-delete'],'icon'=>$settings->get('theme', 'button_icon_delete'),'onclick'=>"modal_open('modal-delete-domain','btn_delete_domain');"]);
+ 	}
+ 	if (permission_exists("domain_select") && is_array($_SESSION['domains']) && @sizeof($_SESSION['domains']) > 1) {
+@@ -643,7 +646,10 @@
+ 	echo "	<div style='clear: both;'></div>\n";
+ 	echo "</div>\n";
+ 
+-	if (permission_exists('domain_delete') && is_array($_SESSION['domains']) && @sizeof($_SESSION['domains']) > 1 && $domain_uuid != $_SESSION['domain_uuid']) {
++//	if (permission_exists('domain_delete') && is_array($_SESSION['domains']) && @sizeof($_SESSION['domains']) > 1 && $domain_uuid != $_SESSION['domain_uuid']) {
++        if (is_array($_SESSION['domains']) && @sizeof($_SESSION['domains']) > 1 && $domain_uuid != $_SESSION['domain_uuid']) {
++
++
+ 		echo modal::create(['id'=>'modal-delete-domain','type'=>'delete','actions'=>button::create(['type'=>'submit','label'=>$text['button-continue'],'icon'=>'check','id'=>'btn_delete_domain','style'=>'float: right; margin-left: 15px;','collapse'=>'never','name'=>'action','value'=>'delete','onclick'=>"modal_close();"])]);
+ 	}
+

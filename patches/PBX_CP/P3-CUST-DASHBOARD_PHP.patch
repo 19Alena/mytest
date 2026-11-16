@@ -1,0 +1,37 @@
+# --------------------------------------------------------------------
+# Customization 5/14: P3-CUST-DASHBOARD_PHP
+# Title: Customization in dashboard.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/dashboard.php b/web/tools/system/dashboard/dashboard.php
+index 3a503429..01a0ded8 100644
+--- a/web/tools/system/dashboard/dashboard.php
++++ b/web/tools/system/dashboard/dashboard.php
+@@ -302,7 +302,10 @@ if ($action == "add_widget_verify") { //add widget in db
+ 
+ if ($action == "add_verify") { 
+ 	if(!$_SESSION['read_only']){
+-		$sql = 'INSERT INTO '.$table.' (`name`, `order`) VALUES (?, ?) ';
++		extract($_POST);
++                //for PostgreSQL
++                //$sql = 'INSERT INTO '.$table.' (`name`, `order`) VALUES (?, ?) ';
++                $sql = 'INSERT INTO '.$table.' ("name", "order") VALUES (?, ?) ';
+ 		$stm = $link->prepare($sql);
+ 		if ($stm === false) {
+ 			die('Failed to issue query ['.$sql.'], error message : ' . print_r($link->errorInfo(), true));
+@@ -373,7 +376,9 @@ if ($action == "clone_panel_verify") {
+ 		}
+ 		$widget_contents_json = json_encode($widget_contents);
+ 
+-		$sql = 'UPDATE '.$table.' SET `name`=?, content=?, `order`=?, positions=? where id = ?';
++                //for PostgreSQL
++                //$sql = 'UPDATE '.$table.' SET `name`=?, content=?, `order`=?, positions=? where id = ?';
++                $sql = 'UPDATE '.$table.' SET "name"=?, content=?, "order"=?, positions=? where id = ?';
+ 				$stm = $link->prepare($sql);
+ 		if ($stm === false) {
+ 			die('Failed to issue query ['.$sql.'], error message : ' . print_r($link->errorInfo(), true));
+

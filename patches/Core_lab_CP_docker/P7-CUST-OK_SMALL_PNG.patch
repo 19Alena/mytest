@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 157/218: P7-CUST-OK_SMALL_PNG
+# Title: Customization in ok_small.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/ok_small.png b/web/images/share/ok_small.png
+old mode 100644
+new mode 100755
+

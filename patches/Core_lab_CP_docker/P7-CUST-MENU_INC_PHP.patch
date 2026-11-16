@@ -1,0 +1,29 @@
+# --------------------------------------------------------------------
+# Customization 148/218: P7-CUST-MENU_INC_PHP
+# Title: Customization in menu.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/tools/system/addresses/menu.inc.php b/config/tools/system/addresses/menu.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/callcenter/menu.inc.php b/config/tools/system/callcenter/menu.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/dispatcher/menu.inc.php b/config/tools/system/dispatcher/menu.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/rtpengine/menu.inc.php b/config/tools/system/rtpengine/menu.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/rtpproxy/menu.inc.php b/config/tools/system/rtpproxy/menu.inc.php
+old mode 100644
+new mode 100755
+

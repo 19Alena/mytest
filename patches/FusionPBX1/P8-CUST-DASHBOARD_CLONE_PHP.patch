@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 60/218: P8-CUST-DASHBOARD_CLONE_PHP
+# Title: Customization in dashboard.clone.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dashboard/template/dashboard.clone.php b/web/tools/system/dashboard/template/dashboard.clone.php
+old mode 100644
+new mode 100755
+

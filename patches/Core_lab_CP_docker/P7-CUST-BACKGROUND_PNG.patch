@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 11/218: P7-CUST-BACKGROUND_PNG
+# Title: Customization in background.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/background.png b/web/images/background.png
+old mode 100644
+new mode 100755
+

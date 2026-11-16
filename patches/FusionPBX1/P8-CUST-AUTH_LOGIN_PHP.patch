@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 10/218: P8-CUST-AUTH_LOGIN_PHP
+# Title: Customization in auth_login.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/auth_login.php b/web/auth_login.php
+old mode 100644
+new mode 100755
+

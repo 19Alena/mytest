@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 91/218: P7-CUST-DOWN_PNG
+# Title: Customization in down.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/down.png b/web/images/share/down.png
+old mode 100644
+new mode 100755
+

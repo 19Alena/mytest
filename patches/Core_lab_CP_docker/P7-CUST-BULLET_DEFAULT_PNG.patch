@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 36/218: P7-CUST-BULLET_DEFAULT_PNG
+# Title: Customization in bullet_default.png
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/bullet_default.png b/web/images/bullet_default.png
+old mode 100644
+new mode 100755
+

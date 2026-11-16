@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 166/218: P8-CUST-REGISTERED_USERS_WIDGET_PHP
+# Title: Customization in registered_users_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/users/user_management/template/dashboard_widgets/registered_users_widget.php b/web/tools/users/user_management/template/dashboard_widgets/registered_users_widget.php
+old mode 100644
+new mode 100755
+

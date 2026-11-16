@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 113/218: P7-CUST-GW_TYPES_TXT
+# Title: Customization in gw_types.txt
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/tools/system/drouting/gw_types.txt b/config/tools/system/drouting/gw_types.txt
+old mode 100644
+new mode 100755
+

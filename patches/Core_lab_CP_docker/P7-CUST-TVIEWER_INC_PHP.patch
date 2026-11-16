@@ -1,0 +1,41 @@
+# --------------------------------------------------------------------
+# Customization 208/218: P7-CUST-TVIEWER_INC_PHP
+# Title: Customization in tviewer.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/tools/system/callcenter/tviewer.inc.php b/config/tools/system/callcenter/tviewer.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/config/tviewer.inc.php b/config/tools/system/config/tviewer.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/smpp/tviewer.inc.php b/config/tools/system/smpp/tviewer.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/sockets_mgm/tviewer.inc.php b/config/tools/system/sockets_mgm/tviewer.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/tcp_mgm/tviewer.inc.php b/config/tools/system/tcp_mgm/tviewer.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/tls_mgm/tviewer.inc.php b/config/tools/system/tls_mgm/tviewer.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/config/tools/system/uac_registrant/tviewer.inc.php b/config/tools/system/uac_registrant/tviewer.inc.php
+old mode 100644
+new mode 100755
+
+diff --git a/web/common/tools/tviewer/samples/tviewer.inc.php b/web/common/tools/tviewer/samples/tviewer.inc.php
+old mode 100644
+new mode 100755
+

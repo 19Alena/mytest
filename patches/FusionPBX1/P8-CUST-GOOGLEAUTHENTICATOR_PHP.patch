@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 108/218: P8-CUST-GOOGLEAUTHENTICATOR_PHP
+# Title: Customization in GoogleAuthenticator.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/googleAuth/GoogleAuthenticator.php b/googleAuth/GoogleAuthenticator.php
+old mode 100644
+new mode 100755
+

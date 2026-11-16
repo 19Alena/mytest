@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 198/218: P7-CUST-SYSTEM_CONFIG_MAIN_JS
+# Title: Customization in system_config.main.js
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/boxes_config/lib/system_config.main.js b/web/tools/admin/boxes_config/lib/system_config.main.js
+old mode 100644
+new mode 100755
+

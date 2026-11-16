@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 43/218: P8-CUST-CDR_WIDGET_PHP
+# Title: Customization in cdr_widget.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: origin/9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/cdrviewer/template/dashboard_widgets/cdr_widget.php b/web/tools/system/cdrviewer/template/dashboard_widgets/cdr_widget.php
+old mode 100644
+new mode 100755
+
