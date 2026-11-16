@@ -1,0 +1,25 @@
+# --------------------------------------------------------------------
+# Customization 1/4: P3-CUST-CONFIG-MODULES_INC_PHP
+# Title: Customization in config/modules.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/modules.inc.php b/config/modules.inc.php
+index cf2f1ffa..cec48153 100644
+--- a/config/modules.inc.php
++++ b/config/modules.inc.php
+@@ -111,6 +111,10 @@ $config_modules 	= array (
+ 				"enabled"		=> true,
+ 				"name"			=> "Dynamic Routing"
+ 			),
++			"numbers"			=> array (
++				"enabled"		=> true,
++				"name"			=> "Numbers"
++			),
+ 			"clusterer"			=> array (
+ 				"enabled"		=> true,
+ 				"name"			=> "Clusterer"
+
