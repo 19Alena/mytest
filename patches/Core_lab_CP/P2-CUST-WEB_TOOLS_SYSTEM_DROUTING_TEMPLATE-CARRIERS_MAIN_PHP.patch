@@ -1,6 +1,6 @@
 # --------------------------------------------------------------------
-# Customization 3/14: P2-CUST-CARRIERS_MAIN_PHP
-# Title: Customization in carriers.main.php
+# Customization 14/14: P2-CUST-WEB_TOOLS_SYSTEM_DROUTING_TEMPLATE-CARRIERS_MAIN_PHP
+# Title: Customization in web/tools/system/drouting/template/carriers.main.php
 # Category: Core
 # Status: ACTIVE
 # Jira Ticket: None
@@ -8,10 +8,10 @@
 # --------------------------------------------------------------------
 
 diff --git a/web/tools/system/drouting/template/carriers.main.php b/web/tools/system/drouting/template/carriers.main.php
-index 5223330f..90d4c56e 100755
+index eeac222..0b602c6 100755
 --- a/web/tools/system/drouting/template/carriers.main.php
 +++ b/web/tools/system/drouting/template/carriers.main.php
-@@ -60,7 +60,7 @@
+@@ -63,7 +63,7 @@
    <td colspan="2" class="searchRecord border-bottom-devider" align="center">
     <input type="submit" name="search" value="Search" class="searchButton">&nbsp;&nbsp;&nbsp;
     <input type="submit" name="show_all" value="Show All" class="searchButton"> &nbsp;&nbsp;&nbsp;
@@ -20,7 +20,7 @@ index 5223330f..90d4c56e 100755
    </td>
   </tr>
  </table>
-@@ -87,8 +87,12 @@ $carrier_attributes_mode = get_settings_value("carrier_attributes_mode");
+@@ -90,8 +90,12 @@ $carrier_attributes_mode = get_settings_value("carrier_attributes_mode");
  $carrier_attributes = get_settings_value("carrier_attributes");
  $memory_status = get_settings_value("memory_status");
  if ($carrier_attributes_mode != "none") {
@@ -35,7 +35,7 @@ index 5223330f..90d4c56e 100755
  		$carrier_attrs_colspan = 1;
  	} else {
  		foreach ($carrier_attributes as $key => $value) {
-@@ -220,21 +224,34 @@ if ($memory_status != "0") {
+@@ -223,21 +227,34 @@ if ($memory_status != "0") {
    <td class="<?=$row_style?>"><?=$description?></td>
  <?php
  if ($carrier_attributes_mode == "input") {

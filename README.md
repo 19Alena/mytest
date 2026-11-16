@@ -4,13 +4,14 @@ Automated repository for generated customization patches from **Customization Tr
 
 - **Remote Repository:** `git@github.com:19Alena/mytest.git`
 - **Branch:** `main`
-- **Last Updated:** `2026-11-16T23:08:01.882852Z`
+- **Last Updated:** `2026-11-16T23:18:24.045999Z`
 
 ## Projects & Patches
 
 | ID | Project Name | Host | Base Ref | Patches Available |
 |---|---|---|---|---|
 | 1 | **BPC-lab_CP** | `192.168.0.110` | `origin/9.3.6` | 14 patches |
+| 2 | **Core_lab_CP** | `192.168.0.108` | `origin/9.3.6` | 14 patches |
 
 ## How to Apply Patches
 

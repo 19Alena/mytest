@@ -1,6 +1,6 @@
 # --------------------------------------------------------------------
-# Customization 13/14: P2-CUST-STYLE_CSS
-# Title: Customization in style.css
+# Customization 5/14: P2-CUST-WEB-STYLE_CSS
+# Title: Customization in web/style.css
 # Category: Core
 # Status: ACTIVE
 # Jira Ticket: None
@@ -8,10 +8,10 @@
 # --------------------------------------------------------------------
 
 diff --git a/web/style.css b/web/style.css
-index afef6bdf..6b834a11 100755
+index bd1ae29..e10c441 100755
 --- a/web/style.css
 +++ b/web/style.css
-@@ -191,7 +191,8 @@ font-family: 'Montserrat', sans-serif;
+@@ -170,7 +170,8 @@ font-family: 'Montserrat', sans-serif;
  }
  
  .headerTable{
@@ -21,7 +21,7 @@ index afef6bdf..6b834a11 100755
  padding: 15px;
      height: 30px;
      min-height: 30px;
-@@ -301,4 +302,4 @@ p, li, td, .menu_active, input, button {
+@@ -280,4 +281,4 @@ p, li, td, .menu_active, input, button {
  	}
  
  	.grid-item { width: 25%; }

@@ -1,6 +1,6 @@
 # --------------------------------------------------------------------
-# Customization 4/14: P2-CUST-CDRVIEWER_MAIN_PHP
-# Title: Customization in cdrviewer.main.php
+# Customization 9/14: P2-CUST-WEB_TOOLS_SYSTEM_CDRVIEWER_TEMPLATE-CDRVIEWER_MAIN_PHP
+# Title: Customization in web/tools/system/cdrviewer/template/cdrviewer.main.php
 # Category: Core
 # Status: ACTIVE
 # Jira Ticket: None
@@ -8,7 +8,7 @@
 # --------------------------------------------------------------------
 
 diff --git a/web/tools/system/cdrviewer/template/cdrviewer.main.php b/web/tools/system/cdrviewer/template/cdrviewer.main.php
-index 2ab21be2..740a9947 100755
+index 2ab21be..740a994 100755
 --- a/web/tools/system/cdrviewer/template/cdrviewer.main.php
 +++ b/web/tools/system/cdrviewer/template/cdrviewer.main.php
 @@ -33,6 +33,7 @@ $search_start=$_SESSION['cdrviewer_search_start'];

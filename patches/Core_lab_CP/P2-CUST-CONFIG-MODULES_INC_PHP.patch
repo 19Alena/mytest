@@ -1,6 +1,6 @@
 # --------------------------------------------------------------------
-# Customization 11/14: P2-CUST-MODULES_INC_PHP
-# Title: Customization in modules.inc.php
+# Customization 1/14: P2-CUST-CONFIG-MODULES_INC_PHP
+# Title: Customization in config/modules.inc.php
 # Category: Core
 # Status: ACTIVE
 # Jira Ticket: None
@@ -8,7 +8,7 @@
 # --------------------------------------------------------------------
 
 diff --git a/config/modules.inc.php b/config/modules.inc.php
-index cf2f1ffa..a8d497e7 100644
+index cf2f1ff..a8d497e 100644
 --- a/config/modules.inc.php
 +++ b/config/modules.inc.php
 @@ -79,9 +79,9 @@ $config_modules 	= array (

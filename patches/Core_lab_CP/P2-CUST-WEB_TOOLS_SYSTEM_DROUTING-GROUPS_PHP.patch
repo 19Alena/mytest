@@ -1,6 +1,6 @@
 # --------------------------------------------------------------------
-# Customization 10/14: P2-CUST-GROUPS_PHP
-# Title: Customization in groups.php
+# Customization 10/14: P2-CUST-WEB_TOOLS_SYSTEM_DROUTING-GROUPS_PHP
+# Title: Customization in web/tools/system/drouting/groups.php
 # Category: Core
 # Status: ACTIVE
 # Jira Ticket: None
@@ -8,7 +8,7 @@
 # --------------------------------------------------------------------
 
 diff --git a/web/tools/system/drouting/groups.php b/web/tools/system/drouting/groups.php
-index fec97488..b5ffaea0 100755
+index fec9748..b5ffaea 100755
 --- a/web/tools/system/drouting/groups.php
 +++ b/web/tools/system/drouting/groups.php
 @@ -40,6 +40,7 @@
@@ -18,4 +18,5 @@ index fec97488..b5ffaea0 100755
 +                          $id_username = str_replace(' ', '+', $id_username);
                            $id_domain=$temp[1];
                           }
+ 
 
