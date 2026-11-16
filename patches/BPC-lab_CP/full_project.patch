@@ -2,12 +2,12 @@
 # Unified Customization Patch for: BPC-lab_CP (Project ID: 1)
 # Target Clean Base Ref: origin/9.3.6
 # Server: 192.168.0.110
-# Generated: 2026-11-16T18:34:43.101677Z
-# Total Active Customizations: 17
+# Generated: 2026-11-16T21:21:52.914905Z
+# Total Active Customizations: 14
 # ====================================================================
 
 # --------------------------------------------------------------------
-# Customization 2/17: P1-CUST-BOXES_CONFIG_PHP
+# Customization 2/14: P1-CUST-BOXES_CONFIG_PHP
 # Title: Customization in boxes_config.php
 # Category: Core
 # Status: ACTIVE
@@ -64,7 +64,7 @@ index b2ac320..d3f36ed 100644
  		}
 
 # --------------------------------------------------------------------
-# Customization 3/17: P1-CUST-CDR_WIDGET_PHP
+# Customization 3/14: P1-CUST-CDR_WIDGET_PHP
 # Title: Customization in cdr_widget.php
 # Category: Core
 # Status: ACTIVE
@@ -107,7 +107,7 @@ index 0a2883a..202e373 100644
 +
 
 # --------------------------------------------------------------------
-# Customization 4/17: P1-CUST-CFG_COMM_PHP
+# Customization 4/14: P1-CUST-CFG_COMM_PHP
 # Title: Customization in cfg_comm.php
 # Category: Core
 # Status: ACTIVE
@@ -132,7 +132,7 @@ index 562bae4..3c48136 100644
  		die('Failed to issue query ['.$sql.'], error message : ' . print_r($link->errorInfo(), true));
 
 # --------------------------------------------------------------------
-# Customization 5/17: P1-CUST-DASHBOARD_EDIT_PANEL_PHP
+# Customization 5/14: P1-CUST-DASHBOARD_EDIT_PANEL_PHP
 # Title: Customization in dashboard.edit_panel.php
 # Category: Core
 # Status: ACTIVE
@@ -157,7 +157,7 @@ index e19fd6b..f743721 100644
  	$stm = $link->prepare( $sql_command );
 
 # --------------------------------------------------------------------
-# Customization 6/17: P1-CUST-DASHBOARD_PHP
+# Customization 6/14: P1-CUST-DASHBOARD_PHP
 # Title: Customization in dashboard.php
 # Category: Core
 # Status: ACTIVE
@@ -218,7 +218,7 @@ index 3a50342..09be3a8 100644
  		}
 
 # --------------------------------------------------------------------
-# Customization 7/17: P1-CUST-DISPATCHER_MAIN_PHP
+# Customization 7/14: P1-CUST-DISPATCHER_MAIN_PHP
 # Title: Customization in dispatcher.main.php
 # Category: Core
 # Status: ACTIVE
@@ -255,7 +255,7 @@ index b8a2cd3..d466462 100755
  }
 
 # --------------------------------------------------------------------
-# Customization 9/17: P1-CUST-DISPATCHER_PHP
+# Customization 8/14: P1-CUST-DISPATCHER_PHP
 # Title: Customization in dispatcher.php
 # Category: Core
 # Status: ACTIVE
@@ -287,7 +287,7 @@ index eddac1a..014198b 100755
  		$_SESSION['dispatcher_dest']="";
 
 # --------------------------------------------------------------------
-# Customization 11/17: P1-CUST-FUNCTIONS_INC_PHP
+# Customization 9/14: P1-CUST-FUNCTIONS_INC_PHP
 # Title: Customization in functions.inc.php
 # Category: Core
 # Status: ACTIVE
@@ -326,7 +326,7 @@ index d52e8d0..3b46296 100644
          if ($stm === false) {
 
 # --------------------------------------------------------------------
-# Customization 12/17: P1-CUST-OPENSIPS
+# Customization 10/14: P1-CUST-OPENSIPS
 # Title: OpenSIPS Integration via JSON-RPC
 # Category: Core Integration
 # Status: ACTIVE
@@ -335,10 +335,10 @@ index d52e8d0..3b46296 100644
 # --------------------------------------------------------------------
 
 diff --git a/config/db.inc.php b/config/db.inc.php
-index 3897898..0e34321 100644
+index 3897898..d3b75b9 100644
 --- a/config/db.inc.php
 +++ b/config/db.inc.php
-@@ -24,10 +24,10 @@
+@@ -24,19 +24,19 @@
   if (!isset($config)) $config = new stdClass();
  
   //database driver mysql or pgsql
@@ -347,25 +347,21 @@ index 3897898..0e34321 100644
  
   //database host
 - $config->db_host = "localhost";
-+ $config->db_host = "127.0.0.1";
++ $config->db_host = "10.209.32.40";
   
   //database port - leave empty for default
-  $config->db_port = "";
-@@ -36,7 +36,7 @@
+- $config->db_port = "";
++ $config->db_port = "5433";
+  
+  //database connection user
   $config->db_user = "opensips";
   
   //database connection password
 - $config->db_pass = "opensipsrw";
-+ $config->db_pass = trim(file_get_contents(getenv('DB_PASSWORD_FILE')));  
++ $config->db_pass = trim(file_get_contents(getenv('DB_PASSWORD_FILE')));
+  
   //database name
   $config->db_name = "opensips";
-@@ -46,4 +46,4 @@
-  //connection attributes, optional
-  //$config->db_attr = array(PDO::MYSQL_ATTR_LOCAL_INFILE => true);
-  
--?>
-+?>
-\ No newline at end of file
 
 diff --git a/config/local.inc.php b/config/local.inc.php
 index ff8ddca..15d0ad9 100644
@@ -405,7 +401,7 @@ index 91b0d58..6fffd2f 100755
 \ No newline at end of file
 
 # --------------------------------------------------------------------
-# Customization 13/17: P1-CUST-STYLE_CSS
+# Customization 11/14: P1-CUST-STYLE_CSS
 # Title: Customization in style.css
 # Category: Core
 # Status: ACTIVE
@@ -437,7 +433,7 @@ index afef6bd..71c5f80 100755
 \ No newline at end of file
 
 # --------------------------------------------------------------------
-# Customization 14/17: P1-CUST-SYSTEM_CONFIG_PHP
+# Customization 12/14: P1-CUST-SYSTEM_CONFIG_PHP
 # Title: Customization in system_config.php
 # Category: Core
 # Status: ACTIVE
@@ -484,7 +480,7 @@ index a24c9e3..5d29591 100644
  		}
 
 # --------------------------------------------------------------------
-# Customization 15/17: P1-CUST-TOOLS_CONFIG_PHP
+# Customization 13/14: P1-CUST-TOOLS_CONFIG_PHP
 # Title: Customization in tools_config.php
 # Category: Core
 # Status: ACTIVE
@@ -510,7 +506,7 @@ index efffe2c..541f8e1 100644
  				}
 
 # --------------------------------------------------------------------
-# Customization 17/17: P1-CUST-TVIEWER_INC_PHP
+# Customization 14/14: P1-CUST-TVIEWER_INC_PHP
 # Title: Customization in tviewer.inc.php
 # Category: Core
 # Status: ACTIVE

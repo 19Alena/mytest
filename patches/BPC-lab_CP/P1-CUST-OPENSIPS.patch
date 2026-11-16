@@ -1,5 +1,5 @@
 # --------------------------------------------------------------------
-# Customization 12/17: P1-CUST-OPENSIPS
+# Customization 10/14: P1-CUST-OPENSIPS
 # Title: OpenSIPS Integration via JSON-RPC
 # Category: Core Integration
 # Status: ACTIVE
@@ -8,10 +8,10 @@
 # --------------------------------------------------------------------
 
 diff --git a/config/db.inc.php b/config/db.inc.php
-index 3897898..0e34321 100644
+index 3897898..d3b75b9 100644
 --- a/config/db.inc.php
 +++ b/config/db.inc.php
-@@ -24,10 +24,10 @@
+@@ -24,19 +24,19 @@
   if (!isset($config)) $config = new stdClass();
  
   //database driver mysql or pgsql
@@ -20,25 +20,21 @@ index 3897898..0e34321 100644
  
   //database host
 - $config->db_host = "localhost";
-+ $config->db_host = "127.0.0.1";
++ $config->db_host = "10.209.32.40";
   
   //database port - leave empty for default
-  $config->db_port = "";
-@@ -36,7 +36,7 @@
+- $config->db_port = "";
++ $config->db_port = "5433";
+  
+  //database connection user
   $config->db_user = "opensips";
   
   //database connection password
 - $config->db_pass = "opensipsrw";
-+ $config->db_pass = trim(file_get_contents(getenv('DB_PASSWORD_FILE')));  
++ $config->db_pass = trim(file_get_contents(getenv('DB_PASSWORD_FILE')));
+  
   //database name
   $config->db_name = "opensips";
-@@ -46,4 +46,4 @@
-  //connection attributes, optional
-  //$config->db_attr = array(PDO::MYSQL_ATTR_LOCAL_INFILE => true);
-  
--?>
-+?>
-\ No newline at end of file
 
 diff --git a/config/local.inc.php b/config/local.inc.php
 index ff8ddca..15d0ad9 100644

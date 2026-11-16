@@ -4,20 +4,13 @@ Automated repository for generated customization patches from **Customization Tr
 
 - **Remote Repository:** `git@github.com:19Alena/mytest.git`
 - **Branch:** `main`
-- **Last Updated:** `2026-11-16T18:34:45.570460Z`
+- **Last Updated:** `2026-11-16T21:21:52.951285Z`
 
 ## Projects & Patches
 
 | ID | Project Name | Host | Base Ref | Patches Available |
 |---|---|---|---|---|
 | 1 | **BPC-lab_CP** | `192.168.0.110` | `origin/9.3.6` | 13 patches |
-| 2 | **Core_lab_CP** | `192.168.0.108` | `origin/9.3.6` | 10 patches |
-| 3 | **PBX_CP** | `192.168.0.110` | `origin/9.3.6` | 14 patches |
-| 4 | **FusionPBX** | `192.168.0.110` | `origin/5.5` | 19 patches |
-| 5 | **BPC-lab_fusionpbx** | `192.168.0.110` | `origin/5.5` | 22 patches |
-| 6 | **FusionPBX** | `192.168.0.110` | `origin/5.5` | 19 patches |
-| 7 | **Core_lab_CP_docker** | `192.168.0.109` | `origin/9.3.6` | 218 patches |
-| 8 | **FusionPBX1** | `192.168.0.109` | `origin/9.3.6` | 218 patches |
 
 ## How to Apply Patches
 
