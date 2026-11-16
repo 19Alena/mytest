@@ -2,7 +2,7 @@
 # Unified Customization Patch for: Core_lab_CP (Project ID: 2)
 # Target Clean Base Ref: origin/9.3.6
 # Server: 192.168.0.108
-# Generated: 2026-11-16T23:18:23.825538Z
+# Generated: 2026-11-16T23:59:37.979888Z
 # Total Active Customizations: 14
 # Includes: Modified files and newly created files/directories
 # ====================================================================
@@ -2508,7 +2508,7 @@ index 0000000..766d55e
 + //database name
 +# $custom_config[$module_id][0]['db_name'] 		= "core";
 + //database password
-+# $custom_config[$module_id][0]['db_pass'] 		= trim(file_get_contents(getenv('DB_PASSWORD_FILE')));
++# $custom_config[$module_id][0]['db_pass'] 		= trim(file_get_contents(getenv('DB_PASSWORD_FILE')))'DB_PASSWORD_FILE')))'DB_PASSWORD_FILE')))'DB_PASSWORD_FILE')));
 + //database port
 +# $custom_config[$module_id][0]['db_port'] 		= "6033";
 + 
