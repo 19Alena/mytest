@@ -2,7 +2,7 @@
 # Unified Customization Patch for: Nexus_CP (Project ID: 3)
 # Target Clean Base Ref: origin/9.3.6
 # Server: 192.168.0.108
-# Generated: 2026-11-16T23:59:39.097549Z
+# Generated: 2026-11-18T23:08:02.789857Z
 # Total Active Customizations: 4
 # Includes: Modified files and newly created files/directories
 # ====================================================================
@@ -126,7 +126,7 @@ index 00000000..9b7ed2c8
 + //database name
 +# $custom_config[$module_id][0]['db_name'] 		= "opensips";
 + //database password
-+# $custom_config[$module_id][0]['db_pass'] 		= trim(file_get_contents(getenv('DB_PASSWORD_FILE')))'DB_PASSWORD_FILE')))'DB_PASSWORD_FILE')))'DB_PASSWORD_FILE')));
++# $custom_config[$module_id][0]['db_pass'] 		= trim(file_get_contents(getenv('DB_PASSWORD_FILE')))'DB_PASSWORD_FILE')));
 + //database port
 +# $custom_config[$module_id][0]['db_port'] 		= "";
 + 
@@ -1039,7 +1039,7 @@ index 00000000..e5043753
 + //database name
 +# $custom_config[$module_id][0]['db_name'] 		= "opensips";
 + //database password
-+# $custom_config[$module_id][0]['db_pass'] 		= trim(file_get_contents(getenv('DB_PASSWORD_FILE')))'DB_PASSWORD_FILE')))'DB_PASSWORD_FILE')))'DB_PASSWORD_FILE')));
++# $custom_config[$module_id][0]['db_pass'] 		= trim(file_get_contents(getenv('DB_PASSWORD_FILE')))'DB_PASSWORD_FILE')));
 + //database port
 +# $custom_config[$module_id][0]['db_port'] 		= "";
 + 

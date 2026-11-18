@@ -33,7 +33,7 @@
  //database name
 # $custom_config[$module_id][0]['db_name'] 		= "opensips";
  //database password
-# $custom_config[$module_id][0]['db_pass'] 		= trim(file_get_contents(getenv('DB_PASSWORD_FILE')))'DB_PASSWORD_FILE')))'DB_PASSWORD_FILE')))'DB_PASSWORD_FILE')))'DB_PASSWORD_FILE')));
+# $custom_config[$module_id][0]['db_pass'] 		= trim(file_get_contents(getenv('DB_PASSWORD_FILE')))'DB_PASSWORD_FILE')))'DB_PASSWORD_FILE')));
  //database port
 # $custom_config[$module_id][0]['db_port'] 		= "";
  

@@ -3,5 +3,5 @@ COMMIT=b39a836d713b55d3496d525b97fd139f48f0c47f
 BASE_COMMIT=b39a836d713b55d3496d525b97fd139f48f0c47f
 BRANCH=9.3.6
 BASE_BRANCH=9.3.6
-REPOSITORY=https://github.com/OpenSIPS/opensips-cp.git
-BASE_REPO=https://github.com/OpenSIPS/opensips-cp.git
+REPOSITORY=https://github.com/OpenSIPS/opensips-cp
+BASE_REPO=https://github.com/OpenSIPS/opensips-cp
