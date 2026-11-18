@@ -8,15 +8,11 @@
 # --------------------------------------------------------------------
 
 diff --git a/config/db.inc.php b/config/db.inc.php
-index 3897898..d3b75b9 100644
+index 3897898..f1beaa2 100644
 --- a/config/db.inc.php
 +++ b/config/db.inc.php
-@@ -24,19 +24,19 @@
-  if (!isset($config)) $config = new stdClass();
- 
-  //database driver mysql or pgsql
-- $config->db_driver = "mysql";
-+ $config->db_driver = "pgsql";
+@@ -27,16 +27,16 @@
+  $config->db_driver = "mysql";
  
   //database host
 - $config->db_host = "localhost";
