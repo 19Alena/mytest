@@ -2,7 +2,7 @@
 # Unified Customization Patch for: BPC-lab_CP (Project ID: 1)
 # Target Clean Base Ref: origin/9.3.6
 # Server: 192.168.0.110
-# Generated: 2026-11-18T22:51:21.025273Z
+# Generated: 2026-11-18T23:03:01.390322Z
 # Total Active Customizations: 14
 # Includes: Modified files and newly created files/directories
 # ====================================================================
@@ -83,14 +83,16 @@ index 3897898..f1beaa2 100644
   $config->db_name = "opensips";
 
 diff --git a/config/local.inc.php b/config/local.inc.php
-index ff8ddca..48dcd9c 100644
+index ff8ddca..1199596 100644
 --- a/config/local.inc.php
 +++ b/config/local.inc.php
-@@ -28,7 +28,7 @@
+@@ -27,8 +27,8 @@
+  $login_err = "Invalid ".$login_user." / ".$login_pass;
   $session_err = "Your Session has expired";
   
-  $page_title = "OpenSIPS Control Panel";
+- $page_title = "OpenSIPS Control Panel";
 - $header_title = ".: OpenSIPS Control Panel";
++ $page_title = "OpenSIPS Control Panel1";
 + $header_title = ".: BPC new Staging";
   $copyright = "Copyright &copy; 2006-2026 OpenSIPS Project";
  
