@@ -33,7 +33,7 @@ index 3897898..f1beaa2 100644
   $config->db_name = "opensips";
 
 diff --git a/config/local.inc.php b/config/local.inc.php
-index ff8ddca..1199596 100644
+index ff8ddca..e53d0d8 100644
 --- a/config/local.inc.php
 +++ b/config/local.inc.php
 @@ -27,8 +27,8 @@
@@ -42,7 +42,7 @@ index ff8ddca..1199596 100644
   
 - $page_title = "OpenSIPS Control Panel";
 - $header_title = ".: OpenSIPS Control Panel";
-+ $page_title = "OpenSIPS Control Panel1";
++ $page_title = "OpenSIPS Control Panel12";
 + $header_title = ".: BPC new Staging";
   $copyright = "Copyright &copy; 2006-2026 OpenSIPS Project";
  

@@ -4,7 +4,7 @@ Automated repository for generated customization patches from **Customization Tr
 
 - **Remote Repository:** `git@github.com:19Alena/mytest.git`
 - **Branch:** `main`
-- **Last Updated:** `2026-11-18T23:08:05.313874Z`
+- **Last Updated:** `2026-11-19T00:09:30.787326Z`
 
 ## Projects & Patches
 
@@ -32,7 +32,7 @@ BASE_REPO=https://github.com/OpenSIPS/opensips-cp.git
 To check out the clean upstream base during a Docker build or automated deploy:
 
 ```bash
-BASE_COMMIT=$(head -n 1 /path/to/mytest/patches/<Project_Name>/BASE_COMMIT.txt)
+BASE_COMMIT=$(head -n 1 /path/to/patches_repo/patches/<Project_Name>/BASE_COMMIT.txt)
 if [ "$BASE_COMMIT" != "unknown" ]; then
     git checkout "$BASE_COMMIT"
 fi
@@ -47,10 +47,10 @@ To apply customizations for any project to a target clean working directory:
 cd /var/www/html/opensips-cp
 
 # 2. Run the automated apply script for the project
-bash /path/to/mytest/patches/<Project_Name>/apply_patches.sh
+bash /path/to/patches_repo/patches/<Project_Name>/apply_patches.sh
 
 # Or apply the unified full_project.patch manually
-patch -p1 -N -r - < /path/to/mytest/patches/<Project_Name>/full_project.patch
+patch -p1 -N -r - < /path/to/patches_repo/patches/<Project_Name>/full_project.patch
 ```
 
 ## Security Notice
