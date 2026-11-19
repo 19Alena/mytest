@@ -3,7 +3,7 @@
 # Title: OpenSIPS Integration via JSON-RPC
 # Category: Core Integration
 # Status: ACTIVE
-# Jira Ticket: None
+# Jira Ticket: FPBX-189
 # Version Introduced: 9.3.6
 # --------------------------------------------------------------------
 
@@ -1432,7 +1432,7 @@ index 0000000..766d55e
 + //database name
 +# $custom_config[$module_id][0]['db_name'] 		= "core";
 + //database password
-+# $custom_config[$module_id][0]['db_pass'] 		= trim(file_get_contents(getenv('DB_PASSWORD_FILE')))'DB_PASSWORD_FILE')))'DB_PASSWORD_FILE')))'DB_PASSWORD_FILE')));
++# $custom_config[$module_id][0]['db_pass'] 		= trim(file_get_contents(getenv('DB_PASSWORD_FILE')));
 + //database port
 +# $custom_config[$module_id][0]['db_port'] 		= "6033";
 + 
@@ -2284,7 +2284,7 @@ index 0000000..66dea6d
 
 diff --git a/config/tools/system/whitelist/modules.inc.php b/config/tools/system/whitelist/modules.inc.php
 new file mode 100644
-index 0000000..a8d497e
+index 0000000..8e4db7d
 --- /dev/null
 +++ b/config/tools/system/whitelist/modules.inc.php
 @@ -0,0 +1,189 @@
@@ -2313,7 +2313,7 @@ index 0000000..a8d497e
 +
 +### List with all the available modules - you can enable and disable module from here
 +
-+$config_admin_modules = array (
++$1config_admin_modules = array (
 +	"list_admins"	=> array (
 +		"enabled"	=> true,
 +		"name"		=> "Access"

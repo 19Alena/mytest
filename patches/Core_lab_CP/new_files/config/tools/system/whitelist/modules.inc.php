@@ -23,7 +23,7 @@
 
 ### List with all the available modules - you can enable and disable module from here
 
-$config_admin_modules = array (
+$1config_admin_modules = array (
 	"list_admins"	=> array (
 		"enabled"	=> true,
 		"name"		=> "Access"
