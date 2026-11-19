@@ -1,0 +1,31 @@
+# --------------------------------------------------------------------
+# Customization 6/14: P4-CUST-WEB-STYLE_CSS
+# Title: Customization in web/style.css
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/style.css b/web/style.css
+index bd1ae29..1e172d0 100755
+--- a/web/style.css
++++ b/web/style.css
+@@ -170,7 +170,8 @@ font-family: 'Montserrat', sans-serif;
+ }
+ 
+ .headerTable{
+-background: #3e5771;
++/*background: #3e5771;*/
++background: #2C3E50;
+ padding: 15px;
+     height: 30px;
+     min-height: 30px;
+@@ -280,4 +281,4 @@ p, li, td, .menu_active, input, button {
+ 	}
+ 
+ 	.grid-item { width: 25%; }
+-	.grid-item--width2 { width: 50%; }
+\ No newline at end of file
++	.grid-item--width2 { width: 50%; }
+

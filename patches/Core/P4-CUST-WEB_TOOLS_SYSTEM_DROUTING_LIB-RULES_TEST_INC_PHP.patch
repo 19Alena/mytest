@@ -1,0 +1,24 @@
+# --------------------------------------------------------------------
+# Customization 13/14: P4-CUST-WEB_TOOLS_SYSTEM_DROUTING_LIB-RULES_TEST_INC_PHP
+# Title: Customization in web/tools/system/drouting/lib/rules.test.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/drouting/lib/rules.test.inc.php b/web/tools/system/drouting/lib/rules.test.inc.php
+index b6dc6ee..4fc1261 100755
+--- a/web/tools/system/drouting/lib/rules.test.inc.php
++++ b/web/tools/system/drouting/lib/rules.test.inc.php
+@@ -92,7 +92,8 @@ if (!empty($lists)) $gwlist=$lists;
+                       $form_error="- invalid <b>Route ID</b> field -";
+                      }
+   if ($form_valid)
+-   if ($routeid<0) {
++//   if ($routeid<0) {
++   if (is_numeric($routeid) && $routeid < 0) {
+                     $form_valid=false;
+                     $form_error="- <b>Route ID</b> field must be a positive number -";
+                    }
+

@@ -1,0 +1,23 @@
+# --------------------------------------------------------------------
+# Customization 5/14: P4-CUST-WEB-AUTH_INDEX_PHP
+# Title: Customization in web/auth_index.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/auth_index.php b/web/auth_index.php
+index f3e89c2..3133be8 100644
+--- a/web/auth_index.php
++++ b/web/auth_index.php
+@@ -19,7 +19,7 @@
+  * along with this program; if not, write to the Free Software
+  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+  */
+-
++$config = (object)array();
+ require  __DIR__.'/../googleAuth/FixedBitNotation.php';
+ require  __DIR__.'/../googleAuth/GoogleAuthenticatorInterface.php';
+ require  __DIR__.'/../googleAuth/GoogleAuthenticator.php';
+

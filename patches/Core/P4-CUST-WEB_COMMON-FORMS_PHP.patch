@@ -1,0 +1,30 @@
+# --------------------------------------------------------------------
+# Customization 8/14: P4-CUST-WEB_COMMON-FORMS_PHP
+# Title: Customization in web/common/forms.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/common/forms.php b/web/common/forms.php
+index 16cb449..feef4b8 100755
+--- a/web/common/forms.php
++++ b/web/common/forms.php
+@@ -319,7 +319,7 @@ function form_generate_input_textarea($title,$tip,$id,$opt,$val,$mlen=null,$re=n
+ 
+ function form_generate_input_text($title,$tip,$id,$opt,$val,$mlen,$re, $validation=null, $format=null) {
+ 
+-	if ($val!=null)
++        if (($val!=null)||($val==0))
+ 		$value=" value='".$val."' valid='ok'";
+ 	else 
+ 		$value = "";
+@@ -580,5 +580,6 @@ $re_sip_uri = "sip(s)?:([^@]+@)?[^:]+(:[0-9]+)?";
+ $re_ip = "([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})";
+ 
+ $re_socket = "^([a-zA-Z]+:)?((([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})(:[0-9]+)?)|[a-zA-Z][a-zA-Z0-9_]+)$";
++//$re_socket = "^([a-zA-Z]+:)?(([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})|([0-9A-Za-z_])+)(:[0-9]+)?$";
+ 
+ ?>
+
