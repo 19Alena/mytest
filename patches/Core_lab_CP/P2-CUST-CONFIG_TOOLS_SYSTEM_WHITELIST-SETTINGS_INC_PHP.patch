@@ -1,0 +1,76 @@
+# --------------------------------------------------------------------
+# Customization 16/37: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-SETTINGS_INC_PHP
+# Title: Customization in config/tools/system/whitelist/settings.inc.php
+# Category: Core Integration
+# Status: ACTIVE
+# Jira Ticket: FPBX-189
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/tools/system/whitelist/settings.inc.php b/config/tools/system/whitelist/settings.inc.php
+new file mode 100644
+index 0000000..9d05a80
+--- /dev/null
++++ b/config/tools/system/whitelist/settings.inc.php
+@@ -0,0 +1,60 @@
++<?php
++/*
++ * Copyright (C) 2022 OpenSIPS Solutions
++ *
++ * This file is part of opensips-cp, a free Web Control Panel Application for 
++ * OpenSIPS SIP server.
++ *
++ * opensips-cp is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * opensips-cp is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
++ */
++
++// $table_regex is used to validate custom tables names, you can leave this here
++// even if you don't add custom tables
++global $table_regex;
++global $config;
++$config->whitelist = array(
++	"talk_to_this_assoc_id" => array(
++			"default" => 1,
++			"name"    => "Linked system",
++			"options" => get_assoc_id(),
++			"type"    => "dropdown",
++			"tip"     => "As OCP can manage multiple OpenSIPS instances, this is the association
++			 ID pointing to the group of servers (system) which needs to be provision with this drouting information."
++	)
++);
++/*
++$config->whitelist = array(
++
++	"custom_table" => array(
++		"default" => "whitelist",
++		"name" => "whitelist",
++		"validation_regex" => $table_regex,
++		"type" => "text"
++	),
++	"per_page" => array(
++		"default" => 40,
++		"name"	=> "Results per page",
++		"type"	=> "number",
++		"validation_regex" => "^[0-9]+$",
++	),
++	"page_range" => array(
++		"default" => 5,
++		"name"	=> "Results page range",
++		"type"	=> "number",
++		"validation_regex" => "^[0-9]+$",
++	),
++
++);
++*/
+

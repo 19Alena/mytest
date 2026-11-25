@@ -1,0 +1,183 @@
+# --------------------------------------------------------------------
+# Customization 34/37: P2-CUST-WEB_TOOLS_SYSTEM_DROUTING_TEMPLATE-CARRIERS_FORM_PHP
+# Title: Customization in web/tools/system/drouting/template/carriers.form.php
+# Category: Core Integration
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/drouting/template/carriers.form.php b/web/tools/system/drouting/template/carriers.form.php
+index 4fd1535..29e1a8a 100755
+--- a/web/tools/system/drouting/template/carriers.form.php
++++ b/web/tools/system/drouting/template/carriers.form.php
+@@ -2,7 +2,7 @@
+ /*
+  * Copyright (C) 2011 OpenSIPS Project
+  *
+- * This file is part of opensips-cp, a free Web Control Panel Application for 
++ * This file is part of opensips-cp, a free Web Control Panel Application for
+  * OpenSIPS SIP server.
+  *
+  * opensips-cp is free software; you can redistribute it and/or modify
+@@ -23,78 +23,110 @@
+ require("../../../common/forms.php");
+ 
+ if ($dr_form["action"] == "add") {
+-	form_generate_input_text("Carrier ID", "The name of the carrier",
+-		"carrierid", "n", $dr_form['carrierid'], 128, "^[a-zA-Z0-9_\-]+$");
++        form_generate_input_text("Carrier ID", "The name of the carrier",
++                "carrierid", "n", $dr_form['carrierid'], 128, "^[a-zA-Z0-9_\-]+$");
+ }
+ ?>
+  <tr>
+   <td class="dataRecord" ><b>Gateway List</b></td>
+    <td class="dataRecord">
+-	<input type="text" name="gwlist" id="gwlist" value="<?=$dr_form["gwlist"]?>" maxlength="<?=(isset($config->gwlist_size)?$config->gwlist_size:255)?>" readonly class="dataInput" style="width:370!important">
+-	<input type="button" name="clear_gwlist" value="Clear Last" class="inlineButton" style="width:90px" onclick="clearObject('gwlist')">
++        <input type="text" name="gwlist" id="gwlist" value="<?=$dr_form["gwlist"]?>" maxlength="<?=(isset($config->gwlist_size)?$config->gwlist_size:255)?>" readonly class="dataInput" style="width:370!important">
++        <input type="button" name="clear_gwlist" value="Clear Last" class="inlineButton" style="width:90px" onclick="clearObject('gwlist')">
+    </td>
+   </tr>
+   <tr>
+    <td/>
+    <td class="dataRecord">
+-	<?=print_gwlist()?>
+-	<input type="text"   name="weight" id="weight" value="" maxlength="5" class="dataInput" style="width:40!important;">
+-	<input type="button" name="add_gwlist" value="Add" class="inlineButton" style="width:90px" onclick="addElementToObject('gwlist','weight')">
++        <?=print_gwlist()?>
++        <input type="text"   name="weight" id="weight" value="" maxlength="5" class="dataInput" style="width:40!important;">
++        <input type="button" name="add_gwlist" value="Add" class="inlineButton" style="width:90px" onclick="addElementToObject('gwlist','weight')">
+    </td>
+   </tr>
+ <?php
+ form_generate_select("List Sorting", "How gateways should be sorted inside the carrier",
+-	"sort_alg", 128, $dr_form['sort_alg'], array_keys($dr_sort_alg), array_values($dr_sort_alg));
++        "sort_alg", 128, $dr_form['sort_alg'], array_keys($dr_sort_alg), array_values($dr_sort_alg));
+ 
+ form_generate_select("Use only first", "Whether to use only the first gateway",
+-	"useonlyfirst", 128, $dr_form['useonlyfirst'], array(0, 1), array("0 - No", "1 - Yes"));
++        "useonlyfirst", 128, $dr_form['useonlyfirst'], array(0, 1), array("0 - No", "1 - Yes"));
+ 
+ form_generate_select("DB State", "Whether the carrier should be initially active or not",
+-	"state", 128, $dr_form['state'], array(0, 1), array("0 - Active", "1 - Inactive"));
++        "state", 128, $dr_form['state'], array(0, 1), array("0 - Active", "1 - Inactive"));
+ 
+ $carrier_attributes_mode = get_settings_value("carrier_attributes_mode");
+ $carrier_attributes = get_settings_value("carrier_attributes");
+ if ($carrier_attributes_mode == "input") {
+     form_generate_input_text((isset($carrier_attributes["display_name"])?$carrier_attributes["display_name"]:"Attributes"),
+-			       "attributes used for the carrier",
+-			       "attrs",
+-			       "y",
+-			       (isset($resultset[0]['attrs'])?$resultset[0]['attrs']:$carrier_attributes["add_prefill_value"]),
+-			       128,
+-			       $carrier_attributes["validation_regexp"]);
++                               "attributes used for the carrier",
++                               "attrs",
++                               "y",
++                               (isset($resultset[0]['attrs'])?$resultset[0]['attrs']:$carrier_attributes["add_prefill_value"]),
++                               128,
++                               $carrier_attributes["validation_regexp"]);
+ } else if ($carrier_attributes_mode == "params") {
+-	$attr_map = dr_get_attrs_map($resultset[0]['attrs']);
+-	foreach ($carrier_attributes as $key => $value) {
+-		if ($dr_form["action"] == "edit")
+-			$val = dr_get_attrs_val($attr_map, $key, $value);
+-		else
+-			$val =  (isset($value["default"])?$value["default"]:"");
+-		switch ($value["type"]) {
+-		case "text":
+-			form_generate_input_text($value["display"],
+-				$value["hint"],
+-				"extra_".$key,
+-				"y",
+-				$val,
+-				128,
+-				(isset($value["validation_regexp"])?$value["validation_regexp"]:NULL));
+-			break;
+-		case "checkbox":
+-			form_generate_input_checkbox($value["display"],
+-				$value["hint"],
+-				"extra_".$key,
+-				$key,
+-				$val);
+-			break;
+-		case "combo":
+-			$options = dr_get_combo_attrs($value);
+-			form_generate_select($value['display'], $value['hint'],
+-				"extra_".$key, 205, $val, array_keys($options), array_values($options), true);
+-			break;
+-		}
+-	}
++        $attr_map = dr_get_attrs_map($resultset[0]['attrs']);
++        foreach ($carrier_attributes as $key => $value) {
++                if ($dr_form["action"] == "edit")
++                        $val = $attr_map[$key];
++                else
++                        $val =  (isset($value["default"])?$value["default"]:"");
++                switch ($value["type"]) {
++                case "text":
++                        if ($value['display']=='Codec') {
++                                ?>
++                                    <tr>
++                                      <td class="dataRecord" ><b>Codecs</b></td>
++                                      <td class="dataRecord">
++                                         <table style='width:100%'><tr><td>
++                                               <input type="text" name="extra_codecs" id="extra_codecs" opt="n" value="<?=$val?>" maxlength="<?=(isset($config->codec_size)?$config->codec_size:255)?>" readonly class="dataInput" style="width:340!important"  oninput="validate_extra_codec()">
++                                               <input type="button" name="clear_codec" value="Clear Last" class="inlineButton" style="width:90px" onclick="clearObjectcodec('extra_codecs')">
++                                             </td>
++                                             <td width='20'>
++                                               <div id='extra_codecs_ok'></div>
++                                        </td></tr></table>
++                                      </td>
++                                    </tr>
++                                    <tr>
++                                      <td/>
++                                      <td class="dataRecord">
++                                           <?=print_codec_list()?>
++                                           <input type="button" name="add_codec" value="Add" class="inlineButton" style="width:90px" onclick="addElementToObjectcodec('extra_codecs')">
++                                      </td>
++                                    </tr>
++                                    <tr>
++                                      <td/>
++                                      <td class="dataRecord">
++                                           <?=print_stripcodec_list()?>
++                                           <input type="button" name="strip_codec" value="Strip" class="inlineButton" style="width:90px" onclick="stripElementToObjectcodec('extra_codecs')">
++                                      </td>
++                                    </tr>                   
++                                 <?php
++                                
++                                    break;
++                        }
++                        form_generate_input_text($value["display"],
++                                $value["hint"],
++                                "extra_".$key,
++                                "y",
++                                $val,
++                                128,
++                                (isset($value["validation_regexp"])?$value["validation_regexp"]:NULL));
++                        break;
++                case "checkbox":
++                        form_generate_input_checkbox($value["display"],
++                                $value["hint"],
++                                "extra_".$key,
++                                $key,
++                                $val);
++                        break;
++                case "combo":
++                        $options = dr_get_combo_attrs($value);
++                        form_generate_select($value['display'], $value['hint'],
++                                "extra_".$key, 205, $val, array_keys($options), array_values($options), false);
++                        break;
++                }
++        }
+ }
+ 
+ form_generate_input_text("Description", "Arbitrary description of the carrier",
+-	"description", "y", $dr_form['description'], 128, "^.*$");
+-?>
++        "description", "y", $dr_form['description'], 128, "^.*$");
++?>
+\ No newline at end of file
+

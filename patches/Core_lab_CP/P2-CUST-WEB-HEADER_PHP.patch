@@ -1,0 +1,23 @@
+# --------------------------------------------------------------------
+# Customization 19/37: P2-CUST-WEB-HEADER_PHP
+# Title: Customization in web/header.php
+# Category: Core Integration
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/header.php b/web/header.php
+index 91b0d58..0085e36 100755
+--- a/web/header.php
++++ b/web/header.php
+@@ -42,7 +42,7 @@
+         $ocp_version = ob_get_clean();
+       }
+     ?>
+-    <div class="headerTitle"><?=$header_title.(empty($ocp_version)?"":(" ".$ocp_version))?></div>
++    <div class="headerTitle"><b><span style="color: #FFD700;"><?=$header_title?></span></b> OpenSIPS CP <?=(empty($ocp_version)?"":(" ".$ocp_version))?></div>
+   </td>
+   <td align="right">
+     <table>
+
