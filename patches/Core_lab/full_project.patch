@@ -2,7 +2,7 @@
 # Unified Customization Patch for: Core_lab (Project ID: 2)
 # Target Clean Base Ref: origin/9.3.6
 # Server: 192.168.0.109
-# Generated: 2026-11-26T23:37:46.691959Z
+# Generated: 2026-11-26T23:38:34.651425Z
 # Total Active Customizations: 38
 # Includes: Modified files and newly created files/directories
 # ====================================================================
@@ -4772,7 +4772,7 @@ index 91b0d58..0085e36 100755
 # Title: Customization in web/menu.php
 # Category: Core
 # Status: ACTIVE
-# Jira Ticket: None
+# Jira Ticket: FPBX-189
 # Version Introduced: 9.3.6
 # --------------------------------------------------------------------
 
@@ -6896,7 +6896,7 @@ index 11373f5..151a864 100755
 # Title: Customization in web/tools/system/whitelist/index.php
 # Category: Core Integration
 # Status: ACTIVE
-# Jira Ticket: None
+# Jira Ticket: CORE-122
 # Version Introduced: 9.3.6
 # --------------------------------------------------------------------
 
