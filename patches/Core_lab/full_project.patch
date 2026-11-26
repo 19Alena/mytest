@@ -2,13 +2,13 @@
 # Unified Customization Patch for: Core_lab (Project ID: 2)
 # Target Clean Base Ref: origin/9.3.6
 # Server: 192.168.0.109
-# Generated: 2026-11-26T23:31:59.141436Z
-# Total Active Customizations: 37
+# Generated: 2026-11-26T23:37:46.691959Z
+# Total Active Customizations: 38
 # Includes: Modified files and newly created files/directories
 # ====================================================================
 
 # --------------------------------------------------------------------
-# Customization 1/37: P2-CUST-CONFIG-DB_INC_PHP
+# Customization 1/38: P2-CUST-CONFIG-DB_INC_PHP
 # Title: Customization in config/db.inc.php
 # Category: Core Integration
 # Status: ACTIVE
@@ -47,7 +47,7 @@ index 3897898..84861c3 100644
  
 
 # --------------------------------------------------------------------
-# Customization 2/37: P2-CUST-CONFIG-MODULES_INC_PHP
+# Customization 2/38: P2-CUST-CONFIG-MODULES_INC_PHP
 # Title: Customization in config/modules.inc.php
 # Category: Core
 # Status: ACTIVE
@@ -98,7 +98,7 @@ index cf2f1ff..a8d497e 100644
  				"enabled"		=> true,
 
 # --------------------------------------------------------------------
-# Customization 3/37: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-CARRIERS_ADD_EDIT_JS
+# Customization 3/38: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-CARRIERS_ADD_EDIT_JS
 # Title: Customization in config/tools/system/whitelist/carriers.add.edit.js
 # Category: Core
 # Status: ACTIVE
@@ -334,7 +334,7 @@ index 0000000..289efd7
 +</script>
 
 # --------------------------------------------------------------------
-# Customization 4/37: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-CARRIERS_FORM_PHP
+# Customization 4/38: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-CARRIERS_FORM_PHP
 # Title: Customization in config/tools/system/whitelist/carriers.form.php
 # Category: Core Integration
 # Status: ACTIVE
@@ -483,7 +483,7 @@ index 0000000..29e1a8a
 \ No newline at end of file
 
 # --------------------------------------------------------------------
-# Customization 5/37: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-CARRIERS_FUNCTIONS_INC_PHP
+# Customization 5/38: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-CARRIERS_FUNCTIONS_INC_PHP
 # Title: Customization in config/tools/system/whitelist/carriers.functions.inc.php
 # Category: Core Integration
 # Status: ACTIVE
@@ -815,7 +815,7 @@ index 0000000..d8deb68
 +?>
 
 # --------------------------------------------------------------------
-# Customization 6/37: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-CARRIERS_MAIN_PHP
+# Customization 6/38: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-CARRIERS_MAIN_PHP
 # Title: Customization in config/tools/system/whitelist/carriers.main.php
 # Category: Core Integration
 # Status: ACTIVE
@@ -1134,7 +1134,7 @@ index 0000000..0b602c6
 +</table>
 
 # --------------------------------------------------------------------
-# Customization 7/37: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-CDRVIEWER_MAIN_PHP
+# Customization 7/38: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-CDRVIEWER_MAIN_PHP
 # Title: Customization in config/tools/system/whitelist/cdrviewer.main.php
 # Category: Core Integration
 # Status: ACTIVE
@@ -1423,7 +1423,7 @@ index 0000000..740a994
 +
 
 # --------------------------------------------------------------------
-# Customization 8/37: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-CDRVIEWER_PHP
+# Customization 8/38: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-CDRVIEWER_PHP
 # Title: Customization in config/tools/system/whitelist/cdrviewer.php
 # Category: Core Integration
 # Status: ACTIVE
@@ -1597,7 +1597,7 @@ index 0000000..58e4407
 +?> 
 
 # --------------------------------------------------------------------
-# Customization 9/37: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-COMMON_FUNCTIONS_INC_PHP
+# Customization 9/38: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-COMMON_FUNCTIONS_INC_PHP
 # Title: Customization in config/tools/system/whitelist/common.functions.inc.php
 # Category: Core Integration
 # Status: ACTIVE
@@ -1742,7 +1742,7 @@ index 0000000..1640a00
 \ No newline at end of file
 
 # --------------------------------------------------------------------
-# Customization 10/37: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-DB_INC_PHP
+# Customization 10/38: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-DB_INC_PHP
 # Title: Customization in config/tools/system/whitelist/db.inc.php
 # Category: Core Integration
 # Status: ACTIVE
@@ -1800,7 +1800,7 @@ index 0000000..766d55e
 \ No newline at end of file
 
 # --------------------------------------------------------------------
-# Customization 11/37: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-FORMS_PHP
+# Customization 11/38: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-FORMS_PHP
 # Title: Customization in config/tools/system/whitelist/forms.php
 # Category: Core Integration
 # Status: ACTIVE
@@ -2401,7 +2401,7 @@ index 0000000..573d247
 +?>
 
 # --------------------------------------------------------------------
-# Customization 12/37: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-GROUPS_PHP
+# Customization 12/38: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-GROUPS_PHP
 # Title: Customization in config/tools/system/whitelist/groups.php
 # Category: Core Integration
 # Status: ACTIVE
@@ -2626,7 +2626,7 @@ index 0000000..b5ffaea
 +?>
 
 # --------------------------------------------------------------------
-# Customization 13/37: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-INDEX_PHP
+# Customization 13/38: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-INDEX_PHP
 # Title: Customization in config/tools/system/whitelist/index.php
 # Category: Core Integration
 # Status: ACTIVE
@@ -2669,7 +2669,7 @@ index 0000000..66dea6d
 +?>
 
 # --------------------------------------------------------------------
-# Customization 14/37: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-MODULES_INC_PHP
+# Customization 14/38: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-MODULES_INC_PHP
 # Title: Customization in config/tools/system/whitelist/modules.inc.php
 # Category: Core Integration
 # Status: ACTIVE
@@ -2874,7 +2874,7 @@ index 0000000..a8d497e
 +?>
 
 # --------------------------------------------------------------------
-# Customization 15/37: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-RULES_MAIN_PHP
+# Customization 15/38: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-RULES_MAIN_PHP
 # Title: Customization in config/tools/system/whitelist/rules.main.php
 # Category: Core Integration
 # Status: ACTIVE
@@ -3163,7 +3163,7 @@ index 0000000..151a864
 +</table>
 
 # --------------------------------------------------------------------
-# Customization 16/37: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-SETTINGS_INC_PHP
+# Customization 16/38: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-SETTINGS_INC_PHP
 # Title: Customization in config/tools/system/whitelist/settings.inc.php
 # Category: Core Integration
 # Status: ACTIVE
@@ -3239,7 +3239,7 @@ index 0000000..9d05a80
 +*/
 
 # --------------------------------------------------------------------
-# Customization 17/37: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-STYLE_TOOLS_CSS
+# Customization 17/38: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-STYLE_TOOLS_CSS
 # Title: Customization in config/tools/system/whitelist/style_tools.css
 # Category: Core
 # Status: ACTIVE
@@ -4019,7 +4019,7 @@ index 0000000..16e134f
 +	  
 
 # --------------------------------------------------------------------
-# Customization 18/37: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-TVIEWER_INC_PHP
+# Customization 18/38: P2-CUST-CONFIG_TOOLS_SYSTEM_WHITELIST-TVIEWER_INC_PHP
 # Title: Customization in config/tools/system/whitelist/tviewer.inc.php
 # Category: Core Integration
 # Status: ACTIVE
@@ -4745,7 +4745,7 @@ index 0000000..2ac5101
 \ No newline at end of file
 
 # --------------------------------------------------------------------
-# Customization 19/37: P2-CUST-WEB-HEADER_PHP
+# Customization 19/38: P2-CUST-WEB-HEADER_PHP
 # Title: Customization in web/header.php
 # Category: Core Integration
 # Status: ACTIVE
@@ -4768,7 +4768,32 @@ index 91b0d58..0085e36 100755
      <table>
 
 # --------------------------------------------------------------------
-# Customization 20/37: P2-CUST-WEB-STYLE_CSS
+# Customization 20/38: P2-CUST-WEB-MENU_PHP
+# Title: Customization in web/menu.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/menu.php b/web/menu.php
+index b44de7f..2091bc4 100644
+--- a/web/menu.php
++++ b/web/menu.php
+@@ -22,8 +22,8 @@
+ 
+ 
+ 
+-require("../config/session.inc.php");
+-require("../config/modules.inc.php");
++//require("../config/session.inc.php");
++//require("../config/modules.inc.php");
+ $super_admin=false;
+ $available_tabs=array();
+ if ($_SESSION['user_tabs']!="*")
+
+# --------------------------------------------------------------------
+# Customization 21/38: P2-CUST-WEB-STYLE_CSS
 # Title: Customization in web/style.css
 # Category: Core
 # Status: ACTIVE
@@ -4799,7 +4824,7 @@ index bd1ae29..e10c441 100755
 +	.grid-item--width2 { width: 50%; }
 
 # --------------------------------------------------------------------
-# Customization 21/37: P2-CUST-WEB-STYLE_TOOLS_CSS
+# Customization 22/38: P2-CUST-WEB-STYLE_TOOLS_CSS
 # Title: Customization in web/style_tools.css
 # Category: Core
 # Status: ACTIVE
@@ -4859,7 +4884,7 @@ index 6d3d3d9..16e134f 100755
  	  
 
 # --------------------------------------------------------------------
-# Customization 22/37: P2-CUST-WEB_COMMON-FORMS_PHP
+# Customization 23/38: P2-CUST-WEB_COMMON-FORMS_PHP
 # Title: Customization in web/common/forms.php
 # Category: Core
 # Status: ACTIVE
@@ -4889,7 +4914,7 @@ index 16cb449..feef4b8 100755
  ?>
 
 # --------------------------------------------------------------------
-# Customization 23/37: P2-CUST-WEB_TOOLS_SYSTEM_CDRVIEWER-CDRVIEWER_PHP
+# Customization 24/38: P2-CUST-WEB_TOOLS_SYSTEM_CDRVIEWER-CDRVIEWER_PHP
 # Title: Customization in web/tools/system/cdrviewer/cdrviewer.php
 # Category: Core
 # Status: ACTIVE
@@ -4953,7 +4978,7 @@ index 7d9f4f9..58e4407 100755
  	$search_end=$_SESSION['cdrviewer_search_end'];
 
 # --------------------------------------------------------------------
-# Customization 24/37: P2-CUST-WEB_TOOLS_SYSTEM_CDRVIEWER_TEMPLATE-CDRVIEWER_MAIN_PHP
+# Customization 25/38: P2-CUST-WEB_TOOLS_SYSTEM_CDRVIEWER_TEMPLATE-CDRVIEWER_MAIN_PHP
 # Title: Customization in web/tools/system/cdrviewer/template/cdrviewer.main.php
 # Category: Core
 # Status: ACTIVE
@@ -5049,7 +5074,7 @@ index 2ab21be..740a994 100755
  	else
 
 # --------------------------------------------------------------------
-# Customization 25/37: P2-CUST-WEB_TOOLS_SYSTEM_DROUTING-GROUPS_PHP
+# Customization 26/38: P2-CUST-WEB_TOOLS_SYSTEM_DROUTING-GROUPS_PHP
 # Title: Customization in web/tools/system/drouting/groups.php
 # Category: Core
 # Status: ACTIVE
@@ -5071,7 +5096,7 @@ index fec9748..b5ffaea 100755
  
 
 # --------------------------------------------------------------------
-# Customization 26/37: P2-CUST-WEB_TOOLS_SYSTEM_DROUTING_LIB-CARRIERS_ADD_EDIT_JS
+# Customization 27/38: P2-CUST-WEB_TOOLS_SYSTEM_DROUTING_LIB-CARRIERS_ADD_EDIT_JS
 # Title: Customization in web/tools/system/drouting/lib/carriers.add.edit.js
 # Category: Core
 # Status: ACTIVE
@@ -5243,7 +5268,7 @@ index c4240dd..289efd7 100755
  </script>
 
 # --------------------------------------------------------------------
-# Customization 27/37: P2-CUST-WEB_TOOLS_SYSTEM_DROUTING_LIB-CARRIERS_FUNCTIONS_INC_PHP
+# Customization 28/38: P2-CUST-WEB_TOOLS_SYSTEM_DROUTING_LIB-CARRIERS_FUNCTIONS_INC_PHP
 # Title: Customization in web/tools/system/drouting/lib/carriers.functions.inc.php
 # Category: Core Integration
 # Status: ACTIVE
@@ -5840,7 +5865,7 @@ index 49545cc..d8deb68 100755
 +?>
 
 # --------------------------------------------------------------------
-# Customization 28/37: P2-CUST-WEB_TOOLS_SYSTEM_DROUTING_LIB-COMMON_FUNCTIONS_INC_PHP
+# Customization 29/38: P2-CUST-WEB_TOOLS_SYSTEM_DROUTING_LIB-COMMON_FUNCTIONS_INC_PHP
 # Title: Customization in web/tools/system/drouting/lib/common.functions.inc.php
 # Category: Core Integration
 # Status: ACTIVE
@@ -6048,7 +6073,7 @@ index 334d22e..1640a00 100755
 \ No newline at end of file
 
 # --------------------------------------------------------------------
-# Customization 29/37: P2-CUST-WEB_TOOLS_SYSTEM_DROUTING_LIB-GATEWAYS_TEST_INC_PHP
+# Customization 30/38: P2-CUST-WEB_TOOLS_SYSTEM_DROUTING_LIB-GATEWAYS_TEST_INC_PHP
 # Title: Customization in web/tools/system/drouting/lib/gateways.test.inc.php
 # Category: Core
 # Status: ACTIVE
@@ -6070,7 +6095,7 @@ index e3d0acc..1db7369 100755
  
 
 # --------------------------------------------------------------------
-# Customization 30/37: P2-CUST-WEB_TOOLS_SYSTEM_DROUTING_LIB-GATEWAYS_TEST_INC_PHP_BAK_20261028_114625
+# Customization 31/38: P2-CUST-WEB_TOOLS_SYSTEM_DROUTING_LIB-GATEWAYS_TEST_INC_PHP_BAK_20261028_114625
 # Title: Customization in web/tools/system/drouting/lib/gateways.test.inc.php.bak-20261028-114625
 # Category: Core Integration
 # Status: ACTIVE
@@ -6178,7 +6203,7 @@ index 0000000..e3d0acc
 +?>
 
 # --------------------------------------------------------------------
-# Customization 31/37: P2-CUST-WEB_TOOLS_SYSTEM_DROUTING_LIB-GATEWAYS_TEST_INC_PHP_BAK_TYPEFIX_20261028_115240
+# Customization 32/38: P2-CUST-WEB_TOOLS_SYSTEM_DROUTING_LIB-GATEWAYS_TEST_INC_PHP_BAK_TYPEFIX_20261028_115240
 # Title: Customization in web/tools/system/drouting/lib/gateways.test.inc.php.bak-typefix-20261028-115240
 # Category: Core Integration
 # Status: ACTIVE
@@ -6286,7 +6311,7 @@ index 0000000..e3d0acc
 +?>
 
 # --------------------------------------------------------------------
-# Customization 32/37: P2-CUST-WEB_TOOLS_SYSTEM_DROUTING_LIB-GATEWAYS_TEST_INC_PHP_FAILED_20261028_115112
+# Customization 33/38: P2-CUST-WEB_TOOLS_SYSTEM_DROUTING_LIB-GATEWAYS_TEST_INC_PHP_FAILED_20261028_115112
 # Title: Customization in web/tools/system/drouting/lib/gateways.test.inc.php.failed-20261028-115112
 # Category: Core Integration
 # Status: ACTIVE
@@ -6400,7 +6425,7 @@ index 0000000..518aa2e
 +?>
 
 # --------------------------------------------------------------------
-# Customization 33/37: P2-CUST-WEB_TOOLS_SYSTEM_DROUTING_LIB-RULES_TEST_INC_PHP
+# Customization 34/38: P2-CUST-WEB_TOOLS_SYSTEM_DROUTING_LIB-RULES_TEST_INC_PHP
 # Title: Customization in web/tools/system/drouting/lib/rules.test.inc.php
 # Category: Core
 # Status: ACTIVE
@@ -6425,7 +6450,7 @@ index b6dc6ee..319edaf 100755
                     }
 
 # --------------------------------------------------------------------
-# Customization 34/37: P2-CUST-WEB_TOOLS_SYSTEM_DROUTING_TEMPLATE-CARRIERS_FORM_PHP
+# Customization 35/38: P2-CUST-WEB_TOOLS_SYSTEM_DROUTING_TEMPLATE-CARRIERS_FORM_PHP
 # Title: Customization in web/tools/system/drouting/template/carriers.form.php
 # Category: Core Integration
 # Status: ACTIVE
@@ -6608,7 +6633,7 @@ index 4fd1535..29e1a8a 100755
 \ No newline at end of file
 
 # --------------------------------------------------------------------
-# Customization 35/37: P2-CUST-WEB_TOOLS_SYSTEM_DROUTING_TEMPLATE-CARRIERS_MAIN_PHP
+# Customization 36/38: P2-CUST-WEB_TOOLS_SYSTEM_DROUTING_TEMPLATE-CARRIERS_MAIN_PHP
 # Title: Customization in web/tools/system/drouting/template/carriers.main.php
 # Category: Core
 # Status: ACTIVE
@@ -6692,7 +6717,7 @@ index eeac222..0b602c6 100755
    <td class="<?=$row_style?>" align="center"><?=$state?></td>
 
 # --------------------------------------------------------------------
-# Customization 36/37: P2-CUST-WEB_TOOLS_SYSTEM_DROUTING_TEMPLATE-RULES_MAIN_PHP
+# Customization 37/38: P2-CUST-WEB_TOOLS_SYSTEM_DROUTING_TEMPLATE-RULES_MAIN_PHP
 # Title: Customization in web/tools/system/drouting/template/rules.main.php
 # Category: Core Integration
 # Status: ACTIVE
@@ -6867,7 +6892,7 @@ index 11373f5..151a864 100755
    $resultset = $stm->fetchAll(PDO::FETCH_ASSOC);
 
 # --------------------------------------------------------------------
-# Customization 37/37: P2-CUST-WEB_TOOLS_SYSTEM_WHITELIST-INDEX_PHP
+# Customization 38/38: P2-CUST-WEB_TOOLS_SYSTEM_WHITELIST-INDEX_PHP
 # Title: Customization in web/tools/system/whitelist/index.php
 # Category: Core Integration
 # Status: ACTIVE

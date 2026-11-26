@@ -1,0 +1,25 @@
+# --------------------------------------------------------------------
+# Customization 20/38: P2-CUST-WEB-MENU_PHP
+# Title: Customization in web/menu.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/menu.php b/web/menu.php
+index b44de7f..2091bc4 100644
+--- a/web/menu.php
++++ b/web/menu.php
+@@ -22,8 +22,8 @@
+ 
+ 
+ 
+-require("../config/session.inc.php");
+-require("../config/modules.inc.php");
++//require("../config/session.inc.php");
++//require("../config/modules.inc.php");
+ $super_admin=false;
+ $available_tabs=array();
+ if ($_SESSION['user_tabs']!="*")
+
