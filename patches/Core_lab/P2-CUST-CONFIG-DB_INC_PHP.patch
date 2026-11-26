@@ -1,0 +1,39 @@
+# --------------------------------------------------------------------
+# Customization 1/37: P2-CUST-CONFIG-DB_INC_PHP
+# Title: Customization in config/db.inc.php
+# Category: Core Integration
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/db.inc.php b/config/db.inc.php
+index 3897898..84861c3 100644
+--- a/config/db.inc.php
++++ b/config/db.inc.php
+@@ -27,19 +27,19 @@
+  $config->db_driver = "mysql";
+ 
+  //database host
+- $config->db_host = "localhost";
++ $config->db_host = "127.0.0.1";
+  
+  //database port - leave empty for default
+- $config->db_port = "";
++ $config->db_port = "6033";
+  
+  //database connection user
+- $config->db_user = "opensips";
++ $config->db_user = "core_lab";
+  
+  //database connection password
+- $config->db_pass = "opensipsrw";
++ $config->db_pass = trim(file_get_contents(getenv('DB_PASSWORD_FILE')));
+  
+  //database name
+- $config->db_name = "opensips";
++ $config->db_name = "core_lab";
+ 
+  if (!empty($config->db_port) ) $config->db_host = $config->db_host . ";port=" . $config->db_port;
+ 
+

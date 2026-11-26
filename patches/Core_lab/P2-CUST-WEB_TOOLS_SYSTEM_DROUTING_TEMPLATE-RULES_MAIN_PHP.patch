@@ -1,0 +1,175 @@
+# --------------------------------------------------------------------
+# Customization 36/37: P2-CUST-WEB_TOOLS_SYSTEM_DROUTING_TEMPLATE-RULES_MAIN_PHP
+# Title: Customization in web/tools/system/drouting/template/rules.main.php
+# Category: Core Integration
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/drouting/template/rules.main.php b/web/tools/system/drouting/template/rules.main.php
+index 11373f5..151a864 100755
+--- a/web/tools/system/drouting/template/rules.main.php
++++ b/web/tools/system/drouting/template/rules.main.php
+@@ -2,7 +2,7 @@
+ /*
+  * Copyright (C) 2011 OpenSIPS Project
+  *
+- * This file is part of opensips-cp, a free Web Control Panel Application for 
++ * This file is part of opensips-cp, a free Web Control Panel Application for
+  * OpenSIPS SIP server.
+  *
+  * opensips-cp is free software; you can redistribute it and/or modify
+@@ -28,15 +28,15 @@
+ <?php csrfguard_generate();
+  $rules_attributes_mode = get_settings_value("rules_attributes_mode");
+  if($_SESSION['read-only']) {
+-	$colspan=9;
++        $colspan=9;
+  } else {
+-	$colspan=7;
++        $colspan=7;
+  }
+  if ($rules_attributes_mode != "none") {
+         $rules_attributes = get_settings_value("rules_attributes");
+-	$row_colspan = 11;
++        $row_colspan = 11;
+  } else {
+-	$row_colspan = 10;
++        $row_colspan = 10;
+  }
+  $sql_search="";
+  $sql_vals=array();
+@@ -45,34 +45,34 @@
+                            $id=$search_groupid;
+                            $id=str_replace("*",".*",$id);
+                            $id=str_replace("%",".*",$id);
+-			   if ($config->db_driver == "mysql" ) {
+-	                           $sql_search.=" and groupid regexp ?";
+-				   array_push( $sql_vals, "(^".$id."$)|(^".$id."[,;|])|([,;|]".$id."[,;|])|([,;|]".$id."$)");
+-			   } else if ($config->db_driver == "pgsql" ) {
+-				   $sql_search.=" and groupid ~* ?";
+-				   array_push( $sql_vals, "(^".$id."$)|(^".$id."[,;|])|([,;|]".$id."[,;|])|([,;|]".$id."$)");
+-			   }
++                           if ($config->db_driver == "mysql" ) {
++                                   $sql_search.=" and groupid regexp ?";
++                                   array_push( $sql_vals, "(^".$id."$)|(^".$id."[,;|])|([,;|]".$id."[,;|])|([,;|]".$id."$)");
++                           } else if ($config->db_driver == "pgsql" ) {
++                                   $sql_search.=" and groupid ~* ?";
++                                   array_push( $sql_vals, "(^".$id."$)|(^".$id."[,;|])|([,;|]".$id."[,;|])|([,;|]".$id."$)");
++                           }
+  }
+  $search_prefix=$_SESSION['rules_search_prefix'];
+  if ($search_prefix!="") {
+                           $pos=strpos($search_prefix,"*");
+-			  if ($pos===false) {
+-				  $sql_search.=" and prefix=?";
+-				  array_push( $sql_vals, $search_prefix);
++                          if ($pos===false) {
++                                  $sql_search.=" and prefix=?";
++                                  array_push( $sql_vals, $search_prefix);
+                           } else {
+-				  $sql_search.=" and prefix like ?";
+-				  array_push( $sql_vals, str_replace("*","%",$search_prefix));
+-			  }
++                                  $sql_search.=" and prefix like ?";
++                                  array_push( $sql_vals, str_replace("*","%",$search_prefix));
++                          }
+  }
+  $search_priority=$_SESSION['rules_search_priority'];
+  if ($search_priority!="") {
+-	 $sql_search.=" and priority=?";
+-	 array_push( $sql_vals, $search_priority);
++         $sql_search.=" and priority=?";
++         array_push( $sql_vals, $search_priority);
+  }
+  $search_routeid=$_SESSION['rules_search_routeid'];
+  if ($search_routeid!="") {
+-	 $sql_search.=" and routeid=?";
+-	 array_push( $sql_vals, $search_routeid);
++         $sql_search.=" and routeid=?";
++         array_push( $sql_vals, $search_routeid);
+  }
+  $search_gwlist=$_SESSION['rules_search_gwlist'];
+  if ($search_gwlist!="") {
+@@ -80,7 +80,7 @@
+                           $id=str_replace("*",".*",$id);
+                           $id=str_replace("%",".*",$id);
+                           $sql_search.=" and gwlist regexp ?";
+-			  array_push( $sql_vals, "'(^".$id."$)|(^".$id."[,;|])|([,;|]".$id."[,;|])|([,;|]".$id."$)'");
++                          array_push( $sql_vals, "(^".$id."$)|(^".$id."[,;|])|([,;|]".$id."[,;|])|([,;|]".$id."$)");
+                          }
+  $search_attributes=$_SESSION['rules_search_attrs'];
+  if ($search_attrs!="") {
+@@ -89,8 +89,8 @@
+  }
+  $search_description=$_SESSION['rules_search_description'];
+  if ($search_description!="") {
+-	 $sql_search.=" and description like ?";
+-	 array_push( $sql_vals, "%".$search_description."%");
++         $sql_search.=" and description like ?";
++         array_push( $sql_vals, "%".$search_description."%");
+  }
+ ?>
+ <table width="50%" cellspacing="2" cellpadding="2" border="0">
+@@ -124,7 +124,7 @@
+   <td colspan="2" class="searchRecord border-bottom-devider" align="center">
+    <input type="submit" name="search" value="Search" class="searchButton">&nbsp;&nbsp;&nbsp;
+    <input type="submit" name="show_all" value="Show All" class="searchButton"> &nbsp;&nbsp;&nbsp;
+-   <?php if (!$_read_only) echo('<input type="submit" name="delete" value="Delete Matching" class="formButton" onClick="return confirmDeleteSearch()">') ?>
++   <?php //if (!$_read_only) echo('<input type="submit" name="delete" value="Delete Matching" class="formButton" onClick="return confirmDeleteSearch()">') ?>
+   </td>
+  </tr>
+ </table>
+@@ -132,7 +132,7 @@
+ <?php
+ $rules_attributes_mode = get_settings_value("rules_attributes_mode");
+ if ($rules_attributes_mode != "none")
+-	$rules_attributes = get_settings_value("rules_attributes");
++        $rules_attributes = get_settings_value("rules_attributes");
+ ?>
+ 
+ <?php if (!$_SESSION['read_only']) { ?>
+@@ -149,8 +149,8 @@ if ($rules_attributes_mode != "none")
+   <th class="listTitle">Group ID</th>
+   <th class="listTitle">Prefix</th>
+   <th class="listTitle">Priority</th>
+-  <th class="listTitle">GW List</th>  
+-  <th class="listTitle">List Sort</th>  
++  <th class="listTitle">GW List</th>
++  <th class="listTitle">List Sort</th>
+ <?php if ($rules_attributes_mode != "none") { ?>
+   <th class="listTitle"><?=(isset($rules_attributes["display_name"])?$rules_attributes["display_name"]:"Attributes")?></th>
+ <?php } ?>
+@@ -161,16 +161,16 @@ if ($rules_attributes_mode != "none")
+  </tr>
+ <?php
+  if ($sql_search=="") {
+-	$sql_command="select * from ".$table." order by ruleid asc";
+-	$sql_count="select count(*) from ".$table;
++        $sql_command="select * from ".$table." order by ruleid asc";
++        $sql_count="select count(*) from ".$table;
+  }
+  else {
+-	$sql_command="select * from ".$table." where (1=1) ".$sql_search." order by ruleid asc";
+-	$sql_count="select count(*) from ".$table." where (1=1) ".$sql_search;
++        $sql_command="select * from ".$table." where (1=1) ".$sql_search." order by ruleid asc";
++        $sql_count="select count(*) from ".$table." where (1=1) ".$sql_search;
+  }
+  $stm= $link->prepare($sql_count);
+  if ($stm===FALSE) {
+-	die('Failed to issue query ['.$sql_count.'], error message : ' . $link->errorInfo()[2]);
++        die('Failed to issue query ['.$sql_count.'], error message : ' . $link->errorInfo()[2]);
+  }
+  require("lib/".$page_id.".main.js");
+  $stm->execute( $sql_vals );
+@@ -192,7 +192,7 @@ if ($rules_attributes_mode != "none")
+   else $sql_command.=" limit ".$res_no." OFFSET " . $start_limit;
+   $stm= $link->prepare($sql_command);
+   if ($stm===FALSE) {
+-	die('Failed to issue query ['.$sql_command.'], error message : ' . $link->errorInfo()[2]);
++        die('Failed to issue query ['.$sql_command.'], error message : ' . $link->errorInfo()[2]);
+   }
+   $stm->execute( $sql_vals );
+   $resultset = $stm->fetchAll(PDO::FETCH_ASSOC);
+

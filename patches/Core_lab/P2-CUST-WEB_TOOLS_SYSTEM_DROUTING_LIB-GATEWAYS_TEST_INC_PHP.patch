@@ -1,0 +1,22 @@
+# --------------------------------------------------------------------
+# Customization 29/37: P2-CUST-WEB_TOOLS_SYSTEM_DROUTING_LIB-GATEWAYS_TEST_INC_PHP
+# Title: Customization in web/tools/system/drouting/lib/gateways.test.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/drouting/lib/gateways.test.inc.php b/web/tools/system/drouting/lib/gateways.test.inc.php
+index e3d0acc..1db7369 100755
+--- a/web/tools/system/drouting/lib/gateways.test.inc.php
++++ b/web/tools/system/drouting/lib/gateways.test.inc.php
+@@ -29,6 +29,7 @@ include("db_connect.php");
+   $probe_mode = $_POST['probe_mode'];
+   $state = $_POST['state'];
+   $description = $_POST['description'];
++  $type = $_POST["type"] ?? get_settings_value("default_gw_type");
+ 
+   $form_valid=true;
+ 
+

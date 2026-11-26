@@ -1,0 +1,96 @@
+# --------------------------------------------------------------------
+# Customization 24/37: P2-CUST-WEB_TOOLS_SYSTEM_CDRVIEWER_TEMPLATE-CDRVIEWER_MAIN_PHP
+# Title: Customization in web/tools/system/cdrviewer/template/cdrviewer.main.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/cdrviewer/template/cdrviewer.main.php b/web/tools/system/cdrviewer/template/cdrviewer.main.php
+index 2ab21be..740a994 100755
+--- a/web/tools/system/cdrviewer/template/cdrviewer.main.php
++++ b/web/tools/system/cdrviewer/template/cdrviewer.main.php
+@@ -33,6 +33,7 @@ $search_start=$_SESSION['cdrviewer_search_start'];
+ $search_end=$_SESSION['cdrviewer_search_end'];
+ $search_regexp=$_SESSION['cdrviewer_search_val'];
+ $cdr_field = $_SESSION['cdrviewer_search_cdr_field'];
++$search_array=$_SESSION['cdrviewer_search_array'];
+ 
+ $cdr_table = get_settings_value("cdr_table");
+ 
+@@ -57,18 +58,43 @@ if (($cdr_field!="") && ($search_regexp!="")) {
+ 	}
+ 	array_push( $sql_vals, $search_regexp);
+ }
+-
++foreach ($search_array as $field => $value) {
++    $value = trim($value);
++    if ($value !== '' && array_key_exists($field, $show_field)) {
++        if (strpos($value, '%') !== false) {
++            $sql_search .= ' and '.$field.' LIKE ?';
++        } else {
++            $sql_search .= ' and '.$field.' = ?';
++        }
++        array_push( $sql_vals, $value);
++    }
++}
+ ?>
+ 
+ <form action="<?=$page_name?>?action=search" method="post">
+ <?php csrfguard_generate(); ?>
+ <table width="350" class="search-area" cellspacing="2" cellpadding="2" border="0">
+-
++<tr><td class="searchRecord" valign="top">CDR fields:</td><td></td></tr>
++<tr><td></td>
++ <td class="searchRecord">
++  <?php
++  foreach ($show_field as $key => $value) {
++      $field_value = isset($search_array[$key]) ? htmlspecialchars($search_array[$key]) : '';
++      if (($key != 'time') and ($key != 'id') and ($key != 'created') and ($key != 'method') and ($key != 'sip_reason' and ($key != 'setuptime') and ($key != 'duration'))) {
++        echo "<div style='margin-bottom: 5px;'>";
++        echo "<label for='field_{$key}' style='display:inline-block; width:150px;'>{$value}:</label>";
++        echo "<input type='text' name='search_array[{$key}]' id='field_{$key}' style='width:310px!important' value='{$field_value}' maxlength='128' class='searchInput'>";
++        echo "</div>";
++      }
++  }
++  ?>
++</td>
++</tr>
+  <tr>
+ 
+   <td class="searchRecord">CDR field</td>
+   <td class="searchRecord" > 
+-  <select name="cdr_field" class="dataSelect" id="select_cdr_field" style="width:100px!important" onChange="changeState_cdr_field()">
++  <select name="cdr_field" class="dataSelect" id="select_cdr_field" style="width:150px!important" onChange="changeState_cdr_field()">
+ 	<?php 
+ 	$has_selected = false;
+ 	foreach($show_field as $key => $value) {
+@@ -110,7 +136,7 @@ if (($cdr_field!="") && ($search_regexp!="")) {
+ </form>
+ 
+ <?php
+-$stm = $link->prepare("select count(*) ".$sql_search);
++$stm = $link->prepare("select count(id) ".$sql_search);
+ if ($stm === false) {
+ 	die('Failed to issue query, error message : ' . print_r($link->errorInfo(), true));
+ }
+@@ -125,7 +151,7 @@ if ($data_no==0) {
+ 	unset($_SESSION['cdrviewer_search_end']);
+ 	unset($_SESSION['cdrviewer_search_val']);
+ 	unset($_SESSION['cdrviewer_search_cdr_field']);
+-
++	unset($_SESSION['cdrviewer_search_array']);
+ }
+ else
+ {
+@@ -137,7 +163,7 @@ else
+ 	}
+ 	$start_limit=($page-1)*get_settings_value("results_per_page");
+ 
+-	$sql = "select * ".$sql_search." order by time desc " ;
++	$sql = "select * ".$sql_search." order by id desc " ;
+ 	if ($start_limit==0)
+ 		$sql.=" LIMIT ".get_settings_value("results_per_page");
+ 	else
+
