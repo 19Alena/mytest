@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 19/346: P1-CUST-CONFIG_TOOLS_SYSTEM_TLS_MGM-DB_INC_PHP
+# Title: Customization in config/tools/system/tls_mgm/db.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/tools/system/tls_mgm/db.inc.php b/config/tools/system/tls_mgm/db.inc.php
+old mode 100755
+new mode 100644
+

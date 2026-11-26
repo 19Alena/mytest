@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 143/346: P1-CUST-WEB_TOOLS_SYSTEM_DISPATCHER_TEMPLATE-DISPATCHER_ADD_PHP
+# Title: Customization in web/tools/system/dispatcher/template/dispatcher.add.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dispatcher/template/dispatcher.add.php b/web/tools/system/dispatcher/template/dispatcher.add.php
+old mode 100755
+new mode 100644
+

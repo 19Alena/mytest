@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 295/346: P1-CUST-WEB_TOOLS_SYSTEM_STATUSREPORT_LIB-PUT_SELECT_BOXES_PHP
+# Title: Customization in web/tools/system/statusreport/lib/put_select_boxes.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/statusreport/lib/put_select_boxes.php b/web/tools/system/statusreport/lib/put_select_boxes.php
+old mode 100755
+new mode 100644
+

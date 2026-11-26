@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 309/346: P1-CUST-WEB_TOOLS_USERS_ALIAS_MANAGEMENT-ALIAS_MANAGEMENT_PHP
+# Title: Customization in web/tools/users/alias_management/alias_management.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/users/alias_management/alias_management.php b/web/tools/users/alias_management/alias_management.php
+old mode 100755
+new mode 100644
+

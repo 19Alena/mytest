@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 321/346: P1-CUST-WEB_TOOLS_USERS_ALIAS_MANAGEMENT_TEMPLATE-MENU_PHP
+# Title: Customization in web/tools/users/alias_management/template/menu.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/users/alias_management/template/menu.php b/web/tools/users/alias_management/template/menu.php
+old mode 100755
+new mode 100644
+

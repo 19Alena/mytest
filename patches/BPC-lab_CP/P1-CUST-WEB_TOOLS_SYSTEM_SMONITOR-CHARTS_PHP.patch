@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 276/346: P1-CUST-WEB_TOOLS_SYSTEM_SMONITOR-CHARTS_PHP
+# Title: Customization in web/tools/system/smonitor/charts.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/smonitor/charts.php b/web/tools/system/smonitor/charts.php
+old mode 100755
+new mode 100644
+

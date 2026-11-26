@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 172/346: P1-CUST-WEB_TOOLS_SYSTEM_DROUTING_LIB-COMMON_FUNCTIONS_INC_PHP
+# Title: Customization in web/tools/system/drouting/lib/common.functions.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/drouting/lib/common.functions.inc.php b/web/tools/system/drouting/lib/common.functions.inc.php
+old mode 100755
+new mode 100644
+

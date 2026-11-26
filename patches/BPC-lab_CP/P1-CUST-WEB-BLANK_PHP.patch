@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 28/346: P1-CUST-WEB-BLANK_PHP
+# Title: Customization in web/blank.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/blank.php b/web/blank.php
+old mode 100755
+new mode 100644
+

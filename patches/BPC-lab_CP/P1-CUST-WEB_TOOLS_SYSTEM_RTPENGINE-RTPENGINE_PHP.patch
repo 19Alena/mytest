@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 236/346: P1-CUST-WEB_TOOLS_SYSTEM_RTPENGINE-RTPENGINE_PHP
+# Title: Customization in web/tools/system/rtpengine/rtpengine.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/rtpengine/rtpengine.php b/web/tools/system/rtpengine/rtpengine.php
+old mode 100755
+new mode 100644
+

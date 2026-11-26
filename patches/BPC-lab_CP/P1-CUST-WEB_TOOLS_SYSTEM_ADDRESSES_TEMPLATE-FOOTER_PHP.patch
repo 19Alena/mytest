@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 82/346: P1-CUST-WEB_TOOLS_SYSTEM_ADDRESSES_TEMPLATE-FOOTER_PHP
+# Title: Customization in web/tools/system/addresses/template/footer.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/addresses/template/footer.php b/web/tools/system/addresses/template/footer.php
+old mode 100755
+new mode 100644
+

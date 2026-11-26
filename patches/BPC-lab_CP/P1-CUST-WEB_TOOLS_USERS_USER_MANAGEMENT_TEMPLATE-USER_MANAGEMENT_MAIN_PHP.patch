@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 346/346: P1-CUST-WEB_TOOLS_USERS_USER_MANAGEMENT_TEMPLATE-USER_MANAGEMENT_MAIN_PHP
+# Title: Customization in web/tools/users/user_management/template/user_management.main.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/users/user_management/template/user_management.main.php b/web/tools/users/user_management/template/user_management.main.php
+old mode 100755
+new mode 100644
+

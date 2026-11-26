@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 247/346: P1-CUST-WEB_TOOLS_SYSTEM_RTPPROXY-APPLY_CHANGES_PHP
+# Title: Customization in web/tools/system/rtpproxy/apply_changes.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/rtpproxy/apply_changes.php b/web/tools/system/rtpproxy/apply_changes.php
+old mode 100755
+new mode 100644
+

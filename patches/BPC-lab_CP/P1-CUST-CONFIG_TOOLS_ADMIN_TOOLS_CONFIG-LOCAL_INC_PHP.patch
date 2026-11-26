@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 7/346: P1-CUST-CONFIG_TOOLS_ADMIN_TOOLS_CONFIG-LOCAL_INC_PHP
+# Title: Customization in config/tools/admin/tools_config/local.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/tools/admin/tools_config/local.inc.php b/config/tools/admin/tools_config/local.inc.php
+old mode 100755
+new mode 100644
+

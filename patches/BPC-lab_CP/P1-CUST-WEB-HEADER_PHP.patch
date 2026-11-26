@@ -1,0 +1,38 @@
+# --------------------------------------------------------------------
+# Customization 30/346: P1-CUST-WEB-HEADER_PHP
+# Title: Customization in web/header.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/header.php b/web/header.php
+old mode 100755
+new mode 100644
+index 91b0d58d..e6bca693
+--- a/web/header.php
++++ b/web/header.php
+@@ -20,9 +20,9 @@
+  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+  */
+  
+- require("../config/local.inc.php");
+- require("../config/modules.inc.php");
+- require("../config/session.inc.php");
++// require("../config/local.inc.php");
++// require("../config/modules.inc.php");
++// require("../config/session.inc.php");
+ ?>
+ 
+ <html>
+@@ -61,7 +61,7 @@
+     echo("</select>");
+   }
+   ?>
+-  </td>
++//  </td>
+ 	<td align="right">
+ 	  <a href="logout.php" target="_parent" class="headerLogout" id="menu_logout">Logout</a>
+         </td>
+

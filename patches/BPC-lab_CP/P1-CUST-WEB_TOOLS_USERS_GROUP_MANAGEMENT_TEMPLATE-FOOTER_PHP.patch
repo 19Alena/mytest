@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 328/346: P1-CUST-WEB_TOOLS_USERS_GROUP_MANAGEMENT_TEMPLATE-FOOTER_PHP
+# Title: Customization in web/tools/users/group_management/template/footer.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/users/group_management/template/footer.php b/web/tools/users/group_management/template/footer.php
+old mode 100755
+new mode 100644
+

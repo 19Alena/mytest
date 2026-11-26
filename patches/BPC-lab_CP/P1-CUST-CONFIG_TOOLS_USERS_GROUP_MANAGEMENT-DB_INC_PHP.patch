@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 23/346: P1-CUST-CONFIG_TOOLS_USERS_GROUP_MANAGEMENT-DB_INC_PHP
+# Title: Customization in config/tools/users/group_management/db.inc.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/config/tools/users/group_management/db.inc.php b/config/tools/users/group_management/db.inc.php
+old mode 100755
+new mode 100644
+

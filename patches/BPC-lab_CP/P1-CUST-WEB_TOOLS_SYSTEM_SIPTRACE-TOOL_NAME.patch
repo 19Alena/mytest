@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 262/346: P1-CUST-WEB_TOOLS_SYSTEM_SIPTRACE-TOOL_NAME
+# Title: Customization in web/tools/system/siptrace/tool.name
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/siptrace/tool.name b/web/tools/system/siptrace/tool.name
+old mode 100755
+new mode 100644
+

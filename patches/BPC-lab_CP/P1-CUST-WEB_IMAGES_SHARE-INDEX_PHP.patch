@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 54/346: P1-CUST-WEB_IMAGES_SHARE-INDEX_PHP
+# Title: Customization in web/images/share/index.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/index.php b/web/images/share/index.php
+old mode 100755
+new mode 100644
+

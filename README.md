@@ -4,16 +4,13 @@ Automated repository for generated customization patches from **Customization Tr
 
 - **Remote Repository:** `git@github.com:19Alena/mytest.git`
 - **Branch:** `main`
-- **Last Updated:** `2026-11-25T23:27:00.371237Z`
+- **Last Updated:** `2026-11-26T23:30:36.179461Z`
 
 ## Projects & Patches
 
 | ID | Project Name | Host | Base Ref | Clean Base Commit | Patches Available |
 |---|---|---|---|---|---|
-| 1 | **BPC-lab_CP** | `192.168.0.110` | `origin/9.3.6` | `b39a836d713b` | 14 patches |
-| 2 | **Core_lab_CP** | `192.168.0.108` | `origin/9.3.6` | `89a4cde140c1` | 37 patches |
-| 3 | **Nexus_CP** | `192.168.0.108` | `origin/9.3.6` | `b39a836d713b` | 4 patches |
-| 4 | **Core** | `192.168.0.108` | `origin/9.3.6` | `17ad30264057` | 14 patches |
+| 1 | **BPC-lab_CP** | `192.168.0.109` | `origin/9.3.6` | `ac8086e5b68e` | 346 patches |
 
 ## Clean Base Commits & Docker Image Builds
 

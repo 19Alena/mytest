@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 26/346: P1-CUST-CRON_JOB-GET_OPENSIPS_STATS_PHP
+# Title: Customization in cron_job/get_opensips_stats.php
+# Category: Core Integration
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/cron_job/get_opensips_stats.php b/cron_job/get_opensips_stats.php
+old mode 100755
+new mode 100644
+

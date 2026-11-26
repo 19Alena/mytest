@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 186/346: P1-CUST-WEB_TOOLS_SYSTEM_DROUTING_TEMPLATE-CARRIERS_FORM_PHP
+# Title: Customization in web/tools/system/drouting/template/carriers.form.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/drouting/template/carriers.form.php b/web/tools/system/drouting/template/carriers.form.php
+old mode 100755
+new mode 100644
+

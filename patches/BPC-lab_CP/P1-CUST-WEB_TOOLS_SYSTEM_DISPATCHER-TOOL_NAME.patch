@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 140/346: P1-CUST-WEB_TOOLS_SYSTEM_DISPATCHER-TOOL_NAME
+# Title: Customization in web/tools/system/dispatcher/tool.name
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/dispatcher/tool.name b/web/tools/system/dispatcher/tool.name
+old mode 100755
+new mode 100644
+

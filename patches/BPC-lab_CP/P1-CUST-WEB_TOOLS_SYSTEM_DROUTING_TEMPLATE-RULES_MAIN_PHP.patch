@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 203/346: P1-CUST-WEB_TOOLS_SYSTEM_DROUTING_TEMPLATE-RULES_MAIN_PHP
+# Title: Customization in web/tools/system/drouting/template/rules.main.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/drouting/template/rules.main.php b/web/tools/system/drouting/template/rules.main.php
+old mode 100755
+new mode 100644
+

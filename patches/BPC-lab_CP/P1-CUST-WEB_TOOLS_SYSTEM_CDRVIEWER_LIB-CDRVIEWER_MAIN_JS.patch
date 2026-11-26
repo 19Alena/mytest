@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 91/346: P1-CUST-WEB_TOOLS_SYSTEM_CDRVIEWER_LIB-CDRVIEWER_MAIN_JS
+# Title: Customization in web/tools/system/cdrviewer/lib/cdrviewer.main.js
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/cdrviewer/lib/cdrviewer.main.js b/web/tools/system/cdrviewer/lib/cdrviewer.main.js
+old mode 100755
+new mode 100644
+

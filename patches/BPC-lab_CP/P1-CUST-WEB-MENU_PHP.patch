@@ -1,0 +1,23 @@
+# --------------------------------------------------------------------
+# Customization 35/346: P1-CUST-WEB-MENU_PHP
+# Title: Customization in web/menu.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/menu.php b/web/menu.php
+index b44de7f9..a2039046 100644
+--- a/web/menu.php
++++ b/web/menu.php
+@@ -45,7 +45,7 @@ else
+ <div id="masterdiv">
+ 
+ <?php
+-foreach ($config_modules as $menuitem => $menuitem_config) {
++//foreach ($config_modules as $menuitem => $menuitem_config) {
+ 	if (!$menuitem_config['enabled'])
+ 		continue;
+ 
+

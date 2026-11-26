@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 269/346: P1-CUST-WEB_TOOLS_SYSTEM_SIPTRACE_LIB-DB_CONNECT_PHP
+# Title: Customization in web/tools/system/siptrace/lib/db_connect.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/siptrace/lib/db_connect.php b/web/tools/system/siptrace/lib/db_connect.php
+old mode 100755
+new mode 100644
+

@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 70/346: P1-CUST-WEB_TOOLS_ADMIN_LIST_ADMINS_TEMPLATE-MENU_PHP
+# Title: Customization in web/tools/admin/list_admins/template/menu.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/admin/list_admins/template/menu.php b/web/tools/admin/list_admins/template/menu.php
+old mode 100755
+new mode 100644
+

@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 27/346: P1-CUST-CRON_JOB-TIMESTAMP_FILE
+# Title: Customization in cron_job/timestamp_file
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/cron_job/timestamp_file b/cron_job/timestamp_file
+old mode 100755
+new mode 100644
+

@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 55/346: P1-CUST-WEB_IMAGES_SHARE-SPACER_GIF
+# Title: Customization in web/images/share/spacer.gif
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/images/share/spacer.gif b/web/images/share/spacer.gif
+old mode 100755
+new mode 100644
+

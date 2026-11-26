@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 248/346: P1-CUST-WEB_TOOLS_SYSTEM_RTPPROXY-INDEX_PHP
+# Title: Customization in web/tools/system/rtpproxy/index.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/rtpproxy/index.php b/web/tools/system/rtpproxy/index.php
+old mode 100755
+new mode 100644
+

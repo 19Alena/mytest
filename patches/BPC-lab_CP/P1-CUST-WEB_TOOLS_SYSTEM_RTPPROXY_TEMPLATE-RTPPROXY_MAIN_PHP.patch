@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 259/346: P1-CUST-WEB_TOOLS_SYSTEM_RTPPROXY_TEMPLATE-RTPPROXY_MAIN_PHP
+# Title: Customization in web/tools/system/rtpproxy/template/rtpproxy.main.php
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/system/rtpproxy/template/rtpproxy.main.php b/web/tools/system/rtpproxy/template/rtpproxy.main.php
+old mode 100755
+new mode 100644
+

@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Customization 327/346: P1-CUST-WEB_TOOLS_USERS_GROUP_MANAGEMENT_LIB-GROUP_MANAGEMENT_MAIN_JS
+# Title: Customization in web/tools/users/group_management/lib/group_management.main.js
+# Category: Core
+# Status: ACTIVE
+# Jira Ticket: None
+# Version Introduced: 9.3.6
+# --------------------------------------------------------------------
+
+diff --git a/web/tools/users/group_management/lib/group_management.main.js b/web/tools/users/group_management/lib/group_management.main.js
+old mode 100755
+new mode 100644
+
