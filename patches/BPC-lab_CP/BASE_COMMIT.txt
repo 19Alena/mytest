@@ -1,7 +1,0 @@
-ac8086e5b68e27b413b479c790aeabc02d98c921
-COMMIT=ac8086e5b68e27b413b479c790aeabc02d98c921
-BASE_COMMIT=ac8086e5b68e27b413b479c790aeabc02d98c921
-BRANCH=9.3.6
-BASE_BRANCH=9.3.6
-REPOSITORY=https://github.com/OpenSIPS/opensips-cp.git
-BASE_REPO=https://github.com/OpenSIPS/opensips-cp.git
